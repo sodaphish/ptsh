@@ -33,7 +33,7 @@ class PTSH(Cmd):
         workspace [workspace] -- change workspaces
         workspace change [workspace] -- change workspaces.
         workspace  -- shows current workspace
-        show workspace -- shows current workspace
+        show workspace -- shows workspaces
         '''
         pass
   

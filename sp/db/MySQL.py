@@ -33,7 +33,8 @@ class Connect(object):
             self.port = int(port)
         except ValueError, e:
             raise Exceptions.DatabaseConnectError(e)
-
+        
+        #TODO: validate input
         self.user = user
         self.password = password
         self.db = db
