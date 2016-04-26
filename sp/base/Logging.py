@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """
 @author: adosch <adam@wisehippy.com>
+@author: SodaPhish <sodaphish@protonmail.ch>
 """
 import sys,os,logging
 from logging import handlers
 import logging.config
 
 
+#TODO: move exceptions to Exceptions.py
 class DirectoryAccessError(Exception):
     """
     Exception for directory access permission errors

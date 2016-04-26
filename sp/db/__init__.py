@@ -25,6 +25,7 @@ except Exception as e:
 
 
 
+#NOTE: DO WE WANT THESE HERE?
 def db_init( db, schema ):
     """
     function to initialize a database's table(s) in the event they have not already been initialized.
@@ -46,7 +47,7 @@ def db_checkinit(db, schema ):
     """
     function to check whether or not a database has been initizlized or not.
     """
-    #TODO check if table structure matches the schema
+    #TODO check if table structure matches the schema defined for the table.
     pass
 
 

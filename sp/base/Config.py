@@ -1,6 +1,46 @@
 # -*- coding: utf-8 -*-
 """
 @author: adosch <adam@wisehippy.com>
+@author: SodaPhish <sodaphish@protonmail.ch>
+
+Configuration library for splib.
+
+Basic configuration file structure is that of a Windows INI file, e.g.:
+
+[section]
+variable1 = value1
+variable2 = value2
+
+All splib projects must have the following sections in their config file: 
+    [init]
+    validate = [0|1]
+    autostart = [0|1]
+    
+    [version]
+    major = [0-9999]
+    minor = [0-9999]
+    patch = [0-9999]
+    
+If a database is to be used, it will be defined in the section [db], which only has two globally required variables: 
+
+    [db]
+    type = [sqlite3|mysql]
+    validate = [0|1]
+    
+    If type is sqlite3, then you must additionally specify: 
+        schema = /path/to/schema
+        path = /path/to/database/file
+        
+    If type is mysql, then you must additionally specify:
+        host = [a-zA-Z0-9]
+        port = [0-65535]
+        user = [a-zA-Z0-9]
+        pass = [a-zA-Z0-9]
+        dbname = [a-zA-Z0-9]
+        schema = /path/to/schema
+        
+    
+
 """
 
 from ConfigParser import SafeConfigParser

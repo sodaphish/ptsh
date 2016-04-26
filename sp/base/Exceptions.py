@@ -34,3 +34,22 @@ class FileAccessError(Exception):
     """
     pass
 
+
+
+class DirectoryAccessError(Exception):
+    """
+    Exception for directory access permission errors
+    """
+    pass
+
+
+class InvalidLogLevelType(Exception):
+    """
+    """
+    pass
+
+
+class InvalidSyslogFacilityType(Exception):
+    """
+    """
+    pass

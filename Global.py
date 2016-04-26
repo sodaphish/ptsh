@@ -4,7 +4,7 @@
 This is the global configuration, it needs to be included in all project bits and pieces
 
 """
-import sys,logging,sqlite3
+import sys
 
 
 # TODO: unfortunately this has to be manually set for now.
@@ -25,6 +25,10 @@ except Exception as e:
 
 
 cfg = Config("settings.cfg")
+if cfg.get_value('init.auto'):
+    """
+    config file specifies 
+    """
 
 
 _ver = Version(int(cfg.get_value('version.major')),int(cfg.get_value('version.minor')),int(cfg.get_value('version.patch')))
@@ -36,6 +40,7 @@ logging.config.dictConfig(logcfg.config)
 log = logging.getLogger()
 
 
+#TODO: move this to a function in sp.db
 db = None
 if cfg.get_value(db.type):
     if cfg.get_value(db.type) == 'mysql':

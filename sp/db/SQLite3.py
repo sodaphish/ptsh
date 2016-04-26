@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: sodaphish@protonmail.ch
+@author: SodaPhish <sodaphish@protonmail.ch>
 """
 
 import sys
