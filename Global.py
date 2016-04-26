@@ -36,6 +36,20 @@ logging.config.dictConfig(logcfg.config)
 log = logging.getLogger()
 
 
-db = sqlite3.connect(cfg.get_value('db.path'))
+db = None
+if cfg.get_value(db.type):
+    if cfg.get_value(db.type) == 'mysql':
+        #TODO: attempt the database connection using the MySQL 
+        pass
+    elif cfg.get_value(db.type) == 'sqlite3':
+        try:
+            db = sqlite3.connect(cfg.get_value('db.path'))
+        except Exception as e:
+            log.critical("%s" % e )
+            sys.exit(1)
+#else no database
+
+
+
 
 #EOF

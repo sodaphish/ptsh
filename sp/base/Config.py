@@ -8,13 +8,6 @@ import os
 import Exceptions
 import re
 
-
-class FileAccessError(Exception):
-    """
-    """
-    pass
-
-
 class Config(SafeConfigParser):
     """
     Config class is a wrapper arouond the SafeConfigParser.  It optionally
