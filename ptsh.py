@@ -1,5 +1,18 @@
+"""
+@author: SodaPhish <sodaphish@protonmail.ch>
+"""
+
+
+import sys 
 from cmd2 import Cmd
-from Global import *
+
+try:
+    from Global import *
+except Exception as e:
+    print "splib at shit and died, fix it!"
+    sys.exit(1)
+
+
 
 class PTSH(Cmd):
     prompt = 'ptsh> '
@@ -22,7 +35,7 @@ class PTSH(Cmd):
         alias [newcommand] ["command(s)"] - sets a command or set of commands to a new alias
         '''
         pass
-    
+ 
     
     def do_workspace(self,line):
         '''
