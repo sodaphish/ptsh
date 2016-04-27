@@ -7,25 +7,11 @@ import sys,os,logging
 from logging import handlers
 import logging.config
 
-
-#TODO: move exceptions to Exceptions.py
-class DirectoryAccessError(Exception):
-    """
-    Exception for directory access permission errors
-    """
-    pass
-
-
-class InvalidLogLevelType(Exception):
-    """
-    """
-    pass
-
-
-class InvalidSyslogFacilityType(Exception):
-    """
-    """
-    pass
+try: 
+    from sp.base import Exceptions
+except:
+    print"must have splib in sys.path()"
+    sys.exit(1)
 
 
 class LoggerConfig(object):

@@ -1,14 +1,25 @@
 #!/usr/bin/env python
-import sys, os, getopt, os.path
-from sp.base import Version 
+"""
+@author: SodaPhish <sodaphish@protonmail.ch>
 
-ver=Version(0,2,6)
+This is just a script to make looking at our log files easier.
+"""
+
+import sys, os, getopt, os.path
+
+try:
+	from sp.base import Version 
+except:
+	print "you need to have splib in your sys.path()"
+	sys.exit(2)
+
+ver=Version(0,2,7)
 
 try:
 	from clint.textui import colored
 except:
 	print "You need to run `pip install clint`!!"
-	sys.exit()
+	sys.exit(1)
 
 
 def usage():
@@ -110,5 +121,6 @@ if __name__ == '__main__':
 				print colored.red(line)
 			linecount=linecount+1
 		fh.close()
+
 
 ''' ___EOF___ '''

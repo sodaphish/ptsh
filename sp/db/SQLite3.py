@@ -13,8 +13,10 @@ except:
     
 
 class Connect():
-    pass
 
+    def __init__(self,**dsn):
+        pass
+    
     def select_sql(self):
         pass
     
@@ -26,6 +28,25 @@ class Connect():
     
     def get_cursor(self):
         pass
+
+    def db_init( self, schema ):
+        """
+        function to initialize a database's table(s) in the event they have not already been initialized.
+        """
+        #TODO: initialize the database schema
+        try: 
+                pass
+        except:
+            raise Exceptions.ConfigFault("Couldn't initialize database")
     
+    
+    def db_checkinit(self, schema ):
+        """
+        function to check whether or not a database has been initizlized or not.
+        """
+        #TODO check if table structure matches the schema defined for the table.
+        pass
+
+
 
 #EOF

@@ -38,7 +38,7 @@ class DBSchema():
     XML database schema abstraction class to read-in, write-out, and validate database schemas.
     #TODO: add functionality to MySQL and SQLite3 classes to handle database initiation and verification at startup
     """
-    def __init__(self):
+    def __init__(self, schema):
         #TODO: populate a schema from string or file
         pass
     
@@ -46,8 +46,13 @@ class DBSchema():
         """
         boolean function to verify the validity of a schema
         """
-        #TODO: validates the schema as being properly formed
-        pass
+        #TODO: make sure the schema is complete.  how?
+        return True
 
+    def __repr__(self):
+        """
+        pretty-print the schema
+        """
+        pass
     
 #EOF
