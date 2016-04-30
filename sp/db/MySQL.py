@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: adam@wisehippy.co>
+@author: adam@wisehippy.com, sodaphish@protonmail.ch
 """
 
 import sys
@@ -153,4 +153,4 @@ class Connect(object):
         pass
 
 
-""" ___EOF___ """
+#EOF

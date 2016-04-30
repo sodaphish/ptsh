@@ -21,6 +21,13 @@ class DatabaseConnectError(Exception):
 
 
 
+class DBSchemaError(Exception):
+	"""
+	a database schema error -- do not use for file access or directory access errors!
+	"""
+	pass
+
+
 class DatabaseError(Exception):
 	"""
 	generic database error

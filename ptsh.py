@@ -1,15 +1,32 @@
 """
-@author: SodaPhish <sodaphish@protonmail.ch>
+@author: sodaphish@protonmail.ch
 """
 
 
 import sys 
 from cmd2 import Cmd
 
+import sys
+
+
+
+req_version = (2,5)
+max_version = (3,0)
+cur_version = sys.version_info
+
+#TODO: make sure all code is py3 compatible, until then this has to be here...
+if cur_version >= req_version and cur_version < max_version:
+    pass
+else:
+    print "this script requires a version of python 2.5 or higher, but nothing in the 3.x series"
+    sys.exit(2)
+
+
+
 try:
     from Global import *
 except Exception as e:
-    print "splib at shit and died, fix it!"
+    print "splib ate shit and died, fix it!"
     sys.exit(1)
 
 
