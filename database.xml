@@ -1,4 +1,4 @@
-<database name="ptsh" type="slqite" version="0.0.1">
+<database name="ptsh" version="0.0.1">
 	<table name="User">
 		<column name="username" type="text"></column>
 		<column name="password" type="text"></column>
