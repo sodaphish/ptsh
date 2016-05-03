@@ -25,6 +25,7 @@ else:
 
 try:
     from Global import *
+    from sp.base import Version
 except Exception as e:
     print "splib ate shit and died, fix it!"
     sys.exit(1)
@@ -35,15 +36,19 @@ class PTSH(Cmd):
     prompt = 'ptsh> '
     default_to_shell = True #this won't work for logging stuff.
     echo = False
+    version = Version(0,0,1)
 
     shortcuts = {'?':'help', '!':'shell', '@':'load'}
+
+
+    #TODO: implement getopt bits to support tab-completion
 
     def do_quit(self,arg):
         '''
         quit ptsh
         '''
         # TODO: save session log, close DB, etc.
-        return True
+        pass
  
  
  
@@ -65,7 +70,14 @@ class PTSH(Cmd):
         workspace  -- shows current workspace
         show workspace -- shows workspaces
         '''
-        pass
+        if line.split('\ ') is 'create':
+            print "create workspace"
+        elif line.split('\ ') is 'delete':
+            print "delete workspace"
+        elif line.split('\ ') is 'change':
+            print "change workspaces"
+        else:
+            print "current workspace: %s" % (self.workspace)
   
     
     def do_show(self,line):
@@ -74,6 +86,14 @@ class PTSH(Cmd):
         show version - version of ptsh
         show workspace - the current workspace
         '''
+        if line.split('\ ')[1] is 'variables':
+            print "show variables"
+        elif line.split('\ ')[1] is 'version':
+            print "ptsh v%s" % ( self.version )
+        elif line.split('\ ')[1] is 'workspace':
+            print "current workspace: %s" % (self.version)
+        else:
+            print "unrecognized command."
         pass
 
 

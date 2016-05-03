@@ -3,6 +3,9 @@
 @author: SodaPhish <sodaphish@protonmail.ch>
 
 This is just a script to make looking at our log files easier.
+
+Usage: /path/to/logviewer -[a|d|i|w|e|c|s|z] logfile
+	You can combine multiple flags, except -a and -z
 """
 
 import sys, os, getopt, os.path
