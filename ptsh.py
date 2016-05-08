@@ -36,8 +36,8 @@ class PTSH(Cmd):
     prompt = 'ptsh> '
     default_to_shell = True #this won't work for logging stuff.
     echo = False
-    version = Version(0,0,1)
-
+    version = Version.Version(0,0,1)
+ 
     shortcuts = {'?':'help', '!':'shell', '@':'load'}
 
 
@@ -79,14 +79,19 @@ class PTSH(Cmd):
         else:
             print "current workspace: %s" % (self.workspace)
   
-    
+    @options( [make_option( '-v', '--variables', help="display set variables")],
+              [make_option( '-V', '--version', help="show current version information")], 
+              )
     def do_show(self,line):
         '''
         show variables - display set variables
         show version - version of ptsh
         show workspace - the current workspace
         '''
-        if line.split('\ ')[1] is 'variables':
+        print len(line.split('\ '))
+        if len(line) < 1:
+            print "show usage"
+        elif line.split('\ ')[1] is 'variables':
             print "show variables"
         elif line.split('\ ')[1] is 'version':
             print "ptsh v%s" % ( self.version )

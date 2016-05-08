@@ -46,7 +46,7 @@ class DBSchema():
     #TODO: support versions of DBSchema so we can handle old schema definitions appropriately.
     """
     
-    schema_version = Version(0,0,1) #default schema version
+    schema_version = Version.Version(0,0,1) #default schema version
     schema = None  #the soup once its been made
     isvalid = False #varifies the validity of a schema
 
@@ -121,6 +121,7 @@ class DBSchema():
         pretty-print the schema
         """
         return self.schema.prettify()
+    
     
     
 #EOF

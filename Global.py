@@ -16,7 +16,7 @@ sys.path.append( "./" )
 try:
     from sp.base.Version import Version
     from sp.base.Config import Config
-    from sp.base.Logging import LoggerConfig
+    from sp.base.Logging import *
     from sp.base import Exceptions
 except Exception as e:
     print "must install sp in sys.path() -- %s" % (e)
@@ -74,19 +74,23 @@ except Exception as e:
 
 
 #TODO: move this to a function in sp.db
-db = None
-if cfg.get_value(db.type):
-    if cfg.get_value(db.type) == 'mysql':
-        #TODO: attempt the database connection using the MySQL 
+try:
+    db = None
+    if cfg.get_value(db.type):
+        if cfg.get_value(db.type) == 'mysql':
+            #TODO: attempt the database connection using the MySQL 
+            pass
+        elif cfg.get_value(db.type) == 'sqlite3':
+            try:
+                db = sqlite3.connect(cfg.get_value('db.path'))
+            except Exception as e:
+                log.critical("%s" % e )
+                sys.exit(1)
+    else: 
+        #no database
         pass
-    elif cfg.get_value(db.type) == 'sqlite3':
-        try:
-            db = sqlite3.connect(cfg.get_value('db.path'))
-        except Exception as e:
-            log.critical("%s" % e )
-            sys.exit(1)
-else: 
-    #no database
+except:
+    #FIXME: 
     pass
 
 

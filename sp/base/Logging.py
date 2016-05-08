@@ -3,14 +3,13 @@
 @author: adosch <adam@wisehippy.com>
 @author: SodaPhish <sodaphish@protonmail.ch>
 """
-import sys,os,logging
+import sys,os,logging.config
 from logging import handlers
-import logging.config
 
 try: 
     from sp.base import Exceptions
 except:
-    print"must have splib in sys.path()"
+    print"must have splib installed in sys.path()"
     sys.exit(1)
 
 
