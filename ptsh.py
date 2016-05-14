@@ -78,10 +78,9 @@ class PTSH(Cmd):
             print "change workspaces"
         else:
             print "current workspace: %s" % (self.workspace)
-  
-    @options( [make_option( '-v', '--variables', help="display set variables")],
-              [make_option( '-V', '--version', help="show current version information")], 
-              )
+        pass  
+
+
     def do_show(self,line):
         '''
         show variables - display set variables

@@ -3,4 +3,12 @@
 		<column name="username" type="text"></column>
 		<column name="password" type="text"></column>
 	</table>
+	<table name="Workspace">
+		<column name="wid" type="int" options="autoincrement"></column>
+		<column name="wname" type="text" options="notnull"></column>
+	</table>
+	<table name="Targets">
+		<column name="tid" type="int" options="autoincrement"></column>
+		<column name="tname" type="text" options="notnull"></column>
+	</table>
 </database>

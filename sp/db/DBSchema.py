@@ -59,7 +59,7 @@ class DBSchema():
             self.schema = BeautifulSoup(schema, 'html.parser')
         elif type(schema) is file:
             self.schema = BeautifulSoup(schema, 'html.parser')
-        elif type(schema) is str and os.path.exists():
+        elif type(schema) is str and os.path.exists( schema ):
             try: 
                 self.schema = BeautifulSoup(open(schema), 'html.parser')
             except Exception as e:
@@ -90,29 +90,31 @@ class DBSchema():
         retval = []
         if self.isvalid:
             for table in self.schema.findAll("table"):
-                retval.append(table)
+                retval.append(table['name'])
             return retval
         else:
             return None
- 
- 
+        
     
     def get_table(self,tablename):
         """
         return the rows of a table in the schema
         """
-        retval = []   
-        if self.isvalid:
-            for t in self.schema.findAll("table"):
-                if t['name'] is tablename:
-                    for col in t['name']:
-                        retval.append(col)
-            if len(retval) > 0:
-                return retval
-            else: 
-                return False
-        else:
-            return False
+        retval=[]
+        for table in self.schema.findAll("table"):
+            curtable = "%s" % (table['name'])    
+            pat = re.compile("^%s$" % (tablename) )        
+            if pat.match(curtable):
+                print "TABLE: %s" % (table['name'])
+                for col in table.children:
+                    try: 
+                        if col.has_attr('name') and col.has_attr('options'): 
+                            retval.append("%s %s" % (col['name'], col['options']))
+                        elif col.has_attr('name'):
+                            retval.append("%s" % (col['name']))
+                    except:
+                        pass
+        return retval
   
     
 
@@ -121,7 +123,6 @@ class DBSchema():
         pretty-print the schema
         """
         return self.schema.prettify()
-    
     
     
 #EOF
