@@ -32,10 +32,12 @@ class Connect():
     def db_init( self, schema ):
         """
         function to initialize a database's table(s) in the event they have not already been initialized.
+        
+        schema here is the XML schema, filename, or open file handle, which gets turned into a DBSchema object
         """
         #TODO: initialize the database schema
         try: 
-                pass
+            pass
         except:
             raise Exceptions.ConfigFault("Couldn't initialize database")
     
