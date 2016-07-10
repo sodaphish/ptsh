@@ -47,6 +47,7 @@ from ConfigParser import SafeConfigParser
 import os
 import Exceptions
 import re
+from posix import W_OK
 
 class Config(SafeConfigParser):
     """
@@ -172,6 +173,31 @@ class Config(SafeConfigParser):
             return self.config[sectionitem]
         else:
             return None
+        
+        
+    def _save(self):
+        """
+        save the configuration off to disk again... not elegant, but functional
+        note: 1) it will not save comments, and 2) it writes files out in UNIX format, fuck yo DOS
+        """
+        if os.access(self.config_file, W_OK):
+            sections = []
+            for key in self.config:
+                (section, variable) = key.split('.')
+                if section not in sections:
+                    sections.append(section)
+                    
+            sections.sort()
+            fp = open( self.config_file, "w")
+            for s in sections:
+                fp.write( "[%s]\n" % (s) )
+                for key in self.config:
+                    (sec,var) = key.split('.')
+                    if sec == s:
+                        fp.write( "%s = %s\n" % (var, self.config["%s.%s" % (sec,var)]) )
+                fp.write("\n")   
+        else:
+            raise Exceptions.FileAccessError("file not writable")
 
 
 """ ___EOF___ """

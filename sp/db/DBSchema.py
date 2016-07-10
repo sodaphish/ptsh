@@ -42,11 +42,11 @@ class DBSchema():
     Options for a column are specified in the options="" field within a column definition, e.g. <column name="rowid" options="AUTO_INCREMENT"></column>
     
     #TODO: add functionality to MySQL and SQLite3 classes to handle database initiation at startup
-    
     #TODO: support versions of DBSchema so we can handle old schema definitions appropriately.
+    #TODO: integrate logging here.
     """
     
-    schema_version = Version.Version(0,0,1) #default schema version
+    schema_version = Version.Version(0,0,1) #current schema version
     schema = None  #the soup once its been made
     isvalid = False #varifies the validity of a schema
 
@@ -78,7 +78,7 @@ class DBSchema():
         """
         boolean function to verify the validity of a schema
         """
-        #TODO: make sure the schema is complete.  This is going to be much harder than it seems.
+        #TODO: make sure the schema is complete.  This is going to suck to write.
         return True
 
 
@@ -95,6 +95,7 @@ class DBSchema():
         else:
             return None
         
+    
     
     def get_table(self,tablename):
         """
@@ -120,9 +121,36 @@ class DBSchema():
 
     def __repr__(self):
         """
-        pretty-print the schema
+        pretty-print the schema -- this probably won't ever get used.
         """
         return self.schema.prettify()
+
+
+    
+    def toSQLite(self, table=None):
+        """
+        method to return the schema in SQLite form
+        """
+        if table is not None:
+            # this is a request for a specific table from the schema.
+            pass
+        else:
+            # we're returning the ENTIRE schema... 
+            pass
+
+
+    
+    def toMySQL(self, table=None):
+        """
+        method to return the schema in MySQL form
+        """
+        if table is not None:
+            # this is a request for a specific table from the schema.
+            pass
+        else:
+            # we're returning the ENTIRE schema... 
+            pass
+    
     
     
 #EOF

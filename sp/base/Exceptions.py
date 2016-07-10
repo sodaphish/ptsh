@@ -12,6 +12,12 @@ class ConfigFault(Exception):
 	pass
 
 
+class Dependency(Exception):
+	"""
+	A dependency error has occurred.
+	"""
+	pass
+
 
 class DatabaseConnectError(Exception):
 	"""

@@ -18,6 +18,7 @@ try:
     from sp.base.Config import Config
     from sp.base.Logging import *
     from sp.base import Exceptions
+    from sp.db import MySQL, SQLite3
 except Exception as e:
     print "must install sp in sys.path() -- %s" % (e)
     print "email sodaphish@protonmail.ph for a copy of the sp lib"
@@ -63,8 +64,7 @@ Verify that the configuration file is defined and that our database type is defi
 """
 try: cfg
 except NameError:
-    print "configuration file not defined as 'cfg'"
-    sys.exit(1)
+    raise Exceptions.ConfigFault("configuration file not defined as 'cfg', that's a no no.")
 #NOTE: this is optional for some projects.
 try: cfg.get_value('db.type')
 except Exception as e:
@@ -73,7 +73,6 @@ except Exception as e:
     
 
 
-#TODO: move this to a function in sp.db
 try:
     db = None
     if cfg.get_value(db.type):
@@ -82,7 +81,7 @@ try:
             pass
         elif cfg.get_value(db.type) == 'sqlite3':
             try:
-                db = sqlite3.connect(cfg.get_value('db.path'))
+                db = SQLite3.connect(cfg.get_value('db.path'))
             except Exception as e:
                 log.critical("%s" % e )
                 sys.exit(1)
@@ -90,8 +89,7 @@ try:
         #no database
         pass
 except:
-    #FIXME: 
-    pass
+    raise Exceptions.DatabaseConnectError("shit got real")
 
 
 
