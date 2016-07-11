@@ -47,7 +47,10 @@ from ConfigParser import SafeConfigParser
 import os
 import Exceptions
 import re
-from posix import W_OK
+from posix import W_OK, R_OK
+
+#TODO: wrap in try
+from sp.base.Exceptions import ConfigFault
 
 class Config(SafeConfigParser):
     """
@@ -175,29 +178,63 @@ class Config(SafeConfigParser):
             return None
         
         
-    def _save(self):
+    def save(self):
         """
-        save the configuration off to disk again... not elegant, but functional
-        note: 1) it will not save comments, and 2) it writes files out in UNIX format, fuck yo DOS
+        save the configuration off to disk; not elegant, but functional
+        note: 1) it will not save comments that had been in a configuration, and 2) it writes files out in UNIX format, fuck yo DOS
         """
+        configout = self.__repr__()
         if os.access(self.config_file, W_OK):
-            sections = []
-            for key in self.config:
-                (section, variable) = key.split('.')
-                if section not in sections:
-                    sections.append(section)
-                    
-            sections.sort()
-            fp = open( self.config_file, "w")
-            for s in sections:
-                fp.write( "[%s]\n" % (s) )
-                for key in self.config:
-                    (sec,var) = key.split('.')
-                    if sec == s:
-                        fp.write( "%s = %s\n" % (var, self.config["%s.%s" % (sec,var)]) )
-                fp.write("\n")   
+            try:
+                fp = open( self.config_file, "w")
+                fp.write(configout) 
+                fp.close()
+            except Exception as e:
+                raise Exceptions.ConfigFault("Couldn't write config!")  
         else:
             raise Exceptions.FileAccessError("file not writable")
+        
+    def __repr__(self):
+        """
+        return a string value of the configuration
+        """
+        retval = ""
+        sections = []
+        for key in self.config:
+            (section, variable) = key.split('.')
+            if section not in sections:
+                sections.append(section)
+        sections.sort()
+        for s in sections:
+            retval = "%s[%s]\n" % (retval, s)
+            for key in self.config:
+                (sec,val) = key.split('.')
+                if sec == s: 
+                    retval = "%s%s = %s\n" % (retval, val, self.config["%s.%s" % (sec, val)])
+            retval = "%s\n" % (retval)
+            
+        return retval
+        
+    def __setitem__(self,*meh):
+        """
+        assign a value to a section.variable
+        """
+        try:
+            (section, value ) = meh[0], meh[1]
+            self.config[section] = value 
+        except Exception as e:
+            raise ConfigFault("invalid assignment")
+        
+    def __delitem__(self,*bits):
+        """
+        delete a section.variable key pair, a la `del cfg['section.variable']`  
+        """
+        try:
+            section = bits[0]
+            if self.config[section]:
+                del self.config[section]
+        except Exception as e:
+            raise ConfigFault("unknown variable")
 
 
 """ ___EOF___ """
