@@ -47,10 +47,12 @@ from ConfigParser import SafeConfigParser
 import os
 import Exceptions
 import re
-from posix import W_OK, R_OK
 
-#TODO: wrap in try
-from sp.base.Exceptions import ConfigFault
+try:
+    from sp.base.Exceptions import ConfigFault
+except Exception as e:
+    print "couldn't load splib!"
+    sys.exit(2)
 
 class Config(SafeConfigParser):
     """
@@ -163,8 +165,6 @@ class Config(SafeConfigParser):
         #        _cfg[_dictkey] = self._adjust_value(_val)
         # Set the class property
         
-        
-
         self.config = _cfg
 
     def get_value(self, sectionitem):
@@ -184,7 +184,7 @@ class Config(SafeConfigParser):
         note: 1) it will not save comments that had been in a configuration, and 2) it writes files out in UNIX format, fuck yo DOS
         """
         configout = self.__repr__()
-        if os.access(self.config_file, W_OK):
+        if os.access(self.config_file, os.W_OK):
             try:
                 fp = open( self.config_file, "w")
                 fp.write(configout) 
