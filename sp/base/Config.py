@@ -47,6 +47,7 @@ from ConfigParser import SafeConfigParser
 import os
 import Exceptions
 import re
+import sys
 
 try:
     from sp.base.Exceptions import ConfigFault
@@ -194,6 +195,7 @@ class Config(SafeConfigParser):
         else:
             raise Exceptions.FileAccessError("file not writable")
         
+        
     def __repr__(self):
         """
         return a string value of the configuration
@@ -215,6 +217,14 @@ class Config(SafeConfigParser):
             
         return retval
         
+    def __getitem__(self,*meh):
+        try:
+            sectionitem = meh[0]
+            return self.config[sectionitem]
+        except Exception as e: 
+            raise ConfigFault("couldn't get item")
+        
+        
     def __setitem__(self,*meh):
         """
         assign a value to a section.variable
@@ -224,6 +234,7 @@ class Config(SafeConfigParser):
             self.config[section] = value 
         except Exception as e:
             raise ConfigFault("invalid assignment")
+        
         
     def __delitem__(self,*bits):
         """

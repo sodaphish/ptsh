@@ -1,5 +1,7 @@
 """
 @author SodaPhish <sodaphish@protonmail.ch>
+
+a simple x.y.z version class, for use with various needs around versioning.
 """
 class Version(object):
     """Version
@@ -95,7 +97,7 @@ class Version(object):
 
 
     def __repr__(self):
-        return '%d.%d.%d' % (self.majorVersion,self.minorVersion,self.buildVersion)
+        return '%s.%s.%s' % (self.majorVersion,self.minorVersion,self.buildVersion)
     '''end __repr__()'''
 
 
