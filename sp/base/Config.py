@@ -55,12 +55,14 @@ except Exception as e:
     print "couldn't load splib!"
     sys.exit(2)
 
+
 class Config(SafeConfigParser):
     """
     Config class is a wrapper arouond the SafeConfigParser.  It optionally
     takes 'filename' as an argument otherwise looks for configuration in
     settings.cfg.
     """
+
     def __init__(self, filename=None):
         """
         Initializes the SafeConfigParser() class, checks the filename and
@@ -84,9 +86,11 @@ class Config(SafeConfigParser):
             if os.access(filename, os.R_OK):
                 return filename
             else:
-                raise Exceptions.FileAccessError('Cannot read file %s' % filename)
+                raise Exceptions.FileAccessError(
+                    'Cannot read file %s' % filename)
         else:
-            raise Exceptions.FileAccessError('File %s does not exist.' % filename)
+            raise Exceptions.FileAccessError(
+                'File %s does not exist.' % filename)
 
     def _adjust_value(self, value):
         """
@@ -165,7 +169,7 @@ class Config(SafeConfigParser):
         #        _dictkey = 'DEFAULT.' + str(_key).strip()
         #        _cfg[_dictkey] = self._adjust_value(_val)
         # Set the class property
-        
+
         self.config = _cfg
 
     def get_value(self, sectionitem):
@@ -177,8 +181,14 @@ class Config(SafeConfigParser):
             return self.config[sectionitem]
         else:
             return None
-        
-        
+
+    def reload(self):
+        """
+        routine to re-read the configuration file.  self.get_config() DOES NOT WORK
+        """
+        # TODO: overload self.get_config() when this is written.
+        pass
+
     def save(self):
         """
         save the configuration off to disk; not elegant, but functional
@@ -187,15 +197,14 @@ class Config(SafeConfigParser):
         configout = self.__repr__()
         if os.access(self.config_file, os.W_OK):
             try:
-                fp = open( self.config_file, "w")
-                fp.write(configout) 
+                fp = open(self.config_file, "w")
+                fp.write(configout)
                 fp.close()
             except Exception as e:
-                raise Exceptions.ConfigFault("Couldn't write config!")  
+                raise Exceptions.ConfigFault("Couldn't write config!")
         else:
             raise Exceptions.FileAccessError("file not writable")
-        
-        
+
     def __repr__(self):
         """
         return a string value of the configuration
@@ -210,33 +219,32 @@ class Config(SafeConfigParser):
         for s in sections:
             retval = "%s[%s]\n" % (retval, s)
             for key in self.config:
-                (sec,val) = key.split('.')
-                if sec == s: 
-                    retval = "%s%s = %s\n" % (retval, val, self.config["%s.%s" % (sec, val)])
+                (sec, val) = key.split('.')
+                if sec == s:
+                    retval = "%s%s = %s\n" % (
+                        retval, val, self.config["%s.%s" % (sec, val)])
             retval = "%s\n" % (retval)
-            
+
         return retval
-        
-    def __getitem__(self,*meh):
+
+    def __getitem__(self, *meh):
         try:
             sectionitem = meh[0]
             return self.config[sectionitem]
-        except Exception as e: 
+        except Exception as e:
             raise ConfigFault("couldn't get item")
-        
-        
-    def __setitem__(self,*meh):
+
+    def __setitem__(self, *meh):
         """
         assign a value to a section.variable
         """
         try:
-            (section, value ) = meh[0], meh[1]
-            self.config[section] = value 
+            (section, value) = meh[0], meh[1]
+            self.config[section] = value
         except Exception as e:
             raise ConfigFault("invalid assignment")
-        
-        
-    def __delitem__(self,*bits):
+
+    def __delitem__(self, *bits):
         """
         delete a section.variable key pair, a la `del cfg['section.variable']`  
         """

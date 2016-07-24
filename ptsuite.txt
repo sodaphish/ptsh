@@ -1,0 +1,21 @@
+
+a suite of tools for penetration testing that:
+* logs activities to both a human readable and machine readable format
+* cross platform compatibility
+* cli wrapper (a la metasploit) for each utility with support for workspaces 
+
+
+Tools include:
+* banner grabber (plain-text such as HTTP and binary)
+* ssl crypto-suite analyzer
+* FTP analyzer (e.g. get system capabilities, user name, pwd and directory structure, etc.)
+* port scanner
+* netsuite tools such as ping, traceroute, etc.
+* dig-like tool (host -taxfr)
+* nbtstat
+* smbwalk (tool for enumerating directory structures of CIFS/SMB shares)
+* snmpwalk 
+
+
+
+
