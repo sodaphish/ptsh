@@ -1,3 +1,10 @@
 *.pyc
 *.log
 tst.py
+cli.py
+
+sepd.py
+
+septic.cfg
+
+septicAlarm.py
