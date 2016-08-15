@@ -1,44 +1,42 @@
 
 
-
 class Generic(Exception):
-	pass
+    pass
 
 
 class ConfigFault(Exception):
-	"""
-	Fault in configuration file syntax/formatting.	
-	"""
-	pass
+    """
+    Fault in configuration file syntax/formatting.    
+    """
+    pass
 
 
 class Dependency(Exception):
-	"""
-	A dependency error has occurred.
-	"""
-	pass
+    """
+    A dependency error has occurred.
+    """
+    pass
 
 
 class DatabaseConnectError(Exception):
-	"""
-	database connection error
-	"""
-	pass
-
+    """
+    database connection error
+    """
+    pass
 
 
 class DBSchemaError(Exception):
-	"""
-	a database schema error -- do not use for file access or directory access errors!
-	"""
-	pass
+    """
+    a database schema error -- do not use for file access or directory access errors!
+    """
+    pass
 
 
 class DatabaseError(Exception):
-	"""
-	generic database error
-	"""
-	pass
+    """
+    generic database error
+    """
+    pass
 
 
 class FileAccessError(Exception):
@@ -46,7 +44,6 @@ class FileAccessError(Exception):
     Error accessing a file
     """
     pass
-
 
 
 class DirectoryAccessError(Exception):
@@ -64,5 +61,19 @@ class InvalidLogLevelType(Exception):
 
 class InvalidSyslogFacilityType(Exception):
     """
+    """
+    pass
+
+
+class InvalidIP(Exception):
+    """
+    exception to raise when an invalidly formatted IPv4 occurs
+    """
+    pass
+
+
+class InvalidEmail(Exception):
+    """
+    exception to raise when an invalidly formatted email address occurs
     """
     pass
