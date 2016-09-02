@@ -1,4 +1,6 @@
 #!/bin/sh
+# by sodaphish@protonmail.ch
+# if it misbehaves, do `trap -- '' SIGTSTP`
 trap 'kill $(jobs -p)' EXIT
 for file in "$@"
 do
