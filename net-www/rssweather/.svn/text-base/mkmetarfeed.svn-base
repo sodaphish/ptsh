@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+# mkmetarfeed v.0.0.1 by C.J. Steele <coryejsteele@yahoo.com>
+# 
+# (C)opyright 2005, Corey J. Steele, all rights reserved.
+#
+# Mangle the stationID and shortStationID variables below with the appropriate
+# values and the script should run without any fuss provided you've got the
+# necessary perl modules installed and keep the files this script was bundled
+# with together.
+#
+# This is not release-quality code, please do not distribute.
+# 
+use strict;
+use LWP::Simple;
+use Geo::METAR;
+use ParseLib;
+use POSIX;
+
+# this is the newsnow URL to scrape... 
+my $stationID = "KFSD"; Tokenize( "STATIONID", $stationID );
+my $shortStationID = "FSD"; Tokenize( "SHORTSID", $shortStationID );
+my $m = new Geo::METAR;
+my $DEBUG = 0;
+
+########################################################################
+# don't muck around below here!
+########################################################################
+print "D: pre-fetch of metar\n" if( $DEBUG );
+my $metar = (split( /\n/, get( "ftp://weather.noaa.gov/data/observations/metar/stations/$stationID.TXT" ), 2 ))[1];
+print "D: post-fetch of metar\n" if( $DEBUG );
+if( $metar =~ /^$stationID/ )
+{
+	#we got our data
+	print "D: $metar\n" if( $DEBUG );
+	print "D: got metar data\n" if( $DEBUG );
+	$m->metar( $metar ); #internal tokenizing stores values in $m
+	LoadTemplate( "rssweather.xml" );
+	Tokenize( "PUBDATE", strftime( "%a, %d %b %Y %H:%M:%S -0500", localtime() ) );
+	my $currentConditions = "The current temperature is " . $m->{TEMP_F} . "F with winds from the " . $m->{WIND_DIR_ENG} . " at " . $m->WIND_MPH . "mph.  Skys are " . (@{$m->{SKY}})[0] . ", and the barometer is " . $m->{ALT} . ".";
+	print "temp(F): ", $m->{TEMP_F}, "\n" if( $DEBUG );
+	print "bar.: ", $m->{ALT}, "\n" if( $DEBUG );
+	print "wind direction: ", $m->{WIND_DIR_ENG}, "\n" if( $DEBUG );
+	print "wind speed (mph): ", $m->{WIND_MPH}, "\n" if( $DEBUG );
+	print "sky: ", (@{$m->{SKY}})[0], "\n" if( $DEBUG );
+	Tokenize( "CURRENTCONDITIONS", $currentConditions );
+	Parse( "RSSFEED" );
+	Output();
+} else {
+	print "D: failed to fetch metar\n" if( $DEBUG );
+	print "E: there seems to have been a problem retrieving the metar data.\n";
+}
+
+print "D: ending run\n" if( $DEBUG );
+exit( 0 );

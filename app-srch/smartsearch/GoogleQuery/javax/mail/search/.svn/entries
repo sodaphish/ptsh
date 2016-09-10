@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/javax/mail/search"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ReceivedDateTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3990a956372d882452035cb9c8f6787c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AddressTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4c93befd5b20bc28f1d097a6dfae3e42"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="HeaderTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="21313c701887aa2d785ab676ab6cca2b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="IntegerComparisonTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a2d4996ea1329b97ee57e65c98ac2628"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FromStringTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="11b6480466028967535c88a4cf8c7040"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SearchException.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="941906e42e31ebbecf403b5faad0fe22"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BodyTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="0783803874b8b09713d47339f36cb5a8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageNumberTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="140b9efbfdeaec53c5df32447c407ee1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SubjectTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="40b63ea5b062aeed5d2cf4710c914a86"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NotTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="861ccf91899216f14c2937c1770f5940"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageIDTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9efdbdfe3d4f5ad7e357cc58391d74e0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AndTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="961bffdcc8cea7243fa8212246842c9e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FromTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a51135871000ad0ee75a222d566d2d69"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SearchTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="cadb7d6decbb7b6a44313ed88c289bf8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="StringTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="57afb6d3e20fdfe75987bbb424649375"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SentDateTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="cd66971dd975680550647205ef1143c1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RecipientStringTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4a511e21af54ebacacee4b0495651938"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FlagTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="da7df9e6ead311ec921a47f1dddb9e54"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ComparisonTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b15196de1351cd5054a1b18f49f725ed"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SizeTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1de91256078f3e1e61788d3edf7a41e3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AddressStringTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="57637e571a8b64d63da4a59950f05ad3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DateTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1caf71574b4dc7fc88174b28fd1a96cc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="OrTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="226c4345428558678bb8590e5b1267b5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RecipientTerm.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="588e1e9594ea991b60a1e9aa831b2c7a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+</wc-entries>

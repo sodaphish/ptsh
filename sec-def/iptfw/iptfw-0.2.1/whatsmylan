@@ -1,0 +1,4 @@
+#!/bin/sh
+MYIP=`/usr/local/sbin/whatsmyip $1`
+MASK=`ifconfig $1 | grep Mask | awk {'print $4'} | sed -e s/Mask\://i`
+echo "$MYIP/$MASK"

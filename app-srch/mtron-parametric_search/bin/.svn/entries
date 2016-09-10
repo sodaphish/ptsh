@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/bin"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="mkcfg.test"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="0ae6da4594ee7d58383539617d457c5a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkcfg.live"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="308938f028591e23ac1d993b7f470c6d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mklive"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="205917fd9ac9b9d1a24825ac8cd3a24a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mktest"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="41737191f5d949562cab53d37b679ebc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkhtml.test"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="dacbef6e3921e8f1efc818bd2ec07449"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkhtml.live"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="966e70b708f42832c3f053b26fb87d31"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mktestdb"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="461c2b6dc2a63166e1a18518c6da0b21"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="backall_db"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="106a0f20c31f22ce61283fc39b5cee19"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+</wc-entries>

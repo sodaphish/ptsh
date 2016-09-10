@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:01:51.316347Z"
+   url="file:///hosted/www/sodaphish.com/repos/blacklist"
+   last-author="csteele"
+   kind="dir"
+   uuid="ee73da86-5ef0-0310-816c-b8c4c4007227"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="blacklist"
+   text-time="2005-02-18T08:02:03.000000Z"
+   committed-date="2005-02-18T08:01:51.316347Z"
+   checksum="a1017767ee6cdf90a49cc6060e3d0254"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:02:03.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

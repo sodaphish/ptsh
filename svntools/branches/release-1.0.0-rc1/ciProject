@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# ciProject by C.J. Steele <coreyjsteele@yahoo.com>
+# 
+# script aids in the checking code in to SVN
+# 
+
+REPOS=`cfgctl svn.repospath`
+PROJ=`basename \`pwd\``
+SVN=`which svn`
+SVNADMIN=`which svnadmin`
+
+export EDITOR=`which vi`
+
+$SVN ci 

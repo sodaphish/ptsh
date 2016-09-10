@@ -1,0 +1,86 @@
+#!/usr/bin/perl use strict;
+use Net::SMTP;
+use MD5;
+use POSIX qw( mktime );
+
+my $DEBUG = 0;
+my $smtp_server = 'localhost';
+my $output = "0123456789ABCDEF\n";
+
+open( LOG, "/var/log/messages" ) or die( "$!" );
+while( <LOG> )
+{
+	chomp();
+	if( $_ =~ /sshd/ && $_ =~ /rhost\=*/ )
+	{
+
+		my $timestamp = mkepoch( substr( $_, 0, 15 ) );
+		my @otherbits = split( /\ /, substr( $_, 16 ) );
+		my $offender = $otherbits[scalar(@otherbits)-1]; 
+		   $offender =~ s/rhost\=//i; 
+
+		# we're only interested in resolveable ip's...
+		if( getip( $offender ) )
+		{
+			$output .= sprintf( "%d %s\n", $timestamp, getip( $offender ) );
+		}
+		else {
+			print STDERR "W: couldn't resolve IP for $offender, so it hasn't been included in the report.\n" if( $DEBUG );
+		}
+
+	} #end if
+} #end while
+close( LOG );
+
+print $output;
+print MD5->hexhash( $output );
+
+my $smtp = Net::SMTP->new( $smtp_server ); 
+$smtp->mail( $ENV{USER} );
+$smtp->to( 'tattle\@forwardsteptech.com' );
+$smtp->data();
+$smtp->datasend( "\n" ); #rfc compliance
+$smtp->datasend( $output ); 
+$smtp->datasend( MD5->hexhash( $output ) );
+$smtp->dataend();
+$smtp->send();
+print $smtp->quit;
+
+
+
+
+sub mkepoch
+{
+	my $timestamp = shift;
+	my %mo = ( 'Jan' => 0, 'Feb' => 1, 'Mar'=> 2, 'Apr' => 3, 'May' => 4,
+		'Jun' => 5, 'Jul' => 6, 'Aug' => 7, 'Sep' => 8, 'Oct' => 9,
+		'Nov' => 10, 'Dec' => 11 );
+	my( $m, $d, $t ) = split( /\ /, $timestamp, 3 );
+	my( $hr, $min, $sec ) = split( /\:/, $t, 3 );
+	#mktime(sec, min, hour, mday, mon, year, wday = 0, yday = 0, isdst = 0)
+	# TODO: use year of logfile's ctime in mktime() call instead of localtime
+	return mktime( $sec, $min, $hr, $d, $mo{$m}, (localtime(time))[5], 0, 0, 0 );
+} #end mkepoch()
+
+
+
+
+sub getip
+{
+    my $in = shift;
+    if( $in =~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ )
+    {
+        # its an IP address... return it
+        return $in;
+    } else {
+        my $hostaddr = gethostbyname( $in );
+        if( $hostaddr =~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ )
+        {
+            return( $hostaddr );
+        } else {
+			# do we want to report hosts that have no resolveable IP?  I say
+			# no, because that's useless information anyways.
+			return undef();
+		}
+	} #endif
+} #end getip()

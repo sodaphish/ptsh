@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/rpc"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="Call.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c0f25550c6c94bf3b57f0e4bc16f4634"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Response.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3b2a93b9cdc11097bf7aa23c46713eea"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parameter.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="74f0b2564ac371b756f7c45206edd048"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RPCConstants.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="ea9fe29f64c13b012520825e0974f4a3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SOAPContext.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="364dbc9ad77f5149a6753891c5104d16"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RPCMessage.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3152d4e3b770f193ce278225095a534b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+</wc-entries>

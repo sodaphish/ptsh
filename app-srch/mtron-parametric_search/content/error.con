@@ -1,0 +1,43 @@
+#:ADMIN_EMAIL=csteele@mtron.com
+
+#/ERROR_FOOTER
+<br><br>
+Click <a href=%%THIS%%>here</a> to return to the main page.
+<br><br>
+If you feel you have reached this error incorrectly, please contact the 
+<a href=mailto:%%ADMIN_EMAIL%%>site administrator</a>.
+#\ERROR_FOOTER
+
+#/ERR-100
+<b><font size=+2>ERR-100: Login Failed.</font></b> <br>One of the following has occured,
+and prompted this message...
+<li>your login and/or password did not match our records,</li>
+<li>your session has timed out, or</li>
+<li>your session key was invalid.</li>
+#\ERR-100
+
+#/ERR-200
+<b><font size=+2>ERR-200: Invalid Product Line.</font></b> <br>You selected an invalid product line,
+and as such, we can not process your request.  Please use your browser's back button to return
+to the previous page.
+#\ERR-200
+
+#/ERR-201
+<b><font size=+2>ERR-201: Product Search Unavailable.</font></b> <br> 
+The product line you have selected to search is presently unavailable.  This means either the 
+product search is under-going maintenance, or that it is as of yet uncompleted.
+#\ERR-201
+
+#/ERR-202
+<b><font size=+2>ERR-202: Invalid Frequency.</font></b><br>
+The frequency you entered was not valid.  This message is the result of one or more of the following
+circumstances:
+<li> you used characters other than 0..9, and '.' in your frequency.</li>
+<li> you did not enter a frequency at all.</li>
+#\ERR-202
+
+#/ERR-300
+<b><font size=+2>ERR-300: Incomplete Form.</font></b><br>
+You have not completed the form, properly.  Please use your browser's back button to return to the previous page
+and complete the form.
+#\ERR-300

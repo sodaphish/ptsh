@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/Documentation"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="Web Applications.doc"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="0680261304f58a1e2aa00bda17f96921"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ISSUES.txt"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="342de80e878612850df9c323317343cb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SQLscrip.readme"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="83624ea87e8209da83c2a5f28f3c2431"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="978da2958f706782a94c5792fca16f8a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   name="Parametric Search"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="STRUCTURE.txt"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="40052bcecc9121f2136bef1302a218ca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+</wc-entries>

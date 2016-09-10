@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# this is a dirty-hack, but hey, I'm a dirty guy... 
+ROOTDIR=/home/cjs/mine/src/feedcollector
+/usr/sbin/lighttpd -D -f $ROOTDIR/lighttpd.conf
+exit

@@ -1,0 +1,212 @@
+################################################################################
+# 172.16.102.1 
+################################################################################
+Trying 172.16.102.1...
+Connected to 172.16.102.1.
+Escape character is '^]'.
+
+
+User Access Verification
+
+Password: 
+Type help or '?' for a list of available commands.
+toaster> en
+Password: ********
+toaster# no page
+toaster#  sh access-list
+access-list cached ACL log flows: total 0, denied 0 (deny-flow-max 4096)
+            alert-interval 300
+access-list outside_access_in; 45 elements
+access-list outside_access_in line 1 permit icmp any any (hitcnt=1360630) 
+access-list outside_access_in line 2 permit tcp any host 65.125.46.129 eq www (hitcnt=631862) 
+access-list outside_access_in line 3 deny tcp any host 65.125.46.133 eq smtp (hitcnt=478750) 
+access-list outside_access_in line 4 deny tcp any host 65.125.46.144 eq smtp (hitcnt=520563) 
+access-list outside_access_in line 5 permit tcp any host 65.125.46.132 eq smtp (hitcnt=885344) 
+access-list outside_access_in line 6 permit tcp any host 65.125.46.131 eq www (hitcnt=605) 
+access-list outside_access_in line 7 permit tcp any host 65.125.46.134 eq www (hitcnt=110873) 
+access-list outside_access_in line 8 permit tcp any host 65.125.46.137 eq www (hitcnt=701) 
+access-list outside_access_in line 9 permit tcp any host 65.125.46.137 eq 5493 (hitcnt=0) 
+access-list outside_access_in line 10 permit tcp any host 65.125.46.137 range 9000 9004 (hitcnt=0) 
+access-list outside_access_in line 11 permit tcp any host 65.125.46.136 eq www (hitcnt=543) 
+access-list outside_access_in line 12 permit tcp any host 65.125.46.136 eq https (hitcnt=199) 
+access-list outside_access_in line 13 permit tcp any host 65.125.46.136 eq 5493 (hitcnt=0) 
+access-list outside_access_in line 14 permit tcp any host 65.125.46.135 eq www (hitcnt=3541) 
+access-list outside_access_in line 15 permit tcp any host 65.125.46.135 eq https (hitcnt=323032) 
+access-list outside_access_in line 16 permit tcp any host 65.125.46.138 eq www (hitcnt=675) 
+access-list outside_access_in line 17 permit tcp host 32.97.145.131 eq 5025 any (hitcnt=6) 
+access-list outside_access_in line 18 permit tcp any host 65.125.46.129 eq ftp (hitcnt=131) 
+access-list outside_access_in line 19 permit tcp any any eq 5793 (hitcnt=35) 
+access-list outside_access_in line 20 permit udp any any eq snmp (hitcnt=0) 
+access-list outside_access_in line 21 permit udp host 216.20.131.156 host 65.125.46.180 range 6260 6290 (hitcnt=0) 
+access-list outside_access_in line 22 permit udp host 216.20.131.156 host 65.125.46.181 range 6260 6290 (hitcnt=0) 
+access-list outside_access_in line 23 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.180 range 1 65535 (hitcnt=8873) 
+access-list outside_access_in line 24 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.181 range 1 65535 (hitcnt=804) 
+access-list outside_access_in line 25 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.182 range 1 65535 (hitcnt=177) 
+access-list outside_access_in line 26 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.183 range 1 65535 (hitcnt=54) 
+access-list outside_access_in line 27 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.184 range 1 65535 (hitcnt=3) 
+access-list outside_access_in line 28 permit tcp 152.160.10.192 255.255.255.240 host 65.125.46.185 range 1 65535 (hitcnt=1) 
+access-list outside_access_in line 29 permit tcp 64.6.176.64 255.255.255.240 host 65.125.46.180 eq ftp (hitcnt=0) 
+access-list outside_access_in line 30 permit udp 64.6.176.64 255.255.255.240 host 65.125.46.180 eq 20 (hitcnt=0) 
+access-list outside_access_in line 31 permit tcp 64.6.176.64 255.255.255.240 host 65.125.46.180 range 6260 6290 (hitcnt=0) 
+access-list outside_access_in line 32 permit tcp 64.6.176.64 255.255.255.240 host 65.125.46.181 range 6260 6290 (hitcnt=0) 
+access-list outside_access_in line 33 permit tcp 64.6.176.64 255.255.255.240 host 65.125.46.130 range 6260 6290 (hitcnt=0) 
+access-list outside_access_in line 34 permit tcp any host 65.125.46.186 eq pcanywhere-data (hitcnt=0) 
+access-list outside_access_in line 35 permit udp any host 65.125.46.186 eq pcanywhere-status (hitcnt=0) 
+access-list outside_access_in line 36 permit tcp any host 65.125.46.130 eq www (hitcnt=21175) 
+access-list outside_access_in line 37 remark I#261392 - 1/27/04 (CJS) - allows access to internal DNS servers from Jerstad retreat center.
+access-list outside_access_in line 38 permit udp host 65.125.46.103 host 65.125.46.145 eq domain (hitcnt=0) 
+access-list outside_access_in line 39 remark I#261392 - 1/27/04 (CJS) - allows access to internal DNS servers from Jerstad retreat center.
+access-list outside_access_in line 40 permit udp host 65.125.46.103 host 65.125.46.146 eq domain (hitcnt=0) 
+access-list outside_access_in line 41 remark rules to allow Alyce McKay to do Mill. training
+access-list outside_access_in line 42 permit tcp host 205.243.71.252 host 65.125.46.149 eq www (hitcnt=0) 
+access-list outside_access_in line 43 remark rules to allow Alyce McKay to do Mill. training
+access-list outside_access_in line 44 permit tcp host 205.243.71.230 host 65.125.46.149 eq www (hitcnt=0) 
+access-list outside_access_in line 45 remark rules to allow alyce mckay to do mill. training
+access-list outside_access_in line 46 permit tcp host 205.243.71.252 host 65.125.46.142 eq www (hitcnt=0) 
+access-list outside_access_in line 47 remark rules to allow alyce mckay to do mill. training
+access-list outside_access_in line 48 permit tcp host 205.243.71.230 host 65.125.46.142 eq www (hitcnt=0) 
+access-list outside_access_in line 49 remark rules to allow alyce mckay to do mill. training
+access-list outside_access_in line 50 permit tcp host 205.243.71.252 host 65.125.46.143 eq www (hitcnt=0) 
+access-list outside_access_in line 51 remark rules to allow alyce mckay to do mill. training
+access-list outside_access_in line 52 permit tcp host 205.243.71.230 host 65.125.46.143 eq www (hitcnt=0) 
+access-list outside_access_in line 53 deny ip any any (hitcnt=2610399) 
+access-list inside_access_in; 103 elements
+access-list inside_access_in line 1 permit icmp any any echo (hitcnt=533072) 
+access-list inside_access_in line 2 permit icmp any any echo-reply (hitcnt=397303) 
+access-list inside_access_in line 3 permit icmp any any unreachable (hitcnt=10174) 
+access-list inside_access_in line 4 permit tcp any any eq www (hitcnt=13843537) 
+access-list inside_access_in line 5 permit tcp any any eq 8080 (hitcnt=12683) 
+access-list inside_access_in line 6 permit tcp any any eq https (hitcnt=1813872) 
+access-list inside_access_in line 7 permit tcp any any eq domain (hitcnt=1902) 
+access-list inside_access_in line 8 permit udp any any eq domain (hitcnt=7417991) 
+access-list inside_access_in line 9 permit tcp 172.16.102.0 255.255.254.0 any eq smtp (hitcnt=274434) 
+access-list inside_access_in line 10 permit tcp any any eq ssh (hitcnt=463) 
+access-list inside_access_in line 11 permit tcp any any eq telnet (hitcnt=2710) 
+access-list inside_access_in line 12 permit tcp any any eq ftp (hitcnt=5784) 
+access-list inside_access_in line 13 permit tcp any any eq ftp-data (hitcnt=625) 
+access-list inside_access_in line 14 permit tcp any any eq 161 (hitcnt=34) 
+access-list inside_access_in line 15 permit udp 172.16.102.0 255.255.254.0 any eq snmp (hitcnt=59836) 
+access-list inside_access_in line 16 permit tcp any any eq 88 (hitcnt=3077) 
+access-list inside_access_in line 17 permit tcp 172.16.102.0 255.255.254.0 any eq 123 (hitcnt=0) 
+access-list inside_access_in line 18 permit udp 172.16.102.0 255.255.254.0 any eq ntp (hitcnt=14272) 
+access-list inside_access_in line 19 permit tcp any any eq 554 (hitcnt=5838) 
+access-list inside_access_in line 20 permit tcp any any eq 5222 (hitcnt=37) 
+access-list inside_access_in line 21 permit tcp any any eq 5493 (hitcnt=28) 
+access-list inside_access_in line 22 permit tcp any any eq 7776 (hitcnt=22) 
+access-list inside_access_in line 23 permit tcp any any eq citrix-ica (hitcnt=72) 
+access-list inside_access_in line 24 permit tcp any host 165.189.80.126 eq 9000 (hitcnt=0) 
+access-list inside_access_in line 25 permit udp any 208.30.33.0 255.255.255.0 eq 1604 (hitcnt=0) 
+access-list inside_access_in line 26 permit tcp any eq 7070 any eq 7070 (hitcnt=0) 
+access-list inside_access_in line 27 permit tcp any host 207.149.56.71 eq 7755 (hitcnt=0) 
+access-list inside_access_in line 28 permit tcp any host 207.149.56.71 eq 8081 (hitcnt=0) 
+access-list inside_access_in line 29 permit tcp any host 192.55.228.88 eq 8900 (hitcnt=0) 
+access-list inside_access_in line 30 permit tcp any host 192.55.228.88 range 4567 4568 (hitcnt=0) 
+access-list inside_access_in line 31 permit tcp any host 192.55.228.88 eq 4445 (hitcnt=9) 
+access-list inside_access_in line 32 permit tcp any host 192.55.228.9 eq 1180 (hitcnt=0) 
+access-list inside_access_in line 33 permit tcp any host 130.39.220.100 eq 8900 (hitcnt=0) 
+access-list inside_access_in line 34 permit tcp any host 130.39.220.100 eq 4445 (hitcnt=0) 
+access-list inside_access_in line 35 permit tcp any host 130.39.220.100 range 4567 4568 (hitcnt=0) 
+access-list inside_access_in line 36 permit tcp any host 192.231.160.152 eq 8900 (hitcnt=0) 
+access-list inside_access_in line 37 permit tcp any host 192.231.160.152 eq 4445 (hitcnt=0) 
+access-list inside_access_in line 38 permit tcp any host 192.231.160.152 range 4567 4568 (hitcnt=0) 
+access-list inside_access_in line 39 permit tcp any host 32.97.145.131 eq 5025 (hitcnt=0) 
+access-list inside_access_in line 40 permit tcp any host 198.176.204.10 range ftp-data ftp (hitcnt=0) 
+access-list inside_access_in line 41 permit tcp any host 198.176.204.100 range 8758 8759 (hitcnt=78) 
+access-list inside_access_in line 42 permit tcp any host 198.176.204.101 range 8758 8759 (hitcnt=0) 
+access-list inside_access_in line 43 permit tcp any host 198.176.204.103 range 8758 8759 (hitcnt=0) 
+access-list inside_access_in line 44 permit tcp any host 154.3.240.38 eq 8999 (hitcnt=0) 
+access-list inside_access_in line 45 permit icmp any 154.3.254.32 255.255.255.252 (hitcnt=0) 
+access-list inside_access_in line 46 permit tcp 172.0.0.0 255.0.0.0 172.18.254.0 255.255.255.0 eq 1433 (hitcnt=1627074) 
+access-list inside_access_in line 47 permit udp 172.0.0.0 255.0.0.0 172.18.254.0 255.255.255.0 eq 1433 (hitcnt=0) 
+access-list inside_access_in line 48 permit tcp any any eq 873 (hitcnt=85) 
+access-list inside_access_in line 49 permit udp any any eq 873 (hitcnt=0) 
+access-list inside_access_in line 50 permit tcp any 152.160.0.0 255.255.240.0 range 6260 6290 (hitcnt=596788) 
+access-list inside_access_in line 51 permit udp any 152.160.0.0 255.255.240.0 range 6260 6290 (hitcnt=0) 
+access-list inside_access_in line 52 permit tcp any 64.6.176.64 255.255.255.240 range 6260 6290 (hitcnt=0) 
+access-list inside_access_in line 53 permit udp any 64.6.176.64 255.255.255.240 range 6260 6290 (hitcnt=0) 
+access-list inside_access_in line 54 permit tcp any 172.18.254.0 255.255.255.0 range 6260 6290 (hitcnt=4149106) 
+access-list inside_access_in line 55 permit udp any 172.18.254.0 255.255.255.0 range 6260 6290 (hitcnt=76) 
+access-list inside_access_in line 56 permit tcp any host 198.176.204.100 range 8758 8761 (hitcnt=23) 
+access-list inside_access_in line 57 permit ip any host 12.17.202.11 (hitcnt=0) 
+access-list inside_access_in line 58 permit ip any host 12.17.202.17 (hitcnt=0) 
+access-list inside_access_in line 59 permit ip any host 12.17.202.18 (hitcnt=0) 
+access-list inside_access_in line 60 permit tcp any host 68.20.169.5 eq 7002 (hitcnt=0) 
+access-list inside_access_in line 61 permit tcp any host 198.6.1.122 eq 2502 (hitcnt=0) 
+access-list inside_access_in line 62 permit tcp any host 204.153.81.200 eq 2502 (hitcnt=5451) 
+access-list inside_access_in line 63 permit tcp any host 148.87.3.132 eq 5730 (hitcnt=0) 
+access-list inside_access_in line 64 permit tcp any host 148.87.3.132 eq imap4 (hitcnt=0) 
+access-list inside_access_in line 65 permit tcp any host 148.87.3.132 eq 7778 (hitcnt=0) 
+access-list inside_access_in line 66 permit tcp any host 148.87.3.127 eq smtp (hitcnt=0) 
+access-list inside_access_in line 67 permit tcp any host 148.87.3.131 eq 7779 (hitcnt=0) 
+access-list inside_access_in line 68 permit tcp any host 192.103.41.30 eq 3000 (hitcnt=0) 
+access-list inside_access_in line 69 permit tcp any host 192.103.41.37 eq 9000 (hitcnt=0) 
+access-list inside_access_in line 70 permit tcp any host 156.98.18.15 eq 8181 (hitcnt=0) 
+access-list inside_access_in line 71 permit tcp 172.27.92.0 255.255.254.0 any eq pop3 (hitcnt=20720) 
+access-list inside_access_in line 72 permit tcp any host 216.16.13.228 eq 81 (hitcnt=0) 
+access-list inside_access_in line 73 permit tcp any host 216.16.13.229 eq 82 (hitcnt=0) 
+access-list inside_access_in line 74 permit tcp any host 216.16.13.230 eq 83 (hitcnt=0) 
+access-list inside_access_in line 75 permit esp any host 65.125.46.110 (hitcnt=0) 
+access-list inside_access_in line 76 permit udp any host 65.125.46.110 eq isakmp (hitcnt=0) 
+access-list inside_access_in line 77 permit tcp any 163.191.220.0 255.255.255.0 eq ldap (hitcnt=0) 
+access-list inside_access_in line 78 permit tcp any 163.191.220.0 255.255.255.0 eq 445 (hitcnt=0) 
+access-list inside_access_in line 79 permit tcp any 163.191.220.0 255.255.255.0 eq 640 (hitcnt=0) 
+access-list inside_access_in line 80 permit tcp any 163.191.220.0 255.255.255.0 eq 1059 (hitcnt=0) 
+access-list inside_access_in line 81 permit tcp any 163.191.220.0 255.255.255.0 eq 1072 (hitcnt=0) 
+access-list inside_access_in line 82 permit tcp any 163.191.220.0 255.255.255.0 eq 1094 (hitcnt=0) 
+access-list inside_access_in line 83 permit tcp any 163.191.220.0 255.255.255.0 eq 1095 (hitcnt=0) 
+access-list inside_access_in line 84 permit tcp any 163.191.220.0 255.255.255.0 eq 1096 (hitcnt=0) 
+access-list inside_access_in line 85 permit tcp any 163.191.220.0 255.255.255.0 eq 1097 (hitcnt=0) 
+access-list inside_access_in line 86 permit tcp any 163.191.220.0 255.255.255.0 eq 829 (hitcnt=0) 
+access-list inside_access_in line 87 remark CJS on 22 Apr 2004 - per Applix #330947, for Abbott Travel
+access-list inside_access_in line 88 permit tcp any any eq 4000 (hitcnt=156) 
+access-list inside_access_in line 89 remark CJS on 27 Apr 2004 - per Applix #285408, for Abbott Travel
+access-list inside_access_in line 90 permit tcp any host 66.231.15.99 eq 8383 (hitcnt=3759) 
+access-list inside_access_in line 91 remark CJS on 28 Apr 2004 - per DK to allow some web-based testing software out.
+access-list inside_access_in line 92 permit tcp any any eq 3389 (hitcnt=173) 
+access-list inside_access_in line 93 remark Applix 335342 by John Noem on 5/12/04
+access-list inside_access_in line 94 remark also #36446 -- src too specific
+access-list inside_access_in line 95 permit tcp any any eq 210 (hitcnt=1091) 
+access-list inside_access_in line 96 remark Applix 335342 by John Noem on 5/12/04
+access-list inside_access_in line 97 remark also #364446 -- src. too specific
+access-list inside_access_in line 98 permit tcp any any eq 2200 (hitcnt=227) 
+access-list inside_access_in line 99 remark Applix 335342 by John Noem on 5/12/04
+access-list inside_access_in line 100 remark also #364446 -- src too specific
+access-list inside_access_in line 101 permit tcp any any eq 7090 (hitcnt=367) 
+access-list inside_access_in line 102 remark pop3 for pohanani center until 8/20/04.
+access-list inside_access_in line 103 permit tcp 172.21.47.0 255.255.255.0 any eq pop3 (hitcnt=43) 
+access-list inside_access_in line 104 remark 8/10/2004 - CJS - exception to allow WebX presentations to occur.
+access-list inside_access_in line 105 permit tcp any host 64.68.96.158 eq 1270 (hitcnt=0) 
+access-list inside_access_in line 106 remark per Applix #355114 - CJS 8/12/2004
+access-list inside_access_in line 107 permit tcp any host 63.169.80.40 eq 1024 (hitcnt=0) 
+access-list inside_access_in line 108 permit tcp any host 170.135.241.210 eq 15000 (hitcnt=106) 
+access-list inside_access_in line 109 remark per FERF# 1, 8/23/2004
+access-list inside_access_in line 110 permit tcp any host 172.135.241.210 eq 8088 (hitcnt=0) 
+access-list inside_access_in line 111 remark Added by Jnoem 11/11 incident 378451 and 378884
+access-list inside_access_in line 112 permit tcp 172.16.0.0 255.255.0.0 host 66.37.228.47 eq 2048 (hitcnt=117) 
+access-list inside_access_in line 113 remark per FERF #5, 12/22/2004 (CJS)
+access-list inside_access_in line 114 permit tcp any host 66.197.230.249 range 2082 2083 (hitcnt=0) 
+access-list inside_access_in line 115 remark Applix Incident #393931 - 1/10/2005 by CJS Exception Request Form #7
+access-list inside_access_in line 116 permit tcp any host 164.119.54.63 eq 591 (hitcnt=2) 
+access-list inside_access_in line 117 remark Applix #397883 by CJS on 2/22/2005 -- allows webcam to EE's child's daycare.
+access-list inside_access_in line 118 permit tcp any host 24.111.11.226 range www 84 (hitcnt=0) 
+access-list inside_access_in line 119 remark Applix #397883 by CJS on 2/22/2005 -- allows webcam to EE's child's daycare.
+access-list inside_access_in line 120 permit tcp any host 24.111.11.226 eq 1600 (hitcnt=189) 
+access-list inside_access_in line 121 remark per FERF# 1, 8/23/2004
+access-list inside_access_in line 122 deny ip any any (hitcnt=5174833) 
+access-list cahaba_access_in; 1 elements
+access-list cahaba_access_in line 1 permit ip any any (hitcnt=62047) 
+access-list studio_access_in; 3 elements
+access-list studio_access_in line 1 permit icmp any any (hitcnt=14706) 
+access-list studio_access_in line 2 permit udp any any eq domain (hitcnt=42801) 
+access-list studio_access_in line 3 permit ip any any (hitcnt=750238) 
+access-list 101; 1 elements
+access-list 101 line 1 permit ip any 172.18.254.0 255.255.255.0 (hitcnt=0) 
+access-list gssfcu1; 1 elements
+access-list gssfcu1 line 1 permit ip any any (hitcnt=230954) 
+toaster# clear page
+toaster# exit
+
+Logoff
+
+################################################################################
+

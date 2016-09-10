@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:34:38.127440Z"
+   url="file:///hosted/www/sodaphish.com/repos/nsleuth"
+   last-author="csteele"
+   kind="dir"
+   uuid="a6dc7a25-5ef0-0310-8a1d-b648c439f72b"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="bkmrk_sleuth.pl"
+   text-time="2005-02-18T07:34:52.000000Z"
+   committed-date="2005-02-18T07:34:38.127440Z"
+   checksum="0661d9854d18469febb7461d9e1c3e23"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:34:52.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="hst_sleuth-0.1.0.pl"
+   text-time="2005-02-18T07:34:52.000000Z"
+   committed-date="2005-02-18T07:34:38.127440Z"
+   checksum="14b9e1708330e1375fa6d8c5eabc2d5c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:34:52.000000Z"/>
+<entry
+   committed-rev="1"
+   name="hst_sleuth-0.2.0.pl"
+   text-time="2005-02-18T07:34:52.000000Z"
+   committed-date="2005-02-18T07:34:38.127440Z"
+   checksum="dea528847e760be68d84a81907b39701"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:34:52.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,10 @@
+=Python Development Docs=
+
+==SSL Documents==
+* http://panoptic.com/wiki/aolserver/How_to_generate_self-signed_SSL_certificates
+* http://code.activestate.com/recipes/496786/
+
+==Python Reference Docs==
+* file:///usr/share/doc/python2.6/html/index.html
+* file:///usr/share/doc/python2.7/html/index.html
+* file:///usr/share/doc/python3.1/html/index.html

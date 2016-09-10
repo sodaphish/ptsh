@@ -1,0 +1,8 @@
+# re-run as: `installPkg > .installMap && installPkg`
+#wimp-0.2.0.pl:/usr/local/bin/./wimp-0.2.0.pl:755:root:root
+#wimp-0.1.0.pl:/usr/local/bin/./wimp-0.1.0.pl:755:root:root
+exceptions:/usr/local/etc/exceptions:644:root:root
+#daily:/usr/local/bin/./daily:755:root:root
+#wimp.pl:/usr/local/bin/./wimp.pl:755:root:root
+wimp.py:/usr/local/bin/wimp.py:755:root:root
+wimp-new.pl:/usr/local/bin/wimp.pl:755:root:root

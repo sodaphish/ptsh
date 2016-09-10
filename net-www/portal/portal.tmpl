@@ -1,0 +1,78 @@
+#:THIS=new.cgi
+#:FUNCTION=main
+#:TITLE=pPortal %%VERSION%% - %%FUNCTION%%
+#:FONTS="Verdana, Helvetica, Arial"
+
+#/HEADER
+<html>
+<head>
+  <title>%%TITLE%%</title>
+</head>
+<body bgcolor="#ffffff" text="#00000">
+<font face=%%FONTS%% size=-1>
+<center>
+<table border=0 width=600>
+<tr>
+<td><font face=%%FONTS%% size=-1>
+#\HEADER
+
+
+#/FOOTER
+<br><br>
+</td>
+</tr>
+<tr>
+<td bgcolor="#cccccc"><font face="%%FONTS%%" size=-2>
+	<b>(C)opyright 1998-2000, Corey J. Steele, all rights reserved.</b>
+</font></td>
+</tr>
+</table>
+</center>
+</font>
+</body>
+</html>
+#\FOOTER
+
+
+#/MASTHEAD
+<table width=600 border=0 cellspacing=0 cellpadding=0>
+<tr>
+  <td bgcolor="#cccccc"><font face="%%FONTS%%" size=-1>
+	<font size=+3><b>pPortal</b></font><br>
+  </font></td>
+  <td align=right bgcolor="#cccccc"><font face="%%FONTS%%" size=-1>
+	%%DATE%%
+  </font></td>
+</tr>
+<tr>
+  <td colspan=2 bgcolor="#eeeeee"><font face="%%FONTS%%" size=-1>
+	<b>you are here: <a href="">Home</a> >> Main </b><br>
+	<div align=right>
+		<a href="">Log Out</a> | <a href="">List Entries</a> | <a href="">Search</a>
+	</div>
+  </font></td>
+</tr>
+</table>
+#\MASTHEAD
+
+
+#/ADD_DIALOG
+<center>
+<form method=POST action=%%THIS%%>
+<input type=hidden name=function value=add>
+<input type=hidden name=file value=%%FILE%%>
+<input type=hidden name=login value="%%LOGIN%%">
+<intpu type=hidden name=passwd value="%%PASSWD%%">
+<textarea wrap=soft name=entry cols=50 rows=10></textarea><br>
+<input type=submit value=" s u b m i t ">
+</form>
+</center>
+#\ADD_DIALOG
+
+
+#/WEATHER
+<br><br><hr><br>
+<center>
+<img src="content/current_report.gif"><br>
+[ <a target=new href="content/regional_radar.gif">regional radar</a> | <a target=new href="content/regional_sattelite.gif">regional sattelite</a> | <a target=new href="content/yankton_radar.gif">local radar</a> ]
+#\WEATHER

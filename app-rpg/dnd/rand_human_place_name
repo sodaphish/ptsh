@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+use strict;
+
+my $count;
+if( defined( $ARGV[0] ) ){
+	$count = $ARGV[0];
+} else {
+	$count = 1;
+}
+my @nouns = ();
+my @adjectives = (); 
+
+sub load_nouns
+{
+	open( NOUNS, "nouns" ) or die "$!"; 
+	while( <NOUNS> )
+	{
+		chomp( $_ );
+		push( @nouns, $_ );
+	}
+	close( NOUNS );
+	return;
+}
+
+
+sub load_adjs
+{
+	open( ADJS, "adjectives" ) or die "$!"; 
+	while( <ADJS> )
+	{
+		chomp( $_ );
+		push( @adjectives, $_ );
+	}
+	close( ADJS );
+	return;
+}
+
+
+
+load_nouns();
+load_adjs();
+
+my $adj_index; 
+my $noun_index;
+for( my $x = 0; $x < $count; $x++ )
+{
+	$adj_index = int( rand( scalar( @adjectives ) ) ); 
+	$noun_index = int( rand( scalar( @nouns ) ) ); 
+
+	print $adjectives[$adj_index], " ", $nouns[$noun_index], "\n";
+}

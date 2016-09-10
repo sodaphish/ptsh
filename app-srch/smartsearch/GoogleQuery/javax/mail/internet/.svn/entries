@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/javax/mail/internet"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="MimeUtility.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="86dc17d4861181174cf509f23d0e21eb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParameterList.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="796f802833d91a4a3e205cbd7a94219b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ContentType.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="331df65058c7200f039f65facf52aa4c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="hdr.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="56d57e9759afc1e4be2dc5ea070c6736"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimePart.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="495506d631768cf5a6b134bacce089a8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="matchEnum.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d5bbf08022f15c7451490d25cec7c358"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NewsAddress.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="34c49281dee9140ae37427d591c81e05"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="HeaderTokenizer.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6ba3f059e1bb2f305ee5d1afa8ce9641"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="InternetHeaders.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f7a41763cba7b8289539f5ebd8855139"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AsciiOutputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b3ab858864723235cba9412acc2a798c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="HeaderTokenizer$Token.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="774c090bc8f9b5a0c483be96936da3fc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParseException.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="87d45dd7d405d485a4abf383dfbb15f4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimePartDataSource.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7ed01892c9795591ed1913fa60a9181c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MailDateFormat.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b90ab116c541bc3d58b2684811285168"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeMultipart.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f43a7025c248a81166a20843887608ec"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeUtility$1$NullInputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="0e602520a2abc69e89c45a3fa0466da0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeBodyPart.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3a67162e0e7de49c41c29f0bd6edee57"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeMessage.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5dc34ca17ff2a4f1b1401ee46ba7f330"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MailDateParser.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="cc59417c6e6fd49e31a9015f992d3585"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="InternetAddress.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1b8fb4da802f4cf030a8390cde3749ac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ContentDisposition.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="929234d6114d146917d765b56d105a10"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SharedInputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="e45f4746e2abad002133ee8add080183"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="UniqueValue.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6c31ed273bc691aaf1df10aa1e25fcfc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AddressException.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9717f44720a1f1fdba09f387d6d2e3d3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeMessage$RecipientType.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d6f8fa3735a109e0230c6a16cf1dee80"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+</wc-entries>

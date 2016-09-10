@@ -1,0 +1,70 @@
+ParseLib.pm v1.2.2 - by Corey J. Steele <csteele@old.dhs.org>
+(C)opyright 1999, Corey J. Steele, all rights reserved.
+
+This program is distributed under the GNU Public License (GPL),
+for specific information regarding the GPL, please refer to
+the file "COPYING", or http://www.gnu.org.
+
+Please note that version 1.2.x is completely incompatible with
+old parseLib code.  The templates should all work, however the
+API has changed extensively, so you'll just have to re-write 
+any old code.  Sorry.
+
+INSTALLATION: 
+ - uncompress the archive somewhere on your disk
+     tar -zxf ParseLib-1.2.X.tar.gz 
+ - place ParseLib.pm either in your perl include directory, or in 
+   the directory of the code you're going to use it from. (You can
+   alternatively specify your @INC with "use lib `path`".)
+ - please refer to the code example index.cgi of this archive, for
+   examples of working with the ParseLib API.  See layout.tmpl for
+   examples of writing templates.
+
+REQUIREMENTS:
+ - Perl5
+
+ABOUT:
+ this is a simple template engine with some very useful features
+ it started small, but looks like its going to get bigger.  :-)
+
+ There are now three types of variables you can assign in your
+ templates: variable-value assignments (V-V), variable-file 
+ assignments (V-F), and variable-pipe assignments (V-P). 
+ 
+ V-V assignments are just simple assignments, they assign the 
+ value (RHS) to the variable (LHS). Here's an example of a
+ V-V assignment in a template file:
+        #:EMAIL=csteele@usd.edu
+
+ V-F assignments take the contents of the file specified (RHS)
+ and assign it to the variable (LHS).  This does not (presently)
+ parse the contents of the file in any way. Here's an example
+ of a V-F assignment in a template file:
+        #:FILE=file:/home/csteele/www/content/include.txt
+
+ V-P assignments execute the command specified (RHS) and assign
+ the results the program sends to STDOUT to the variable.  One
+ thing that should be remembered about this is that the commands
+ are executed with the same UID as the web server -- I DO NOT
+ RECOMMEND YOU OPEN THIS AVAILABILITY UP TO WEB SERVERS RUNNING
+ AS ROOT, AS YOUR USERS COULD EASILY ABUSE THIS!  (A tragedy would
+ be if some rouge user threw a "#:KILL=pipe:rm -rf /" in a 
+ template and then use it.) Here's an example of a V-P assignment:
+        #:UPTIME=pipe:uptime
+
+ Sections are really easy to understand... you open a section, 
+ you type whatever you want in a section, and you close a section.
+ Sections can contain variables.  Here's an example of a section:
+
+        #/SECTION_ONE
+        # This is a comment... I think you should keep the space
+        # between the '#' and the beginning of your comment.
+        #:DIGADIGA=Blah
+        # yes, you can do variable definitions inside a section.
+        This is the variable DIGADIGA: %%DIGADIGA%%.<br>
+        #\SECTION_ONE
+
+CAVEATS:
+ Prsently there is next to no error checking when opening a template
+ file.  This will cause a limited amount of confusion if you're just
+ getting started with ParseLib, and working through your code.

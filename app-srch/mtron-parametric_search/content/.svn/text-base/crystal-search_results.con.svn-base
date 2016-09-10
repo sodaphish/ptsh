@@ -1,0 +1,198 @@
+#:OPEN_SMALL_FONT=<font face="Verdana, Helvetica, Arial" size=-1>
+#:CLOSE_SMALL_FONT=</font>
+
+#/EDIT_SEARCH
+<br>
+Searching the <b>%%FAM%%</b> for a <b>%%FREQUENCY%% MHz. %%PRETTY_MOUNT%%</b> product.
+<br>
+<form action=index.cgi method=get>
+<input type=hidden name=f value="search">
+<input type=hidden name=here value="0">
+<input type=hidden name=fam value="crystals">
+<input type=hidden name=mount value=%%MOUNT%%>
+<input type=hidden name=freq value=%%FREQUENCY%%>
+<table width=100%>
+<tr>
+  <td valgin=top>
+    %%OPEN_SMALL_FONT%%
+    <b>Product Family</b>:
+    <select name=family>
+      %%FAMILY_OPTIONS%%
+    </select>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td valign=top>
+    %%OPEN_SMALL_FONT%%
+    <b>Tolerance (ppm)</b>:
+    <select name=tol>
+      %%TOLERANCE_OPTIONS%%
+    </select>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+<tr>
+  <td valign=top> 
+    %%OPEN_SMALL_FONT%%
+    <b>Stability (ppm)</b>:
+    <select name=stab>
+      %%STABILITY_OPTIONS%%
+    </select>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td valign=top>
+    %%OPEN_SMALL_FONT%%
+    <b>Temperature</b>: From
+    <select name=tltemp>
+      %%LTEMP_OPTIONS%%
+    </select> &deg;C to 
+    <select name=utemp>
+      %%UTEMP_OPTIONS%%
+    </select> &deg;C
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+<tr>
+  <td valign=top> 
+    %%OPEN_SMALL_FONT%%
+    <b>Package Type</b>:
+    <select name=pkg_type>
+      %%PKG_TYPE_OPTIONS%%
+    </select>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td valign=top>
+    %%OPEN_SMALL_FONT%%
+	<input type=submit value=" r e f i n e > > > ">
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+</table>
+</form>
+<br><br><hr><br>
+#\EDIT_SEARCH
+
+#/RESULTS_HEADER
+Click <a href=%%THIS%%?f=search>here</a> to return to the main search page<br><br>
+<center>
+<table width=100% border=1 cellspacing=0 cellpadding=0>
+<tr>
+  <td colspan=10>%%OPEN_SMALL_FONT%%<b><font size=+2>
+    <center><font color="#cc0033">%%TOTAL_MATCHES%%</font> crystals match your search<br>
+    <font size=-1>(Displaying %%LOW_RANGE%% - %%HIGH_RANGE%%)</font></center>
+    </font><br>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+</tr>
+<tr>
+<!--
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center></center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+-->
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Part<br>Number</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+<!--
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Package<br>Type</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+-->
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Cut</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Mode</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Load</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Tol.</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Stability</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+<!--
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Aging</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+-->
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Temperature</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Value<br>Added</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>PDF</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+  <td bgcolor="#bbbbbb">%%OPEN_SMALL_FONT%%<b>
+    <center>Package Type</center>
+  </b>%%CLOSE_SMALL_FONT%%</td>
+</tr>
+#\RESULTS_HEADER
+
+#/RESULTS_FOOTER
+</table>
+</center>
+<br><br>
+#\RESULTS_FOOTER
+
+#/NEXT
+<font size=+1>
+<a href="%%THIS%%?f=%%FUNCTION%%&fam=%%FAM%%&mount=%%MOUNT%%&freq=%%FREQUENCY%%&here=%%HERE%%&family=%%FAMILY_PARAM%%&tol=%%TOL_PARAM%%&stab=%%STAB_PARAM%%&tltemp=%%LTEMP_PARAM%%&utemp=%%UTEMP_PARAM%%">Next</a>
+</font>
+#\NEXT
+
+#/PREVIOUS
+<font size=+1>
+<a href="%%THIS%%?f=%%FUNCTION%%&fam=%%FAM%%&mount=%%MOUNT%%&freq=%%FREQUENCY%%&here=%%PREV%%&family=%%FAMILY_PARAM%%&tol=%%TOL_PARAM%%&stab=%%STAB_PARAM%%&tltemp=%%LTEMP_PARAM%%&utemp=%%UTEMP_PARAM%%">Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+#\PREVIOUS
+
+#/WHITE
+<tr>
+<!--
+  <td bgcolor="#ffffff"><center>%%OPEN_SMALL_FONT%%<font size=-2><b>%%INDEX%%</b></center></font>%%CLOSE_SMALL_FONT%%</td>
+-->
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%FAMILY%%<br>%%PART_NUMBER%%<br>%%FREQUENCY%%</font></center></td>
+<!--
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%FAMILY%%</font></center></td>
+-->
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%CUT%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%MODE%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LOAD%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%TOLERANCE%%<br>ppm</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%STABILITY%%<br>ppm</font></center></td>
+<!--
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%AGING%%<br>ppm</font></center></td>
+-->
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LTEMP%%&deg;C to %%HTEMP%%&deg;C</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%VAD%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2><a href=http://www.mtron.com/pdf/%%PDF%%><img src="images/picture-icon.gif" border=0></a></font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PKG_TYPE2%%</font></center></td> 
+</tr>
+#\WHITE
+
+#/GREY
+<tr>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2><b>%%INDEX%%</b></font></center></td>
+-->
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%FAMILY%%<br>%%PART_NUMBER%%<br>%%FREQUENCY%%</font></center></td>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%FAMILY%%</font></center></td>
+-->
+  <td bgcolor="#eeeeee"><center><font face="verdana, Helvetica, Arial" size=-2>%%CUT%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%MODE%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LOAD%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%TOLERANCE%%<br>ppm</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%STABILITY%%<br>ppm</font></center></td>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%AGING%%<br>ppm</font></center></td>
+-->
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LTEMP%%&deg;C to %%HTEMP%%&deg;C</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%VAD%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2><a href=http://www.mtron.com/pdf/%%PDF%%><img src="images/picture-icon.gif" border=0></a></font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PKG_TYPE2%%</font></center></td> 
+</tr>
+#\GREY

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2"
+   name=""
+   committed-date="2005-03-21T15:58:13.866228Z"
+   url="file:///hosted/www/sodaphish.com/repos/etoi"
+   last-author="csteele"
+   kind="dir"
+   uuid="f3a37bfb-5df0-0310-a143-875cc9f8793e"
+   revision="2"/>
+<entry
+   committed-rev="6"
+   name="etoi"
+   text-time="2005-04-01T19:19:17.000000Z"
+   committed-date="2005-04-01T19:19:43.744463Z"
+   checksum="2a3e7cdb4f8e8396f86a9b063129eeb1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:06.000000Z"
+   revision="6"/>
+<entry
+   committed-rev="4"
+   name=".installMap"
+   text-time="2005-03-31T20:26:11.000000Z"
+   committed-date="2005-03-31T20:32:34.175979Z"
+   checksum="50813be4bd9a84dbbd3d8e3de972aa07"
+   last-author="csteele"
+   kind="file"
+   revision="4"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="5"
+   name="etos"
+   text-time="2005-04-01T19:17:09.000000Z"
+   committed-date="2005-04-01T19:17:46.644992Z"
+   checksum="93839ad051c95eee3e297175c8f9fb37"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:06.000000Z"
+   revision="5"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

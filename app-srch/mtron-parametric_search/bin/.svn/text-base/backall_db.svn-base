@@ -1,0 +1,24 @@
+#!/bin/sh
+# filename: backall_db
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+#	written by Corey J. Steele <csteele@mtron.com>
+# last modified: 12/12/2000
+# 
+# Description: this script is to be run every morning around 3:00AM, and 
+#	makes a backup of the 'web' database.  It also purges out backups
+#	of the database that are older than two weeks old... this prevents
+#	the system from becoming bloated with unneeded backups of the 
+#	database.
+
+DIR=/home/csteele/devel/sql/backups/
+DAY=$(( $(date +%d)-1 ));
+DATE=$DAY`date +%m%Y`; 
+
+mv $DIR/web.last $DIR/web.backup-$DATE
+mv $DIR/mysql.last $DIR/mysql.backup-$DATE
+
+sudo /usr/bin/mysqldump --all web > $DIR/web.last
+sudo /usr/bin/mysqldump --all mysql > $DIR/mysql.last
+
+/usr/sbin/tmpwatch --quiet -f 336 $DIR
+

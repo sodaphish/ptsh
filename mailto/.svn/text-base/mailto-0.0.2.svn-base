@@ -1,0 +1,124 @@
+#!/usr/bin/perl
+# mailto v0.0.2 by C.J. Steele
+#
+# this script implements the ability to send mail via arbitrary port 
+# number and server from the command-line. it also provides basic 
+# sendmail(1) equiv. command-line interface
+#
+# usage:
+# mailto [-v] [-F "full from name"] [-t timeout] [-s "subject"] [-S smtp.server] [-p portnumber] \
+#        recipient1@host.com,recipient2@host.com...recipient3@host.com < inputfile
+#
+# TODO:
+# * NONE
+#
+use strict;
+use Getopt::Std;
+use Net::SMTP;
+
+my $DEBUG = 0;
+
+#
+#stuff to pretty-print usage fields
+my $arg; my $val;
+format STDOUT =
+~@<<<<<<<<<<<<<<<<<< @*
+$arg,$val
+.
+my %usage = (
+	"-v" => "turn verbosity on",
+	"-t <timeout>" => "set the SMTP server connect timeout",
+	"-s <subject>" => "double-quoted subject line",
+	"-S <server>" => "name of the SMTP server to connect to",
+	"-p <port>" => "the port the SMTP server is listening on",
+	"-F <fullname>" => "double-quoted from information"
+);
+
+#
+#setup initial variables
+my %opts = {}; getopts( "vht:s:S:p:", \%opts );
+my $msg_sub;
+my $msg_frm;
+my $msg_rcv;
+my $smtp_srvr;
+my $smtp_port;
+my $smtp_timeout;
+my $verbose;
+if( $opts{'F'} ){
+	$msg_frm = $opts{'F'};
+} else {
+	$msg_frm = `whoami`; chomp( $msg_frm ); $msg_frm .= "\@"; $msg_frm .= `hostname`; chomp( $msg_frm );
+}
+if( $opts{'s'} ){ $msg_sub = $opts{'s'}; } else { $msg_sub = "no subject"; }
+if( $opts{'S'} ){ $smtp_srvr = $opts{'S'}; } else { $smtp_srvr = "localhost"; }
+if( $opts{'p'} ){ $smtp_port = $opts{'p'}; } else { $smtp_port = 25; }
+if( $opts{'t'} ){ $smtp_timeout = $opts{'t'}; } else { $smtp_timeout = 60; }
+if( $opts{'v'} ){ $verbose = 1; } else { $verbose = 0; }
+$msg_rcv = $ARGV[$ARGV];
+
+
+#
+# show usage information
+if( ! $ARGV[$ARGV] or $opts{'h'} )
+{
+	print "Usage: mailto [options] recipientlist [< inputfile]\n";
+	foreach $arg ( keys( %usage ) )
+	{
+		$val = $usage{$arg};
+		write;
+	}
+	print "\n";
+	exit 1;
+}
+
+if( $DEBUG )
+{
+	print "msg_frm $msg_frm\n";
+	print "msg_sub $msg_sub\n";
+	print "msg_rcv $msg_rcv\n";
+	print "smtp_timeout $smtp_timeout\n";
+	print "smtp_srvr $smtp_srvr\n";
+	print "smtp_port $smtp_port\n";
+	print "server $smtp_srvr:$smtp_port\n";
+	print "\n\n";
+}
+
+#
+# do the deed...
+eval {
+	my $smtp_h = Net::SMTP->new( "$smtp_srvr:$smtp_port", Timeout => $smtp_timeout )
+		or die "E: couldn't connect to smtp server! ($!)";
+	print "I: connection to SMTP server established.\n" if( $verbose );
+	$smtp_h->mail( $ENV{USER} )
+		or die "E: couldn't set 'from'! ($!)";
+	print "I: 'from' information set.\n" if( $verbose );
+	$smtp_h->to( $msg_rcv )
+		or die "E: couldn't set 'to'! ($!)";
+	print "I: 'to' information set.\n" if( $verbose );
+	$smtp_h->data()
+		or die "E: couldn't start data phase ($!)";
+	print "I: data phase started.\n" if( $verbose );
+	$smtp_h->datasend( "From: $ENV{USER}\n" )
+		or die "E: couldn't send headers ($!)";
+	$smtp_h->datasend( "Subject: $msg_sub\n" )
+		or die "E: couldn't send headers ($!)";
+	print "I: headers set.\n" if( $verbose );
+	while( <STDIN> )
+	{
+		$smtp_h->datasend( $_ )
+			or die "E: couldn't send data ($!)";
+	}
+	$smtp_h->dataend()
+		or die "E: couldn't end data phase($!)";
+	print "I: data phase ended.\n" if( $verbose );
+	$smtp_h->quit
+		or die "E: couldn't quit session ($!)";
+	print "I: disconnected from SMTP server.\n" if( $verbose );
+}; if( $@ ){
+	print STDERR "Send failed with msg: \"$@\"";
+	exit 1;
+} else {
+	print "Sent.\n" if( $verbose );
+	exit 0;
+}
+

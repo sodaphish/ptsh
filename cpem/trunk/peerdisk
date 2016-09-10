@@ -1,0 +1,20 @@
+
+[indentation]
+indent_width=4
+indent_type=1
+indent_hard_tab_width=8
+detect_indent=false
+indent_mode=2
+
+[project]
+name=peerdisk
+base_path=/home/cjs/mine/src/cpem/trunk/
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=0
+FILE_NAME_0=4214;Python;0;16;1;1;0;/home/cjs/mine/src/cpem/trunk/psbd.py;0;4
+FILE_NAME_1=0;Python;0;16;1;1;0;/home/cjs/mine/src/cpem/trunk/peerdisk-broker.py;0;4

@@ -1,0 +1,36 @@
+#:TITLE=Welcome to ParseLib
+#:FILE=file:/home/csteele/www/content/include.txt
+#:WHO=pipe:who
+
+#/HEADER
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+  <title>%%TITLE%%</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#0000ff" vlink="#0000cc">
+<font face="Helvetica" size=-1>
+#\HEADER
+
+#/BODY
+This is the example of the pipe'd output: %%WHO%%... it will show who
+is presently logged in.  Beware of how it formats to HTML!
+<br><br>
+This it the contents of /home/csteele/www/content/include.txt:<br>
+%%FILE%%
+#\BODY
+
+#:QUOTE=Yes I did!
+
+#/FOOTER
+</font>
+<br><br><br>
+<font face="Helvetica" size=-1>
+<div align=right>
+%%QUOTE%%<br>
+-- ME
+</div>
+</font>
+</body>
+</html>
+#\FOOTER

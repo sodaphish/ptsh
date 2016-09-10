@@ -1,0 +1,6 @@
+translated the fogidx scripts from perl to python and extended it to also take a stab at determining the author's gender.
+
+--This line, and those below, will be ignored--
+
+AM   fogidx.py
+AM   gender.py

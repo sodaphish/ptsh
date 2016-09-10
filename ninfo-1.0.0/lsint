@@ -1,0 +1,2 @@
+#!/bin/sh
+ifconfig -a | grep ^[a-z]*.[0-9] | awk {'print $1'}

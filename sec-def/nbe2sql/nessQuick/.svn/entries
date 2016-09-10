@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:06:01.756495Z"
+   url="file:///hosted/www/sodaphish.com/repos/nbe2sql/nessQuick"
+   last-author="csteele"
+   kind="dir"
+   uuid="8275aa95-5ef0-0310-9c2a-a16d0fbab94c"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="nessus_rpt.pl"
+   text-time="2005-02-18T08:06:47.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="b25bf1bbcd50631e1d7b6b7ba7dd3594"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nessus_makedb.sql"
+   text-time="2005-02-18T08:06:47.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="269a79a533bd9c84bb6f34dbab8c5ea5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="test.nbe"
+   text-time="2005-02-18T08:06:48.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="21f0abdcd717acd70d9703aae2f25af8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nessus_import.pl"
+   text-time="2005-02-18T08:06:48.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="d208e298524352ebfdd09e67f2794e75"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nessQuick.zip"
+   text-time="2005-02-18T08:06:48.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="7ca0a789d381c2574a6139db856d94b0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:48.000000Z"/>
+</wc-entries>

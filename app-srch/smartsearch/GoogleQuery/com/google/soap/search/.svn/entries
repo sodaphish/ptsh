@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/com/google/soap/search"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="GoogleSearchResultElement.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="262ed34441ec0618f9b7827c67900c57"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GoogleAPIDemo.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c3c5f463a1dd5e92c355ec3710662fdc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GoogleSearchFault.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="72b6cd7ab092128e69b0fea31623ef32"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GoogleSearchResult.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c97947c211d71f93b7df4035eda4f8a5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GoogleSearch.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="870c01f55af03ee712c8ac615e56ba9c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="GoogleSearchDirectoryCategory.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6afe39e880eada1af1fea36341493deb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+</wc-entries>

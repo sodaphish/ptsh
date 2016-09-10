@@ -1,0 +1,12 @@
+To generate a self-signed certificate, which is necessary for CPEMd to run, you need to:
+
+1) create the 'certs' directory via `mkdir certs` or whatever facility is 
+required by your OS.
+
+2) use openssl to generate a cert and key file... on Linux, this is done 
+via `openssl req -x509 -nodes -newkey rsa:1024 -keyout cert.pem \
+-out cert.pem'
+
+
+If you create your cert via some other mechanism, make sure cpemd.py 
+knows where your cert file and key file live, or it won't run.

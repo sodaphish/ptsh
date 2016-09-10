@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# flushFinderCrap v0.0.1 by C.J. Steele <coreyjsteele@yahoo.com>
+# (C)opyright 2005, C.J. Steele <coreyjsteele@yahoo.com>, all rights reserved.
+# 
+# MacOS X Finder drops silly "._FILENAME" and .DS_Store files for each file it generates 
+# a preview for this can ammount to a couple of megs worth of data and on this limited 
+# USB drive, that is susbstantial (in the neighborhood of 1-2% of the drive) so this 
+# script goes through and takes those files off.  
+# 
+# You need GNU versions of `find`, `sed`, `du` and `xargs` for this to work.
+#
+echo -n "Are you running this script from the USB Volume's root? [y/n] "
+read -n 1 DECISION
+if [ $DECISION = "y" ] || [ $DECISION = "Y" ]; then 
+	echo
+	echo I: flushing Finder crap...
+	BEFORE=`du -ks | awk {'print $1'}`
+	find . -name \._* -print | sed s/\'/\\\\\'/g | sed s/\ /\\\\\ /g | xargs rm -rfv
+	find . -name ".DS_Store" | xargs rm -rfv 
+	find . -name "\$RECYCLE_BIN" | xargs rm -rfv 
+	find . -name ".Trash*" | xargs rm -rfv 
+	AFTER=`du -ks | awk {'print $1'}`
+	typeset -i SAVED=$BEFORE-$AFTER
+	echo $SAVED kilobytes saved
+	exit 0
+else 
+	echo 
+	echo ABORTING!
+	exit 1
+fi

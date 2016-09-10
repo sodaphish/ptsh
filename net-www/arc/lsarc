@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# this is my own bit... it's a cron job that builds an index of your archives
+#	by either domain or date of last archive...
+#
+
+ARC_ROOT=~/.arc
+ARC_STOR=$ARC_ROOT/archive
+ARC_LOG=$ARC_ROOT/log
+ARC_OUT=$ARC_ROOT/index.html
+
+typeset -r ARC_ROOT
+typeset -r ARC_STOR
+typeset -r ARC_LOG
+typeset -r ARC_OUT
+
+# by date!
+for d in `find $ARC_STOR -type d`; do
+
+	BASENAME=`basename $d`
+	echo "<li><a href=$d>$BASENAME</a></a>"
+
+done

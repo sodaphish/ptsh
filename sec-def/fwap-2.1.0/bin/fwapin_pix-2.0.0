@@ -1,0 +1,252 @@
+#!/usr/bin/perl
+# fwapin_pix by C.J. Steele <csteele@good-sam.com>
+#  2 Oct 2003
+#
+# *********************************************************************
+# NEVER EVER EVER SEND SIGNAL 9 TO THE PROCESS CONTROLLING THIS SCRIPT!
+# 	...it will dork things up beyond all imagineable belief.
+# *********************************************************************
+#
+# fwapin_pix is the FWAP intake script for the PIX firewall data.  This 
+# script monitors the 'current' firewall log for additions and then 
+# parses those additions and logs them to the MySQL database.  This 
+# script is crafted specifically to handle log rotations and will be 
+# used in conjunction with `fwapd` and `chkfwapd` to ensure that no data 
+# is lost.
+# 
+# The structure of the 'blocked' and 'other' tables are included below...
+#
+#	CREATE TABLE IF NOT EXISTS blocked (
+#		id		int(11) auto_increment not null,
+#		time    varchar(16) not null,
+#		date    varchar(32) not null,
+#		proto   varchar(16) not null,
+#		src		varchar(64) not null,
+#		srcprt  varchar(16) not null,
+#		dst		varchar(64) not null,
+#		dstprt	varchar(16) not null,
+#		key( src ),
+#		key( dst ),
+#		key( date ),
+#		primary key( id )
+#	)
+#
+#	CREATE TABLE IF NOT EXISTS others (
+#		id			int(11) auto_increment not null,
+#		time		varchar(16) not null,
+#		date		varchar(32) not null,
+#		pixerror	varchar(32) not null,
+#		message		text not null,
+#		key( date ),
+#		fulltext index( message ),
+#		primary key( id )
+#	)
+#
+#
+# TODO/ROADMAP:
+#	* handle database errors gracefully
+#	* check integrity of $ino & $linc after BEGINNING:
+# 
+use strict;
+use DBD::mysql;
+use File::Basename;
+use Shell qw( rm touch );
+
+
+#handle all signals except KILL
+$SIG{'INT'} = \&diegracefully; 
+$SIG{'QUIT'} = \&diegracefully; 
+$SIG{'HUP'} = \&diegracefully; 
+$SIG{'SEGV'} = \&diegracefully; 
+$SIG{'TERM'} = \&diegracefully; 
+
+
+my %conf = ( 
+	'fwap_dir' => "/var/www/html/sec/fwap2", 
+	'fwap_bindir' => "/var/www/html/sec/fwap2/bin",
+	'fwap_piddir' => "/var/www/html/sec/fwap2/pid",
+	'logdir' => "/var/log/hosts/toaster.corp.good-sam.com",
+	'logfile' => "current",
+	'db_name' => "fw2",
+	'db_user' => "root",
+	'db_pass' => ""
+);
+
+
+#check PID file and if it doesn't exist, dump our pid in there...
+my $name = basename($0); 
+if( -e "$conf{'fwap_piddir'}/$name.pid" )
+{
+	#there's already a pid file, RUN AWAY
+	print STDERR "the pid/lock file, $conf{'fwap_piddir'}/$name.pid, exists.\n";
+	exit( 1 );
+} else {
+	open( PID, ">$conf{'fwap_piddir'}/$name.pid" ); 
+		print PID "$$"; 
+	close( PID );
+}
+
+#check to see if our state file exists, if not, touch it
+# so we don't bomb out after BEGINNING:
+if( ! ( -e "$conf{'fwap_piddir'}/$name.state" ) )
+{
+	touch "$conf{'fwap_piddir'}/$name.state"; 
+}
+
+
+#determine $logfile
+my $logfile; 
+if( $ARGV[0] )
+{
+	$logfile = "$ARGV[0]"; 
+} else {
+	$logfile = "$conf{'logdir'}/$conf{'logfile'}"; 
+}
+
+
+#setup database connection
+my $dbh = DBI->connect( "dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=$conf{'db_name'}", $conf{'$db_user'}, $conf{'$db_pass'} )
+	or diegracefully( "Couldn't connect to database ($DBI::errstr)" );
+
+
+
+
+
+
+
+BEGINNING:
+
+#load persistance information...
+my( $ino, $linc );
+open( STATE, "$conf{'fwap_piddir'}/$name.state" ) or diegracefully( "$!" );
+while( <STATE> )
+{
+	( $ino, $linc ) = split( /\ /, $_, 2 );	
+}
+close( STATE ); 
+
+
+my $inode = (stat($logfile))[1]; 
+my $linecount = 0;
+
+
+if( $ino != $inode )
+{
+	$linc = 0; 
+	print STDERR "W: resuming in a different file, disregarding linecounter.\n";
+}
+
+	
+
+
+open( IN, "$logfile" ) or diegracefully( "$!" ); 
+for(;;)
+{
+
+	#get input 
+	my $input = <IN>;
+
+	#check if there was input
+	if( $input )
+	{
+
+		if( $linecount >= $linc )
+		{
+
+			#there WAS input, process it
+			chomp( $input );
+
+
+			if( $input =~ /4-106023/ )
+			{
+				#blocked packets
+				my $useful = (split( /toaster\.corp\.good\-sam\.com/, $input, 2 ))[1]; 
+				my( @elements ) = split( /\s/, $useful ); 
+	
+				my $srcprt; 
+				my $src = $elements[9]; 
+				$src =~ s/(inside|outside|studio|seniorcompanions|gssfcu)://i; 
+				( $src, $srcprt ) = split( /\//, $src, 2 ); 
+	
+				my $dstprt;
+				my $dst = $elements[11]; 
+				$dst =~ s/(inside|outside|studio|seniorcompanions|gssfcu)://i; 
+				( $dst, $dstprt ) = split( /\//, $dst, 2 );
+		
+				my $stmt_h = $dbh->prepare( "INSERT INTO blocked ( time, date, proto, src, srcprt, dst, dstprt ) VALUES ( '$elements[4]' , '$elements[1] $elements[2] $elements[3]', '$elements[7]', '$src', '$srcprt', '$dst', '$dstprt' )" );
+					$stmt_h->execute() or diegracefully( $DBI::errstr ); 
+			} elsif( $input !~ /3-106011/ and $input !~ /4-106023/ ){
+				# we're interested in everything EXCEPT blocked packets and noxlate messages
+				# PIX3-106011 are noxlate messages
+				# PIX4-106023 are blocked packets
+				my $useful = (split( /toaster\.corp\.good\-sam\.com/, $input, 2 ))[1]; 
+				my( @elements ) = split( /\s/, $useful ); 
+				my $message;
+				for( my $x = 6; $x <= scalar( @elements ); $x++ )
+				{
+					$message .= " $elements[$x]"; 
+				}
+				
+				# lets insert this entry in to the database
+				my $stmt_h = $dbh->prepare( "INSERT INTO others ( time, date, pixerror, message ) VALUES ( '$elements[4]' , '$elements[1] $elements[2] $elements[3]', '$elements[5]', '$message' )" );
+					$stmt_h->execute() or diegracefully( $DBI::errstr ); 
+			}
+
+
+		} 
+
+		#there was input, but, not input we need yet.
+		$linecount++; 
+
+	} else {
+
+		#no input, check our inode while we wait...
+		sleep 1; 
+		if( (stat($logfile))[1] != $inode )
+		{
+			#logfile's inode is different, our logfile has rotated!
+			close( IN );
+			sleep 3; 
+			goto BEGINNING; 
+		} else {
+			#inode is fine, clear the eof
+			seek( IN, 0, 1 );
+		}#end-if
+
+	}#end-if
+
+}#end-for
+close( IN );
+
+#cleanup our db connection...
+$dbh->disconnect();
+
+exit( 0 );
+
+
+
+
+
+
+sub diegracefully 
+{
+	if( @_ )
+	{
+		print STDERR "E: $_\n" foreach( @_ )
+	}
+
+	#linc must be +1 of whatever linecount was in order to resume naturally
+	$linecount++; 
+
+	open( STATE, ">$conf{'fwap_piddir'}/$name.state" );
+		print STATE "$inode $linecount"; 
+	close( STATE );
+
+	#remove our pid file.
+	rm( "$conf{'fwap_piddir'}/$name.pid" );
+
+	print STDERR "N: we're dying gracefully...\n"; 
+
+	#finally, go away...
+	exit( 1 );
+}

@@ -1,0 +1,36 @@
+#!/bin/sh
+# slattrs.init - a sysvinit script to start/stop/status slattrs
+# 	by C.J. Steele, CISSP <coreyjsteele@yahoo.com>
+#
+# forgive this ugly hack...I'm tired. 
+#
+
+slattrs=/usr/local/sbin/slattrs.pl
+pidfile=/tmp/slattrs.pid
+
+case "$1" in
+    start)
+	nohup $slattrs
+	;;
+    stop)
+	if test -f $pidfile; then
+		pid=`cat $pidfile`
+		kill -9 $pid
+		rm -f $pidfile
+		echo "slattrs has been stopped."
+	else
+		echo "slattrs doesn't seem to be running."
+	fi
+	;;
+    status)
+	if test -f $pidfile; then
+		echo "slattrs appears to be running."
+	else
+		echo "slattrs appears to be stopped."
+	fi
+	;;
+    *)
+	echo "Usage: $0 {start|stop|status}"
+	exit 1
+	;;
+esac

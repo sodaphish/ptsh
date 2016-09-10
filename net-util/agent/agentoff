@@ -1,0 +1,18 @@
+#!/bin/sh
+# agentoff v0.0.1 by C.J. Steele <csteele@sodaphish.com>
+#
+# 4 Mar 2004
+# 
+# this kills the ssh-agent and unlinks the necessary files
+PIDFILE=~/.config/ssh_agent/pid
+SOCKFILE=~/.config/ssh_agent/sock
+
+if [ -f $PIDFILE ] && [ -f $SOCKFILE ]; then
+		ssh-agent -k
+        unlink $PIDFILE 
+        unlink $SOCKFILE
+        unset SSH_AGENT_PID
+        unset SSH_AUTH_SOCK
+else 
+        echo "ssh-agent not running."
+fi

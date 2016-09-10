@@ -1,0 +1,63 @@
+#!/usr/bin/python 
+"""
+keywords command-line utility
+(C)opyright 2011, Corey J. Steele, all rights reserved.
+
+TODO: 
+** catch failed dependencies in the import statements
+** implement logging throughout 
+
+CHANGES:
+** 0.2.0 -- broken-out into separate file
+** 0.1.0 -- integrated into keywords class
+"""
+import sys
+import os
+import getopt
+import semfeed
+from semfeed.keywords import *
+
+__version__ = "0.1.0"
+
+def usage():
+	sys.stderr.write( "%s v.%s"%(sys.argv[0],__version__))
+	sys.stderr.write( "(c)opyright 2011, C.J. Steele, all rights reserved\n" )
+	sys.stderr.write( "\n" )
+	sys.stderr.write( "usage: %s [-d database] {-l,-k keyword}\n"%(sys.argv[0]))
+	sys.stderr.write( "\n" )
+	sys.stderr.write( "  -d,--database [file]  - file/path to the database\n" )
+	sys.stderr.write( "  -l,--list             - list all the keywords\n" )
+	sys.stderr.write( "  -k,--keyword          - list specific keyword\n" )
+	sys.stderr.write( "  -h,--help             - this message\n" )
+	sys.stderr.write( "\n" )
+
+
+if __name__=='__main__':
+	database = 'feeds.db'
+	kw=None
+
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hld:k:", ["help", "list", "database=", "keyword="])
+	except getopt.GetoptError, e:
+		sys.stderr.write(str(e))
+		sys.stderr.write()
+		usage()
+		sys.exit(2)
+
+	for o, a in opts:
+		if o in ("-h", "--help"):
+			usage()
+			sys.exit()
+		elif o in ("-d", "--database"):
+			database=a
+			semfeed.log_event('info', 'database specified at command-line: ' + database)
+		elif o in ("-l", "--list"):
+			kw=Keywords(database)
+			kw.get_keyword(None,0.019)
+			sys.exit()
+		elif o in ("-k", "--keyword"):
+			kw=Keywords(database)
+			kw.get_keyword(a,0.019)
+			sys.exit()
+
+	usage()

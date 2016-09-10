@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# by SodaPhish <sodaphish@gmail.com> 
+#
+# 4chan image scraper daemon -- run with nohup to poll the site every 30 seconds
+# you can adjust the timeout by adjusting the sleep duration at the end of the 
+# while loop.
+#
+
+if [ "$1" = "" ]; then
+	echo "Usage: `basename $0` <4chan thread url>"
+	exit 1
+fi
+
+echo "4chan downloader"
+echo "Downloading untill canceled or 404'd"
+LOC=$(echo "$1" | egrep -o '([0-9]*)$' | sed 's/\.html//g' )
+if [ "$LOC" = "" ]; then
+	#LOC="$HOME/tmp"
+	LOC="\"`pwd`\""
+fi
+echo "Downloading to $LOC"
+
+
+if [ ! -d $LOC ]; then
+	mkdir $LOC
+fi
+
+cd $LOC
+
+while [ "1" = "1" ]; do
+	TMP=`mktemp`
+	TMP2=`mktemp`
+
+	wget -O "$TMP" "$1"
+	if [ "$?" != "0" ]; then
+		rm $TMP $TMP2
+		exit 1
+	fi
+
+	egrep 'http://images.4chan.org/[a-z0-9]+/src/([0-9]*).(jpg|png|gif)' "$TMP" -o > "$TMP2"
+	#cat "$TMP2" | sed 's!/cb-nws!!g' > "$TMP"
+
+	wget -nc -i $TMP2
+	
+	rm $TMP $TMP2
+	
+	echo "Waiting 30 seconds befor next run"
+	sleep 30
+done;
+
+

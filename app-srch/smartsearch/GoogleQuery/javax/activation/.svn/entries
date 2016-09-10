@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/javax/activation"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="MimetypesFileTypeMap.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5bc0fc110dc793b84f738cc32191067f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CommandMap.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="013443ba0b68b31cfe92a27fe7bac59c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataSourceDataContentHandler.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="141b74d20e699d2bdcabf33c022316cb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="URLDataSource.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9752e3c367f798b3141b5f5dfb72e4a0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FileTypeMap.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9c7b095212c8097ba1d84d6b29b833ca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataHandlerDataSource.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4a9574b74e139b704456c62003dc2783"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeTypeParameterList.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="94cda75abb0cb3f5c7bac92e7723cb0a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeType.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="2ceb847579c8ddb47ee8f86b03470a06"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ObjectDataContentHandler.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6e68d80cb647300fd3ff41a5e5c155bb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CommandInfo.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="085608591c60e0981bca4d93c7734568"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataSource.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5e14881bc16d0af194e481b1fce3eb83"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataContentHandlerFactory.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="840f4abe81dedecc63adfd97e6863eb4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FileDataSource.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9a0def498f4276ea1d90094e80428b77"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataHandler$1.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="96b239fa7629f502e086e83e68c11a6e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataContentHandler.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7e9ce1edcb131e786a08f5aea9a6cc3b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="UnsupportedDataTypeException.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="bbb6b50b7467ed72f0c595ec69124c76"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimeTypeParseException.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="960a9e8b154a746cafda8b29bc27ca9a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MailcapCommandMap.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="e9fa91002764fd0d6a9aa22ee89f781b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ActivationDataFlavor.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="0f9f6318daef7c19f630d004345c4bd5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CommandObject.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="389425ed21e1ade7a30ed2d18d183105"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DataHandler.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="bac83bacb36c2d20ce8401d365c406da"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+</wc-entries>

@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+# chkroads - by C.J. Steele <coreyjsteele@yahoo.com>
+# retrieve road condition reports for SE SD from SDDOT
+use strict;
+use LWP::Simple;
+
+my $url = "http://www.sddot.com/Operations/Road_Condition_Report/SouthEast.shtml";
+my $content = get( $url );
+my $in = 0;
+
+foreach( split( /\n/, $content ) )
+{
+	if( $in or $_ =~ /\<pre\>/ )
+	{
+		$in = 1;
+		$_ =~ s/\t\t\<pre\>//g; 
+		print $_, "\n";
+
+		$in = 0 if( $_ =~ /^END/ );
+	}
+}

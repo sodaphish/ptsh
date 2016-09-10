@@ -1,0 +1,34 @@
+v1.2.2
+  o  there is now recursive expansion of tokens (this can 
+     be a bad thing, such as if you didn't have a token that 
+     you called in your template defined, you would end up
+     with an infinate loop.)
+  o  updated the documentation quite a bit.
+  o  Output() can handle recieiving an file-handle or other
+     output handle as a variable, and then send the output
+     to that location instead of STDOUT.
+
+v1.2.1
+  o  you should be able to use '=' in variable assignments now.
+  o  documentation needs updating, but that's okay.
+
+v1.2.0
+  o  I added the support for pipe-ing the output of an
+     executed program (or script) into a variable.  
+  o  I updated documentation to reflect new changes
+     
+v1.1.0
+  o  I added the support for file includes in this rev
+     again. I also added some super diga documentation. 
+
+v1.0.0
+  o  third release, but it was a complete re-write, 
+     restructured the API, and added a lot of other 
+     whiz-bang features.  If you understand Perl, you 
+     should read the code and check out the features.
+
+v0.1.0
+  o  second release, added support for including files
+
+v0.0.0
+  o  initial release, supports variables and sections

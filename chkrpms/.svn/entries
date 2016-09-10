@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:37:14.516917Z"
+   url="file:///hosted/www/sodaphish.com/repos/chkrpms"
+   last-author="csteele"
+   kind="dir"
+   uuid="820ecd2e-5ef0-0310-9a87-e98c800e975d"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="RPMS"
+   text-time="2005-02-18T07:37:33.000000Z"
+   committed-date="2005-02-18T07:37:14.516917Z"
+   checksum="3ed08922db1aa11f140f7d9ad19d9cae"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:37:33.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="chkrpms"
+   text-time="2005-02-18T07:37:33.000000Z"
+   committed-date="2005-02-18T07:37:14.516917Z"
+   checksum="c44bcd443d0e639fece4bd5ab649d723"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:37:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkrpms"
+   text-time="2005-02-18T07:37:33.000000Z"
+   committed-date="2005-02-18T07:37:14.516917Z"
+   checksum="955215f272538791ce75cc99d99401b2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:37:33.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

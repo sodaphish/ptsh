@@ -1,0 +1,403 @@
+<?php
+/* 
+ * index.php v.0.2.2 by C.J. Steele <csteele@good-sam.com>
+ * 
+ */
+?>
+<html>
+<head>
+	<title>F.W.A.P.</title>
+
+<script language=javascript>
+<!--
+function popupwindow( fileloc, winname, winwidth, winheight ) 
+{ 
+	windowbits = "height=" + winheight + ",width=" + winwidth + ",channelmode=0,dependent=0,directories=0,fullscreen=0,location=0,menubar=0,resizable=0,scrollbars=1,statusbar=0,toolbar=0"
+	window.open( fileloc, winname, windowbits )
+}
+-->
+</script>
+
+<style>
+h1 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 18px; weight: bold }
+h2 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 14px; weight: bold }
+h3 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 12px; weight: bold }
+h4 { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 10px; weight: bold }
+td,th,p,b,i,font,a,li,ol { font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 10px }
+</style>
+
+</head>
+<body>
+
+<font>
+<center>
+<!-- <img src=http://frank.corp.good-sam.com/sec/fwap/fwap.png alt="fwap-firewall analysis program v1.2.0"><br> -->
+
+<?php
+
+function yesterday(){
+	//86400 seconds per day
+	$yest = date( "M d Y", time()-86400 );
+	return $yest; 
+}
+
+function getmicrotime(){ 
+    list($usec, $sec) = explode(" ",microtime()); 
+    return ( ( (float)$usec/1000 ) + (float)$sec);
+} 
+
+$this = "index.php";
+
+$start_time = getmicrotime();
+
+$link = mysql_connect( "localhost", "root", "" );
+mysql_select_db( "fw" );
+
+switch( $f ){
+
+	case 'hdrill':
+		if( $q )
+		{
+
+			print "<h3>Host Drill-down - $q</h3>\n"; 
+
+			$ct_q = "select count( id ) from blocked where src like '$q'"; 
+			$ct_r = mysql_query( $ct_q ); 
+			list( $ct ) = mysql_fetch_row( $ct_r ); 
+			print "<b>$ct results displayed</b><br><br>\n";
+
+			$host_q = "select time, date, proto, src, srcprt, dst, dstprt from blocked where src like '$q' order by date asc, time asc"; 
+			$host_r = mysql_query( $host_q );
+			while( list( $time, $date, $proto, $src, $srcprt, $dst, $dstprt ) = mysql_fetch_row( $host_r ) )
+			{
+				print "<li>$date $time $src $srcprt/$proto -> $dst $dstprt/$proto</li>\n";
+			}
+
+		} else {
+			print "<h3>Error!</h3><p>You need to specify a host to query!</p>"; 
+		}
+		break;
+	case 'odrill':
+		print "<h3>Misc. Error Message Drilldown</h3>\n";
+		if( $d )
+		{
+			$ct_q = "select count( id ) from others where message like '%$p%'";
+			$ct_r = mysql_query( $ct_q );
+			list( $ct ) = mysql_fetch_row( $ct_r );
+			print "<p>$ct messages displayed.<p>"; 
+			$odd_q = "select time, date, pixerror, message from others where message like '%$p%'"; 
+			$odd_r = mysql_query( $odd_q );
+			while( list( $t, $d, $e, $m ) = mysql_fetch_row( $odd_r ) )
+			{
+				print "$t $d $d $m<br>\n";
+			}
+		} else {
+			// this is the date narrowing dialog...
+			print "<p>Select a specific date to view from the dates available below.</p>\n";
+			$dates_q = "select date from dddates"; 
+			$dates_r = mysql_query( $dates_q );
+			print "<form method=get action=index.php><input type=hidden name=f value=odrill><input type=hidden name=p value=\"$p\">
+				Show Date: <select name=d>";
+			while( list( $dt ) = mysql_fetch_row( $dates_r ) )
+			{
+				print "<option value=\"$dt\">$dt</option>\n";
+			}
+			print "</select><input type=submit value=\"&gt; &gt;\"></form><hr>";
+		}
+		break;
+
+	case 'top10':
+		print "<h1>Top 10</h1>\n";
+
+		print "<h2>All-time Top 10 Internal Offenders</h2>\n<ol>";
+		$top10_int_q = "select distinct src, count(dst) as victims from blocked where src like '172.%' group by src order by victims desc limit 10"; 
+		$top10_int_r = mysql_query( $top10_int_q ); 
+		while( list( $ip, $ct ) = mysql_fetch_row( $top10_int_r ) )
+		{
+			print "<li><a href=http://frank.corp.good-sam.com/sec/fwap/index.php?f=drilldown&q=$ip>$ip</a> ($ct)</li>\n";
+		}
+		print "</ol>"; 
+
+		print "<h2>All-time Top 10 External Offenders</h2>\n<ol>"; 
+		$top10_ext_q = "select distinct src, count(dst) as victims from blocked where src not like '172.%' group by src order by victims desc limit 10"; 
+		$top10_ext_r = mysql_query( $top10_ext_q ); 
+		while( list( $ip, $ct ) = mysql_fetch_row( $top10_ext_r ) )
+		{
+			print "<li><a href=http://frank.corp.good-sam.com/sec/fwap/index.php?f=drilldown&q=$ip>$ip</a> ($ct)</li>\n";
+		}
+		print "</ol>"; 
+
+		print "<h2>All-time Top 10 External Ports Attacked</h2>\n<ol>";
+		$top10_attprt_q = "select distinct dstprt, proto, count( dstprt ) as attack_count from blocked where dst like '207.140.250.%' group by dstprt order by attack_count desc limit 10"; 
+		$top10_attprt_r = mysql_query( $top10_attprt_q );
+		while( list( $dstprt, $proto, $dstprt_ct ) = mysql_fetch_row( $top10_attprt_r ) )
+		{
+			print "<li>$dstprt/$proto ($dstprt_ct)</li>\n";
+		}
+		print "</ol>";
+
+		print "<h2>All-time Top 10 Internal Ports Blocked</h2>\n<ol>";
+		$top10_attprt_q = "select distinct dstprt, proto, count( dstprt ) as attack_count from blocked where src like '172.%' group by dstprt order by attack_count desc limit 10"; 
+		$top10_attprt_r = mysql_query( $top10_attprt_q );
+		while( list( $dstprt, $proto, $dstprt_ct ) = mysql_fetch_row( $top10_attprt_r ) )
+		{
+			print "<li>$dstprt/$proto ($dstprt_ct)</li>\n";
+		}
+		print "</ol>";
+
+		break;
+	case 'drilldown':
+		if( $q ){
+
+			print "<h3>$q - $d</h3>\n";
+
+			$dates_q = "select date from dddates"; 
+			$dates_r = mysql_query( $dates_q );
+			print "<form method=get action=index.php><input type=hidden name=f value=drilldown><input type=hidden name=q value=\"$q\">
+				Show Date: <select name=d>";
+			while( list( $dt ) = mysql_fetch_row( $dates_r ) )
+			{
+				print "<option value=\"$dt\">$dt</option>\n";
+			}
+			print "</select><input type=submit value=\"&gt; &gt;\"></form><hr>";
+
+			$q_ct_q = "select count( dst ) from blocked where src='$q' and date like '$d'"; 
+			$q_ct_r = mysql_query( $q_ct_q ); 
+			list( $q_ct ) = mysql_fetch_row( $q_ct_r );
+
+			print "<h4>$q_ct results shown</h4>"; 
+
+			$dd_q = "select time, date, proto, src, srcprt, dst, dstprt from blocked where src='$q' and date like '$d'"; 
+			$dd_r = mysql_query( $dd_q );
+
+			while( list( $time, $date, $proto, $src, $srcprt, $dst, $dstprt ) = mysql_fetch_row( $dd_r ) )
+			{
+				print "<li>$date ($time): $src $proto/$srcprt -> $dst $proto/$dstprt</li>\n";
+			}
+
+		} else {
+
+			print "<h3>Error -- you need to specify an IP, click back and try again.</h3>\n"; 
+
+		}
+		break;
+
+	// drill down a view on a specific port
+	case 'pdrill':
+
+		print "<h3>$q/$proto - $d</h3>\n";
+		
+		$dates_q = "select date from dddates";
+		$dates_r = mysql_query( $dates_q );
+		print "<form method=get action=index.php><input type=hidden name=f value=pdrill><input type=hidden name=q value=\"$q\"><input type=hidden name=proto value=\"$proto\"><input type=hidden name=src value=\"$src\">
+			Show Date: <select name=d>";
+
+		while( list( $dt ) = mysql_fetch_row( $dates_r ) )
+		{
+			print "<option value=\"$dt\">$dt</option>\n";
+		}
+		print "</select><input type=submit value=\"&gt; &gt;\"></form><hr>";
+
+		if( $src == "int" )
+		{
+			$p_ct_q = "select count( dstprt ) from blocked where proto='$proto' and dstprt='$q' and date like '$d' and src like '172.%'"; 
+		} else {
+			$p_ct_q = "select count( dstprt ) from blocked where proto='$proto' and dstprt='$q' and date like '$d' and src not like '172.%'"; 
+		}
+
+		$p_ct_r = mysql_query( $p_ct_q );
+		list( $p_ct ) = mysql_fetch_row( $p_ct_r ); 
+		print "<h4>$p_ct results shown</h4>"; 
+
+		if( $src == "int" )
+		{
+			$dd_q = "select src, dst, count( dst ) as total from blocked where proto='$proto' and dstprt='$q' and date like '$d' and src like '172.%' group by dst order by total desc"; 
+		} else {
+			$dd_q = "select src, dst, count( dst ) as total from blocked where proto='$proto' and dstprt='$q' and date like '$d' and src not like '172.%' group by dst order by total desc"; 
+		}
+
+		$dd_r = mysql_query( $dd_q ); 
+		print "<table width=40% border=0><tr><td>Source</td><td>Destination</td><td>Total</td></tr>"; 
+		while( list( $src, $dst, $total ) = mysql_fetch_row( $dd_r ) )
+		{
+			print "<tr><td>$src</td><td>$dst</td><td>$total</td></tr>\n";
+		}
+		print "</table>";
+		break;
+
+	// view a specific day 
+	case 'viewday':
+
+		if( $q ){
+
+			print "<div align=center><h1>Firewall Report for $q</h1>";
+			print "<table width=600><tr><td colspan=2 valign=top>";
+			print "<div align=center><a href=http://frank.corp.good-sam.com/sec/fwap/stats.php><img src=\"http://frank.corp.good-sam.com/sec/fwap/stats.php?date=$q&type=total\" border=0></a></div><br><br><hr>"; 
+			print "</td></tr><tr><td valign=top>"; 
+
+			print "<h3>Top Internal Ports Blocked</h3>\n<ol>";
+			$top10_attprt_q = "select distinct dstprt, proto, count( dstprt ) as attack_count from blocked where src like '172.%' and date like '$q' group by dstprt order by attack_count desc limit 10"; 
+			$top10_attprt_r = mysql_query( $top10_attprt_q );
+			while( list( $dstprt, $proto, $dstprt_ct ) = mysql_fetch_row( $top10_attprt_r ) )
+			{
+				$service_guess = getservbyport ( $dstprt, $proto ); 
+				if( $service_guess == "" ){ $service_guess = "<a target=new href=\"http://www.google.com/search?q=$dstprt+$proto\">???</a>"; }
+				print "<li><a href=\"http://frank.corp.good-sam.com/sec/fwap/$this?f=pdrill&q=$dstprt&proto=$proto&d=$q&src=int\">$dstprt/$proto</a> ($service_guess) - $dstprt_ct</li>\n";
+			}
+			print "</ol>\n</td><td valign=top>";
+
+			print "<h3>Top Ext. Ports Attacked</h3>\n<ol>";
+			$top10_attprt_q = "select distinct dstprt, proto, count( dstprt ) as attack_count from blocked where dst like '65.125.46.%' and date like '$q' group by dstprt order by attack_count desc limit 10"; 
+			$top10_attprt_r = mysql_query( $top10_attprt_q );
+			while( list( $dstprt, $proto, $dstprt_ct ) = mysql_fetch_row( $top10_attprt_r ) )
+			{
+				$service_guess = getservbyport ( $dstprt, $proto ); 
+				if( $service_guess == "" ){ $service_guess = "<a target=new href=\"http://www.google.com/search?q=$dstprt+$proto\">???</a>"; }
+				print "<li><a href=\"http://frank.corp.good-sam.com/sec/fwap/$this?f=pdrill&q=$dstprt&proto=$proto&d=$q&src=ext\">$dstprt/$proto</a> ($service_guess) - $dstprt_ct</li>\n";
+			}
+			print "</ol>";
+
+			print "</td></tr><tr><td colspan=2><hr></td></tr><tr><td valign=top>";
+			print "<h3>Top Internal Offenders</h3>\n"; 
+			$ict_q = "select count( distinct src ) from blocked where date='$q' and src like '172.%'"; 
+			$ict_r = mysql_query( $ict_q ); 
+			list( $ict ) = mysql_fetch_row( $ict_r ); 
+			if( $ict > 20 )
+			{
+				print "<i>Showing first 20 of $ict.</i><br>\n";
+			}
+			print "<ol>"; 
+			$int_q = "select distinct src, count( dst ) as victims from blocked where date='$q' and src like '172.%' group by src order by victims desc limit 20"; 
+			$int_r = mysql_query( $int_q );
+			
+			while( list( $int_ip, $int_ct ) = mysql_fetch_row( $int_r ) )
+			{
+				$audit_q = "select count( id ) from leaseinfo where ip like '$int_ip'"; 
+				$audit_r = mysql_query( $audit_q );
+				list( $audit_ct ) = mysql_fetch_row( $audit_r );
+
+				if( $audit_ct )
+				{
+					print "<li><a href=\"http://frank.corp.good-sam.com/sec/fwap/index.php?f=drilldown&q=$int_ip&d=$q\">$int_ip</a> [<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/resolve.php?query=$int_ip', 'dns', '425', '400' )\">dns</a> | <a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/audit.php?query=$int_ip&ipomac=ip', 'dhcp', '475', '400' )\">dhcp</a> | <a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/portscan.php?query=$int_ip', 'scan', '425', '400' )\">scan</a>] &nbsp;($int_ct)</li>\n";
+				} else {
+					print "<li><a href=\"http://frank.corp.good-sam.com/sec/fwap/index.php?f=drilldown&q=$int_ip&d=$q\">$int_ip</a> [<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/resolve.php?query=$int_ip', 'dns', '425', '400' )\">dns</a> | <a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/portscan.php?query=$int_ip', 'scan', '425', '400' )\">scan</a>] ($int_ct)</li>\n";
+				}
+			}
+			print "</ol></td><td valign=top>"; 
+
+			print "<h3>Top External Offenders</h3>\n"; 
+			$ect_q = "select count( distinct src ) from blocked where date='$q' and src not like '172.%'"; 
+			$ect_r = mysql_query( $ect_q ); 
+			list( $ect ) = mysql_fetch_row( $ect_r ); 
+			if( $ect > 20 )
+			{
+				print "<i>Showing first 20 of $ect.</i><br>\n";
+			}
+			print "<ol>"; 
+			$ext_q = "select distinct src, count( dst ) as victims from blocked where date='$q' and src not like '172.%' group by src order by victims desc limit 20";
+			$ext_r = mysql_query( $ext_q );
+			
+			while( list( $ext_ip, $ext_ct ) = mysql_fetch_row( $ext_r ) )
+			{
+				print "<li><a href=\"http://frank.corp.good-sam.com/sec/fwap/index.php?f=drilldown&q=$ext_ip&d=$q\">$ext_ip</a> [<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/resolve.php?query=$ext_ip', 'dns', '425', '400' )\">dns</a> | <a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/portscan.php?query=$ext_ip', 'scan', '425', '400' )\">scan</a> ] ($ext_ct)</li>\n";
+			}
+			print "</ol></td></tr><tr><td colspan=2><hr></td></tr><tr><td colspan=2>";
+			print "<h3>Misc. Error Messages To Examine</h3>\n";
+			$odd_q = "select distinct message from others where date like '$q'"; 
+			$odd_r = mysql_query( $odd_q );
+			while( list( $m ) = mysql_fetch_row( $odd_r ) )
+			{
+				print "<li><a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/index.php?f=odrill&p=$m', 'odrill', '750', '400' )\">details</a> $m</li>\n";
+			}
+			print "</td></tr></table></div>"; 
+		} else {
+
+			print "<h3>No date specified, click <a href=http://frank.corp.good-sam.com/sec/fwap/index.php>here</a>.</h3>\n";
+
+		}
+		break;
+
+	// the user is submitting an SQL query to be executed.
+	case 'sqlquery':
+		if( $q )
+		{
+			str_replace( '\\', '', $q ); 
+			print "<h2>$q</h2>\n";
+			$query_r = mysql_query( $q )
+				or die( mysql_error() );
+			while( $row = mysql_fetch_row( $query_r ) )
+			{
+				for( $i = 0; $i <= $row; $i++ )
+				{
+					print "| $row[$i]";
+				}
+				print "|<br>\n";
+			}
+		} else {
+
+			print "
+			<form method=post action=$this>
+			<input type=hidden name=f value=sqlquery>
+			SQL Query: <input type=text name=q value=\"$q\"> <input type=submit value=\"&gt; &gt;\">
+			</form>
+			";
+
+		}
+		break;
+
+	default:
+
+		print "<table width=600><tr><td><br><br>\n"; 
+
+		$date_q = "select date from dddates"; 
+		$date_r = mysql_query( $date_q );
+		print "<h2>Daily Reports</h2><form method=post action=index.php><input type=hidden name=f value=\"viewday\">
+			Report Date: <select name=q>"; 
+		while( list( $date ) = mysql_fetch_row( $date_r ) )
+		{
+			if( $date == yesterday() )
+			{
+				print "<option value=\"$date\" selected>$date</option>\n"; 	
+			} else {
+				print "<option value=\"$date\">$date</option>\n"; 	
+			}
+		}
+		print "</select><input type=submit value=\"&gt; &gt;\"></form>\n";
+
+		print "<br><br><hr><br><h2>Trending</h2>
+		<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/trends.php?q=both', 'bothtrends', '400', '400' )\">All Attack Trends</a> | 
+		<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/trends.php?q=internal', 'inttrends', '400', '400' )\">Internal Attack Trends</a> | 
+		<a href=\"javascript:onclick=popupwindow('http://frank.corp.good-sam.com/sec/fwap/trends.php?q=external', 'exttrends', '400', '400' )\">External Attack Trends</a>\n";
+
+		print "<br><br><hr><h2>Source Host Query</h2>
+			<form method=post action=$this>
+			<input type=hidden name=f value=hdrill>
+			IP Address: <input type=text name=q value=\"\"> <input type=submit value=\"&gt; &gt;\">
+			</form>\n";
+
+
+		print "
+			<br><br><hr><h2>DHCP Lease Query</h2>
+			<form method=post action=audit.php>
+			<input type=text name=query value=\"$query\"><br>
+			<input type=radio name=ipomac value=ip>IP
+			<input type=radio name=ipomac value=mac>MAC<br>
+			<input type=submit>
+			</form>"; 
+
+		print "</td></tr></table>"; 
+
+}
+
+$end_time = getmicrotime();
+
+$time = $end_time - $start_time; 
+print "<br><i>time to execute: </i> $time<br>\n";
+
+?>
+
+</center>
+</font>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+#!/bin/sh
+# exitplan v.0.2.0 by SodaPhish
+#
+# this script cleans up the messes on my workstation, in case
+# I've been a bad boy (i.e. the "knock-at-the-door".)
+#
+
+clear
+echo "*******************************************************"
+echo -n "Are you SURE you want to bail!? (Y/N)"
+read BAIL
+
+if [ $BAIL == "Y" ] || [ $BAIL == "y" ]; then
+	continue
+else
+	echo "aborting."
+	exit
+fi
+
+#  variable assignments...
+HOME=/home/csteele
+# cfgctl is my centralized configuration system you can get it 
+# wherever you got this script from
+CFGCTL="$HOME/bin/cfgctl"
+NCFTPPUT="/usr/bin/ncftpput"
+RMT_HOST=`$CFGCTL sec.exitplan.server`
+RMT_USER=`$CFGCTL sec.exitplan.login`
+RMT_PASSWD=`$CFGCTL sec.exitplan.passwd`
+RMT_DIR="./"
+# whole directories we want to backup
+DIRS="$HOME/src/mine/ $HOME/doc"
+# individual files we want to backup; make sure $0 is in ADHOC!  
+#  leave $0 out for testing purposes... 
+ADHOC=""
+
+
+
+# backup directories we have flagged for salvation
+TMPDIR=`mktemp -d /tmp/ohshit.XXXXXX`
+for d in $DIRS; do
+	cp -rfp $d $TMPDIR
+done
+
+# backup ad hoc files
+mkdir $TMPDIR/adhoc
+for f in $ADHOC; do
+	cp -fp $f $TMPDIR/adhoc
+done
+
+# compress our archive
+TMPFILE=`mktemp /tmp/ohshit.XXXXXX`
+tar -cf $TMPFILE $TMPDIR
+mv $TMPFILE $TMPFILE.tar
+gzip $TMPFILE.tar 
+
+# upload it to the safe place
+$NCFTPPUT -u $RMT_USER -p $RMT_PASSWD $RMT_HOST $RMT_DIR $TMPFILE.tar.gz 
+
+# now that our files and directories have been safely purged, lets 
+# nuke any evidence that I ever had them.
+DIRS="$DIRS $TMPDIR"
+for dir in $DIRS; do
+	for file in `find $dir -print -type f`; do
+		CT=`ls -l $file | awk {'print $5'}`
+		dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+		dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+		dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+		rm -rf $file
+	done
+done
+ADHOC="$ADHOC $TMPFILE.tar.gz $TMPFILE"
+for file in $ADHOC; do
+	CT=`ls -l $file | awk {'print $5'}`
+	dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+	dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+	dd if=/dev/urandom of=$file bs=1 count=$CT &> /dev/null
+	rm -f $file
+done

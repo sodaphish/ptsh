@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/other_rtkts/netcat/data"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="pmap-dump.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="f7a39541dc2422ccbbbb2e2154208926"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rservice.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="bddf26f2c1029936692f8bcd8bd5262d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="showmount.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="08bc597b20299be9241ef13763b27ed7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nfs-0.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="e181220d9394b28982b20ecbb484e019"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="xor.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="7c641a3ad03f05c19645c1369dffea23"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="data.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="c7aae64a82d56171225c64892a291366"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pmap-mnt.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="f3d280c86c2121b03df1e08b97e13091"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dns-any.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="450cf107e0ff9aec8025d058a7502c79"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rip.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="68f9547b38b241cdef32c7ec558b3293"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="6ab8dee297f6e8d84061d848a68cfa4e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="3d26e127b9691586d6a80f736ab461c2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pm.d"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="cc82f9ecc16219019860a907b595cfd2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+</wc-entries>

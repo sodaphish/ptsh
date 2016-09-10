@@ -1,0 +1,141 @@
+"""
+CPEM Plugins (cpem/plugins.py)
+
+@copyright   
+Copyright 2010-2011, C.J. Steele, all rights reserved.
+
+@author:
+C.J. Steele <corey@hostedbycorey.com>
+
+@summary: 
+This file contains the voodoo to make our plugins play in our XML/RPC 
+server.  While what it accomplishes is fairly straight-forward, there 
+are a couple of key points: 
+1) all functions registered by a plugin will be called by clients using 
+a name of "Plugin_Function", where "Plugin" is the base file-name of 
+the plugin, and Function is the routine to be executed.  This is 
+enforced here, and will help prevent name-space collissions. 
+2) all plugins will be limited in regards to what registry values they 
+can access, as well as prevented from running a muck in the other areas 
+of the framework.
+3) plugins will be provided a means by which they can interact with
+users via a web-based interface (think Django.)
+"""
+
+import imp
+import pkgutil
+import os
+import sys
+import types
+import cpem
+
+def get_functions(module):
+    functionList = []
+    for key,value in module.__dict__.items():
+        if type(value) is types.FunctionType:
+            functionList.append(value)
+    return functionList
+
+
+def load_plugin(server,plugin):
+    """load_plugin()
+    registers the functions of a plugin with the XMLRPC server.
+    """
+    sys.path.append(path)
+    for loader,packageName,ispkg in pkgutil.iter_modules([ path ]):
+        pkgutil.it
+        try:
+            f,filename,description = imp.find_module(packageName)
+            #print 'D: f="%s", filename="%s" and description="%s"' % ( f, filename, description )
+            try:
+                loaded = imp.load_module(packageName,f,filename,description)
+                try:
+                    for f in get_functions(loaded):
+                        if f.__name__ is 'init':
+                            '''
+                            typically, we want to execute the init function immediately.
+                            '''
+                            cpem.log_event('info','hit plugin init in %s' % (packageName))
+                            #TODO: CJS 2011/03/29 - implement this so it executes the init routine immediately.
+                            pass
+                        elif f.__name__ is 'schedule':
+                            '''
+                            schedule routines in the plugins allow us to register a scheduled event so that 
+                            we can execute events regularly or periodically
+                            '''
+                            cpem.log_event('info','hit scheduler in %s' % (packageName))
+                            #TODO: CJS 2011/04/09 - implement this
+                            pass
+                        else:
+                            '''
+                            found a normal function, we'll just register this for use
+                            '''
+                            funcName = '%s_%s' % (packageName,f.__name__)
+                            try:
+                                CPEM_Server.register_function(f,funcName)
+                                cpem.log_event('info','registered plugin function %s' % (funcName))
+                            except:
+                                cpem.log_event('warn','failed to register function %s' % (funcName))
+                                raise
+                except Exception,e:
+                    cpem.log_event('error','there was a problem loading the %s plugin: %s' % (packageName,e[0]))
+                    raise
+            except Exception,e:
+                cpem.log_event('error','could not import %s plugin: %s' % (filename,e[0]))
+                raise
+        except Exception,e:
+            cpem.log_event('error','could not load the %s plugin (%s%s), skipping it.  Python say: %s' % (packageName,path,packageName,e[0]))
+            raise
+
+
+#TODO: CJS 8/12/2010 - break out the actual loading of a plugin into a seaparate routine.  
+def init_plugins(CPEM_Server,path='%s%splugins%s' % (os.getcwd(),os.sep,os.sep)):
+    """init_plugins( CPEMSERVER, PATH )
+    handles initializing plugins; i.e. finding them in the plugins directory, 
+    and registering them with our RPC server.
+    """
+    sys.path.append(path)
+    for loader,packageName,ispkg in pkgutil.iter_modules([ path ]):
+        try:
+            f,filename,description = imp.find_module(packageName)
+            #print 'D: f="%s", filename="%s" and description="%s"' % ( f, filename, description )
+            try:
+                loaded = imp.load_module(packageName,f,filename,description)
+                try:
+                    for f in get_functions(loaded):
+                        if f.__name__ is 'init':
+                            # this is the initialization routine for the plugin, execute it
+                            cpem.log_event('info','hit init in %s' % (packageName))
+                            #TODO: CJS 2011/03/29 - just execute the init function immediately.
+                            pass
+                        elif f.__name__ is 'schedule':
+                            # this is the special routine for the plugin to register scheduled events.
+                            cpem.log_event('info','hit scheduler in %s' % (packageName))
+                            pass
+                        else:
+                            funcName = '%s_%s' % (packageName,f.__name__)
+                            CPEM_Server.register_function(f,funcName)
+                except Exception,e:
+                    cpem.log_event('error','a plugin caused us to fail.')
+                    raise
+            except Exception,e:
+                cpem.log_event('error','found the module at %s, but could not import it. (%s)' % (filename,e[0]))
+                raise
+        except Exception,e:
+            cpem.log_event('error','failed to load the "%s" plugin (%s%s), skipping it! (Python says, "%s")' % (packageName,path,packageName,e[0]))
+            raise
+
+
+def refresh_plugins(CPEM_Server,path='%s/plugins/' % (os.getcwd()),pluginName=''):
+    """refresh_plugins()
+    handles re-loading plugins, on-demand, either reloading all plugins or reloading only specified plugins
+    """
+
+    #TODO (CJS: 2011/10/16) - need to be able to selectivly re-initizlize an individual plugin.
+    cpem.log_event('info','refresh plugins called')
+    init_plugins(CPEM_Server,path)
+    cpem.log_event('info','plugins now refreshed')
+
+
+
+#EOF

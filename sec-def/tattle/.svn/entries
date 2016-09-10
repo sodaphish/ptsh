@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-06-03T06:55:15.027368Z"
+   url="file:///hosted/www/sodaphish.com/repos/tattle"
+   last-author="csteele"
+   kind="dir"
+   uuid="f0d8eed5-9df8-0310-b3ab-d566a7a91fa6"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-06-03T06:55:29.000000Z"
+   committed-date="2005-06-03T06:55:15.027368Z"
+   checksum="9c54bd59f3262ca2d3ad59137d2bcd4b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-06-03T06:55:29.000000Z"/>
+<entry
+   committed-rev="6"
+   name="tattle"
+   text-time="2005-07-14T18:02:02.000000Z"
+   committed-date="2005-07-14T18:02:33.162978Z"
+   checksum="c22c8d0cc6f6b4ff0185a54006502ac3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-06-03T06:55:29.000000Z"
+   revision="6"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

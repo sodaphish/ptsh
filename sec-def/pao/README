@@ -1,0 +1,7 @@
+PAO - the PIX Access-list Optimizer
+
+PAO is a script (perl or python) that tries to optimize PIX access-lists 
+to order most-frequently ACL's at the beginning.  PAO cannot completely 
+automate the optimization of ACL's, because it may mis-order packets 
+such as "deny any" rules that sit at the end of a list.  SO, some hand 
+ordering is still necessary, but PAO does the heavy lifting.

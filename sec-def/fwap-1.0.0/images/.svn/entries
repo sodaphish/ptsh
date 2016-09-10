@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:02.219940Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap-1.0.0/images"
+   last-author="csteele"
+   kind="dir"
+   uuid="4e26b68a-5ef0-0310-8b4b-ebe0e86874b4"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="red_arrow.gif"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="f0f3d87e3c35827bc8da65e55b6c88c0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="black_arrow.gif"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="a1343317a80b63d1cc91fbd257605aee"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="green_arrow.gif"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="7c61e488ff28dd7d7f5196b21d8fa6c9"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+</wc-entries>

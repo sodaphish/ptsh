@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/rtkt-developmental/src/w"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="wt.c"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="3d4468092a43438e514184f170e8e0cb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="f909ea26be529221b098d021db0c58c2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+</wc-entries>

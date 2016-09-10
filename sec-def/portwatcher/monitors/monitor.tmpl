@@ -1,0 +1,64 @@
+#!/usr/bin/perl
+#
+# (C)opyright 2000, Corey J. Steele, all rights reserved.
+#	by Corey J. Steele <csteele@old.dhs.org>
+#
+use Socket; 
+use IO::Socket;
+use IO::Socket::INET;
+use Sys::Hostname;
+
+require "portwatcher.conf"; 
+
+$SIG{CHILD} = sub { wait() }; 
+
+$port = __P1; 
+
+print "Starting monitor on $port...\n" if( $verbose_output == 1 );
+
+#
+# open the sockets we'll use to watch a port, and to log 
+# port activity
+$main_sock = new IO::Socket::INET( 
+	LocalHost 	=> $host, 
+	LocalPort 	=> $port,
+	Listen 		=> 5,
+	Proto 		=> '__P2',
+	Reuse		=> 1 );
+die "Couldn't create socket! ($!)\n" unless( $main_sock );
+
+$listener = new IO::Socket::INET( 
+	PeerAddr 	=> $host, 
+	PeerPort 	=> $listener_port,
+	Proto 		=> 'tcp',
+	Type 		=> SOCK_STREAM );
+die "Couldn't connect to listener! ($!)\n" unless( $listener );
+
+
+
+#
+# process connects to the port we're watching
+while( $new_sock = $main_sock->accept() ){
+	$pid = fork();
+	die "Couldn't fork! ($!)\n" unless defined( $pid );
+	if( $pid == 0 ){
+		
+		$attacker = $new_sock->peerhost;
+
+		#
+		# problem: what if the listener has stopped listening?  How do we detec that?
+		print $listener "$attacker $port\n" or die "Couldn't write to listener! ($!)\n"; 
+		print "$attacker $port\n" or die "Couldn't write to listener! ($!)\n" if( $verbose_output == 1 ); 
+		close( $new_sock );
+		exit( 0 );
+
+	}
+
+}
+
+
+
+#
+# close our open sockets...
+close( $main_sock ) if( defined( $main_sock ) );
+close( $listener ) if( defined( $listener ) );

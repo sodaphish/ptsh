@@ -1,0 +1,34 @@
+
+
+
+
+File
+	FileID
+	Name
+	Data
+
+
+Meta
+	stat -- provide stat() data to OS
+	magic -- track file-type (for our own internal purposes)
+	
+
+
+Tag
+	tagid
+	name
+	
+
+TagMeta
+	tagid
+	referenceCount
+
+UGO
+	fileid
+	permissions
+
+
+
+
+
+#EOF

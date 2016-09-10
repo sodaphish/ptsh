@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+# chkcond - by C.J. Steele <coreyjsteele@yahoo.com>
+# checks current weather conditions (no METAR munging though, so its slower and not as detailed.)
+#   I have a METAR parsing script, but its not part of this collection.
+use strict;
+use LWP::Simple;
+
+# just set $url to the observation history for a site near you
+my $url = "http://www.crh.noaa.gov/data/obhistory/KFSD.html";
+my $firstflag = 1; 
+
+my $content = get( $url ); 
+
+foreach( split( /\n/, $content ) )
+{
+	if( $_ =~ /Max\..*.Min\./ and $firstflag )
+	{
+		my @el = split( /\<\/tr\>/, $_ ); 
+		$el[1] = substr( $el[1], 54 );
+		$el[1] =~ s/\<\/td\>\<td\>/\|/g; 
+		$el[1] =~ s/\<\/td\>\<td\ align\=\"(right|left)\"\>/\|/g; 
+
+		my @el2 = split( /\|/, $el[1] ); 
+		my( $dir, $speed ) = split( /\ /, $el2[2], 2 );
+		
+		print qq{($el2[1]) $el2[6]F, $dir $speed, $el2[4]\n};
+
+		$firstflag = 0; 
+	}
+}
+exit( 0 );

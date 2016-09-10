@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-11-13T03:59:29.381858Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap/old/bin"
+   last-author="csteele"
+   kind="dir"
+   uuid="e2d02160-6a05-0410-99d0-e0ef5bdb2078"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="daily-http"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="db252e4d0a48504db5a18d79a7ac18e2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name=".historical"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="dhcplog2sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="970d1987e25e7a51b25b8d9445c15afb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pixbkup"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="98e98c57882eac8e2cb088cdca017265"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="globals"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="ad3b8d6cf762289bcdee89901c497ceb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="bulkimport"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="a1d638f634cc89d5f3435cb0824a79d5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dpixsh"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="e1c531a18df754dea379882874f7a02b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="daily"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="51e50b47e9b076f9244d53f0ce20d3ef"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="blocked2sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="68d040a754153b67632f0d3ec20e33cf"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="yesterday-long"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="d8911ee6a1a802a91f4e5149f4f2cc57"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dbmain-old"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="e7843ce618683701be5132911752bfe6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="others2sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="7cf3547f47ea942c23fa319f66a0ecca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mailrpt"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="585296925b006643c6cd4a3eb34f2f6a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="trends.pl"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="819e77bdd795546dec61b411093c2d8b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="yesterday"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="3288ae44357d13815faae9a0b2074248"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkdata.pl"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="389b3b4e46d6f2f1867b7b9d36bedc95"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nightly.sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="266b6ad1850a9a310426d65f30a0cc69"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+</wc-entries>

@@ -1,0 +1,74 @@
+#!/bin/sh
+# filename: mklive
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+# 	written by Corey J. Steele <csteele@mtron.com>
+# last modified: 12/15/2000
+#
+# Description: This script calls all the scripts needed to create
+#	the proper environment for the current code snapshot to be
+# 	a healthy, running, live system
+#
+DATE=`date +%d%m%Y`
+SOURCE="/home/csteele/devel"
+DESTINATION=$1
+BACKUP=/tmp/`basename $DESTINATION`.backup-$DATE
+if [ -d "$DESTINATION" ]; then
+	echo "WARNING! This stands a good chance of hosing your running search!"
+	echo "A backup of $DESTINATION will be placed in $BACKUP" 
+	echo "see the file Documentation/RESTORE.txt for instructions on how to "
+	echo "restore that directory."
+	echo
+	echo -n "Are you sure you want to do this? (Y/N) "
+
+	while read answer ; do
+		if [ $answer = 'y' ] || [ $answer = 'Y' ]; then
+			
+			# backup destinAtion if there are any files in it
+			cp -rfp $DESTINATION /tmp/`basename $DESTINATION`.backup-$DATE
+
+			# blow away destination
+			rm -rf $DESTINATION
+
+			# re-create destination
+			mkdir $DESTINATION
+
+			# copy the entire devel/ tree to the specified location 
+			cp -rf $SOURCE/* $DESTINATION 
+
+			# run bin/mk*.live with parameter of destination
+			$SOURCE/bin/mkcfg.live $DESTINATION
+			$SOURCE/bin/mkhtml.live $DESTINATION
+
+			# set permissions on .log file
+			chgrp nobody $DESTINATION/parametric.log
+			chmod 660 $DESTINATION/parametric.log
+
+			# blow away *.m4 from destination, recursively
+			rm $DESTINATION/*.m4
+			rm $DESTINATION/cfg/*.m4
+	
+			# blow away un-needed TODO and CHANGES files
+			rm $DESTINATION/CHANGES
+			rm $DESTINATION/TODO
+
+			# notify user that changes have been executed.
+			echo 
+			echo "DONE!  $DESTINATION should contain a fully functional"
+			echo "parametric search code-base..."
+			echo "Please consult the $DESTINATION/Documentation/README"
+			echo "for more information."
+
+			exit
+
+		else
+
+			echo "ABORTING!"
+			exit
+		fi
+	done
+
+else
+	echo "Usage: mklive /path/to/destination"
+	echo "make sure the directory you are specifying actually exists!"
+	echo
+fi

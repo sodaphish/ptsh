@@ -1,0 +1,102 @@
+WARNING:ultramode.txt will soon be obsolete.  Please us slashdot.xml or slashdot.rdf instead!  You have been warned!
+%%
+What Debugger Is Best For Multithreaded Apps?
+http://slashdot.org/askslashdot/00/12/15/1924214.shtml
+2000-12-16 12:22:56 EDT
+Cliff
+searching-for-better-tools
+News
+53
+askslashdot
+topicnews.gif
+%%
+LED Guru On InGaN-based LEDs And The Future
+http://slashdot.org/articles/00/12/15/1948213.shtml
+2000-12-16 08:56:19 EDT
+timothy
+more-leds-are-always-good
+Technology
+61
+articles
+topictech2.jpg
+%%
+What Would Happen To Linux If BeOS Were GPL'd?
+http://slashdot.org/askslashdot/00/12/15/1849233.shtml
+2000-12-16 04:49:14 EDT
+Cliff
+muse-away
+Linux
+273
+askslashdot
+topiclinux.gif
+%%
+Amiga As A Compatibility Tool For Linux
+http://slashdot.org/articles/00/12/15/1918255.shtml
+2000-12-16 02:11:00 EDT
+timothy
+because-of-the-license?
+Amiga
+190
+articles
+topicamiga.gif
+%%
+3Dfx No More -- NVidia Purchases Video Card Maker
+http://slashdot.org/articles/00/12/15/2244256.shtml
+2000-12-15 22:49:28 EDT
+timothy
+alas-we-hardly-knew-ye
+Hardware
+381
+articles
+topichardware.gif
+%%
+Hollywood Dealt Setback in California DeCSS Case
+http://slashdot.org/articles/00/12/15/1951246.shtml
+2000-12-15 20:21:30 EDT
+CmdrTaco
+well-at-least-thats-one
+Patents
+186
+articles
+topicpatents.gif
+%%
+Chernobyl (Finally) Shuts Down
+http://slashdot.org/science/00/12/15/1518244.shtml
+2000-12-15 19:17:01 EDT
+Hemos
+homer-simpson-needs-a-job-now
+Science
+393
+science
+topicscience.gif
+%%
+BT Sues Prodigy Over Hyperlink Patent
+http://slashdot.org/articles/00/12/15/1716244.shtml
+2000-12-15 17:46:26 EDT
+CmdrTaco
+billions-of-hyperlinks-waiting-to-be-billed
+Patents
+358
+articles
+topicpatents.gif
+%%
+Preview of GPL V3, Part 2
+http://slashdot.org/articles/00/12/15/1547252.shtml
+2000-12-15 16:44:40 EDT
+Hemos
+continuing-coverage
+GNU is Not Unix
+241
+articles
+topicgnu.jpg
+%%
+The Robot Diaries
+http://slashdot.org/articles/00/12/15/159209.shtml
+2000-12-15 15:38:16 EDT
+Hemos
+building-the-machine
+Hardware
+116
+articles
+topichardware.gif
+%%

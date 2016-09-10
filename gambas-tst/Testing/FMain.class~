@@ -1,0 +1,9 @@
+' Gambas class file
+PUBLIC MySocket AS Socket
+
+PUBLIC SUB Button1_Click()
+
+  message.Info("hello " & Textbox1.Text)  
+
+END
+

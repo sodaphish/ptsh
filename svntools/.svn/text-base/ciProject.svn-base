@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# ciProject by C.J. Steele <coreyjsteele@yahoo.com>
+# 
+# script aids in the checking code in to SVN
+# 
+
+REPOS=`cfgctl svn.repospath`
+PROJ=`basename \`pwd\``
+SVN=`which svn`
+SVNADMIN=`which svnadmin`
+export EDITOR=`which vi`
+
+echo -n "Do you want to review other change logs? [y/n] "
+read REPLY
+if [ "$REPLY" == "y" || "$REPLY" == "Y" ]; then
+	# they want to see the logs... 
+	$SVN log | less
+fi
+
+$SVN ci 

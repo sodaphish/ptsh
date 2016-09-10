@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:26:38.426667Z"
+   url="file:///hosted/www/sodaphish.com/repos/pop2sql"
+   last-author="csteele"
+   kind="dir"
+   uuid="bd4cd008-5ef0-0310-a417-c62a2df41a6f"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="pop2sql"
+   text-time="2005-02-18T07:26:53.000000Z"
+   committed-date="2005-02-18T07:26:38.426667Z"
+   checksum="4e77db4976894836d8fb8d3b85a084df"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:26:53.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="infosec_mail.sql"
+   text-time="2005-02-18T07:26:53.000000Z"
+   committed-date="2005-02-18T07:26:38.426667Z"
+   checksum="14ed640c768f858f299c453dd5be76c6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:26:53.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pop2sql-0.0.1"
+   text-time="2005-02-18T07:26:53.000000Z"
+   committed-date="2005-02-18T07:26:38.426667Z"
+   checksum="c9d22d3f7b1ed3284d4080bb4fc07e57"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:26:53.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pop2sql-0.0.3"
+   text-time="2005-02-18T07:26:53.000000Z"
+   committed-date="2005-02-18T07:26:38.426667Z"
+   checksum="f37dd07a54615874ff9770fed41abf6d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:26:53.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

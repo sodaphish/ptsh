@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# output for -f7- is as follows
+# 0  IN=eth0 
+# 1  OUT= 
+# 2  MAC=ff:ff:ff:ff:ff:ff:00:30:65:0b:8c:98:08:00 
+# 3  SRC=0.0.0.0 
+# 4  DST=255.255.255.255 
+# 5  LEN=328 
+# 6  TOS=0x00 
+# 7  PREC=0x00 
+# 8  TTL=255 
+# 9  ID=29231 
+# 10 PROTO=UDP 
+# 11 SPT=68 
+# 12 DPT=67 
+# 13 LEN=308 
+
+tail -f /var/log/messages | grep firewall | cut -f7- -d" " | egrep -v -r "192.168.2.1" | awk {'print $3'} | sed s/SRC\=//

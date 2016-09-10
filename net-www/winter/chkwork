@@ -1,0 +1,15 @@
+#!/bin/sh
+# chkwork - by C.J. Steele <coreyjsteele@yahoo.com>
+# checks to see if work is starting late, closed, etc...
+TMPFILE=`mktemp /tmp/closeline.XXXXXX`
+wget -O $TMPFILE http://www.keloland.com/Weather/Closeline.cfm 2> /dev/null
+
+CLOSELINE=`cat $TMPFILE | grep -i "good samaritan"  | cut -d- -f  2 | sed -e s/\<\\\/li\>//`
+
+if [ "$CLOSELINE" == "" ]; then
+	CLOSELINE="Normal";
+fi
+
+echo work today: $CLOSELINE
+
+rm $TMPFILE

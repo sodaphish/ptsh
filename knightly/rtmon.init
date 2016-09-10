@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# run this script at startup and then we can retrieve the stats of the
+# interfaces historically.  Its also a good idea to setup syslog to rotate the
+# logfile nightly so you only get the day's history when you run `ip monitor all`
+#
+
+/sbin/rtmon file /var/log/rtmon.log

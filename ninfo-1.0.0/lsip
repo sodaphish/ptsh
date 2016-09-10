@@ -1,0 +1,2 @@
+#!/bin/sh
+ifconfig -a | grep inet | awk {'print $2'} | sed -e s/addr\:// | grep -v ^$

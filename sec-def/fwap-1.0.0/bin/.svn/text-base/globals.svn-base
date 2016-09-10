@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# this file defines global shell variables common to many shell scripts 
+#
+BIN=/var/www/html/sec/fwap/bin/
+DUMPDIR=/tmp/
+YESTERDAY=`$BIN/yesterday`
+YESTLONG=`$BIN/yesterday-long`

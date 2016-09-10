@@ -1,0 +1,35 @@
+#!/bin/sh
+#  a script to tell you the average size of the files in a given directory (so
+#  you can tune block-size appropriately)
+
+typeset -i FILECOUNT=0
+typeset -i BYTECOUNT=0
+typeset -i AVGSZ=0
+typeset -i SIZE=0
+typeset -i ABCNT=0
+typeset -i PBCNT=0
+typeset -i ACAP=0
+typeset -i PCAP=0
+typeset -i AVGBKPF=0
+
+for f in `find $1 -type f -print`; do
+	FILECOUNT=$FILECOUNT+1
+	SIZE=`ls -l $f | cut -d\  -f 6`
+	#echo $SIZE
+	BYTECOUNT=$BYTECOUNT+$SIZE
+done
+AVGSZ=$BYTECOUNT/$FILECOUNT
+ABCNT=$BYTECOUNT/1024+1
+PBCNT=$BYTECOUNT/$2+1
+ACAP=$ABCNT*1024
+PCAP=$PBCNT*$2
+AVGBKPF=$AVGSZ/$2
+
+echo files: $FILECOUNT
+echo bytes: $BYTECOUNT
+echo avg filesize: $AVGSZ
+echo actual blockcount: $ABCNT
+echo proposed blockcount: $PBCNT
+echo actual total capacity: $ACAP
+echo proposed total capacity: $PCAP
+echo avg. blocks per file proposed: $AVGBKPF

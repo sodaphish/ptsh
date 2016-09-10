@@ -1,0 +1,3 @@
+grant select on web_test.* to search;
+grant select on web_test.* to search_rw;
+grant insert on web_test.* to search_rw;

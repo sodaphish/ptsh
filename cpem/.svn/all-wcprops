@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 17
+/svn/!svn/ver/63/
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/73/.project
+END
+.pydevproject
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/73/.pydevproject
+END

@@ -1,0 +1,27 @@
+<FORM METHOD=POST ACTION="index.php">
+<input type=hidden name=c value=delete>
+<input type=hidden name=f value=invoice>
+<input type=hidden name=sub value=customer>
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size=+2 ALIGN=center>Delete Customer</font></td>
+	</tr><tr>
+		<td>
+			<SELECT NAME="id">
+		
+		<?php
+		$result = mysql_query("select company_name,id from client where active!=0")or die(mysql_error());
+while(list($company_name,$id)=mysql_fetch_row($result) )
+{
+	print"\t\t\t<option value=$id>$company_name</option>\n";
+}
+?>
+			</SELECT>
+		</td>
+		<td align=right><input type="submit" VALUE="ok"></td>
+	</tr><tr>
+		<td><input type="checkbox" VALUE="value" NAME="checkbox"> Yes, Im sure</td>
+	</tr>
+</table>
+</form>
+

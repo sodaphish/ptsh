@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/javax/xml/parsers"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="FactoryFinder$ClassLoaderFinderConcrete.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="362c271af6e5fbda4a77edbcc07cefd4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DocumentBuilderFactory.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9d25e303b2536a5335c4a5359f0c74f1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FactoryFinder.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="68c280c29212a467eff61a6cc6f1b461"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SAXParserFactory.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9045fa19cbc797c3c9891bce3da6af0b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParserConfigurationException.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="704a8a0e3ede4f004b9087aeadccbdd5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FactoryFinder$1.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d351b0a40ac4c436a2cc1199956ecdf2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FactoryFinder$ConfigurationError.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a23d42c6bc6b8fad4691e5feb006d04c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DocumentBuilder.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d00bc90b902b83a58cc2be3a9aaafe4d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FactoryFinder$ClassLoaderFinder.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c90739ba7f306c4c7b9bf693ae775223"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SAXParser.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="89811ec5a12f84007c20ad109415d2a2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FactoryConfigurationError.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7b8fd3728cd106ab04550973f04340b2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+</wc-entries>

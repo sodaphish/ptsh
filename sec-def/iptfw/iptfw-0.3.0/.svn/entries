@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:43.975898Z"
+   url="file:///hosted/www/sodaphish.com/repos/iptfw/iptfw-0.3.0"
+   last-author="csteele"
+   kind="dir"
+   uuid="5f06538d-5ef0-0310-a70d-8edda5f23be6"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="iptfw.sh"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="ba6f0327cae5aa826d265a5b947c0765"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="lstrusted"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="e644be6cc4fa3e8ddda85c9abdfe5013"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+</wc-entries>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/other_rtkts/netcat/scripts"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="webproxy"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="393193b684e0efb135e8459aecf6900b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ncp"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="fa679307322bb3f379877b19afd116ac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="alta"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="544c19da387112fa40ca7926e77aeb1b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="websearch"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="f1570f4c5cc27216ad800e7bf023c4d3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="probe"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="430a1b955ad2da1fc053985423a52f17"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="webrelay"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="eb3bcb13d36395d0b09a3ef66b2ca2ff"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="bsh"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="532c4cb70c14bd6219aa319f6c78ef9c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dist.sh"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="e319e17eb956b8a4c65d5582584ba0bb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="irc"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="8c787e1a2a17d235a39b95c3d29daf9a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="5413b15cbbc1fb54ef472f86e7bc78da"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="iscan"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="a8ec4e32660d14c1df15498e7b890c41"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="web"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="04b7816212812a57e24e7e0dfa142088"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+</wc-entries>

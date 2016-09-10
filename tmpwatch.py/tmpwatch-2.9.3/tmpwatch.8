@@ -1,0 +1,105 @@
+.TH TMPWATCH 8 "Tue Dec 21 2004" "Red Hat Linux" "System Administrator's Manual"
+.UC 4
+.SH NAME
+tmpwatch \- removes files which haven't been accessed for a period of time
+.SH SYNOPSIS
+\fBtmpwatch\fR [-u|-m|-c] [-faqstv] [--verbose] [--force] [--all] [--test] 
+               [--fuser] [--atime|--mtime|--ctime] [--quiet]
+               [--exclude <path>] <hours> <dirs>
+
+.SH DESCRIPTION
+\fBtmpwatch\fR recursively removes files which haven't been accessed
+for a given number of hours. Normally, it's used to clean up directories
+which are used for temporary holding space such as /tmp.
+
+When changing directories, \fBtmpwatch\fR is very sensitive to possible
+race conditions and will exit with an error if one is detected. It does
+not follow symbolic links in the directories it's cleaning (even if a
+symbolic link is given as its argument), will not switch filesystems,
+skips \fIlost+found\fR directories owned by the root user,
+and only removes empty directories and regular files. 
+
+By default, \fBtmpwatch\fR dates files by their atime (access time), not
+their mtime (modification time). If files aren't being removed when
+\fBls -l\fR implies they should be, use \fBls -u\fR to examine their
+atime to see if that explains the problem.
+
+If the -\-atime, -\-ctime or -\-mtime options are used in combination,
+the decision about deleting a file will be based on the maximum of
+these times.
+
+The \fIhours\fR parameter defines the threshold for removing files. If
+the file has not been accessed for \fIhours\fR hours, the file is removed.
+Following this, one or more directories may be given for \fBtmpwatch\fR
+to clean up.
+
+
+.SH OPTIONS
+.TP
+\fB-u, -\-atime\fR
+Make the decision about deleting a file based on the file's atime (access
+time). This is the default.
+
+
+.TP
+\fB-m, -\-mtime\fR
+Make the decision about deleting a file based on the file's mtime
+(modification time) instead of the atime.
+
+.TP
+\fB-c, -\-ctime\fR
+Make the decision about deleting a file based on the file's ctime
+(inode change time) instead of the atime; for directories, make the
+decision based on the mtime.
+
+.TP
+\fB-a, -\-all\fR
+Remove all file types, not just regular files and directories.
+
+.TP
+\fB-d, -\-nodirs\fR
+Do not attempt to remove directories, even if they are empty.
+
+.TP
+\fB-f, -\-force\fR
+Remove files even if root doesn't have write access (akin to \fBrm -f\fR).
+
+.TP
+\fB-t, -\-test\fR
+Doesn't remove files, but goes through the motions of removing them. This
+implies \fB\-v\fR.
+
+.TP
+\fB-s, -\-fuser\fR
+Attempt to use the "fuser" command to see if a file is already open
+before removing it.  Not enabled by default.   Does help in some
+circumstances, but not all.  Dependent on fuser being installed in
+/sbin.  Not supported on HP-UX or Solaris.
+
+.TP
+\fB-v, -\-verbose\fR
+Print a verbose display. Two levels of verboseness are available -- use
+this option twice to get the most verbose output.
+
+.TP
+\fB-x, -\-exclude=\fIpath\fR
+Skip absolute \fIpath\fR; if \fIpath\fR is a directory, all files
+contained in it are skipped too.
+The directories to clean up must also be absolute paths.
+
+.SH SEE ALSO
+.IR cron (1),
+.IR ls (1),
+.IR rm (1),
+.IR fuser (1)
+
+.SH WARNINGS
+GNU-style long options are not supported on HP-UX.
+
+.SH AUTHORS
+.nf
+Erik Troan <ewt@redhat.com>
+Preston Brown <pbrown@redhat.com>
+Nalin Dahyabhai <nalin@redhat.com>
+Miloslav Trmac <mitr@redhat.com>
+.fi

@@ -1,0 +1,27 @@
+#!/bin/sh
+# daily v.0.2.1 by C.J. Steele <csteele@good-sam.com>
+#	29 Jul 2003
+#
+# this script imports firewall log files from the logserver, frank.corp.good-sam.com
+# these logs are then analyzed with the FireWall Analysis Package (FWAP).
+#
+
+. /var/www/html/sec/fwap/bin/globals
+LOGDIR=/var/log/hosts/toaster.corp.good-sam.com/
+
+
+echo "importing blocked packets..."
+$BIN/blocked2sql $LOGDIR/$YESTERDAY
+
+echo "importing other PIX messages..."
+$BIN/others2sql $LOGDIR/$YESTERDAY
+
+echo "mailing FWAP report..."
+$BIN/mailrpt
+
+echo "importing DHCP lease info..."
+$BIN/dhcplog2sql /var/log/hosts/ns1.good-sam.com/$YESTERDAY &
+
+echo "generating FWAP graph data..."
+$BIN/mkdata.pl "$YESTLONG" &
+

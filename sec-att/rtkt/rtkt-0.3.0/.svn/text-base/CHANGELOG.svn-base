@@ -1,0 +1,5 @@
+0.3.0 - stoped using hacked up tcps and added netcat to the kit
+0.2.2 - further improvements in the installation script, including bug fixes
+0.2.1 - improvements in installation script
+0.2.0 - immutability protection added
+0.1.0 - basic wrappers built, install scripts included

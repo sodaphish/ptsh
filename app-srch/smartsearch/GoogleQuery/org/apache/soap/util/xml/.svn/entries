@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/util/xml"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="DOMWriter.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="25a6ee8f2296b52004d77bb37e8fb293"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLParserUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c01e14fb13398b71556916123bcaafea"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DOM2Writer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1e38c230d6b33f2796901be1d992f4ea"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DOMUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="44d44a23fcaf618e9082f03ca4b2e632"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMIDeserializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7b2dcea4e0250aa91786c86c107b3362"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="QName.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="0ce57493f5a6ba4d41b084de8553064c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Deserializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f89d8441d1b0243cd2d62873748bed28"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NSStack.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="8942f93cef2d376c138e871ddbd96eb6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLJavaMappingRegistry.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="8cf964760070e3614742898c6bef5c99"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMISerializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="411b9c458f103a643fa5382ca5472f6e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NSDecl.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="98ee37034da42489adfbf9fa8e69f477"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Serializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a4dcd735f0484e1778ceeaeca7dd7c43"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+</wc-entries>

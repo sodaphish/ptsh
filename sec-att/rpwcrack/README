@@ -1,0 +1,7 @@
+``rpwcrack'' is a collection of remote password crackers including the following
+
+* HTTP/1.0 BasicAuth
+* HTTP cgi/form 
+* POP3
+* SMB
+* telnet

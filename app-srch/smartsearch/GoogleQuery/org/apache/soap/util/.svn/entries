@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/util"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   name="xml"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="MethodUtils$MoreSpecific.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c0be83ad51ad473fb7561ef12099dcd4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ObjectRegistry.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a52d6c7b67894661359a3642716f32ca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ConfigManager.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="abb3375a09fffa1b1bf3a416421a3fa1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MethodUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="60b4474ab97f5a38ad4ecd322e1862d5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   name="net"
+   kind="dir"/>
+<entry
+   name="mime"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="Bean.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c6e0ed6dbe2c2e24ee423952fdbd0e6f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="StringUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="32558cced1c1ff45e95fcd92b5d5bde4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="IOUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b1f2243b0c0e00cb38301aa287abd9f3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Provider.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="cb779f60a0113e3de177b42c8fb6b6b7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+</wc-entries>

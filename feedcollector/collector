@@ -1,0 +1,79 @@
+#!/usr/bin/python
+"""
+semfeed collector utility 
+(C)opyright 2011, Corey J. Steele, all rights reserved.
+
+collector command-line utility for managing our feed database
+
+
+TODO:
+** add try/except around all methods functions 
+** add logging to to all options/variables
+
+CHANGES:
+** 0.2.0 -- broke-out the command-line utilituy from the class library
+** 0.1.0 -- initial incarnation, this was integrated into the semfeed.collector class library
+"""
+
+__version__ = "0.2.0"
+
+import semfeed
+from semfeed import *
+from semfeed.collector import *
+
+
+def usage():
+	print sys.argv[0], "v.", __version__
+	print "(c)opyright 2011, C.J. Steele, all rights reserved"
+	print ""
+	print "usage:", sys.argv[0], " [-(a|r) [feedurl]] [-l] [-h] [-d database]"
+	print ""
+	print "  -a,--add    [feedurl] - add a feed"
+	print "  -r,--remove [feedurl] - remove a feed"
+	print "  -l,--list             - list feeds"
+	print "  -d,--database [file]  - file/path to the database"
+	print "  -h,--help             - this message"
+	print "if no argument is specified,", sys.argv[0],"will connect to"
+	print "the Internet and download feeds and process them."
+	print ""
+
+
+if __name__=='__main__':
+	import getopt
+	import sys
+
+	database = 'feeds.db'
+	col=None
+
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "hla:r:d:", ["help", "list", "add=","remove=","database="])
+	except getopt.GetoptError, e:
+		print str(e)
+		usage()
+		sys.exit(2)
+
+	for o, a in opts:
+		if o in ("-h", "--help"):
+			usage()
+			sys.exit()
+		elif o in ("-d", "--database"):
+			database=a
+			semfeed.log_event('debug', 'database specified as:' + database)
+		elif o in ("-l", "--list"):
+			semfeed.log_event('debug', 'listing feeds in the database' )
+			col=Collector(database)
+			col.list_feeds()
+			sys.exit()
+		elif o in ("-a", "--add"):
+			semfeed.log_event('debug', 'adding feed: ' + a)
+			col=Collector(database)
+			col.add_feed(a)
+			sys.exit()
+		elif o in ("-r", "--remove"):
+			col=Collector(database)
+			col.remove_feed(a)
+			sys.exit()
+	
+	# if we haven't exited yet, we're just going to happily run our processing routine
+	col=Collector(database)
+	col.proc_allfeeds()

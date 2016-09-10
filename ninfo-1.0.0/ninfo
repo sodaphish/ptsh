@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+# ninfo v1.1 - network information script
+# 	by C.J. Steele <coreyjsteele@gmail.com>
+#
+# usage: 
+# 	ninfo [time delay]
+#
+# Script will show the name resolver config, active interfaces, and routing table.
+# Optionally, if you specify an integer argument, the script will loop infinitely
+# and update every X seconds (per your command-line arg.)
+#
+
+
+IFCONFIG="/sbin/ifconfig"
+
+
+nstat() {
+	echo ""
+	echo "----------------------------------------------------------------------"
+	echo "NAME RESOLUTION CONFIGURATION"
+	echo ""
+	cat /etc/resolv.conf
+	echo ""
+	echo "----------------------------------------------------------------------"
+	echo "ACTIVE INTERFACES"
+	echo ""
+	for iface in `netstat -nr | awk {'print $8'} | grep -- [0-9]$ | sort -n | uniq`; do
+		$IFCONFIG $iface
+	done
+	echo "----------------------------------------------------------------------"
+	echo "ROUTING TABLE"
+	echo ""
+	netstat -nr
+	#echo "----------------------------------------------------------------------"
+	#echo "GATEWAY PING TEST"
+	#echo ""
+	#GATEWAY=`netstat -nr | grep -- ^0.0.0.0 | awk {'print $2'}`
+	#ping -c 5 $GATEWAY
+	#
+	#echo "----------------------------------------------------------------------"
+	#echo "DNS RESOLUTION TIMES (Apple.com)"
+	#time host apple.com 1> /dev/null
+}
+
+if [ $1 ]; then
+	clear
+	while [ 1 ]; do
+		date +%Y-%m-%d\ %H:%M:%S
+		nstat
+		sleep $1
+		clear
+	done
+else
+	nstat
+fi

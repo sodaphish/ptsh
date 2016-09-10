@@ -1,0 +1,9 @@
+1) make sure apache handles *.cgi appropriately (i.e. as a CGI)
+2) put the directory in which you found this file in a publicly accessible directory on your web server (this location is hereafter referred to as $PHOTOS_HOME.)
+3) put your JPG images in $PHOTOS_HOME/jpgs
+4) from $PHOTOS_HOME run ./bin/mkthumbs.sh, depending on how many images you've got, this could grind a bit.
+5) make sure you `chmod +x index.cgi` so the index script is executeable.
+6) edit $page_title and $page_headline in index.cgi to reflect the values you'd like them to be.
+7) you're done.
+
+whenever you add new pictures, you'll have to repeat step #4, but other than that, you're done.

@@ -1,0 +1,32 @@
+<FORM METHOD=POST ACTIOM="index.php">
+<input type=hidden name=f value=timesheet>
+<input type=hidden name=sub value=timecard>
+<input type=hidden name=c value=add>
+<table ALIGN=center BORDER=8>
+<tr>
+ 	<td><font size=+2 ALIGN=center><div align=center>Add Time Card</font></div></td>
+</tr><tr>
+	<td Align=right>Date:<INPUT TYPE="text" NAME="date"></td>
+</tr><tr>
+	<td align=center>Number of Hours:<INPUT TYPE="text" NAME="hours"></td>
+</tr><tr>
+	<td align=center>Employee Name:<INPUT TYPE="text" NAME="employee"></td>
+</tr><tr>
+	<td align=right>Description:<TEXTAREA NAME="description" Rows=3 Wrap></TEXTAREA></td>
+</tr><tr>
+	<td align=left>&nbsp;&nbsp;&nbsp;Project Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<SELECT NAME="title_box">
+		<?php
+		$result = mysql_query("select title,id from project where active !=0");
+		while( list($title,$id )= mysql_fetch_row($result) )
+		{
+			print"\t\t\t<option value=$id>$title</option>\n";
+		}
+		?>
+			</SELECT>
+	</td>
+</tr><tr>
+	<td Align=center><INPUT TYPE="submit" VALUE="ok"></td>
+</tr>
+</table>
+</FORM>

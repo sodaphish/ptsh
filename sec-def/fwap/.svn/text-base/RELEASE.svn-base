@@ -1,0 +1,46 @@
+ROADMAP/DESIGN 
+
+FRONTEND CODE-BASE:
+
+index.php
+	* maintain existing function-set
+	* wrap-in functionality of audit.php 
+	* wrap-in functionality of portscanscan.php
+	* wrap-in functionality of resolve.php
+	* modular API/framework (so functionality of things like audit.php, 
+		resolve.php, and portscan.php, are really modules.)
+	* written in PHP
+
+graph.php
+	* replaces the functionality of stats.php
+
+
+
+BACKEND CODE-BASE: 
+
+bin/fwap.init
+	* handles starting and stopping fwap sub processes such as: fwapd, et al.
+	* used at startup of box to start fwap2 processes
+
+bin/fwapd 
+	* a.k.a. FWAP Daemon
+	* keeps monitoring processes alive
+	* written in Bourne Again SHell 
+	* can restart fwapin_* scripts
+
+bin/fwapin_pix 
+	* monitors PIX logs and dumps them in to the mysql database.
+	* written in perl
+	* imports both blocked packets and 'other' logs.
+
+bin/fwapin_qip
+	* monitors NS1's QIP DHCP logs and dumps them to the mysql database.
+	* written in perl
+
+bin/fwapin_stats
+	* populates graph data tables every 5-10 minutes
+
+bin/trendd (NEW)
+	* a.k.a. the trend daemon
+	* analyzes trends (threats trending up, down, etc.) on the fly
+	* can fire-off alerts

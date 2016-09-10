@@ -1,0 +1,150 @@
+# MySQL dump 6.4
+#
+# Host: localhost    Database: mysql
+#--------------------------------------------------------
+# Server version	3.22.27
+
+#
+# Table structure for table 'columns_priv'
+#
+CREATE TABLE columns_priv (
+  Host char(60) DEFAULT '' NOT NULL,
+  Db char(60) DEFAULT '' NOT NULL,
+  User char(16) DEFAULT '' NOT NULL,
+  Table_name char(60) DEFAULT '' NOT NULL,
+  Column_name char(60) DEFAULT '' NOT NULL,
+  Timestamp timestamp(14),
+  Column_priv set('Select','Insert','Update','References') DEFAULT '' NOT NULL,
+  PRIMARY KEY (Host,Db,User,Table_name,Column_name)
+);
+
+#
+# Dumping data for table 'columns_priv'
+#
+
+
+#
+# Table structure for table 'db'
+#
+CREATE TABLE db (
+  Host char(60) DEFAULT '' NOT NULL,
+  Db char(32) DEFAULT '' NOT NULL,
+  User char(16) DEFAULT '' NOT NULL,
+  Select_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Insert_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Update_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Delete_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Create_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Drop_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Grant_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  References_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Index_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Alter_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  PRIMARY KEY (Host,Db,User),
+  KEY User (User)
+);
+
+#
+# Dumping data for table 'db'
+#
+
+INSERT INTO db VALUES ('%','web','search_rw','N','N','N','Y','N','N','N','N','N','N');
+INSERT INTO db VALUES ('%','web','search','Y','N','N','N','N','N','N','N','N','N');
+INSERT INTO db VALUES ('%','web_test','search','Y','N','N','N','N','N','N','N','N','N');
+INSERT INTO db VALUES ('%','web_test','search_rw','Y','Y','N','N','N','N','N','N','N','N');
+INSERT INTO db VALUES ('%','web','csteele','Y','Y','Y','Y','Y','Y','N','Y','Y','Y');
+
+#
+# Table structure for table 'func'
+#
+CREATE TABLE func (
+  name char(64) DEFAULT '' NOT NULL,
+  ret tinyint(1) DEFAULT '0' NOT NULL,
+  dl char(128) DEFAULT '' NOT NULL,
+  type enum('function','aggregate') DEFAULT 'function' NOT NULL,
+  PRIMARY KEY (name)
+);
+
+#
+# Dumping data for table 'func'
+#
+
+
+#
+# Table structure for table 'host'
+#
+CREATE TABLE host (
+  Host char(60) DEFAULT '' NOT NULL,
+  Db char(32) DEFAULT '' NOT NULL,
+  Select_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Insert_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Update_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Delete_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Create_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Drop_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Grant_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  References_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Index_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Alter_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  PRIMARY KEY (Host,Db)
+);
+
+#
+# Dumping data for table 'host'
+#
+
+
+#
+# Table structure for table 'tables_priv'
+#
+CREATE TABLE tables_priv (
+  Host char(60) DEFAULT '' NOT NULL,
+  Db char(60) DEFAULT '' NOT NULL,
+  User char(16) DEFAULT '' NOT NULL,
+  Table_name char(60) DEFAULT '' NOT NULL,
+  Grantor char(77) DEFAULT '' NOT NULL,
+  Timestamp timestamp(14),
+  Table_priv set('Select','Insert','Update','Delete','Create','Drop','Grant','References','Index','Alter') DEFAULT '' NOT NULL,
+  Column_priv set('Select','Insert','Update','References') DEFAULT '' NOT NULL,
+  PRIMARY KEY (Host,Db,User,Table_name),
+  KEY Grantor (Grantor)
+);
+
+#
+# Dumping data for table 'tables_priv'
+#
+
+
+#
+# Table structure for table 'user'
+#
+CREATE TABLE user (
+  Host char(60) DEFAULT '' NOT NULL,
+  User char(16) DEFAULT '' NOT NULL,
+  Password char(16) DEFAULT '' NOT NULL,
+  Select_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Insert_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Update_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Delete_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Create_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Drop_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Reload_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Shutdown_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Process_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  File_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Grant_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  References_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Index_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  Alter_priv enum('N','Y') DEFAULT 'N' NOT NULL,
+  PRIMARY KEY (Host,User)
+);
+
+#
+# Dumping data for table 'user'
+#
+
+INSERT INTO user VALUES ('localhost','root','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+INSERT INTO user VALUES ('gateway.mtron.com','admin','08c5854e28bcd35b','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+INSERT INTO user VALUES ('%','search_rw','4606b41d6ade74c2','Y','Y','Y','N','N','N','N','N','N','N','N','N','N','N');
+INSERT INTO user VALUES ('localhost','search','55743dec57707aa0','Y','N','N','N','N','N','N','N','N','N','N','N','N','N');
+

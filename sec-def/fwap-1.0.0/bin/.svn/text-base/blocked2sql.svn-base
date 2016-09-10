@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+# blocked2sql v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+#	10 Jan 2003
+#
+# this script imports log entries of blocked packets from a PIX syslog file in to a mysql database.
+# the structure of the database table 'blocked' is as follows:
+#	CREATE TABLE IF NOT EXISTS blocked (
+#		id		int(11) auto_increment not null,
+#		time    varchar(16) not null,
+#		date    varchar(32) not null,
+#		proto   varchar(16) not null,
+#		src		varchar(64) not null,
+#		srcprt  varchar(16) not null,
+#		dst		varchar(64) not null,
+#		dstprt	varchar(16) not null,
+#		key( src ),
+#		key( dst ),
+#		key( date ),
+#		primary key( id )
+#	)
+#
+# this script is used in conjunction with the others2sql script as defined in the daily* scripts.
+# 
+use strict; 
+use Env; 
+use DBD::mysql;
+
+my $logfile = $ARGV[0]; 
+
+
+
+sub isin 
+{
+	my( $query, @list ) = @_;
+	foreach( @list )
+	{
+		return 1 if( $query eq $_ );
+	}
+	return 0;
+} #end isin()
+
+
+
+open( IN, "$logfile" ) or die "$! ($logfile)";
+my $dbh = DBI->connect( 'dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=fw', 'root', '' )
+	or die "Couldn't connect to database ($DBI::errstr)";
+while( <IN> )
+{
+	
+	chomp( $_ );
+	
+	#we're only interested in blocked packet messages
+	if( $_ =~ /4-106023/ )
+	{
+
+		# the date prepended by the syslog server makes it difficult to 
+		# properly munge the data, so we cut that off
+		my( $junk, $useful ) = split( /toaster\.corp\.good\-sam\.com/, $_, 2 ); 
+		# split the PIX log data in to its individual elements
+		my( @elements ) = split( /\s/, $useful ); 
+
+		# clean out the interface names from the offender's address/port pair
+		my $srcprt; 
+		my $src = $elements[9]; 
+		$src =~ s/(inside|outside|studio|seniorcompanions)://i; 
+		( $src, $srcprt ) = split( /\//, $src, 2 ); 
+
+		# clean out the interface names from the victim's address/port pair
+		my $dstprt;
+		my $dst = $elements[11]; 
+		$dst =~ s/(inside|outside|studio|seniorcompanions)://i; 
+		( $dst, $dstprt ) = split( /\//, $dst, 2 );
+
+		# we want to output the following values in CSV format:
+		# time (2400), date (day, month, year), proto, src, srcprt, dst, dstprt
+
+		# lets insert this entry in to the database
+		my $stmt_h = $dbh->prepare( "INSERT INTO blocked ( time, date, proto, src, srcprt, dst, dstprt ) VALUES ( '$elements[4]' , '$elements[1] $elements[2] $elements[3]', '$elements[7]', '$src', '$srcprt', '$dst', '$dstprt' )" );
+		$stmt_h->execute(); 
+
+		print "."; 
+		
+	}
+
+}
+$dbh->disconnect();
+close( IN );
+
+print "\n";
+
+
+exit( 0 );

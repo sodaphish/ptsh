@@ -1,0 +1,119 @@
+#!/usr/bin/php
+<?php
+
+# TODO:
+# * implement file-size limits to prevent disk-resource DoS attacks.
+
+
+$operatingDirectory = "/hosted/www/sodaphish.com/bobfus/tmp/"; 
+$bobfus = "/hosted/www/sodaphish.com/bobfus/bobfus.pl"; 
+$retrievalURL = "http://forwardsteptech.com/spc/bobfus/tmp"; 
+
+
+$link = mysql_connect( "localhost", "root", "ahh-ahs" )
+	or die( mysql_error() );
+mysql_select_db( "bobfus" )
+	or die( mysql_error() );
+
+$query = "select id, reqtime, ipadd, url, email, passwd from submissions where status=0";
+$query_h = mysql_query( $query ) or die( mysql_error() );
+
+while( list( $id, $reqtime, $ipadd, $url, $email, $passwd, $serialNumber ) = mysql_fetch_row( $query_h ) )
+{
+	$status = 0;
+	if( ! $serialNumber )
+	{
+		$serialNumber = mkSerialNumber(); #this is the 16 byte random file-name... 
+	}
+	# get the remote file
+	if( preg_match( '/^http\:\/\//', $url ) or preg_match( '/^ftp\:\/\//', $url ) )
+	{
+		mysql_query( "update submissions set status = '3' where id=$id" );
+		$contents = file_get_contents( $url );
+		mysql_query( "update submissions set status = '2' where id=$id" );
+		file_put_contents( "$operatingDirectory$serialNumber", $contents );
+		# bobfuscate it
+		$results = array( system( "$bobfus -e -k \"$passwd\" $operatingDirectory$serialNumber $operatingDirectory$serialNumber.enc", $retval ) );
+		if( $retval )
+		{
+			# bobfus had a problem.
+			print "E: bobfus encountered an error...\n";
+			foreach( $results as $res )
+			{
+				print "\t$res\n";
+			}
+			# update the status
+			$status = -1;
+		} else {
+			# bobfus appears to have succeeded.
+			# update the status
+			$status = 1;
+		}
+	} else {
+		# this isn't a URI...
+		# update the status
+		$status = -2;
+	}
+
+	# update the status in the db...
+	$update = "update submissions set status = '$status', sn='$serialNumber' where id=$id";
+	mysql_query( $update ) or die( mysql_error() );
+
+	# email the user...
+	# 3 - downloading
+	# 2 - downloaded but unprocessed
+	# 1 - processed successfully
+	# 0 - unchanged since submission
+	# -1 - retrieval error
+	# -2 - url error, probably an attempt to poison our stuff.
+	switch( $status )
+	{
+		case -2:
+			# there was a problem with the URI/URL
+			$message = "Malformed URI/URL, giving up!";
+			break;
+		case -1:
+			# the file could not be retrieved
+			$message = "URI/URL retrieval failed, giving up!";
+			break;
+		case 1:
+			# the retrieval succeeded.
+			$message = "URI/URL retrieved!  Your bobfuscated file can be downloaded from $retrievalURL/$serialNumber.enc"; 
+			unlink( "$operatingDirectory/$serialNumber" );
+			break;
+		default:
+			# unknown, leave the status unchanged?
+			unlink( "$operatingDirectory/$serialNumber" );
+			break;
+	}
+	if( $message )
+	{
+		$headers = "MIME-Version: 1.0\r\n".
+			"Content-type: text/html; charset=iso-8859-1\r\n".
+			"From: \"bobfusd\" <coreyjsteele@yahoo.com>\r\n".
+			"To: \"\" <".$email.">\r\n".
+			"Date: ".date("r")."\r\n".
+			"Subject: bobfus transaction #$serialNumber\r\n";
+		$message = "Hi, I'm the bobfus daemon, the status of your transaction ($serialNumber) has been updated!\r\n\r\n\t$message\r\n";
+		mail( $email, "bobfus transaction #$serialNumber", $message, $headers );
+	}
+
+}
+
+
+function mkSerialNumber()
+{
+	$sn = "";
+	for( $x = 0; $x < 16; $x++ )
+	{
+		$r = rand( 0, 9 );
+		if( $x == 0 and $r == 0 )
+		{
+			$r++;
+		}
+		$sn .= $r; 
+	}
+	return $sn;
+}
+
+?>

@@ -1,0 +1,3 @@
+#!/bin/sh
+MYIP=`/usr/local/bin/whatsmyip eth0`
+cat /var/log/messages | grep firewall | cut -f7- -d" " | awk {'print $4'} | sed s/SRC\=//g | grep -v $MYIP | sort | uniq

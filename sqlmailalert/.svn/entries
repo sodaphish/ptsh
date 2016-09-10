@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:27:06.740919Z"
+   url="file:///hosted/www/sodaphish.com/repos/sqlmailalert"
+   last-author="csteele"
+   kind="dir"
+   uuid="1cd6910a-5ef0-0310-aca0-9ecb2e69c9d6"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="sqlmailalert-0.0.1"
+   text-time="2005-02-18T07:27:25.000000Z"
+   committed-date="2005-02-18T07:27:06.740919Z"
+   checksum="60b065196a325c03f3e37ed0c622094a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:27:25.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="infosec_mail.sql"
+   text-time="2005-02-18T07:27:25.000000Z"
+   committed-date="2005-02-18T07:27:06.740919Z"
+   checksum="14ed640c768f858f299c453dd5be76c6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:27:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="sqlmailalert"
+   text-time="2005-02-18T07:27:25.000000Z"
+   committed-date="2005-02-18T07:27:06.740919Z"
+   checksum="12cc037b20dd14b9f657fdc07ec40aa2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:27:25.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

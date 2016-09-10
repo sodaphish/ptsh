@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+#
+# (C)opyright 2001, Corey J. Steele, all rights reserved.
+#
+# `chkrpms` v. 0.2.0 by Corey J. Steele <csteele@old.dhs.org>
+#
+# CHANGELOG
+# v. 0.2.0
+#       - fixed several bugs in the way packages were identified as needing to be updated
+#       - instead of `getrpms`, I now have `mkRPMS`, which is a simplified version of what
+#               I had planned for `getrpms`. I do still have plans for expanding this to a
+#               network aware application so packages can be downloaded as needed from a
+#               remote server.
+# v. 0.1.0
+#       - initial release, had some bugs.
+#
+$debug = 0;
+$version = "0.2.0";
+
+if( scalar( @ARGV ) > 0 ){
+
+        my $RPMS = $ARGV[0];
+        my @pkgs_to_upgrade = ();
+
+        if( -e $RPMS ){
+
+                my( @installed_rpms ) = `rpm -qa --queryformat '%{NAME}\n'`;
+                chomp( $_ ) foreach( @installed_rpms );
+
+                print "`chkrpms` v. $version by Corey J. Steele <csteele\@old.dhs.org>\n";
+                print "...this can take a while sometimes on slower boxes, hold on.\n";
+
+                open( IN, $RPMS ) or die "$!";
+                while( my $line = <IN> ){
+
+                        chomp( $line );
+                        my( $pkg_path, $pkg_name, $pkg_ver ) = split( /::/, $line );
+                        foreach( @installed_rpms ){
+
+                                if( $_ eq $pkg_name ){
+                                        my $installed_version = `rpm -q --queryformat %{VERSION} $pkg_name`; chomp( $installed_version );
+                                        if( $pkg_ver ne $installed_version ){
+                                                push( @pkgs_to_upgrade, "$pkg_name ($installed_version->$pkg_ver)" );
+                                        }
+                                }
+
+                        }
+
+                }
+                close( IN );
+
+        } else {
+
+                print STDERR "usage: chkrpms /path/to/RPMS/file\n";
+                print STDERR "...couldn't find $RPMS.\n";
+                exit( 1 );
+
+        }
+
+        if( scalar( @pkgs_to_upgrade ) ){
+
+                print "upgrade the following packages:\n";
+                print "\t$_\n" foreach( @pkgs_to_upgrade );
+                print "\n";
+
+        }
+
+} else {
+
+        print "usage: chkrpms /path/to/RPMS/file\n";
+
+}
+
+exit( 0 );

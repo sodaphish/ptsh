@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/server/http"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ServerHTTPUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a05f6458dcf95c092cd74c72a8924631"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageRouterServlet.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6845c7c04793abf07ae1d4b3a7b0308c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="RPCRouterServlet.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b37b3cc2f6fdca347f3cfc55f29d4b39"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+</wc-entries>

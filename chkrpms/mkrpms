@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+# (C)opyright 2001, Corey J. Steele, all rights reserved.
+#
+# TODO:
+# - add a count for files to download -- so if its run on console you have some indication about size.
+# - progress meter for downloads? -- that's going to be tough using Net::FTP (no threading where I could hop in on.)
+# - intelligently find fastest mirror to use
+# - improve command-line uses for this tool -- follow the UNIX way.
+#
+# ISSUES:
+# - very minimal error checking -- if an FTP is full (or other login issues), or times out, shit hits the fan.
+#
+
+$debug = 1;
+
+#
+# MAIN ROUTINE
+################################################################################
+
+
+
+if( scalar(@ARGV) ){
+
+        my $directory = $ARGV[0];
+        my $output_file = $ARGV[1];
+
+        print "directory = $directory\n" if( $debug );
+        print "output_file = $output_file\n" if( $debug );
+
+        if( -e $directory ){
+
+                mkrpms( $directory, $output_file );
+
+        } else {
+
+                print STDERR "usage: mkRPMS /path/to/directory/with/updates /file/to/output/to\n";
+                print STDERR "...one of the paths you entered was not correct!\n";
+                exit( 1 );
+
+        }
+
+} else {
+
+        print "usage: mkRPMS /path/to/directory/with/updates /file/to/output/to\n";
+
+}
+
+
+exit( 0 );
+
+
+
+#
+# SUB ROUTINES
+################################################################################
+
+
+
+sub isin {
+        my ( $variable, @array ) = @_;
+
+        foreach( @array ){ print "isin() - \@array -> $_\n" if( $debug ); }
+        print "isin() - $variable\n" if( $debug );
+
+        foreach( @array ){
+                return 1 if( $_ eq $variable );
+        }
+        return 0;
+}
+
+
+
+sub mkrpms {
+        my( $path, $output ) = @_;
+        (@rpms) = `ls -1 $path/*.rpm 2>&1`;
+
+        open( OUT, ">$output" ) or die "Error creating output file: $!";
+        foreach( @rpms ){
+                chomp($_);
+                $name = `rpm -qp --queryformat %{NAME} $_ 2>&1`; chomp( $name );
+                $version = `rpm -qp --queryformat %{VERSION} $_ 2>&1`; chomp( $version );
+                print OUT $_, "::", $name, "::", $version, "\n";
+        }
+        close( OUT );
+}
+

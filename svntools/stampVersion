@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+# expands version tokens surrounded by double percent signs in files
+use strict;
+use Shell qw( cp );
+
+if( scalar( @ARGV ) == 2 )
+{
+	if( -e $ARGV[1] and -w $ARGV[1] )
+	{
+		cp( "-rfp $ARGV[1] $TMPFILE" ); 
+		open( IN, "$ARGV[1]" ) or die "$!";
+	} else {
+	}
+} else {
+	print STDERR "usage: $0 <filename> <version>\n";
+	exit( 1 );
+}

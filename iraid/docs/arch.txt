@@ -1,0 +1,17 @@
+
+CLIENT-SIDE APPLICATIONS
+========================================================================
+** peerdsk (subscriber monitor) -- monitors local filesystem(s) for changes and 
+	adds changed files to the job queue.
+** peerdisk (subscriber tray client) -- provides a user-interface through which 
+	users are able to configure the monitor and see status of system
+** pdskupld (subscriber worker) -- handles the work of up-loading data 
+	to the broker and such.
+
+** peerdisk (provider tray client) -- 
+** peerdsk (provider worker)
+
+SERVER-SIDE APPLICATIONS
+========================================================================
+** broker
+** plumber

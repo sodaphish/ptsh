@@ -1,0 +1,77 @@
+#/BODY
+<br><br>
+<b>W</b>elcome to M-tron's Product Search Engine.  This page is designed to help you find just the right part for your project, and find it <i>fast</i>.
+<br><br>
+We are interested in what you think about this site!  If you have any ideas you'd like to share with us, or suggestions on improving the site, please feel free to <a href=feedback.cgi>let us know!</a> 
+<br><br>
+If you need help identifying parameters, please refer to the <a href=products.html>glossary</a>.
+<br><br>
+<form method=POST action=%%THIS%%>
+<input type=hidden name=f value=search>
+<input type=hidden name=here value=0>
+<input type=hidden name=firstpage value=1>
+<center>
+<table width=100% border=0>
+<tr>
+  <td width=100 align=right>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Product Type</b>:
+    </font>
+  </td>
+  <td width=100 align=left valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<select name=fam>
+	<option value=crystals>Crystals
+        <option value=oscillators>Oscillators
+        <option value=tcxos>TCXOs
+        <option value=vcxos>VCXOs
+	</select>
+    </font>
+  </td>
+  <td width=100 align=right>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Mount Type</b>:
+    </font>
+  </td>
+  <td width=100 align=left valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<select name=mount>
+	<option value=smt>Surface Mount
+	<option value=th>Through Hole
+	</select>
+    </font>
+  </td>
+</tr>
+<tr>
+  <td align=right colspan=2>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Frequency</b> (MHz):
+    </font>
+  </td>
+  <td width=100 align=left colspan=2 valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<input type=text size=15 name=freq value="">
+    </font>
+  </td>
+</tr>
+</table>
+<input type=submit value=" n e x t > > > ">
+</center>
+</form>
+#\BODY
+
+
+
+#/NO_RESULTS_HEADER
+<table width=100%>
+<tr>
+  <td>%%OPEN_SMALL_FONT%%<font size=+2><b>
+    Sorry, but there were no products that matched your query.
+  </b></font>
+  <br><br>
+  This is where we'll put the feedback form!
+  <br><br>
+  Click <a href=%%THIS%%?f=search>here</a> to return to main search
+  %%CLOSE_SMALL_FONT%%</td>
+</tr>
+#\NO_RESULTS_HEADER

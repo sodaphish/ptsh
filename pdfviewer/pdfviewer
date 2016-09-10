@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -e $1 ]; then
+	#found our file... 
+	#basename=`echo $1 | sed -e s/\.pdf//`
+	#pdf2ps -sPAPERSIZE=letter $1 $basename.ps &> /dev/null
+	#ps2ascii -sPAPERSIZE=letter $basename.ps $basename.txt &> /dev/null
+	pstotext $1 | $PAGER
+else 
+	echo Can\'t find $1!
+	exit 1
+fi

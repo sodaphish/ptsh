@@ -1,0 +1,19 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  MoveScaled(0,0,45,17)
+  Text = ("")
+  Border = Window.Fixed
+  { Label1 Label
+    MoveScaled(3,2,12,3)
+    Text = ("Your Name?")
+  }
+  { TextBox1 TextBox
+    MoveScaled(3,5,39,3)
+    Text = ("type your name here")
+  }
+  { Button1 Button
+    MoveScaled(13,10,16,3)
+    Text = ("Go")
+  }
+}

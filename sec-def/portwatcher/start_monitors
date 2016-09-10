@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+#
+# PortWatcher - start_monitors
+#
+# (C)opyright 2000, Corey J. Steele, all rights reserved.
+#	by Corey J. Steele <csteele@mtron.com>
+#
+# This program is distributed under the GNU Public License (GPL),
+# for specific information regarding the GPL, please refer to
+# the file "COPYING", or http://www.gnu.org.
+#
+# Description: This program starts the monitors you define to be 
+#	started in the portwatcher.conf file.  This shouldn't 
+#	need ANY modification to work.
+#
+# TODO:
+#	- make it work properly!
+#	- make a start|stop ability like most /etc/rc.d/init.d/*
+#		routines.  This would be VERY useful!
+#
+use Sys::Hostname;
+use Sys::Syslog;
+
+require "portwatcher.conf"; 
+
+foreach( @monitors_to_start ){
+
+	print "Starting $portwatcher_path/monitors/$_..."; 
+	system ( "perl $portwatcher_path/monitors/$_ & " );
+
+} 
+
+exit( 0 );

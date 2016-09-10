@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/com/sun/mail/util"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="QEncoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="89db317809fd2e8b902b038e6e72f598"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ASCIIUtility.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3b668b83151711f4348852d8798d8efa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="QPDecoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="44bc1967d52666ac9bd543c5d74f91b2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="LineInputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="eac47b4bc5f94e49c4459954508f05f2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CRLFOutputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9a4665e34c275ad39b6a08403bed761c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="LineOutputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="e1c813b808d1de2dbee53dd0ec9f0b4e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SharedByteArrayInputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d9b26b000e5c6a04217e2f394cff6404"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BASE64DecoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4375dfbfac4c79786b0db012347185e5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SocketFetcher.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5326eaea62db1168d7b047a4e0afac91"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TraceInputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3fe42bb12f461be9ad565ac47ba8d3a6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TraceOutputStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="32f46093d6fe4453ee07aa018f5f62fa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="UUDecoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f2fd333eea455b38eec79088078d409f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="QPEncoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3a5abbaa1f591a63e896efa88dc30163"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BEncoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b775991fc6bcb78f93004a49f95657fb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BASE64EncoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3af82ec80cd99f5bb580e174d4ba49e3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="QDecoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6dd95f06de11b246148c40c3c060b238"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="UUEncoderStream.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="367b421f48f30ef8889e4a450467506b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+</wc-entries>

@@ -1,0 +1,111 @@
+#:THIS=index.cgi
+#:OPEN_SMALL_FONT=<font face="Verdana, Helvetica, Arial" size=-1>
+#:CLOSE_SMALL_FONT=</font>
+
+#/HEADER
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<!--(C)opyright 1999, M-tron Industries, Inc., all rights reserved.-->
+<head>
+  <title>M-tron Industries, Inc. | Products | Parametric Search</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+</head>
+<style type="text/css">
+A           {color: "#0000ff"; font-weight: bold; }
+A:visited   {color: "#0000ff"; font-weight: bold; }
+A:active    {color: "#ffff00"; font-weight: bold; }
+</style>
+
+<body bgcolor="#ffffff" text="#000000">
+<center>
+<table width=95% border=0 cellpadding=0 cellspacing=1>
+
+
+<!-- MASTHEAD -->
+<!--
+<tr>
+  <td colspan=4 valign=top bgcolor="#ffffff">
+    %%OPEN_SMALL_FONT%%
+    <a target=main href="http://www.mtron.com/frmain.htm"><img src=images/logoloop.gif alt="M-tron" align=left border=0></a><br>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+-->
+#\HEADER
+
+#/CATEGORIES
+<!-- CATEGORICAL LINKS -->
+<tr>
+  <td width=150 valign=top bgcolor="#cccccc">
+    %%OPEN_SMALL_FONT%%
+    <center>
+      <a href=http://www.mtron.com/co_intro.html>Corporate</a>
+    </center>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td width=150 valign=top bgcolor="#cccccc">
+    %%OPEN_SMALL_FONT%%
+    <center>
+      <font color="#cc0033"><b>Products</b></font>
+    </center>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td width=150 valign=top bgcolor="#cccccc">
+    %%OPEN_SMALL_FONT%%
+    <center>
+      <a href=http://www.mtron.com/repdisty.html>Sales</a>
+    </center>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+  <td width=150 valign=top bgcolor="#cccccc">
+    %%OPEN_SMALL_FONT%%
+    <center>
+      <a href=http://www.mtron.com/pr.html>News</a>
+    </center>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+<!-- 
+<tr>
+  <td colspan=4>
+  %%OPEN_SMALL_FONT%%
+  <div align=right>
+    Click here for <a href=help.cgi?topic=%%HELP_TOPIC%%&p=%%HELP_SUB_TOPIC%%>help with %%HELP_TOPIC%% %%HELP_SUB_TOPIC%%</a>
+  </div>
+  %%CLOSE_SMALL_FONT%%
+  </td>
+</tr> -->
+#\CATEGORIES
+
+
+#/SECTION_HEAD
+<tr>
+  <td valign=top colspan=4>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    %%OPEN_SMALL_FONT%%
+#\SECTION_HEAD
+
+#/SECTION_FOOT
+    <br><br>
+    %%CLOSE_SMALL_FONT%%
+  </td>
+</tr>
+#\SECTION_FOOT
+
+#/FOOTER
+<!-- FOOTER -->
+<tr>
+  <td valign=top colspan=4 bgcolor="#eeeeee">
+    <font face="Verdana, Helvetica, Arial" size=-2>
+      (C)opyright 1999, M-tron Industries, Inc., all rights reserved.  Please read the <a href=%%THIS%%?&f=disclaimer>disclaimer</a>.<br>
+      code rev: %%__VERSION%% >> search execution time: %%ELAPSED_TIME%% seconds
+    </font>
+  </td>
+</tr>
+
+</table>
+</center>
+</body>
+</html>
+#\FOOTER

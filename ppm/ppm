@@ -1,0 +1,165 @@
+#!/usr/bin/python3
+import sys, os, sqlite3, getopt
+from time import strftime, localtime
+sys.path.append( os.getcwd() )
+
+if sys.version_info < (3,0):
+	raise Exception( "must use python 3" )
+
+class Registry:
+	dbHandle = None
+	dbCursor = None
+
+	def __init__( self, dbfile='registry.db' ):
+		"""__init__
+		Constructor for the Registry class.
+		"""
+		if os.path.exists( dbfile ):
+			self.dbHandle = sqlite3.connect( dbfile )
+		else:
+			self.dbHandle = sqlite3.connect( dbfile )
+			self.dbCursor = self.dbHandle.cursor()
+			self.dbCursor.execute( '''create table if not exists registry ( regkey text(128) not null, regval text not null, primary key(regkey), unique(regkey) )''' )
+			self.dbCursor.execute( '''insert into registry ( regkey, regval ) values ( 'root.sanityCheck', '1' )''' )
+		self.dbCursor = self.dbHandle.cursor()
+
+	def __del__( self ):
+		self.dbHandle.commit()
+
+	def get( self, regkey ):
+		"""get()
+		retrieves a variable from the database and returns it
+		"""
+		r = self.dbCursor.execute( '''select regval from registry where regkey='%s' limit 1''' % ( regkey ) ) 
+		for row in r:
+			return row[0]
+
+	def set( self, regkey, regval ):
+		if self.get( regkey ):
+			self.dbCursor.execute( '''update registry set regval='%s' where regkey='%s' ''' % ( regval, regkey ) )
+		else:
+			self.dbCursor.execute( '''insert into registry ( regkey, regval ) values ( '%s', '%s' )''' % ( regkey, regval ) )
+		self.dbHandle.commit()
+		return True
+
+	def delkey( self, regkey ):
+		if self.get( regkey ):
+			self.dbCursor.execute( '''delete from registry where regkey='%s' '''  % ( regkey ) )
+			return True
+		else:
+			return False
+
+	def getScope( self, scope ):
+		res = self.dbCursor.execute( '''select regkey, regval from registry where regkey like '%s%%' ''' % ( scope ) )
+		results = {}
+		for row in res:
+			results[ '%s' %row[0] ] = row[1]
+		return results
+
+class Logger:
+    level = 0
+    type = "file"
+    filename = ""
+    filedescripter = ""
+    entryCount = 0
+
+    def __init__( self, args ):
+        ''' python has no switch '''
+        if args[0] == "f":
+            self.type = "file" 
+            self.filename = args[1]
+            #TODO: catch this if it fails.
+            self.filedescripter = open( self.filename, "a" )
+
+        elif args[0] == "s":
+            self.type = "stream"
+
+        else:
+            raise Exception( "LoggingError", "unknown type!" )
+
+    def setLevel( self, level ):
+        if level.lower() == "debug":
+            self.level = 0
+        elif level.lower() == "info":
+            self.level = 1
+        elif level.lower() == "warn":
+            self.level = 2
+        elif level.lower() == "error":
+            self.level = 3
+        elif level.lower() == "critical":
+            self.level = 4
+        else:
+            self.level = 0
+
+    def outputHandler( self, lvl, msg ):
+        output = "%s - %s - %s" % ( strftime( "%G-%m-%d %H:%M:%S", localtime() ), lvl, msg )
+        if self.type == "file":
+            #TODO: catch these when they fail...
+            self.filedescripter.write( output )
+            self.filedescripter.write( "\n" )
+        else:
+            print( output )
+        self.entryCount += 1
+
+    def debug( self, message ):
+        if self.level <= 0:
+            self.outputHandler( "DBG", message )
+
+    def info( self, message ):
+        if self.level <= 1:
+            self.outputHandler( "INF", message )
+
+    def warn( self, message ):
+        if self.level <= 2:
+            self.outputHandler( "WRN", message )
+
+    def error( self, message ):
+        if self.level <= 3:
+            self.outputHandler( "ERR", message )
+
+    def critical( self, message ):
+        if self.level <= 4:
+            self.outputHandler( "CRI", message )
+
+
+
+def usage():
+  print "ppm - personal package manager"
+  print "(C)opyright 2011, C.J. Steele, all rights reserved."
+  print " -h  show this help"
+  print " -i  install a personal package"
+  print " -e  erase a personal package"
+  print " -c  check installed packages"
+  print
+
+
+
+if __name__ == "__main__": 
+	reg = Registry()
+	conf = []
+	conf = reg.getScope( "global.%" )
+	logger = Logger( ["f", conf['global.logfile'] ] )
+	logger.setLevel( conf['global.loglevel'] )
+	logger.debug( "__BEGIN__" )
+
+	try:
+		opts,args = getopt.getopt(argv[1:],"hi:e:c")
+	except getopt.GetoptError:
+		usage()
+		sys.exit(2)
+
+	for opt,arg in opts:
+		if opt in ("-h"):
+			usage()
+			sys.exit(0)
+		elif opt in ("-i"):
+			# we're installing a pp
+		elif opt in ("-e"):
+			# we're uninstalling a pp
+		elif opt in ("-c"):
+			# we're checking our pp's
+
+	logger.debug( "__END__" )
+	sys.exit(0)
+
+#__EOF__

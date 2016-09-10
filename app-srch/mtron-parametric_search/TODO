@@ -1,0 +1,15 @@
+TODO
+================================================================================
+  o switch to PostgreSQL database; index all fields the user can select to 
+	search, also set databases to vacuum twice per week (Tuesday and 
+	Thursday)
+  o check to make sure all variables being written into insert or update 
+	statements have been Clean()'d.
+  o create uniform handle for talking to the mail server
+  o update ParseLib
+  o get documentation from sales for the context sensative help links
+  o create variable lookup table to reflect relationship between variables
+	in code to variables in templates to output names/variables
+  o update Documentation/STRUCTURE.txt
+  o freshen up the look of the results of searches
+  o find new icon for the PDFs

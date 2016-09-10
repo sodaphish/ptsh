@@ -1,0 +1,96 @@
+#:OSF=<font face="Verdana, Helvetica, Arial" size=-1>
+#:CSF=</font>
+
+#/THANKYOU
+Thank you for your feedback!  We do appreciate and value your opinion.  If we have questions about your comments, or ranking (and supposing you provided us with an e-mail address), we will contact you at a later time.
+<br><br>
+Click <a href=%%THIS%%>here</a> to return to the main search.</a>
+#\THANKYOU
+
+
+#/FEEDBACK_FORM
+<b><font size=+2>We want to hear from you!</font></b>
+<br><br>
+Your feedback is very important to us.  By telling us what you liked and disliked, you allow us to better tailor this site to your needs.  We will listen, so let your voice be heard!
+<br><br>
+Click <a href=%%THIS%%>here</a> to return to the main search.</a>
+<br><br>
+<form action=feedback.cgi method=post>
+<input type=hidden name=filled value=1>
+<center><table width=100% border=0>
+<tr>
+  <td align=right>%%OSF%%
+	<b>Name:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<input type=text size=15 name=name value="">
+  %%CSF%%</td>
+</tr>
+
+
+<tr>
+  <td align=right>%%OSF%%
+	<b>Title:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<input type=text size=15 name=title value="">
+  %%CSF%%</td>
+</tr>
+
+
+<tr>
+  <td align=right>%%OSF%%
+	<b>Company:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<input type=text size=15 name=company value="">
+  %%CSF%%</td>
+</tr>
+
+
+<tr>
+  <td align=right>%%OSF%%
+	<b>e-mail address:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<input type=text size=20 name=email value="">
+  %%CSF%%</td>
+</tr>
+
+
+<tr>
+  <td align=right>%%OSF%%
+	<b>over-all rating:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<select name=rating>
+	<option value=>choose one
+	<option value=10>10 (GREAT!)
+	<option value=9>9
+	<option value=8>8
+	<option value=7>7
+	<option value=6>6
+	<option value=5>5 (HO HUM)
+	<option value=4>4
+	<option value=3>3
+	<option value=2>2
+	<option value=1>1 (SCRAP IT!)
+	</select>
+  %%CSF%%</td>
+</tr>
+
+
+<tr>
+  <td align=right valign=top>%%OSF%%
+	<B>Comments:</b>
+  %%CSF%%</td>
+  <td align=left valign=top>%%OSF%%
+	<textarea name=comments cols=25 rows=10 wrap=soft></textarea>
+  %%CSF%%</td>
+</tr>
+
+</table>
+<input type=submit value=" tell us! ">
+</center>
+</form>
+#\FEEDBACK_FORM

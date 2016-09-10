@@ -1,0 +1,89 @@
+#!/usr/bin/perl
+
+my $path = $ARGV[0]; 
+my @filetypes = ( "HTML document text", "Applixware Words Document" );
+
+process( $path );
+
+sub process()
+{
+	my( $target ) = @_; 
+	chomp( $target ); 
+
+	if( -f $target )
+	{
+		# processing a file 
+		my( $filename, $filetype, @strings ) = process_file( $target ); 
+		if( isin( @filetypes, $filetype ) )
+		{
+			db_record( $filename, $filetype, @strings ); 
+		}
+	} elsif( -d $target ) 
+	{
+		# processing a directory
+		foreach( files_in_dir( $target ) )
+		{	
+			process( $_ );
+		}
+	} 
+	return; 
+}
+
+sub db_record()
+{
+
+	my( $filename, $filetype, @strings ) = @_; 
+	
+	print "INSERT INTO tbl_files ( filename, filetype ) VALUES ( '$filename', '$filetype' )\n"; 
+	print "INSERT INTO tbl_keywords ( filename, keyword ) VALUES ( '$filename', '$_' )\n" foreach( @strings );
+
+}
+
+sub process_file()
+{
+	my( $target ) = @_; 
+	my $type = ""; 
+	my @strings = ();  
+
+	$type = `file -b "$target"`; chomp( $type );
+	foreach( `strings "$target"` )
+	{
+		chomp( $_ );
+		push( @strings, $_ ) if( ! isin( @strings, $_ ) ); 
+	}
+	return( "$target", $type, @strings ); 
+}
+
+sub files_in_dir()
+{
+
+	my( $target ) = @_; 
+	my @return_array = (); 
+
+	if( -d $target )
+	{
+		# its a dir, find files!  WEEE!
+		foreach( `find "$target" -print -mindepth 1` )
+		{
+			push( @return_array, $_ ); 
+		}
+		return @return_array;
+	} elsif( -f $target ) {
+		# its its own file list
+		return( $target ); 
+	} else {
+		# wtf just happened?
+		return;
+	}
+
+}
+
+sub isin()
+{
+	my( @array, $target ) = @_;
+	foreach( @array )
+	{
+		return 1 if( $target eq $_ );
+	}
+	return 0; 
+}

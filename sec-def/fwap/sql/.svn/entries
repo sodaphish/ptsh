@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-11-13T03:59:29.381858Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap/sql"
+   last-author="csteele"
+   kind="dir"
+   uuid="e2d02160-6a05-0410-99d0-e0ef5bdb2078"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="hourly.sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="29e6b7f350c9c8151980a1460b29d8ce"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="blocked.sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="e1560bc6092ab0722990fdefab448735"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="fw2.sql"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="71f7d20ef215775cb40afd665d621d06"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+</wc-entries>

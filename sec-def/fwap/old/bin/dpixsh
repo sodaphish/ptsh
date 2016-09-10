@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+# dpixsh v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+# 	created: 28 Jul 2003
+#
+# This script uses `telnet` and the perl module 'Expect', to telnet in to
+# the specified PIX devices and execute command-line specified commands.
+# 
+# TODO/ROADMAP
+# - 
+#
+use strict;
+use Expect;
+ 
+my @hosts = ( "172.16.102.1" );
+my $pix_tel_pass = "swrdB0y"; 
+my $pix_ena_pass = "swrdB0y"; 
+my $command; $command .= " $_" foreach( @ARGV );
+
+if( $command )
+{
+
+	foreach my $pix ( @hosts ) 
+	{
+		print "################################################################################\n";
+		print "# $pix \n"; 
+		print "################################################################################\n";
+		my $proc = Expect->spawn("telnet $pix");
+		$proc->expect(5,'-re',"assword:");
+		$proc->send_slow(0,"$pix_tel_pass\r");
+		$proc->expect(5,'-re',">");
+		$proc->send_slow(0,"en\r");
+		$proc->expect(5,'-re',"assword:");
+		$proc->send_slow(0,"$pix_ena_pass\r");
+		$proc->expect(5,'-re',"#");
+		$proc->send_slow(0,"no page\r" ); 
+		$proc->send_slow(2,"$command\r" ); 
+		$proc->send_slow(0,"clear page\r" ); 
+		$proc->send_slow(0,"exit\r");
+		print "################################################################################\n\n";
+	}
+
+} else {
+
+	print "$0 by C.J. Steele <csteele\@good-sam.com>\n"; 
+	print "usage: $0 <PIX command to execute>\n\n"; 
+
+}

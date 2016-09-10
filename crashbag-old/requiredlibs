@@ -1,0 +1,202 @@
+arpspoof
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dcalc
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dcat
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dls
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dnsspoof
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dsniff
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libdb.so.3 => /lib/libdb.so.3 (0x40054000)
+	libssl.so.0 => /usr/lib/libssl.so.0 (0x40090000)
+	libcrypto.so.0 => /usr/lib/libcrypto.so.0 (0x400bd000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+dstat
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+ffind
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+file
+	libz.so.1 => /usr/lib/libz.so.1 (0x4002c000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+filesnarf
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+fls
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+fsstat
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+hfind
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+icat
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+ifind
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+ils
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+istat
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+john
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+lsof
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+macof
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+mactime
+	not a dynamic executable
+-----
+mailsnarf
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+md5
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+mmls
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+msgsnarf
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+nc
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+nmap
+	libm.so.6 => /lib/tls/libm.so.6 (0x4002c000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+ping
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+sha1
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+sorter
+	not a dynamic executable
+-----
+sshmitm
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libdb.so.3 => /lib/libdb.so.3 (0x40054000)
+	libssl.so.0 => /usr/lib/libssl.so.0 (0x40090000)
+	libcrypto.so.0 => /usr/lib/libcrypto.so.0 (0x400bd000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+tcpdump
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+tcpkill
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+tcpnice
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+traceroute
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+urlsnarf
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+webmitm
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libdb.so.3 => /lib/libdb.so.3 (0x40054000)
+	libssl.so.0 => /usr/lib/libssl.so.0 (0x40090000)
+	libcrypto.so.0 => /usr/lib/libcrypto.so.0 (0x400bd000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+webspy
+	libresolv.so.2 => /lib/libresolv.so.2 (0x4002c000)
+	libnsl.so.1 => /lib/libnsl.so.1 (0x4003f000)
+	libSM.so.6 => /usr/X11R6/lib/libSM.so.6 (0x40054000)
+	libICE.so.6 => /usr/X11R6/lib/libICE.so.6 (0x4005d000)
+	libXmu.so.6 => /usr/X11R6/lib/libXmu.so.6 (0x40074000)
+	libX11.so.6 => /usr/X11R6/lib/libX11.so.6 (0x4008a000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	libXt.so.6 => /usr/X11R6/lib/libXt.so.6 (0x4016a000)
+	libXext.so.6 => /usr/X11R6/lib/libXext.so.6 (0x401bc000)
+	libdl.so.2 => /lib/libdl.so.2 (0x401ca000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----
+wget
+	libssl.so.2 => /lib/libssl.so.2 (0x4002c000)
+	libcrypto.so.2 => /lib/libcrypto.so.2 (0x4005c000)
+	libdl.so.2 => /lib/libdl.so.2 (0x40131000)
+	libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+	/lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+-----

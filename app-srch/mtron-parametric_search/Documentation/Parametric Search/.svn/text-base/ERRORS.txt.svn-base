@@ -1,0 +1,41 @@
+This document defines the various error, warning, debuging, and info levels
+
+
+ERROR NUMBER RANGES
+	These numbers are presented to the user on the web page.  They do
+not actually bind to real errors that we log, per se.
+
+100-199: Authentication Errors
+  INF - successful logins or authentications
+  ERR - failures to authenticate or login
+
+200-299: Query Errors
+  QRY - well-formed SQL queries that get executed
+  ERR - any error that may occur as a result of the user
+
+300-399: Form Completion Errors
+  ERR - any error that occured because the user didn't complete a form properly
+
+
+
+LOG LEVELS:
+	INF - informational logging data
+	DBG - debug information
+	QRY - query data logging
+	WRN - warnings about internal errors
+	ERR - errors (usually scrip halting errors)
+
+
+ROUTINES:
+	01 - first page form fills
+	02 - crystals dead-end log (parts that failed to return any results)
+	03 - oscillators ""
+	04 - tcxo ""
+	05 - vcxo ""
+	06 - ocxo "" 
+	07 - dead-end feedback from (after being filled) information
+	08 - crystal search generic
+	09 - oscillator ""
+	0A - tcxo ""
+	0B - vcxo ""
+	0C - ocxo ""

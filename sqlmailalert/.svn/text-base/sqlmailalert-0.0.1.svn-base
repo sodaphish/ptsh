@@ -1,0 +1,115 @@
+#!/usr/bin/perl
+# sqlmailalert v0.0.1 by C.J. Steele <coreyjsteele@yahoo.com>
+# 	(C)opyright 2003, all rights reserved.
+# 
+# goal: to process mail queries and output them in the necessary format
+#
+# TODO/ROADMAP:
+# 	* need to honor different alert method modules
+#	* need to honor formatting preferences
+#
+use strict;
+use DBD::mysql;
+use Net::SMTP;
+
+my $dbserver = "localhost"; 
+my $dbuser = "root"; 
+my $dbpassword = ""; 
+my $dbname = "main"; 
+my $mail_table = "infosec_mail"; 
+my $query_table = "infosec_mail_queries"; 
+my $db_h = DBI->connect( "dbi:mysql:$dbname;host=$dbserver", "$dbuser", "$dbpassword" ); 
+my $smtp = Net::SMTP->new( 'localhost' ) or die "couldn't connect to smtp server.";
+my $mail_from = "infosecmail\@sodaphish.com"; 
+
+my @unprocessed_message_ids = get_unprocessed_messages(); 
+
+my $q_h = $db_h->prepare( "SELECT uid, keyphrase FROM $query_table WHERE active=1" ); 
+my $q_r = $q_h->execute or die "can't fetch list of queries."; 
+while( my( $uid, $keyphrase ) = $q_h->fetchrow_array )
+{
+	my $user_email = get_user_email( $uid ); 
+	if( $user_email )
+	{
+		my $output =  "To: $user_email\nFrom: InfoSecMail Alert <infosecmail\@sodaphish.com>\nSubject: $keyphrase alert\n\nNew alerts for \"$keyphrase\"...\n"; 
+		my $gotcontent = 0;
+		foreach( @unprocessed_message_ids )
+		{
+			my $query_q = "SELECT id FROM $mail_table WHERE id=$_ AND msg LIKE '\%$keyphrase%'"; 
+			my $query_h = $db_h->prepare( $query_q ); 
+			my $query_r = $query_h->execute or die "can't!"; 
+			my( $id ) = $query_h->fetchrow_array; 
+			if( $id )
+			{
+				my( $f, $d, $s, $m ) = get_message( $id ); 
+				$output .= "\n$s\n\thttp://sodaphish.com/secnews.php?v=$id\n=-=-=-=-=-=-=-=\n"; 
+				$gotcontent = 1;
+			}
+			mark_msg_processed( $_ ); 
+		}
+
+		if( $gotcontent )
+		# there was actually results to work.
+		{
+			$smtp->mail( $mail_from ); 
+			$smtp->to( $user_email ); 
+			$smtp->data(); 
+			$smtp->datasend( $output ); 
+			$smtp->dataend(); 
+		}
+	} else {
+		# couldn't get that user's e-mail addie... oops!
+	}
+}
+
+$smtp->quit();
+$db_h->disconnect;
+
+exit( 0 );
+
+sub get_user_email
+{
+	my $user = shift; 
+	my $u_q = "SELECT user_email FROM users WHERE user_id=$user"; 
+	my $u_h = $db_h->prepare( $u_q );
+	my $u_r = $u_h->execute or die( "can't get user's e-mail address." ); 
+	my( $addie ) = $u_h->fetchrow_array; 
+	if( $addie )
+	{
+		return $addie; 
+	} else {
+		return -1; 
+	}
+}
+
+sub get_message
+{
+	my $i = shift;
+	my $m_q = "SELECT frm, dt, sbj, msg FROM $mail_table WHERE id=$i"; 
+	my $m_h = $db_h->prepare( $m_q );
+	my $m_r = $m_h->execute or die "can't get messages!"; 
+
+	my( $frm, $dt, $sbj, $msg ) = $m_h->fetchrow_array; 
+	return( $frm, $dt, $sbj, $msg ); 
+}
+
+sub get_unprocessed_messages
+{
+	my @results;
+	my $unprocessed_ids_q = "SELECT id FROM infosec_mail WHERE processed = 0"; 
+	my $unprocessed_ids_h = $db_h->prepare( $unprocessed_ids_q ); 
+	my $unprocessed_ids_r = $unprocessed_ids_h->execute or die "can't execute the query (\"$unprocessed_ids_q\")."; 
+	while( my( $id ) = $unprocessed_ids_h->fetchrow_array )
+	{
+		push( @results, $id ); 
+	}
+	return @results;
+}
+
+sub mark_msg_processed
+{
+	my $id = shift; 
+	my $u_q = "UPDATE infosec_mail SET processed=1 WHERE id=$id"; 
+	$db_h->do( $u_q ) or die( "can't mark msg $id as processed." ); 
+	return;
+}

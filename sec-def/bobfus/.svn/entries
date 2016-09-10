@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-11-17T16:54:15.284098Z"
+   url="file:///hosted/www/sodaphish.com/repos/bobfus"
+   last-author="csteele"
+   kind="dir"
+   uuid="6c77c1ab-c505-0410-abdd-f44a453923ec"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="3"
+   name="bobfusd"
+   text-time="2005-11-17T23:40:51.000000Z"
+   committed-date="2005-11-17T23:41:14.334271Z"
+   checksum="a10df56a107eea169645eb61fee45b61"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-17T23:36:41.000000Z"
+   revision="3"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="status.php"
+   text-time="2005-11-17T23:35:53.000000Z"
+   committed-date="2005-11-17T23:38:39.897244Z"
+   checksum="0276010d10a10b53f20d86fb9ec59267"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   committed-rev="2"
+   name="bobfus.pl"
+   text-time="2005-11-17T23:36:58.000000Z"
+   committed-date="2005-11-17T23:38:39.897244Z"
+   checksum="779cf6dc1792f08fb24ca6716da658cc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-17T16:54:33.000000Z"
+   revision="2"/>
+<entry
+   committed-rev="3"
+   name="README"
+   text-time="2005-11-17T23:40:27.000000Z"
+   committed-date="2005-11-17T23:41:14.334271Z"
+   checksum="11f782bdf324477db89cbee5275cd716"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-17T16:54:33.000000Z"
+   revision="3"/>
+<entry
+   committed-rev="2"
+   name="index.php"
+   text-time="2005-11-17T23:35:49.000000Z"
+   committed-date="2005-11-17T23:38:39.897244Z"
+   checksum="233822a9d6801fb2d4ef68106338c315"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   name="tags"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="bobfus.sql"
+   text-time="2005-11-17T23:35:43.000000Z"
+   committed-date="2005-11-17T23:38:39.897244Z"
+   checksum="b9dd99f33c0b93a664a581aa0ff0be4f"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+</wc-entries>

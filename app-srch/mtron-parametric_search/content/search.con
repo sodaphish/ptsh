@@ -1,0 +1,149 @@
+#:OSF=<font face="Verdana, Helvetica, Arial" size=-1>
+#:CSF=</font>
+
+#/NO_RESULTS_HEADER
+<table width=100%>
+<tr>
+  <td>%%OPEN_SMALL_FONT%%<font size=+2><b>
+    Sorry, but there were no products that matched your query.
+  </b></font>
+  <br><br>
+  We appologize, but we do not presently manufacture any products that match your specifications.  If you would like to be contacted by an M-tron Sales Representative regarding this product, please fill out the form below, and one of our representatives will contact you.
+  <br><br>
+  All the information that you entered about the product you are looking for will be passed on to our product specialist, so there is no need to write it down, or remember it.  
+  <br><br>
+  <form action=contact.cgi method=get>
+  <input type=hidden name=values value="%%HTTP_HEADERS%%">
+  <input type=hidden name=filled value=1>
+  <center><table width=100% border=0>
+  <tr>
+    <td align=right>%%OSF%%
+	<b>Name</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<input type=text size=25 name=name value=""> *
+    %%CSF%%</td>
+  </tr>
+
+  <tr>
+    <td align=right>%%OSF%%
+	<b>Title</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<input type=text size=20 name=title value="">
+    %%CSF%%</td>
+  </tr>
+
+  <tr>
+    <td align=right>%%OSF%%
+	<b>Company</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<input type=text size=20 name=company value=""> *
+    %%CSF%%</td>
+  </tr>
+
+  <tr>
+    <td align=right>%%OSF%%
+	<b>E-mail</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<input type=text size=25 name=email value=""> + 
+    %%CSF%%</td> 
+  </tr>
+
+  <tr>
+    <td align=right>%%OSF%%
+	<b>Telephone</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<input type=text size=25 name=tele value=""> + 
+    %%CSF%%</td>
+  </tr>
+
+  <tr>
+    <td align=right>%%OSF%%
+	<b>Preferred Contact Method</b>:
+    %%CSF%%</td>
+    <td align=left>%%OSF%%
+	<select name=contact>
+	<option value=>Please Choose
+	<option value=telephone>Telephone
+	<option value=email>E-mail
+	</select> *
+    %%CSF%%</td>
+  </tr>
+
+  </table>
+  <input type=submit value=" s u b m i t ">
+  </center>
+  </form>
+  <br><br>
+  <font size=-2><b>*</b> denotes required feilds.<br>
+  <b>+</b> denotes one of these is required, not both.</font>
+  %%CLOSE_SMALL_FONT%%</td>
+</tr>
+#\NO_RESULTS_HEADER
+
+
+#/SEARCH
+<br><br>
+<b>W</b>elcome to M-tron's Product Search Engine.  This page is designed to help you find just the right part for your project, and find it <i>fast</i>.
+<br><br>
+We are interested in what you think about this site!  If you have any ideas you'd like to share with us, or suggestions on improving the site, please feel free to <a href=feedback.cgi>let us know!</a> 
+<br><br>
+If you need help identifying parameters, please refer to the <a href=products.html>glossary</a>.
+<br><br>
+<form method=get action=%%THIS%%>
+<input type=hidden name=f value=search>
+<input type=hidden name=here value=0>
+<input type=hidden name=firstpage value=1>
+<center>
+<table width=100% border=0>
+<tr>
+  <td width=100 align=right>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Product Type</b>:
+    </font>
+  </td>
+  <td width=100 align=left valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<select name=fam>
+	<option value=crystals>Crystals
+        <option value=oscillators>Oscillators
+        <option value=tcxos>TCXOs
+        <option value=vcxos>VCXOs
+	</select>
+    </font>
+  </td>
+  <td width=100 align=right>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Mount Type</b>:
+    </font>
+  </td>
+  <td width=100 align=left valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<select name=mount>
+	<option value=smt>Surface Mount
+	<option value=th>Through Hole
+	</select>
+    </font>
+  </td>
+</tr>
+<tr>
+  <td align=right colspan=2>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<b>Frequency</b> (MHz):
+    </font>
+  </td>
+  <td width=100 align=left colspan=2 valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+	<input type=text size=15 name=freq value="">
+    </font>
+  </td>
+</tr>
+</table>
+<input type=submit value=" n e x t > > > ">
+</center>
+</form>
+#\SEARCH

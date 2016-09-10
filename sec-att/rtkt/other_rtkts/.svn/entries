@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/other_rtkts"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="lrk4.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="de3028fe63c0441394bbc78fb06e0347"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="lrk5.tar.gz"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="1d582a653751ce82cce0e77c543216ca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   name="shellcode"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="sk-1.3b.tar.gz"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="d3a16fc7b01773fc9455097029cdda83"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="knark-0.59.tar.gz"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="fbdf0af584bbe5a12be26c86a19b1ae4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="illusion-6.2.tar.gz"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="6f68840d3883e5d962863cb9d24f03ef"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="kkeylogger.tar.gz"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="24fa4bbc6752fac61d90e3d4adbdbdf1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   name="netcat"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/crimson/util"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="MessageCatalog.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="787745c39f6e27d62349978ad8d7409c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlChars.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="28fae6d12ff5824a2e581e76f3155c99"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlNames.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a57f904205d10174d07d5e80f1964df2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+</wc-entries>

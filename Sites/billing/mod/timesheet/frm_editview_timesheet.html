@@ -1,0 +1,32 @@
+<FORM METHOD=POST ACTION="index.php">
+<input type=hidden name=f value=timesheet>
+<input type=hidden name=sub value=timecard>
+<input type=hidden name=c value=editview>
+<input type=hidden name=id value=<?php print "$id"; ?>>
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size=+2 ALIGN=center>Edit Time Card For Project </font>
+			<?php
+				$result = mysql_query("select title from project where id=$project_id");
+				list($title )= mysql_fetch_row($result);
+				print"\t\t\t<option value=$id>$title</option>\n";
+			?>
+		</td>
+	</tr><tr>
+		<td Align=center>Date:<INPUT TYPE="text" NAME="date" value="<?php print "$date";?>"></td>
+	</tr><tr>
+		<td Align=left>Number of Hours:<INPUT TYPE="text" NAME="hours" value="<?php print "$hours";?>"></td>
+	</tr><tr>
+		<td Align=left>Employee Name:<INPUT TYPE="text" NAME="employee" value="<?php print "$employee";?>"></td>
+	</tr><tr>
+		<td Align=center>Description:
+		<TEXTAREA NAME="description" rows=3 wrap=soft><?php print "$description";?></TEXTAREA></td>
+	</tr><tr>
+		<td Align=center><INPUT TYPE="submit" VALUE="ok"></td>
+	</tr>
+
+
+</table>
+</FORM>
+
+

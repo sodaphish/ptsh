@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-08-30T21:09:51.315085Z"
+   url="file:///hosted/www/sodaphish.com/repos/fogidx"
+   last-author="csteele"
+   kind="dir"
+   uuid="8b714c08-94ff-0310-8cb0-dde448d09a9b"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="fogidx"
+   text-time="2005-09-21T18:19:40.000000Z"
+   committed-date="2005-08-30T21:09:51.315085Z"
+   checksum="4ce03e3604390ce0419861289bf77a8e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-08-30T21:10:28.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="fogidx.py"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="gender.py"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

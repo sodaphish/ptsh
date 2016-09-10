@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/Documentation/Parametric%20Search"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ERRORS.txt"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="41d5e4a0fa84cbf9872fec266c1e38bb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+</wc-entries>

@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+#
+# lstrusted v.0.2.0 
+# (C)opyright 2003, C.J. Steele <coreyjsteele@yahoo.com>, all rights reserved.
+#
+# this script queries a database of 'trusted' hosts 
+# (as maintained by sodaphish.com forum admins).  Authorized
+# users (members of the 'admin' group on sodaphish.com/forums)
+# can maintain entries in the trusted users database via the
+# web site http://sodaphish.com/forums/access.php
+#
+# TODO/ROADMAP:
+#	-none
+#
+use strict;
+use DBD::mysql;
+
+my $dbh = DBI->connect( 'dbi:mysql:localhost;database=main', 'root', '' )
+        or die "Couldn't connect to database ($DBI::errstr)";
+my $valid_q = "select ip from trusted_hosts where visible='1'"; 
+my $valid_h = $dbh->prepare( $valid_q );
+my $valid_r = $valid_h->execute(); 
+while( my( $ip ) = $valid_h->fetchrow_array )
+{
+	print "$ip/32\n"; 
+}
+
+#purge old firewall rules... 
+$dbh->do( "update trusted_hosts set visible=0 where exp_date < unix_timestamp(now())" ); 
+
+exit( 0 );

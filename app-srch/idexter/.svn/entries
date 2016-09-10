@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:12:11.343007Z"
+   url="file:///hosted/www/sodaphish.com/repos/idexter"
+   last-author="csteele"
+   kind="dir"
+   uuid="5c8331d5-5df0-0310-b5cd-a75806316d94"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="mkidx-old"
+   text-time="2005-02-18T07:12:30.000000Z"
+   committed-date="2005-02-18T07:12:11.343007Z"
+   checksum="d251f329e5802507e0cd259084a5c395"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:12:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="smpl"
+   text-time="2005-02-18T07:12:30.000000Z"
+   committed-date="2005-02-18T07:12:11.343007Z"
+   checksum="dab94685f40843dfe3cfec9ac6b357a2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:12:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mkidx"
+   text-time="2005-02-18T07:12:30.000000Z"
+   committed-date="2005-02-18T07:12:11.343007Z"
+   checksum="68d9f49e7553e149b07de299f36e4f58"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:12:30.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

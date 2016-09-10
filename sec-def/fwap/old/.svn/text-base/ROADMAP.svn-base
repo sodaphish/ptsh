@@ -1,0 +1,25 @@
+
+ROADMAP
+v2.0.0
+ - real-time log importing.
+
+v3.0.0
+ - ability to identify and respond to 'bad' traffic
+
+
+CHANGELOG
+v1.0.0 (14 Jul 2003)
+ - aggregate and report, first functional release
+
+v1.1.0 (25 Sep 2003)
+ - addition of dddates table and use of dddates table in drop-down date 
+	selects.
+ - addition of nightly.sql script to crontab for FWAP to maintain the 
+	dddates table
+ - added host field to leaseinfo table and consequently provided output 
+	of that info in the DHCP Lease Query report.
+
+v1.2.0 (1 Oct 2003)
+ - implemented stylesheets in index.php and audit.php
+ - color scheme established.
+ - debute of fwap logo/banner

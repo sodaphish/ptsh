@@ -1,0 +1,49 @@
+#!/usr/bin/perl
+# fogidx v0.0.1 by C.J. Steele, CISSP <coreyjsteele@yahoo.com>
+#  (C)opyright 2005, C.J. Steele, all rights reserved. 
+# 
+# fogidx uses the Fog Index to determine readability of a submitted text
+# sample.  The idea is, you take the number of words, divided by the number of
+# sentences, add that to the percentage of so-called big-words (the percent of
+# words with three or more syllables) and then multiply the result by .4.  The
+# resultant number should be an approximate reading level of the text.
+# 
+# the formula for the Fog Index is readily available on the Internet but should
+# be approximately as is described above.  I got my particulars from 
+# http://www.fpd.finop.umn.edu/groups/ppd/documents/information/writing_tips.cfm
+# 
+use Lingua::EN::Sentence qw( get_sentences );
+use Lingua::EN::Syllable;
+#use Math::Round qw( round_floor );
+use strict;
+
+my $totalWordCount = 0;
+my $totalSentenceCount = 0;
+my $totalComplexWordCount = 0;
+my $readingLevel = 0.0;
+my $fullText = "";
+
+open( IN, "$ARGV[0]" ) or die( "$!" );
+while( <IN> )
+{
+	chomp( $_ );
+	my @line = split( /\s/, $_ );
+	$totalWordCount += scalar( @line );
+	foreach my $word ( @line )
+	{
+		if( syllable( $word ) >= 3 )
+		{
+			$totalComplexWordCount++;
+		} #end if
+	} #end foreach
+	$fullText .= $_;
+} #end while
+close( IN );
+
+$totalSentenceCount = Lingua::EN::Sentence::get_sentences( $fullText ); 
+$readingLevel = ( ($totalWordCount/$totalSentenceCount)+(100*($totalComplexWordCount/$totalWordCount)) ) * .4;
+
+print "fogidx 0.0.1 by C.J. Steele <coreyjsteele\@yahoo.com>\n";
+print "Fog Index Rating: ", $readingLevel, "\n";
+
+exit( 0 );

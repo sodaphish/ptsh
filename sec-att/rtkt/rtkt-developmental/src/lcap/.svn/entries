@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/rtkt-developmental/src/lcap"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="lcap.c"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="d4776439bf9543d4a924fe81e618cc1f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="a677fb19705d52f973a7f58db9bf1ad1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+</wc-entries>

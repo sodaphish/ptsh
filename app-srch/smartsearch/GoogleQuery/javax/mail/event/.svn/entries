@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/javax/mail/event"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="FolderAdapter.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="04deaaf14b26844dfcc7b3c597566b09"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FolderEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a5469e4fca2ed3bbfb692a4e86eec23c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FolderListener.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="ce80bf9278af7f4be280151ad373e105"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MailEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4bd2a0f7fbf1c3e979e2d4cdd7ebfb0a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TransportAdapter.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5013cc123b615044065121b1c34be37f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageCountAdapter.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="663b35ce1a3f9b88b31169e3502a038d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TransportEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c11e5aa64d9079cd6d2ca1efdb4ffcfc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="StoreEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="cc0f2d9224adcabaf66798336eee647c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageCountEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="751ee8b696c7c6e4fe0ebe18bb25a503"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ConnectionAdapter.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d0a18cbeabe69b00d7786958200f9184"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageChangedEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="438936ffc92a7fad2186d3840439e85b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ConnectionEvent.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1860432f9a133ef30e5c159cb2864393"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="StoreListener.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d64bc22d46f3f32ec449b637fdc7986a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TransportListener.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="479d1f2acdb7e7893194be9c899f7cac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageCountListener.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="2acba4bd1f0df8882da5100d3bdae192"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MessageChangedListener.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c41de842dc1c624a2c4c8839c900c54e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ConnectionListener.class"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5aa13548866c3f03e9a59ad5fafeab9e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+</wc-entries>

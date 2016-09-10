@@ -1,0 +1,54 @@
+#:THIS=distirep_admin.cgi
+#:FONTS="Verdana, Helvetica, Arial"
+
+#/HEADER
+<html>
+<head>
+  <title>Disti/Rep Administration</title>
+</head>
+<body bgcolor="#ffffff">
+<font face=%%FONTS%% size=-1>
+<center>
+<table width=100% border=0>
+<tr>
+  <td><font face=%%FONTS%% size=-1>
+	<b>Note:</b> you can only perform one function at a time on this page (e.g. add or delete).  To delete a location, select the box next to it (you can select as many as you'd like per execution of the delete function), and simply hit the "DELETE" button.  To add a location, simply type in the location into the "Location:" box, and hit the "ADD" button.  When you're adding a location, make absolutely certain that the location you type in is the same location that appears in the coverage tables of the database.
+<br><br>
+#\HEADER
+
+#/FOOTER
+  </font></td>
+</tr>
+</table>
+</center>
+</font>
+</body>
+</html>
+#\FOOTER
+
+
+#/LOCATION_SELECT_HEAD
+<form action=%%THIS%% method=get>
+<input type=hidden name=filled value=1>
+<input type=hidden name=function value=delete>
+#\LOCATION_SELECT_HEAD
+
+
+#/LOCATION_SELECT_FOOT
+<input type=submit value="DELETE">
+</form>
+#\LOCATION_SELECT_FOOT
+
+
+#/LOCATION_SELECT_ELEMENT
+<input type=checkbox name=selection value="%%LOC%%">%%LOC%%<br>
+#\LOCATION_SELECT_ELEMENT
+
+
+#/LOCATION_ADD
+<form action=%%THIS%% method=get>
+<input type=hidden name=filled value=1>
+<input type=hidden name=function value=add>
+Location: <input type=text size=25 name=location value=""> <input type=submit value="ADD">
+</form>
+#\LOCATION_ADD

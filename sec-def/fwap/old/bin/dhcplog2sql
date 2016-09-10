@@ -1,0 +1,106 @@
+#!/usr/bin/perl
+# log2sql v.0.0.0 by C.J. Steele <csteele@good-sam.com>
+#	8 Jul 2003
+#
+# Script to import QIP DHCP Server logs from WEV->syslog-ng format to an SQL table.
+#
+# TODO/ROADMAP: 
+#	- automatically fire off e-mail to cfs@good-sam.com for all hostnames that 
+#		have spaces in them. do not duplicate daily (v.0.2.0)
+#
+#
+# sample data lines:
+#
+#Jul  7 15:54:11 ns1.good-sam.com EvntSLog: [INF] Mon Jul 07 15:53:57 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP_RenewLease: Host=LYGS IP=172.23.7.133 MAC=005004737d54 Domain=3070.good-sam.com "
+#
+#Jul  9 03:04:49 ns1.good-sam.com EvntSLog: [INF] Wed Jul 09 03:04:45 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP_GrantLease: Host=ws50528 IP=172.25.27.137 MAC=00062934e1db Domain=5270.good-sam.com "
+#
+#Jan 21 12:03:49 ns1.good-sam.com EvntSLog: [INF] Tue Jan 21 12:03:09 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP Release: Host=Interact IP=172.16.108.116 MAC=00105ae03d5e Domain=0010a.good-sam.com "
+#
+#Jul  7 07:06:08 ns1.good-sam.com EvntSLog: [INF] Mon Jul 07 07:05:50 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP Auto Release: Host=0010BEARHART IP=172.16.105.165 MAC=00096b90ca70 Domain=0010.good-sam.com "
+#
+#
+# CAUTION: watch out for Host= entries that have hostnames with spaces in them... 
+#
+#
+use strict;
+use POSIX;
+use DBD::mysql;
+
+my $yest = `/var/www/html/sec/fwap/bin/yesterday`; chomp( $yest ); 
+my $logfile = "/var/www/html/sec/fwap/log/dhcpfaillog_$yest"; 
+
+my $file = $ARGV[0]; 
+my %months = ( "Jan" => "01", "Feb" => "02", "Mar" => "03", "Apr" => "04", "May" => "05", "Jun" => "06", "Jul" => "07", "Aug" => "08", "Sep" => "09", "Oct" => "10", "Nov" => "11", "Dec" => "12" );
+
+open( IN, $file ) or die( "$!" );
+my $dbh = DBI->connect( 'dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=fw', 'root', '' )
+	or die "Couldn't connect to database ($DBI::errstr)";
+
+open( OUT, ">$logfile" ) or die( "$!" );
+
+#transaction-esque inserting...
+$dbh->do( "begin" ); 
+
+while( <IN> )
+{
+	chomp( $_ );
+	my $orig = $_; 
+
+	my( $msg ) = substr( $_, 120 ); chop( $msg );
+	my( $date ) = substr( $_, 49, 24 ); 
+
+	if( $msg =~ "DHCP_GrantLease" or $msg =~ "DHCP_RenewLease" or 
+		$msg =~ "DHCP Release" or $msg =~ "DHCP Auto Release" )
+	{
+
+		my( $msg, $keys ) = split( /\:/, $msg, 2 ); 
+		my @tokens; push( @tokens, $_ ) foreach( split( /\s/, $keys ) ); 
+	
+		$date = convtime( $date ); 
+		my( $host ) = (split( /\=/, $tokens[1], 2 ))[1];
+		my( $ip ) = (split( /\=/, $tokens[2], 2 ))[1]; 
+		my( $mac ) = (split( /\=/, $tokens[3], 2 ))[1]; 
+
+		$msg = 0 if( $msg =~ "DHCP_GrantLease" );
+		$msg = 1 if( $msg =~ "DHCP_RenewLease" );
+		$msg = 2 if( $msg =~ "DHCP Release" );
+		$msg = 3 if( $msg =~ "DHCP Auto Release" );
+
+		if( $ip !~ /^[0-9]*.[0-9]*.[0-9]*.[0-9]*/ )
+		{
+
+			#this machine has a space in its hostname, it needs to be changed.
+			print OUT "FAILED: $orig\n";
+
+		} else {
+
+			$dbh->do( "insert into leaseinfo ( date, type, ip, mac, host ) values ( '$date', '$msg', '$ip', '$mac', '$host' )\n" ) 
+				or die( "$!" );
+
+		}
+
+	} else {
+		# we don't care.
+	}
+}
+close( OUT );
+close( IN );
+
+$dbh->do( "commit" );
+
+
+exit( 0 );
+
+
+
+
+#comes in as: "Mon Jul 07 07:05:50 2003" and leaves as: "YYYY-MM-DD HH:MM:SS"
+sub convtime
+{
+	my $time = shift;
+	$time = substr( $time, 4 ); 
+	my( $mon, $day, $time, $yr ) = split( /\s/, $time, 4 ); 
+
+	return "$yr-$months{$mon}-$day $time"; 
+}

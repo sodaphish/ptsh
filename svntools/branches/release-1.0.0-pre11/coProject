@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# coProject by C.J. Steele <coreyjsteele@yahoo.com>
+# 
+# script aids in the checking out of code from SVN
+# 
+
+REPOS=`cfgctl svn.repospath`
+PROJ=`basename \`pwd\``
+SVN=`which svn`
+SVNADMIN=`which svnadmin`
+
+$SVN co file://$REPOS$1

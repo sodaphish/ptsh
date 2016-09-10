@@ -1,0 +1,96 @@
+PortWatcher - v0.2.0
+
+(C)opyright 2000, Corey J. Steele, all rights reserved.
+	by Corey J. Steele <csteele@old.dhs.org>
+
+This program is distributed under the GNU Public License (GPL),
+for specific information regarding the GPL, please refer to
+the file "COPYING", or http://www.gnu.org.
+
+
+-----------------------------------------------------------------------
+DESCRIPTION: 
+
+	PortWatcher is basically a package to seek and destroy skript
+kiddie attempts at portscan/strobe/nmap probes.  The point here is to 
+automate the task such that you don't have to do this by hand, or pay
+for some big expensive IDS program.  
+
+	I wouldn't recommend using this in a commercial setting, but
+it's effective for home, and may actually be educational.  ("may" 
+being the key phrase there.)
+
+
+-----------------------------------------------------------------------
+INSTALLATION:
+
+	This is pretty simple: 
+	1) un-pack the archive on your hard disk
+	2) move the un-packed directory (in its entirety) to some 
+		final destination on your disk (I recommend 
+		/usr/local/portwatcher, but that's up to you.)
+	3) edit the file $PORTWATCHER_HOME/portwatcher.conf and change
+		local settings (just read through it, there isn't
+		much, but you should understand what's configurable 
+		and what isn't.  There is also additional documentation
+		in the config file, so just do it.)
+	4) cd to $PORTWATCHER_HOME and run `mkmonitor`, which will 
+		automatically generate a ton of different monitors
+		according to what services are defined in /etc/services
+		
+	5) edit the file $PORTWATCHER_HOME/portwatcher.conf and adjust
+		the array of @monitors_to_start to reflect the ports
+		that someone might believably think you have open -- 
+		OR, you can just add to that list whatever services
+		are closest to 1, that way if you're dealing with real
+		moron script kiddies their first few ports they hit 
+		will automatically get them blocked for future access.
+
+	7) add the listener to /etc/rc.d/rc.local. 
+
+	6) edit your /etc/rc.d/rc.local script to run each of the monitors
+		you defined in the config file (this is a temporary step
+		until I can get the start_monitors script working.)
+		NOTE: Make sure these entries FOLLOW the listener, or
+		you'll have problems.
+
+	8) re-execute /etc/rc.d/rc.local (this will get it all going)
+
+	9) you can test it at this point, but be sure you know how to
+		remove rules from IPChains by hand, 'cause once your
+		IP is blocked, you're done (don't do this to machines 
+		you don't have a console setup on.)
+
+	That should do it, but this process will change rapidly as I
+get the actually start and stop scripts going, and as I make the other
+necessary changes to all of the listener and monitor code.  
+
+
+-----------------------------------------------------------------------
+REQUIREMENTS:
+
+	This package requires several Perl5 modules that absolutely
+MUST be present and working on your system BEFORE you try to get this
+to run.  They are:
+
+	- Storable 
+	- IPC::Shareable
+	- IPChains
+	- Sys::Hostname
+	- Sys::Syslog
+
+If you find that you need additional packages to make PortWatcher work,
+please feel free to contact me.
+
+
+-----------------------------------------------------------------------
+BUGS:
+
+	I'm sure there are some.  Please, (pretty please?) notify me
+if you see behavior that you think isn't quite normal.  Because of the
+nature of this software, it is very important that bugs be fixed as 
+quickly as possible.
+
+	At some point, I will be posting a bug-tracking system to the
+web-site, or opening a page at SourceForge, so if you're interested, 
+stay tuned.

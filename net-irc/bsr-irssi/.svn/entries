@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:24:53.667492Z"
+   url="file:///hosted/www/sodaphish.com/repos/bsr-irssi"
+   last-author="csteele"
+   kind="dir"
+   uuid="46ab8702-5ef0-0310-9275-f4ea45421e69"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="bsr.pl"
+   text-time="2005-02-18T07:25:24.000000Z"
+   committed-date="2005-02-18T07:24:53.667492Z"
+   checksum="f124f29733984dae5506caa6098cac35"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:25:24.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="bsr-0.1.0.pl"
+   text-time="2005-02-18T07:25:24.000000Z"
+   committed-date="2005-02-18T07:24:53.667492Z"
+   checksum="e93bc56a9012d7994d6e21e3149907a2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:25:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="bsr-0.2.0.pl"
+   text-time="2005-02-18T07:25:24.000000Z"
+   committed-date="2005-02-18T07:24:53.667492Z"
+   checksum="9689ebd77423909ce03c522a3ef583de"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:25:24.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

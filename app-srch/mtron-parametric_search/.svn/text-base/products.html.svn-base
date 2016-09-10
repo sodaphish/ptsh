@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+</HEAD>
+<BODY bgColor=#ffffff>
+<font face="Verdana, Helvetica, Arial" size=-1>
+
+<b>Click <a href=index.cgi>here</a> to return to the main page</b>
+
+<br><br>
+<b>Note:</b> <i>This document explains a little more about each of our parameters and the way in which they are specified.  If you have further questions, please don't heasitate to <a href=mailto:parametric@mtron.com?subject=Help>contact us</a>.</i>
+
+<br><br>
+<hr>
+
+<font size=+2><b>Crystals</b></font>
+<P>A crystal is an electronic component based on quartz technology. The
+properties of quartz allow for precise timing over a broad temperature 
+range.
+The frequency of a crystal can remain as precise as
++/- 20ppm or 0.002% over a temperature range of -40 to 85
+C. A crystal must be placed in an oscillator circuit in order to
+operate.</P><B>
+<P>Frequency:</B> The main component and purpose of a crystal. Cycles
+per second
+generated or Hz. This parameter is usually specified in
+MegaHertz(MHz)</P><B>
+<P>Tolerance:</B> The accuracy of the crystal at 25
+C,
+a parameter needed to allow for error in quartz manufacturing process.
+Specified
+in parts per million(ppm) </P><B>
+<P>Stability:</B> The accuracy achieved over the operating temperature
+range so,
+naturally, a temperature range must also be specified. Specified in 
+parts per
+million(ppm)</P>
+<P>Tolerance and stability are specified as maximum values and added
+together to
+represent the absolute maximum frequency drift of the crystal. </P><B>
+<P>Temperature range:</B> Operating temperature range of the crystal.
+Specified
+in degrees Celsius (C).</P><B>
+<P>Shunt capacitance:</B> The internal capacitive value of the crystal.
+Specified in pico Farads (pF).</P><B>
+<P>ESR:</B> Effective Series Resistance or internal resistive value of
+the
+quartz. Specified in Ohms.</P><B>
+<P>Load capacitance:</B> The value of the external load needed in order
+for the
+crystal to run at optimal operation. Specified in pico Farads
+(pF)</P><B>
+<P>Drive Level:</B> Maximum power rating of crystal. Specified in max
+milliWatts(mW). Exceeding this rating could damage the crystal.</P><B>
+<P>Package:</B> M-tron has a variety of crystal packages available in
+surface
+mount and through hole configurations. </P>
+
+
+<br><br>
+<font size=+2><b>Oscillators</b></font>
+<P>Crystal oscillators are electronic components based on quartz
+crystals. In
+order to get a crystal to operate, an oscillator circuit must be
+utilized. These
+packaged oscillators eliminate the need to design an oscillator circuit
+in order
+to get a crystal to function. Because they are based on quartz crystals,
+the
+same frequency vs. temperature characteristics are observed.</P><B>
+<P>Temperature Range:</B> Expected operating temperature of the device.
+Specified in degrees Celsius (C).</P><B>
+<P>Stability:</B> Absolute frequency drift expected to occur. In most
+cases this
+includes tolerance at 25 (C), frequency
+vs.
+temperature, load, supply voltage. Specified in parts per million
+(ppm).</P><B>
+<P>Output type: </B>Fixed or Tristate or Dual Complementary. Fixed
+output is
+always outputting a signal as long as power is applied. Tristate refers
+to being
+able to "disable" the output into a state of high impedance. Dual
+complementary
+option is popular in ECL/PECL logic and has outputs Q and Q-not. </P><B>
+<P>Symmetry/Logic:</B> Logic Compatibility of output and duty cycle or
+symmetry
+of waveform.</P><B>
+<P>Package:</B> M-tron has a variety of oscillator packages available in
+surface
+mount and through hole configurations.</P><B>
+<P>Aging:</B> The ability to stay within tolerance over a long period of
+time.</P>
+
+
+<br><br>
+<font size=+2><b>VCXOs</b></font>
+<P>Voltage Controlled Crystal Oscillators (VCXOs) are oscillators
+with the
+ability to vary in frequency by varying the level of a control voltage.
+These
+VCXOs can be varied by as much as +/-
+300ppm or 0.03% of
+its center frequency.</P><B>
+<P>Temperature Range:</B> Expected operating temperature of the device.
+Specified in degrees Celsius (C).</P><B>
+<P>Stability:</B> Absolute frequency drift expected to occur. In most
+cases this
+includes tolerance at 25 (C), frequency
+vs.
+temperature, load, supply voltage. Specified in parts per million
+(ppm).</P><B>
+<P>Output type:</B> Tristate or Voltage controlled or Dual
+Complementary.
+Voltage controlled is a non-tristate output that is only controlled by a
+control
+voltage. Tristate refers to being able to "disable" the output into a
+state of
+high impedance while still having the voltage control option. Dual
+complementary
+option is popular in ECL/PECL logic and has outputs Q and Q-not. </P><B>
+<P>Pull Range:</B> The total amount of variance the VCXO can be offset
+from its
+center frequency. Specified in parts per million (ppm). </P><B>
+<P>Symmetry/Logic:</B> Logic Compatibility of output and duty cycle or
+symmetry
+of waveform.</P><B>
+<P>Package:</B> M-tron has a variety of oscillator packages available in
+surface
+mount and through hole configurations.</P><B>
+<P>Aging</B>: The ability to stay within tolerance over a long period of
+
+time.</P>
+
+<br><br>
+<font size=+2><b>TCXOs and DCXOs</b></font>
+<P>Temperature Compensated Crystal Oscillators (TCXOs) are
+oscillators with the
+ability to achieve up to +/- 1ppm stability.
+A DCXO, or
+Digitally Compensated Crystal Oscillator, is TCXO using digital
+techniques to
+provide stability of +/- 0.1ppm. </P><B>
+<P>Temperature Range:</B> Expected operating temperature of the device.
+Specified in degrees Celsius (C).</P><B>
+<P>Stability:</B> Absolute frequency drift expected to occur. In most
+cases this
+includes tolerance at 25 (C), frequency
+vs.
+temperature, load, supply voltage. Specified in parts per million
+(ppm).</P><B>
+<P>Output type:</B> Fixed or Voltage controlled. Fixed output is always
+outputting a signal as long as power is applied. Voltage controlled 
+option
+allows for additional tuning of a TCXO with the use of a control voltage
+pin.</P><B>
+<P>Symmetry/Logic:</B> Logic Compatibility of output and duty cycle or
+symmetry
+of waveform. In TCXOs, in addition to logic output, a sinewave or
+clipped
+sinewave output is also available.</P><B>
+<P>Package:</B> M-tron has a variety of oscillator packages available in
+surface
+mount and through hole configurations.</P><B>
+<P>Aging:</B> The ability to stay within tolerance over a long period of
+time.</P>
+
+</font>
+</BODY></HTML>

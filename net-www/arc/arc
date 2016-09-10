@@ -1,0 +1,110 @@
+#!/bin/sh
+# by C.J. Steele <csteele@forwardsteptech.com>
+#	(C)opyright 2002, Corey J. Steele, all rights reserved.
+#
+# Description: 
+# 	This is a command-line archiver of web sites.  It SHOULD grab 
+#	the entire site, images and all, and make a local archive.  
+#	This can be dangerous, but it should be limited.  You can use
+#	`lsarc` to list archived sites, as you might from a CGI script
+#
+
+DATE=`date +%m%d%Y`
+WGET=/usr/bin/wget
+ARC_ROOT=~/.arc
+ARC_STOR=$ARC_ROOT/archive
+ARC_LOG=$ARC_ROOT/log
+SITE=$1
+
+typeset -r WGET
+typeset -r ARC_ROOT
+typeset -r ARC_STOR
+typeset -r ARC_LOG
+
+if [ -d $ARC_ROOT ] && [ -r $ARC_ROOT ]; then
+	while getopts ?s:v o
+	do
+
+		case "$o" in
+		[?])	echo "$0 -[sv?] <URL>"
+			echo "    -s  site to archive"
+			echo "    -v  show $0 variables & settings"
+			echo "    -?  display this message"
+			echo
+			exit
+			;;
+
+		v)	echo "ARC_STOR = $ARC_STOR"
+			echo
+			exit
+			;;
+	
+		s)	SITE="$OPTARG"
+			;;
+		
+		*)	;;
+		esac
+
+	done
+
+
+	# this is part of that which doesn't function... its a cleanser for 
+	# the URL's, but it no worky very well.
+	ARC_TMP_STOR=`echo $SITE | sed -e's/\\//\\\/g'`
+
+
+	# 
+	# this currently doesn't work...
+	ARC_DUMP_DIR=$ARC_STOR/$DATE-$SITE
+	if [ -d $ARC_DUMP_DIR ]; then
+		echo "you already have a copy of $SITE for $DATE..."
+		echo -n "are you sure you want to over-write this copy? [y/n]"
+		while read yn; do
+			if [ $yn = "n" ] || [ $yn = "N" ]; then
+				echo "aborting..."
+				exit
+			else
+				if [ $yn = "y" ] || [ $yn = "Y" ]; then
+					echo "over-writing..."
+					wget --output-file=$ARC_LOG --directory-prefix="$ARC_STOR/DATE" --user-agent="arc $ARC_VER" -r --level=3 -p $SITE
+					exit;
+				else 
+					echo -n "are you sure you want to over-write this copy? [y/n]"
+				fi
+			fi
+		done;
+	fi
+				
+
+	# here, we actually do the work... with no error checking whatsoever.
+	echo "$0 running..."
+	wget --append-output=$ARC_LOG --directory-prefix=$ARC_STOR/$DATE --user-agent="arc $ARC_VER" -r --level=3 -p -k -L $SITE
+	echo " + done."
+else 
+	if [ -d $ARC_ROOT ]; then
+		
+		# the directory is there, just not readable
+		echo "$ARC_STOR exists, but is not writeable by your account."
+		echo "$0 quitting, no sites saved."
+		echo 
+		exit
+		
+	else 
+
+		# the directory doesn't exist, create it.
+		echo "initializing $0..."
+		echo " + creating $ARC_ROOT..."
+		mkdir $ARC_ROOT 
+		if [ -d $ARC_ROOT ] && [ -r $ARC_ROOT ]; then
+			echo " + 'mkdir' OK"
+		else 
+			echo " - 'mkdir' FAILED!"
+			echo "$0 quitting, no sites saved."
+			exit
+		fi
+
+	fi
+	echo "re-run last command. ($0 $*)"
+
+fi
+

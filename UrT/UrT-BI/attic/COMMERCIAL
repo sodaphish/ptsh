@@ -1,0 +1,37 @@
+ban.py -- communicates with the servers to implement bans.
+banbot.pl -- handles unbanning people after their temporary bans have expired
+ban.php -- web interface to ban.py
+banman.php -- web interface to manage the servers for ban.py
+drcon.py -- distributed RCON agent that runs a command across all configured servers 
+getgamelogs.php -- backend script to retrieve game logs
+getbanlists.php -- bakcned script to retrieve ban lists
+logquery.php -- web-interface to query game logs
+qstat -- binary to query servers about players
+servergraph.php -- image generator for player trending data
+servertotal.php -- image generator for player trending data
+trending.php -- script-wrapper for qstat
+w.php -- allows players to check why they've been banned or if they're banned.
+demos/ -- directory where demos are uploaded to
+gamelogs/ -- directory where games.log files are stored
+
+
+TODO:
+** implement categories for each ban
+** make categories dynamic from the database and as such managed through banman
+** allow bans to be marked as private (e.g. so they aren't exported to UAA or visible in the exported ban lists)
+** centralize configuration across all applications so they pull config data from a database
+** write configuration loaders for php, python and perl -- this will very likely be another reusable chunk of code like Logger
+** make all configuration settings editable via banman (or similar interface)
+** use Smarty templates throughout all applications to separate the code from the layout.
+** migrate ban.py to log to a database
+** make banman's server list editable (so we don't have to add/delete to make changes.)
+** write interface to update RCON across all servers using drcon.py
+** import historical ban information into the database
+** rewrite ban history thing to query the database written by ban.py
+** log trending data to the database
+** rewrite servergraph.php to query the trending data from the database
+** breakout python classes into separate files so we only maintain one set of them
+** make MOTD a database entry and allow it to be updated via banman.php
+** fix bugs in the playlist class(es)
+** fix bugs in the logquery
+** write install script

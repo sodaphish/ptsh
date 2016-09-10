@@ -1,0 +1,21 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  MoveScaled(0,0,59,58)
+  Text = ("")
+  { TextBox1 TextBox
+    MoveScaled(4,2,24,3)
+    Text = ("127.0.0.1")
+  }
+  { Label1 Label
+    MoveScaled(1,2,3,3)
+    Text = ("IP:")
+  }
+  { Button1 Button
+    MoveScaled(35,2,16,3)
+    Text = ("Ping")
+  }
+  { ListBox1 ListBox
+    MoveScaled(1,7,56,49)
+  }
+}

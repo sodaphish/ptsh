@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:27:57.989196Z"
+   url="file:///hosted/www/sodaphish.com/repos/agent"
+   last-author="csteele"
+   kind="dir"
+   uuid="04faa30d-5ef0-0310-906c-f2df55b31fec"
+   revision="1"/>
+<entry
+   committed-rev="2"
+   name=".installMap"
+   text-time="2005-03-31T04:17:46.000000Z"
+   committed-date="2005-03-31T04:18:23.080861Z"
+   checksum="d4467bef06441fc09e73744ef69a2aa0"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="agentoff"
+   text-time="2005-02-18T07:28:11.000000Z"
+   committed-date="2005-02-18T07:27:57.989196Z"
+   checksum="3de295b68025d97f197d2628babff837"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:11.000000Z"/>
+<entry
+   committed-rev="1"
+   name="agenton"
+   text-time="2005-02-18T07:28:11.000000Z"
+   committed-date="2005-02-18T07:27:57.989196Z"
+   checksum="71898483c28c032e2ebb0c358ad60e8a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:11.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

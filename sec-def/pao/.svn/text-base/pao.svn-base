@@ -1,0 +1,28 @@
+#!/bin/sh
+# pao by C.J. Steele <coreyjsteele@yahoo.com>
+#   (C)opyright 2005, C.J. Steele, all rights reserved.
+#
+# pao is a utility to help performance tune a Cisco PIX's ACL's.  It 
+# relies on dpixsh and pao.pl to function.  Simply complete the path 
+# information for DPIXSH and PAOPL, and you should be able to run pao 
+# according to the following usage:
+# 
+#	 pao <aclname>
+#
+# where <aclname> is the name of the access-list to inspect
+# 
+# you could also substitute pao.py for pao.pl... if you haven't got a 
+# perl install
+# 
+DPIXSH="/root/cjs-bin/pix/dpixsh"
+PAOPL="/root/cjs-bin/pix/pao.pl"
+
+if [ $1 ]; then
+	ACLS=`mktemp /tmp/pao.XXXXXX`
+	$DPIXSH sh access-list $1 > $ACLS
+	$PAOPL $ACLS | sort -nr | grep $1 | cut -f2- -d\ 
+	rm $ACLS
+else
+	echo "usage: pao <aclname>"
+	echo "\twhere <aclname> is the name of the access-list to inspect"
+fi

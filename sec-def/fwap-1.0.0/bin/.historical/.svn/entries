@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:02.219940Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap-1.0.0/bin/.historical"
+   last-author="csteele"
+   kind="dir"
+   uuid="4e26b68a-5ef0-0310-8b4b-ebe0e86874b4"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="pixlog2sql"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="03ab2c34e5362ebc38ec3355d85e60ff"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="getlog-http.sh"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="65c73031d7bdfedf0802cd1e026de7e0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="getlog.sh"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="c7e1fa50262f18b61362b93cf05e5b24"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+</wc-entries>

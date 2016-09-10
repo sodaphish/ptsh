@@ -1,0 +1,16 @@
+you can execute the script 'crystals.sql' on any given database via:
+
+	mysql --password=PASSWORD DATABASE < crystals.sql
+
+where PASSWORD is your password (you may also have to use 
+--user=USER if you're trying to do this as a different user),
+and DATABASE is the database you want to run the script on.
+
+you can put whatever SQL commands you want in the script, 
+and run it via this method, and it will execute the scripts.
+
+This process does not output any results, so don't freak out
+if you dont' get any feedback from the database server.
+
+
+

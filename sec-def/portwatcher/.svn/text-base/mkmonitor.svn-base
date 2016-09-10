@@ -1,0 +1,52 @@
+#!/usr/bin/perl
+#
+# PortWatcher - mkmonitor
+#
+# (C)opyright 2000, Corey J. Steele, all rights reserved.
+#	by Corey J. Steele <csteele@old.dhs.org>
+#
+# This program is distributed under the GNU Public License (GPL),
+# for specific information regarding the GPL, please refer to
+# the file "COPYING", or http://www.gnu.org.
+#
+# Description: This script generates a customized list of monitors
+# 	to make available according to /etc/services as defined
+#	on your platform.
+#
+# WARNING! This code is extremely ugly!  I threw this together without
+# 	_ANY_ thought, and really don't care how bad it is, because it
+#	works, and it will only be used ONCE (unless you screw something
+#	up to the point of having to re-create your monitors.)
+#
+use Sys::Hostname;
+require "portwatcher.conf"; 
+
+$monitor_path = "$portwatcher_path/monitors"; 
+
+open( TEMPLATE, "$monitor_path/monitor.tmpl" ) or die "Couldn't open the monitor template!"; 
+while( my $line = <TEMPLATE> ){
+	$template_text .= "$line";
+}
+close( TEMPLATE );
+
+while( ( $srv_name, $srv_alias, $srv_port, $srv_prot) = getservent() ){
+	
+	open( OUT, ">$monitor_path/monitor-$srv_name-$srv_prot" ) or die( "Couldn't open monitor for write! $!" ); 
+		$template_text =~ s/__P2/$srv_prot/s; 
+		$template_text =~ s/__P1/$srv_port/s; 
+		print OUT $template_text; 
+	close( OUT );
+	print `chmod +x $monitor_path/monitor-$srv_name-$srv_prot`;
+
+	#
+	# yes, this is a really gay thing that I'm doing here, but bare with me, I didn't care how ugly 
+	# this was because of how infrequently it should be needed.  SO, if you want 
+	open( TEMPLATE, "$monitor_path/monitor.tmpl" ) or die "Couldn't open the monitor template!"; 
+	$template_text = "";
+	while( my $line = <TEMPLATE> ){
+		$template_text .= "$line";
+	}
+	close( TEMPLATE );
+
+}
+

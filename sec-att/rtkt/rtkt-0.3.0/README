@@ -1,0 +1,18 @@
+rtkt-0.3.0 by SodaPhish
+
+This is a rootkit.  The purpose of this kit is to maintain control of 
+conquered boxen.  This kit is simple, it contains three features that
+are worthy of note: the binary wrappers, the protected rootshell, and 
+(most importantly) the kit's own protection.
+
+The binary wrappers basically cover your tracks from the sys-admins who
+might otherwise want to see what you're up to, while the rootshell provides
+you simple and quick access back in to the box.  The real beauty though is
+the kit's built-in ability to protect itself.  Basically, the kit takes
+advantage of some features in POSIX.1e standards to make itself extremely 
+difficutl to remove -- between `chattr` and the Linux kernel support, it 
+is possible to render some files almost impossible to remove or otherwise 
+change.  This kit does not use any loadable kernel modules, and is therefore
+more portable than other rootkits that rely on LKM's to remain hidden.
+
+Though this kit won't get you in, it will go a long way to help you stay in.

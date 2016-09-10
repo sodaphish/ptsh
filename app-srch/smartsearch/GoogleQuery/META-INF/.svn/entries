@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/META-INF"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="mimetypes.default"
+   text-time="2005-02-18T07:11:34.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f2905d63d7536a902a79094c4a92110b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:34.000000Z"/>
+<entry
+   name="services"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="mailcap"
+   text-time="2005-02-18T07:11:34.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="fe871c1bf0a064e996eff38cc887956b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:34.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MANIFEST.MF"
+   text-time="2005-02-18T07:11:34.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6018d73fe61654f8978eca7bee820c71"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:34.000000Z"/>
+<entry
+   committed-rev="1"
+   name="javamail.charset.map"
+   text-time="2005-02-18T07:11:34.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1ef0ec6ee1c321d500205c80650298dc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:34.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mailcap.default"
+   text-time="2005-02-18T07:11:34.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6b097cd00752fc9fe349d8a002a4129a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:34.000000Z"/>
+</wc-entries>

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd $ARGV[0]
+make clean
+
+cd ..
+tar -cf `basename $ARGV[0]`.tar $ARGV[0]
+gzip `basename $ARGV[0]`.tar
+
+

@@ -1,0 +1,25 @@
+<FORM METHOD=POST ACTION="index.php"
+<input type=hidden name=f value=invoice>
+<input type=hidden  name=sub value=customer>
+<input type=hidden name=c value=editview >
+
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size+2 ALIGN=center><div align=center>Edit Customer</font></div></td>
+	</tr><tr>
+		<td>
+			<SELECT NAME="id">
+<?php
+$result = mysql_query("select company_name, id from client where active!=0")or die(mysql_error());
+while( list($company_name,$id)=mysql_fetch_row($result) )
+{
+	print"\t\t\t<option value=$id>$company_name</option>\n";
+}
+?>
+			</SELECT>
+		</td>
+		<td ALIGN=right><input type="submit" value="ok"></td>
+	</tr>
+	</table>
+	
+/FORM>

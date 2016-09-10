@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="3"
+   name=""
+   committed-date="2005-03-21T16:05:32.750928Z"
+   url="file:///hosted/www/sodaphish.com/repos/squid-wimp/weblog"
+   last-author="csteele"
+   kind="dir"
+   revision="3"/>
+<entry
+   committed-rev="3"
+   name="squid.pyc"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="318c67a1fe3550cb7d3dadac8d2c8b08"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:35.000000Z"/>
+<entry
+   committed-rev="3"
+   name="limit.py"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="e4410cd4da4ae6e50054c39f47ffda22"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:35.000000Z"/>
+<entry
+   committed-rev="3"
+   name="__init__.py"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="d41d8cd98f00b204e9800998ecf8427e"
+   last-author="csteele"
+   kind="file"/>
+<entry
+   committed-rev="3"
+   name="__init__.pyc"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="80b146d20f90bfba9301dd6a95244319"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:35.000000Z"/>
+<entry
+   committed-rev="3"
+   name="url.py"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="dab840bf508c9c253a347d9bf38003fa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:35.000000Z"/>
+<entry
+   committed-rev="3"
+   name="squid.py"
+   text-time="2005-03-21T15:57:40.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="035efd02ad864be04387ff128d1d1b31"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:35.000000Z"/>
+</wc-entries>

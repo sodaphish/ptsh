@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/crimson/parser"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="Parser2$Catalog.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4e6b54513a2c0e5bb331a74b6f873ac5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7c3d75cb15e6d117820bf7c7638cac20"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ExternalEntity.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="18ccd539c8588754ea5b254334bb5ac5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlReader$Utf8Reader.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5285e516b03a80028063c7327c8ddc85"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlReader.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9cf3c697ca23e3f1c7249dba696acbee"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ValidatingParser$1.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="2eb0f0bec63d5fc4a97eaac5e44378f6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ValidatingParser$EmptyValidator.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="75f9e6e6519e4f03b87947cbcf20ae8b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SimpleHashtable$Entry.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="bf3795c508e7175b18876b0fb71f7d17"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ValidatingParser$MixedValidator.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="07e98dba5bc2746fadba4c767b45344b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2$1.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1ca9224e4e4062f331e8a866caa9b34d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="EntityDecl.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3b8657b935d1089ec5c39818c7ccbd5f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AttributesExImpl.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3d2d2f21a2bbc2c5c3de7826f3be7bdb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SimpleHashtable.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="77adcd5fff760f30b7aaccb9d9689f8b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlReader$BaseReader.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="229a131bbf3f38b6ea15e137929fbb85"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2$NameCache.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a8073bde170e5e11b09f96f7204e76a6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2$NullHandler.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6ba66135186ca4d8d133592a5d1f7fbb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ElementDecl.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="da0898c19643b975b1ed2f27550bc3b7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ValidatingParser$ChildrenValidator.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="eed1158d40102a68406b5f19dfba6ce2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlReader$AsciiReader.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="57aa18e6d47064bbb0a7a09163c33679"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AttributesEx.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="67b301d5db73c9cf50b4ffdcfb50591c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2$NameCacheEntry.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="67ff223d770bf894ca1e639666362b1f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="EndOfInputException.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b0ecb787211342fd7579cb55676bb413"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ContentModel.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5b9a35f84385811c25daf46ee9143cb7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AttributeDecl.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6662d32c3e638491bf27b926354fe403"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ContentModelState.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6d721782ea19c6713221fbc20a906b4d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Parser2$DocLocator.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="94177dcd18c2b258578c60ce8af60794"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="InputEntity.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="47627029e71e97e151e8435993d6822c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ElementValidator.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1e431cb43b826dad20d8caf1274343b0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ValidatingParser.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="76a427afa313074037c7ed7467a12066"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Resolver.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="213e41ecd2ed3d62bdc2e4e16faef3a4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XmlReader$Iso8859_1Reader.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="440b385e739fa99daeb94d5d49f78b0b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLReaderImpl.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1e3535d02907b5de62ab442f890c1647"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+<entry
+   name="resources"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="InternalEntity.class"
+   text-time="2005-02-18T07:11:37.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="8a53eeab84e559d3875a7c430dcd2af5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:37.000000Z"/>
+</wc-entries>

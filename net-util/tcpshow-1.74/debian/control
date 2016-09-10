@@ -1,0 +1,15 @@
+Source: tcpshow
+Section: net
+Priority: optional
+Maintainer: C.J. Steele <coreyjsteele@yahoo.com>
+Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.5.2
+
+Package: tcpshow
+Architecture: any
+Depends: ${shlibs:Depends}
+Recommends: tcpdump (>= 3.6.2)
+Description: Displays packet header information read from a raw `tcpdump` capture.  
+ `tcpshow` allows you to display packet header information from a raw 
+ `tcpdump` capture.  This functionality is very similar to Ethereal's 
+ packet decoding.  `tcpshow` is a command-line utility.

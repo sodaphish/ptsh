@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+use strict;
+
+my $count = int( rand( 2 ) + 1 ); 
+my @filenames = ( "name1_human", "name2_human", "name3_human", "name4_human" ); 
+
+
+
+
+sub getRandName
+{
+
+	my( $filename ) = @_; 
+
+}

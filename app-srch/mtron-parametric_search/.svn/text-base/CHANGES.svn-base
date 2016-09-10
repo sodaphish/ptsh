@@ -1,0 +1,19 @@
+CHANGES (1.1.0-0 -> 1.1.0-1)
+================================================================================
+  o (12/15/2000) wrote scripts to automatically make test/live system
+  o (12/15/2000) changed bin/backall_db script to dump most recent copies of
+	databases to sql/backups/*.last
+
+
+CHANGES (1.0.0 -> 1.1.0)
+================================================================================
+  o (12/12/2000) made read/write user in catreq.cgi "search_rw".
+  o (12/12/2000) email @recipients now standardized across all scripts
+  o (12/12/2000) removed "CATEGORIES" on contact.cgi output
+  o (12/12/2000) renamed database tables, database, and $__dsn references for 
+	all code
+  o (12/14/2000) mail server has been changed to 'mail.mtron.com' in all 
+	scripts that talk to sendmail.
+  o (12/13/2000) cleaned up the code headers at the beginning of each file 
+  o (12/14/2000) added output of time it took to execute search to end of 
+	output pages

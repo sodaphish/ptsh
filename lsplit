@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+use strict;
+use POSIX;
+use Env;
+
+if( scalar(@ARGV) == 2 )
+{
+
+	open( IN, $ARGV[1] ) or die( "$!" );
+	while( <IN> )
+	{
+		chomp($_);
+	}
+	close( IN );
+
+} else {
+	print "usage: lsplit <lines> <file>\n\t<lines> - integer number of lines per page.\n\t<file> - the name of the file to split\n\n";
+}
+
+exit( 0 );

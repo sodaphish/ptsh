@@ -1,0 +1,7 @@
+= Eclipse IDE Tips =
+We'll flesh this out as time goes on, but here's the basics....
+
+  * add the PyDev module for Eclipse (http://pydev.org/updates)
+  * add an SVN connector for whatever version of svn you're running (`svn --version`)
+  * integrate the googlecode tasks repository (http://eclipse.dzone.com/articles/using-mylyn-with-google-code-u)
+    

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:37:50.260819Z"
+   url="file:///hosted/www/sodaphish.com/repos/flushFinderCrap"
+   last-author="csteele"
+   kind="dir"
+   uuid="166ff530-5ef0-0310-97c7-ea51be2d39cd"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="flushFinderCrap"
+   text-time="2005-02-18T07:38:10.000000Z"
+   committed-date="2005-02-18T07:37:50.260819Z"
+   checksum="6bd8cd0cef65bafb87a4fdc6cca55414"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:38:10.000000Z"/>
+<entry
+   committed-rev="2"
+   name=".installMap"
+   text-time="2005-03-31T04:20:17.000000Z"
+   committed-date="2005-03-31T04:20:52.168220Z"
+   checksum="479a84983a069e3aff42a0d6338262be"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

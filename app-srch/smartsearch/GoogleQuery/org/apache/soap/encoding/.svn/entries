@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/encoding"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="SOAPMappingRegistry$1.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="720125fad4f86f1c004b645310e519ac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SOAPMappingRegistry$2.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9ca811a83700c6312757af9ea896075c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   name="soapenc"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="SOAPMappingRegistry.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="12aed27b5c0fcc7aca780fb290c67e85"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   name="literalxml"
+   kind="dir"/>
+<entry
+   name="xmi"
+   kind="dir"/>
+</wc-entries>

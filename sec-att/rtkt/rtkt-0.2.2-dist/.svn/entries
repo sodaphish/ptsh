@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/rtkt-0.2.2-dist"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="INSTALL"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="5397c1ed362f48f1fa8bfe73e1d02faa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+<entry
+   name="src"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="CHANGELOG"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="57c39103f310cec4d87105f0981fefa6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   name="dst"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="mkrtkt"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="3a1d5780afffc7522d0b230a24805365"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="15850cc87d63e3a1dcf1a6bfda9043df"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+</wc-entries>

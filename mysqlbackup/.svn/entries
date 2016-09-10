@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:38:53.041231Z"
+   url="file:///hosted/www/sodaphish.com/repos/mysqlbackup"
+   last-author="csteele"
+   kind="dir"
+   uuid="bfdfb234-5ef0-0310-a570-fb0f441d66d7"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="mysqlbackup"
+   text-time="2005-02-18T07:39:16.000000Z"
+   committed-date="2005-02-18T07:38:53.041231Z"
+   checksum="ead76d123e806bd16274f43a2e4cff99"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:39:16.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

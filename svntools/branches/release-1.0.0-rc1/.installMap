@@ -1,0 +1,6 @@
+ciProject:/usr/local/bin/ciProject:0755:root:root
+coProject:/usr/local/bin/coProject:0755:root:root
+coProject:/usr/local/bin/coProject:0755:root:root
+initProject:/usr/local/bin/initProject:0755:root:root
+installPkg:/usr/local/bin/installPkg:0755:root:root
+mkrelease:/usr/local/bin/mkrelease:0755:root:root

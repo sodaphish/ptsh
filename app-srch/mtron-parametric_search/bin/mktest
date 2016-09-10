@@ -1,0 +1,69 @@
+#!/bin/sh
+# filename: mktest
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+# 	written by Corey J. Steele <csteele@mtron.com>
+# last modified: 12/18/2000
+#
+# Description: This script calls all the scripts needed to create
+#	the proper environment for the current code snapshot to be
+# 	a healthy, running, test system
+#
+DATE=`date +%d%m%Y`
+SOURCE="/home/csteele/devel"
+DESTINATION=$1
+BACKUP=/tmp/`basename $DESTINATION`.backup-$DATE
+if [ -d "$DESTINATION" ]; then
+	echo "WARNING! This stands a good chance of hosing your test code!"
+	echo "A backup of $DESTINATION will be placed in $BACKUP" 
+	echo "see the file Documentation/RESTORE.txt for instructions on how to "
+	echo "restore that directory."
+	echo
+	echo -n "Are you sure you want to do this? (Y/N) "
+
+	while read answer ; do
+		if [ $answer = 'y' ] || [ $answer = 'Y' ]; then
+			
+			# backup destinAtion if there are any files in it
+			cp -rfp $DESTINATION $BACKUP
+
+			# blow away destination
+			rm -rf $DESTINATION
+
+			# re-create destination
+			mkdir $DESTINATION
+
+			# copy the entire devel/ tree to the specified location 
+			cp -rf $SOURCE/* $DESTINATION 
+
+			# run bin/mk*.live with parameter of destination
+			$DESTINATION/bin/mkcfg.test $DESTINATION
+			$DESTINATION/bin/mkhtml.test $DESTINATION
+
+			# set permissions on .log file
+			chown nobody:nobody $DESTINATION/parametric.log
+			chmod 660 $DESTINATION/parametric.log
+
+			# blow away *.m4 from destination, recursively
+			rm $DESTINATION/*.m4
+			rm $DESTINATION/cfg/*.m4
+
+			# notify user that changes have been executed.
+			echo 
+			echo "$DESTINATION should now contain a fully functional"
+			echo "parametric search code-base... Please consult the"
+			echo "$DESTINATION/Documentation/README for more information."
+
+			exit
+
+		else
+
+			echo "ABORTING!"
+			exit
+		fi
+	done
+
+else
+	echo "Usage: mktest /path/to/destination"
+	echo "make sure the directory you are specifying actually exists!"
+	echo
+fi

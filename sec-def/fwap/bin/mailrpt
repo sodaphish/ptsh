@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# mailrpt by C.J. Steele <csteele@good-sam.com>
+#
+# this script allows us to mail the FWAP report, on an ad hoc basis, as 
+# an HTML message.
+#
+
+#include our global variable type things
+. /var/www/html/sec/fwap2/bin/globals
+
+# our tempfile we'll dump the report in to and then delete
+TMPFILE=`mktemp /tmp/daily.XXXXXX`
+
+# get the report from frank.
+# 4/25/05 - discovered that the version of links we're running doesn't 
+# 	properly handle retrievals that exceed the cache-memory-size, the 
+#	app just segfaults... SO, by jacking up the cache size to 10mb, we
+#	should avoid this.
+$LINKS -memory-cache-size 10485760 -receive-timeout 999 -source "http://frank.corp.good-sam.com/sec/fwap2/index.php?f=viewday&q=$TODAYURL" >> $TMPFILE
+#echo $LINKS -memory-cache-size 2097152 -receive-timeout 999 -source "http://frank.corp.good-sam.com/sec/fwap2/index.php?f=viewday&q=$TODAYURL" \>\> $TMPFILE 
+
+# mail the report to each of the admins
+for a in $ADMINS; do
+	# we use metasend because we're mailing an HTML file and `/bin/mail` just don't cut it.
+	# 4/25/05 - per the problem with links, `metasend` will split 
+	#	messages bigger than an undocumented limit, so we tell it 
+	#	not to split mail until it hits the 10mb limit.
+    metasend -b -S 9999999 -t $a -s "FWAP Report for $TODAYLONG" -m "text/html" -f $TMPFILE
+    #echo metasend -b -t $a -s "FWAP Report for $TODAYLONG" -m "text/html" -f $TMPFILE
+done
+
+# remove the temp file
+rm $TMPFILE

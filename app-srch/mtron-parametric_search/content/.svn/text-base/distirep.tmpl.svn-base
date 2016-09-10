@@ -1,0 +1,87 @@
+#:THIS=distirep.cgi
+#:FONTS="Verdana, Helvetica, Arial"
+
+#/HEADER
+<html>
+<head>
+  <title>Reps and Distributors</title>
+</head>
+<body bgcolor="#ffffff">
+<font face=%%FONTS%% size=-1>
+<center>
+#\HEADER
+
+#/FOOTER
+</center>
+</font>
+</body>
+</html>
+#\FOOTER
+
+#/LOCATION
+<option value="%%LOCATION_EL%%">%%LOCATION_EL%%</option>
+#\LOCATION
+
+#/LIST_HEAD
+Please select from one of the regions listed below...
+<br><br>
+<form action="%%THIS%%" method="get">
+<select name=location>
+#\LIST_HEAD
+
+#/LIST_FOOT
+</select>
+<input type=submit value="  next > >  "
+</form>
+#\LIST_FOOT
+
+
+#/REPS_HEAD
+<table width=600 border=1>
+<tr>
+	<td bgcolor="#cccccc"><font face=%%FONTS%% size=+1><b>Reps</b></font></td>
+</tr>
+#\REPS_HEAD
+
+#/REPS_FOOT
+</table>
+<br><br>
+#\REPS_FOOT
+
+#/REPS
+<tr>
+	<td><font face=%%FONTS%% size=-2>
+<font size=-1><b>%%NAME%%</b></font><br>
+%%ADD1%%<br>
+%%ADD2%%<br>
+%%CITY%% %%STATE%%, %%ZIP%%<br>
+%%COUNTRY%%<br>
+phone: %%PHONE%%<br>
+fax: %%FAX%%
+	</font></td>
+</tr>
+#\REPS
+
+#/DISTI_HEAD
+<table width=600 border=1>
+<tr>
+	<td bgcolor="#cccccc"><font face=%%FONTS%% size=+1><b>Distributors</b></font></td>
+</tr>
+#\DISTI_HEAD
+
+#/DISTI_FOOT
+</table>
+#\DISTI_FOOT
+
+#/DISTI
+<tr>
+	<td><font face=%%FONTS%% size=-2>
+<font size=-1><b>%%NAME%%</b></font><br>
+%%ADDRESS%%<br>
+%%ADDRESS2%%<br>
+%%CITY%% %%ST%%, %%ZIP%%<br>
+phone: %%PHONE%%<br>
+fax: %%FAX%%
+	</font></td>
+</tr>
+#\DISTI

@@ -1,0 +1,6 @@
+bobfus = binary + obfuscator
+
+...the idea is to create a command-line tool that can be used to cryptographically obfuscate binary files.  The grander scheme is to use this tool in a web-interface to provide a 'safe' download mechanism by which you can type-in a URL to the file you'd like to download, it will download to the web server, get bobfus-cated and then a link will appear to download the bobfus-cated file thus evading in-stream proxies with antivirus components that are biased against kiddie tools.
+
+
+If you *REALLY* _REALLY_ wanted to get fancy-pants, you'd modify the bobfusd to write download host information to a file that we could use with Squid's Delay Pools so you could limit bandwidth of the downloaded files and prevent DoS attacks.  

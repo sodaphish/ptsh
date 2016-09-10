@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/rtkt-0.3.0/src"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ncshd"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="fcbffea44510fba3fba168e0fc5b8272"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+<entry
+   name="lcap"
+   kind="dir"/>
+<entry
+   name="nc"
+   kind="dir"/>
+<entry
+   name="find"
+   kind="dir"/>
+<entry
+   name="ps"
+   kind="dir"/>
+<entry
+   name="top"
+   kind="dir"/>
+<entry
+   name="netstat"
+   kind="dir"/>
+<entry
+   name="wipe"
+   kind="dir"/>
+<entry
+   name="w"
+   kind="dir"/>
+<entry
+   name="tcps"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:31:29.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="96e86b9e221ac64b21ab2ac4fd9001b0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:29.000000Z"/>
+<entry
+   name="who"
+   kind="dir"/>
+<entry
+   name="ls"
+   kind="dir"/>
+<entry
+   name="dir"
+   kind="dir"/>
+</wc-entries>

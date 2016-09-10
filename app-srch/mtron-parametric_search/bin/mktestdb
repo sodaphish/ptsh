@@ -1,0 +1,16 @@
+#!/bin/sh
+# filename: mktestdb
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+#	written by Corey J. Steele <csteele@mtron.com>
+# last modified: 12/15/2000
+#
+# Description: This shell script simply takes a copy of the last
+# 	backup of the 'web' database, and throws it into a database
+#	called 'web_test' ...it also sets the proper permissions for
+#	the 'search' and 'search_rw' users.
+#
+
+mysqladmin drop web_test
+mysqladmin create web_test
+mysql web_test < /home/csteele/devel/sql/backups/web.last
+mysql web_test < /home/csteele/devel/sql/permissions.test

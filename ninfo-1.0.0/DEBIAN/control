@@ -1,0 +1,13 @@
+Source: ninfo
+Section: unknown
+Priority: extra
+Maintainer: C.J. Steele <corey@hostedbycorey.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Homepage: http://sodaphish.com/ninfo
+
+Package: ninfo
+Architecture: all
+Depends: none
+Description: collection of command-line network scripts
+ ninfo is a collection of command-line network scripts that can be used to automate other scripts.

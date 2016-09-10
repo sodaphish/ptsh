@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+# yesterday v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+# 	May 2003
+#
+# This very short script calculates the numerical date of 'yesterday' 
+# and outputs it in the format of YYYY_MM_DD, with zero-padding.
+#
+use strict;
+
+my @time = gmtime( time() - 86400 );
+print sprintf( "%4d_%02d_%02d", $time[5]+1900, $time[4]+1, $time[3] ), "\n";

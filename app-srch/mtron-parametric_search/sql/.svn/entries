@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/sql"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   name="backups"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="permissions.live"
+   text-time="2005-02-18T07:08:36.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="201181f3dd5775faf3fb6604f9f56aa0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="permissions.test"
+   text-time="2005-02-18T07:08:36.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="ec327bae0d83b381e6a476ec3eb95be5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="web.schema"
+   text-time="2005-02-18T07:08:36.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="b0b3038effbfabcdc6c5789e3aa4f432"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:36.000000Z"/>
+</wc-entries>

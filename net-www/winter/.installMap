@@ -1,0 +1,3 @@
+chkcond:/usr/local/bin/chkcond:755:root:root
+chkroads:/usr/local/bin/chkroads:755:root:root
+chkwork:/usr/local/bin/chkwork:755:root:root

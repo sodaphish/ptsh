@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FONTPATH=/usr/lib/openoffice/share/fonts/truetype
+FONT=$1
+
+if [ -f $FONT ]; then
+	sudo chown root:root $FONT
+	sudo chmod 444 $FONT
+	sudo mv -f $FONT $FONTPATH/$FONT
+	echo "font installed, be sure to restart OO"
+else 
+	echo no such file: $FONT
+fi

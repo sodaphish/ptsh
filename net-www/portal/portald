@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+
+use LWP::Simple;
+
+@URLS = ( "http://core.freshmeat.net/backend/recentnews.txt",
+	  "http://slashdot.org/ultramode.txt",
+	  "http://linuxtoday.com/lthead.txt",
+	  "http://www.cnn.com/index.html",
+	  "http://oap.weather.com/fcgi-bin/oap/generate_magnet?loc_id=USSD0347&code=211964",
+	  "http://maps.weather.com/images/radar/regions/n_central_rad_300x187.jpg",
+	  "http://maps.weather.com/images/sat/regions/n_central_sat_277x187.jpg",
+	  "http://maps.weather.com/images/radar/single_site/043loc_450x284.jpg" );
+
+$base_directory = "/home/csteele/www/portal/content";
+
+foreach (@URLS) {
+    @page = get($_);
+    if ( defined @page ) { &write_file( $_, @page ); }
+    else { print "Error getting $_!\n"; }
+}
+
+
+
+sub write_file {
+    my ($url, @page) = @_; 
+
+    if ($url =~ "freshmeat") { $write_file = "freshmeat.txt"; }
+    elsif ($url =~ "slashdot") { $write_file = "slashdot.txt"; }
+    elsif ($url =~ "linuxtoday.com") { $write_file = "linuxtoday.txt"; }
+    elsif ($url =~ "cnn.com") { $write_file = "cnn.txt"; } 
+    elsif ($url =~ "oap.weather.com") { $write_file = "current_report.gif"; }
+    elsif ($url =~ "n_central_sat_") { $write_file = "regional_sattelite.gif"; }
+    elsif ($url =~ "n_central_rad_") { $write_file = "regional_radar.gif"; }
+    elsif ($url =~ "043loc_") { $write_file = "yankton_radar.gif"; }
+    else { print "Error getting '$write_file'...\n"; return; }
+    
+    open (IF, ">$base_directory/$write_file") or print "Error opening $write_file for writting: $!...\n";
+    print IF @page; 
+    close (IF);
+    return;
+} #end write_file()

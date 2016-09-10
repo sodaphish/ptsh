@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:28:29.647839Z"
+   url="file:///hosted/www/sodaphish.com/repos/tcpshow-1.74/debian"
+   last-author="csteele"
+   kind="dir"
+   uuid="198b650f-5ef0-0310-ad3b-d60497e0ecad"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="control"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="e17d34bb2517b3be832a2a53ac65b544"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dirs"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="a4dbeb198d9817a5770d68f9e548ba44"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ex.package.doc-base"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="ae5e96609f14976c18fdfaa4d7a4522f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="changelog"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="512de1a628bc8fb1b0af85c41ae7d2dc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="copyright"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="2a489be5b184dfdcdbdc454fe4b0e8f1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="docs"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="d41d8cd98f00b204e9800998ecf8427e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rules"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="1215ce34aa931bd09cc2acd5801430b5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README.Debian"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="3315bcfc6bc4a9aded5027a5d0841057"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+</wc-entries>

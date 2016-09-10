@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="45"
+   name=""
+   committed-date="2005-03-30T22:00:42.091741Z"
+   url="file:///hosted/www/sodaphish.com/repos//svntools/branches/release-1.0.0-rc1/branches/release-1.0.0-pre11"
+   last-author="csteele"
+   kind="dir"
+   uuid="392359b2-73eb-0310-adc3-8eb2d1ab815b"
+   revision="49"/>
+<entry
+   committed-rev="5"
+   name="ciProject"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-02-18T07:21:51.112538Z"
+   checksum="c6a5d6181d6ba3adbfa3b631a5d5523d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="7"
+   name="installPkg"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-30T17:02:14.107422Z"
+   checksum="02d391e4308883af6805b0326edb002d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="4"
+   name="coProject"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-02-18T07:20:22.162049Z"
+   checksum="81edb8dd7f08d4eafc28ca152ebfc57e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="21"
+   name="mkrelease"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-30T18:50:59.158485Z"
+   checksum="1ff8a7e4d5b5f4f0878c382c8992ba4d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="3"
+   name="initProject"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2004-12-18T19:15:11.468177Z"
+   checksum="7be7288fae5d81e5c23f8e8f7ce4a138"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

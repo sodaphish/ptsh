@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-11-13T03:59:29.381858Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap"
+   last-author="csteele"
+   kind="dir"
+   uuid="e2d02160-6a05-0410-99d0-e0ef5bdb2078"
+   revision="1"/>
+<entry
+   name=".historical"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="portscan.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="db8d89b4269479068ea1b663d18b707d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name=".cfgctl"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="fwap.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="f2bb60a73496594e431589d8a3feb138"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="2"
+   name="RELEASE"
+   text-time="2005-11-13T04:02:46.000000Z"
+   committed-date="2005-11-13T04:03:08.782571Z"
+   checksum="22f35a9e6d351407fce4109650992153"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"
+   revision="2"/>
+<entry
+   name="log"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="ROADMAP"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="3cfbb26c4f75187ce852c6d98730d013"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="fwaplogo_isaac_top.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="b9a8d93eb597ebb6aa5ee5c426132509"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="trends.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="72f48391859733d5812be14f3bb0b12e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="fwaplogo_isaac_bottom.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="a4b1dec6663ccf80d6fa3948efbc9637"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="fwaplogo_banner.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="ca6e3212a7fa5aa718937f6bb3b33b33"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="style.css"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="dbd022c21e3603a90972359b4fecdf7f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="audit.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="00283ff81a1dcbaed47537f660081877"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="index.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="6523259e7a20709a40db8be80518929e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+<entry
+   name="sql"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="fwaplogo_isaac.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="0ad253bf610f8fe4cd623894cb5cbc52"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="Copy of fwaplogo_isaac_top.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="b9a8d93eb597ebb6aa5ee5c426132509"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="shun.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="fd72001a202527f79aa45905c036ec1c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="newfe"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="Copy of fwaplogo_isaac_bottom.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="a4b1dec6663ccf80d6fa3948efbc9637"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   committed-rev="1"
+   name="resolve.php"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="a1b171a5dc0a4ee26212f11b5c65c30c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="bin"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="fwaplogo_banner_top.png"
+   text-time="2005-11-13T03:59:45.000000Z"
+   committed-date="2005-11-13T03:59:29.381858Z"
+   checksum="af45fd4efa72a749b93a1dd95aa4384b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-11-13T03:59:45.000000Z"/>
+<entry
+   name="pid"
+   kind="dir"/>
+<entry
+   name="old"
+   kind="dir"/>
+</wc-entries>

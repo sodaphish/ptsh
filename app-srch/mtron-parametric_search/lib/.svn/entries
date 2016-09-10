@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/lib"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="OscillatorsSearch.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="e4f1aadce136ee71a289f486c08fe671"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Search.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="9b262e1704ea0e6ce56707082afffe0e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="TCXOsSearch.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="18ffd7bf999a96bd7bf3bdabcec73e7e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="VCXOsSearch.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="33928ae003c8663c24de3f0288f2a1de"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CrystalsSearch.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="a5c1158a2ec7bfbd2bff03f7096f9d00"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NewLog.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="5b925db20e131f775407ad0308f959aa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SearchLib.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="27576d2faa0ba8837c4b04432b8dbb10"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParseLib.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="47b10af3927fc6367b1e8fceb289216a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="OCXOsSearch.pm"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="f6ee5f897d5026f78f2e868de6ae18d6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+</wc-entries>

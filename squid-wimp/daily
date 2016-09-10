@@ -1,0 +1,10 @@
+#!/bin/sh
+
+WIMPL=~csteele/src/squid/wimp.pl
+SQUIDLOG=/var/log/squid/access.log
+OUTFILE=`mktemp /tmp/output.XXXXXX`
+TARGETIP="172.16.104.188"
+RECIPIENT="csteele@good-sam.com"
+
+sudo $WIMPL $SQUIDLOG $OUTFILE.xls $TARGETIP $RECIPIENT
+sudo rm -f $OUTFILE.xls

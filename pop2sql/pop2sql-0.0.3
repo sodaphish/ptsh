@@ -1,0 +1,80 @@
+#!/usr/bin/perl
+# pop2sql v0.0.3 by C.J. Steele <coreyjsteele@yahoo.com>
+# 	(C)opyright 2003, all rights reserved.
+# 
+# goal: to dump mail from pop3 mailbox to sql database for 
+# later grokking.
+#
+# TODO/ROADMAP:
+#	* cleanup mail addresses so only the actual e-mail address 
+#		is retained. (v.0.0.2)
+#	* implement a white-list of addresses allowed to dump data 
+#		in to the database. (v.0.0.3)
+#	* strip html from messages (v.0.1.0)
+#	* verbose output flag to print summary of run's 
+#		results (v.0.1.0)
+use strict;
+use Net::POP3;
+use DBD::mysql;
+
+my $popserver = "pop.mail.yahoo.com"; 
+my $popuser = "secmailtips"; 
+my $poppassword = "ahh-ahs"; 
+my $dbserver = "localhost"; 
+my $dbuser = "root"; 
+my $dbpassword = ""; 
+my $dbname = "main"; 
+my $dbtable = "infosec_mail"; 
+
+my @allowed_hosts = qw( bugtraq@securityfocus.com );
+
+my $pop_h = Net::POP3->new( $popserver );
+$pop_h->login( $popuser, $poppassword ); 
+my $db_h = DBI->connect( "dbi:mysql:$dbname;host=$dbserver", "$dbuser", "$dbpassword" ); 
+my( $msgcount, $size ) = $pop_h->popstat();
+for( my $x = 1; $x <= $msgcount; $x++ )
+{
+	my $message = $pop_h->get( $x ); 
+	# here's some snazzy code I stole from: 
+	# http://www.usenix.org/publications/perl/perl17.html
+	my(@lines) = @$message;
+	my($line, $body, $header, $val, %hash);
+	shift(@lines);
+	while (@lines) {
+		$line = shift(@lines);
+		last if ($line =~ /^\s*$/);
+		$line =~ s/\s*$//;
+		if ($line =~ /^\s+/) {
+			$line =~ s/^\s+//;
+			$val .= " $line";
+			next;
+		}
+		push(@{$hash{$header}}, $val) if ($header);
+		($header, $val) = split(/:\s+/, $line, 2);
+	}
+	push(@{$hash{$header}}, $val) if ($header);
+	@{$hash{"BODY"}} = @lines; 
+	#end code I didn't write...
+
+	#cat the body bits together...
+	foreach my $blah ( @{$hash{'BODY'}} ) { $body .= "$blah"; } 
+
+	#see if the message's sender is in our whitelist.
+	foreach my $host ( @allowed_host )
+	{
+		if( ${$hash{'From'}}[0] =~ $host )
+		{
+			#insert the message 'cause it came from an acceptible source
+			$db_h->do( "insert into $dbtable ( frm, dt, sbj, msg ) values ( '${$hash{'From'}}[0]', '${$hash{'Date'}}[0]', '${$hash{'Subject'}}[0]', '$body' )" ); 
+			#delete the message from the popbox...
+			$pop_h->delete( $x );
+			#quit processing this message.
+			last DONE;
+		}
+	}
+
+DONE:
+
+}
+
+exit( 0 );

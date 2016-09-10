@@ -1,0 +1,21 @@
+#/CHANGES
+<br><br>
+Click <a href=%%THIS%%>here</a> to return to the main page.
+<br><br>
+<h3>Changelog</h3>
+The following changes have been made to this site (Note: This is NOT a complete list, only changes <i>since</i> 1.0.0pre1 are listed here):
+<br><br>
+<li>May 17, 2000 - CJS (1.1.x) - re-organized cvs tree, moved libraries into lib/; geard up for serious development</li>
+<li>February 3, 2000 - CJS (1.0.0pre12) - allowed obsoletion, changed log tables</li>
+<li>January 25, 2000 - CJS (1.0.0pre11) - internal restructure finished, standard frequency fixes done, all excess zeros dropped.</li>
+<li>January 24, 2000 - CJS (1.0.0pre10) - pullability refine-search added to vcxos, improved internal logging</li>
+<li>January 19, 2000 - CJS (1.0.0pre9) - all table structures updated, searches working, cleanup done.</li>
+<li>January 12, 2000 - CJS (1.0.0pre8) - all searches working, final cleanups before final release.</li>
+<li>December 29, 1999 - CJS (1.0.0.pre7) - added feedback form(s), and VCXO search. Fixed a show stopping bug that IE4 (EEK!) was dying on.</li>
+<li>December 20, 1999 - CJS (1.0.0pre6) - fixed bug in selecting stability on three searches: TCXOs, VCXOs, and OCXOs.</li>
+<li>December 14, 1999 - CJS (1.0.0pre5) - several layout fixes. initial work on the help dialog begun.</li>
+<li>December 13, 1999 - CJS (1.0.0pre4) - fixed bugs in 'displaying' code.  fixed expand to six decimal places code. added oscillator search.</li> 
+<li>December 8, 1999 - CJS (1.0.0pre3) - simple layout changes.</li>
+<li>December 7, 1999 - CJS (1.0.0pre2) - re-did the results layout table(s).</li>
+<br><br>
+#\CHANGES

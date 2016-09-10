@@ -1,0 +1,41 @@
+#!/bin/sh
+# filename: mkcfg.test
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+# 	written by Corey J. Steele <csteele@mtron.com>
+# last modifird: 12/15/2000
+#
+# Description: This script adjusts cfg/*.pl to reflect the necessary 
+#	values for the devel system to operate properly
+#
+SOURCE="/home/csteele/devel"
+DESTINATION=$1
+
+if [ -d "$DESTINATION" ]; then
+
+	echo "WARNING! This will alter the config files in $DESTINATION/cfg/!"
+	echo -n "Are you sure you want to do this? (Y/N) "
+
+	while read answer ; do
+		if [ $answer = 'y' ] || [ $answer = 'Y' ]; then
+			echo -n "proceeding with conversion."
+			for filename in `ls $DESTINATION/cfg/*.test.m4`
+			do
+				config_file=`basename $filename`
+				config_file=`echo $config_file | cut -d '.' -f 1`
+				m4 $filename > $DESTINATION/cfg/$config_file.pl
+				echo -n "."
+			done
+			break
+		elif [ $answer = 'n' ] || [ $answer = 'N' ]; then
+			echo "ABORTING!"
+			exit
+		fi
+		echo -n "Are you sure you want to do this? (Y/N) "
+	done;
+
+else 
+
+	echo "Usage: mkcfg.test /path/to/destination/root"
+	echo
+
+fi

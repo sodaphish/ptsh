@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:07:44.811835Z"
+   url="file:///hosted/www/sodaphish.com/repos/portwatcher/monitors"
+   last-author="csteele"
+   kind="dir"
+   uuid="8be0d49b-5ef0-0310-8dfd-93ca6c082b00"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="monitor.tmpl"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="a3e1070b0f569a654047fcf935a52601"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+</wc-entries>

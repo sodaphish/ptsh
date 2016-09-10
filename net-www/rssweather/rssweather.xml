@@ -1,0 +1,24 @@
+#/RSSFEED
+<?xml version="1.0"?>
+<rss version="2.0">
+   <channel>
+      <title>%%STATIONID%%</title>
+      <link>http://sodaphish.com/weather/</link>
+      <description>Current weather conditions for %%STATIONID%%</description>
+      <language>en-us</language>
+      <pubDate>%%PUBDATE%%</pubDate>
+
+      <lastBuildDate>%%PUBLISHDATE%%</lastBuildDate>
+      <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+      <generator>mkmetarfeed</generator>
+      <managingEditor>coreyjsteele@yahoo.com</managingEditor>
+      <item>
+         <title>Current Conditions for %%STATIONID%%</title>
+         <link>http://www.crh.noaa.gov/fsd/</link>
+         <description>%%CURRENTCONDITIONS%%</description>
+         <pubDate>%%PUBDATE%%</pubDate>
+         <guid>http://www.crh.noaa.gov/%%SHORTSID%%</guid>
+      </item>
+   </channel>
+</rss>
+#\RSSFEED

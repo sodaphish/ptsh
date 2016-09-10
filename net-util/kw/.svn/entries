@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T13:49:29.793011Z"
+   url="file:///hosted/www/sodaphish.com/repos/kw"
+   last-author="csteele"
+   kind="dir"
+   uuid="56811a62-63f0-0310-96ca-9e8fad09aac9"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="kw.php"
+   text-time="2005-03-24T16:03:37.000000Z"
+   committed-date="2005-03-24T16:03:59.991861Z"
+   checksum="9fae44f1afb5a71279b8c4635284404b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T13:49:43.000000Z"
+   revision="2"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,18 @@
+Feature Enhancements:
+* rchron -- cron implementation for RCON commands
+* proper log rotation of our internal logs
+* proper log rotation of game and qcon logs
+* proper log rotation of backups
+* gamelogs and qconlogs to database
+* script to search database for keywords (or whatever we tell it to by database entry) 
+* script to aggregate the forum logs, mumble logs, email, irc, etc., to identify inactive members
+* fix the playerTrend script
+* Config Editor -- downloads the configs to the server, allows web-based editing of the configs, and then uploads the config to the server(s).
+* server/slot user abuser -- abuse and then kick a user via the BI
+* syndicate bans and allow people to subscribe to other bans lists
+
+Bug Fixes:
+* fix presentation of < and > characters (and other special chars)
+* fix the dossier and how it does that retarded window opening bullshit.
+* fix the lag issues in the bin/playerTrend.php script
+* bin/* should be locking so that the processes don't overrun each other.

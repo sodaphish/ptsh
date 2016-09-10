@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:43.975898Z"
+   url="file:///hosted/www/sodaphish.com/repos/iptfw/iptfw-0.2.1"
+   last-author="csteele"
+   kind="dir"
+   uuid="5f06538d-5ef0-0310-a70d-8edda5f23be6"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="iptfw.sh"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="26a2e16875a4a9b7d8955653372f3079"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="whatsmyip"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="e12608a17e23f23e87cce6a519931736"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="whatsmylan"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="8447155c27e78dbb0447c05cd0c67728"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="whosmydns"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="f55869da18127ac0e1796cc65253d490"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+</wc-entries>

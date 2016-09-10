@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+use strict;
+
+my $lines=`netstat -nl | egrep -i "^tcp|^udp"`;
+
+foreach( split(/\n/, $lines) )
+{
+	my @parts = split( /\s/, $_ );
+
+	my $service; 
+	my @serviceparts;
+	my $port;
+	my $proto = $parts[0];
+
+	if( $proto eq "tcp6" or $proto eq "udp6" )
+	{
+		$service = $parts[14];
+	} elsif( $proto eq "tcp" or $proto eq "udp" ){
+		$service = $parts[15];
+	} #endif 
+
+	@serviceparts = split( /\:/, $service );
+	$port = $serviceparts[scalar(@serviceparts)-1];
+
+	print "$proto $port\n";
+	
+	#my $owner_proc = `lsof -i :$port`;
+	#print $owner_proc, "\n";
+	
+	#my $p = 0;
+	#foreach my $sp (@parts)
+	#{
+	#	print "$p: $sp\n";
+	#	$p++;
+	#}
+
+} #end foreach

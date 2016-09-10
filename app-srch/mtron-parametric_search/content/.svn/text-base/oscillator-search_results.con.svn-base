@@ -1,0 +1,203 @@
+#/EDIT_SEARCH
+<br>
+Searching the <b>%%FAM%%</b> for a <b>%%FREQUENCY%% MHz. %%PRETTY_MOUNT%%</b> product.
+<br>
+<form action=index.cgi method=post>
+<input type=hidden name=f value="search">
+<input type=hidden name=here value="0">
+<input type=hidden name=fam value="oscillators">
+<input type=hidden name=mount value=%%MOUNT%%>
+<input type=hidden name=freq value=%%FREQUENCY%%>
+<table width=100%>
+<tr>
+  <td valgin=top>
+    <font face="Verdana, Helvetica, Arial" size=-1> 
+    <b>Product Family</b>:
+    <select name=family>
+      %%FAMILY_OPTIONS%%
+    </select>
+    </font>
+  </td>
+  <td valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Supply Voltage</b>:
+    <select name=supply_voltage>
+      %%SUPPLY_VOLTAGE_OPTIONS%%
+    </select>
+    </font>
+  </td>
+</tr>
+<tr>
+  <td align=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Output Logic</b>:
+    <select name=output_logic>
+      %%OUTPUT_LOGIC_OPTIONS%%
+    </select>
+    </font>
+  </td>
+  <td align=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Symmetry</b>:
+    <select name=symmetry>
+      %%SYMMETRY_OPTIONS%%
+    </select>
+    </font>
+  </td>
+</tr>
+<tr>
+  <td valign=top> 
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Stability (ppm)</b>:
+    <select name=stability>
+      %%STABILITY_OPTIONS%%
+    </select>
+    </font>
+  </td>
+  <td valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Temperature</b>: From
+    <select name=tltemp>
+      %%LTEMP_OPTIONS%%
+    </select> &deg;C to 
+    <select name=utemp>
+      %%UTEMP_OPTIONS%%
+    </select> &deg;C
+    </font>
+  </td>
+</tr>
+<tr>
+  <td valign=top> 
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <b>Package Type</b>: 
+    <select name=output_type>
+      %%OUTPUT_TYPE_OPTIONS%%
+    </select>
+    </font>
+  </td>
+  <td valign=top>
+    <font face="Verdana, Helvetica, Arial" size=-1>
+    <input type=submit value=" r e f i n e > > > ">
+    </font>
+  </td>
+</tr>
+</table>
+</form>
+<br><br><hr><br>
+#\EDIT_SEARCH
+
+#/RESULTS_HEADER
+Click <a href=%%THIS%%?f=search>here</a> to return to the main search page<br><br>
+<center>
+<table width=100% border=1 cellspacing=0 cellpadding=0>
+<tr>
+  <td colspan=8><font face="Verdana, Helvetica, Arial" size=+2><b>
+    <center><font color="#cc0033">%%TOTAL_MATCHES%%</font> oscillators match your search<br>
+    <font size=-1>(Displaying %%LOW_RANGE%% - %%HIGH_RANGE%%)</font></center>
+    <br>
+  </b></font></td>
+</tr>
+<tr>
+<!--
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center></center>
+  </b></font></td>
+-->
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Part<br>Number</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Supply<br>Voltage</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Output<br>Logic</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Symmetry</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Stability</center>
+  </b></font></td>
+<!--
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Aging</center>
+  </b></font></td>
+-->
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Temperature</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Package Type</center>
+  </b></font></td>
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>PDF</center>
+  </b></font></td>
+<!--
+  <td bgcolor="#bbbbbb"><font face="Verdana, Helvetica, Arial" size=-1><b>
+    <center>Price</center>
+  </b></font></td>
+-->
+</tr>
+#\RESULTS_HEADER
+
+#/RESULTS_FOOTER
+</table>
+</center>
+<br><br>
+#\RESULTS_FOOTER
+
+#/NEXT
+<font size=+1>
+<a href=%%THIS%%?f=%%FUNCTION%%&fam=%%FAM%%&mount=%%MOUNT%%&freq=%%FREQUENCY%%&here=%%HERE%%&family=%%FAMILY_PARAM%%&stability=%%STABILITY_PARAM%%&tltemp=%%LTEMP_PARAM%%&utemp=%%UTEMP_PARAM%%&supply_voltage=%%SUPVOLT_PARAM%%&output_logic=%%OUTPUT_LOGIC_PARAM%%&symmetry=%%SYMMETRY_PARAM%%>Next</a>
+</font>
+#\NEXT
+
+#/PREVIOUS
+<font size=+1>
+<a href=%%THIS%%?f=%%FUNCTION%%&fam=%%FAM%%&mount=%%MOUNT%%&freq=%%FREQUENCY%%&here=%%PREV%%&family=%%FAMILY_PARAM%%&stability=%%STABILITY_PARAM%%&tltemp=%%LTEMP_PARAM%%&utemp=%%UTEMP_PARAM%%&supply_voltage=%%SUPVOLT_PARAM%%&output_logic=%%OUTPUT_LOGIC_PARAM%%&symmetry=%%SYMMETRY_PARAM%%>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+#\PREVIOUS
+
+#/WHITE
+<tr>
+<!--
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2><b>%%INDEX%%</b></center></font></td>
+-->
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PART_NUMBER%%<br>%%FREQUENCY%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%SUPPLY_VOLTAGE%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%OUTPUT_LOGIC%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%SYMMETRY%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%STABILITY%%<br>ppm</font></center></td>
+<!--
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%AGING%%<br>ppm</font></center></td>
+-->
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LTEMP%%&deg;C to %%HTEMP%%&deg;C</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%DESCRIPTION%%</font></center></td>
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2><a href=http://www.mtron.com/pdf/%%PDF%%><img src="images/picture-icon.gif" border=0></a></font></center></td>
+<!--
+  <td bgcolor="#ffffff"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PRICE%%</font></center></td> 
+-->
+</tr>
+#\WHITE
+
+#/GREY
+<tr>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2><b>%%INDEX%%</b></font></center></td>
+-->
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PART_NUMBER%%<br>%%FREQUENCY%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="verdana, Helvetica, Arial" size=-2>%%SUPPLY_VOLTAGE%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%OUTPUT_LOGIC%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%SYMMETRY%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%STABILITY%%<br>ppm</font></center></td>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>+/- %%AGING%%<br>ppm</font></center></td>
+-->
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%LTEMP%%&deg;C to %%HTEMP%%&deg;C</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%DESCRIPTION%%</font></center></td>
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2><a href=http://www.mtron.com/pdf/%%PDF%%><img src="images/picture-icon.gif" border=0></a></font></center></td>
+<!--
+  <td bgcolor="#eeeeee"><center><font face="Verdana, Helvetica, Arial" size=-2>%%PRICE%%</font></center></td> 
+-->
+</tr>
+#\GREY

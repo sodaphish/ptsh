@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:23:26.860817Z"
+   url="file:///hosted/www/sodaphish.com/repos/ParseLib"
+   last-author="csteele"
+   kind="dir"
+   uuid="e9b065fd-5df0-0310-ad3c-e19758d69879"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="TODO"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="f4b1ef599e01cea2b49483c2f5bdf3e0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="COPYING"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="361b6b837cad26c6900a926b62aada5f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CHANGES"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="3d05c66f19aafcd8e8be1dc438e68adf"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParseLib-1.2.2.pm"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="47b10af3927fc6367b1e8fceb289216a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParseLib.pm"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="47b10af3927fc6367b1e8fceb289216a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="8335bffb311938f2edcec9351c26eaca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name=".CHANGES.swp"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="8adeffff3385732a7268942fc28c81dd"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   name="examples"
+   kind="dir"/>
+</wc-entries>

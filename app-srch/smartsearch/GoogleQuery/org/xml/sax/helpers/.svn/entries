@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/xml/sax/helpers"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="XMLReaderFactory.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="e04becf0d31cbefc48b153770b4c0104"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParserAdapter.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="420bb05c180437f5cbd2d7c3101ac5cd"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NewInstance.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="aa04d4ae4b20c99632bf459a1dc9d088"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLReaderAdapter$AttributesAdapter.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d4e2632a65bf4bb2d37b7036ed68e826"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AttributeListImpl.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="170ad8a837a3c820f39fa94e31f3751a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NamespaceSupport$Context.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="c6959301129860533ebe346efd154be1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DefaultHandler.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7880c1700f90679e3c67a3a71979c003"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParserAdapter$AttributeListAdapter.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="810b7818032cf0d6df38d153c8d43bdb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLReaderAdapter.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9f6593dc482d239e06ed2c3502f8aeb7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParserFactory.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a84ccac53c6d27203aa9253b094ded29"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="LocatorImpl.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4b792568f8a84fadb1270e4251f3808d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="XMLFilterImpl.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="ef3f449d841f2cc1c3b805a424d121e4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="AttributesImpl.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="2a7f62cc034e19034b9ff6aee964e1e6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="NamespaceSupport.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="d6b73a901098c1038db8cf2676852462"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+</wc-entries>

@@ -1,0 +1,23 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  MoveScaled(0,0,94,83)
+  Text = ("")
+  { TabStrip1 TabStrip
+    MoveScaled(1,5,92,77)
+    Index = 0
+    Text = ("File 19")
+    { ListView1 ListView
+      MoveScaled(1,1,29,71)
+    }
+    { TextArea1 TextArea
+      MoveScaled(31,1,60,71)
+      Text = ("TextArea1")
+    }
+    Index = 0
+  }
+  { Button1 Button
+    MoveScaled(1,1,13,3)
+    Text = ("Button1")
+  }
+}

@@ -1,0 +1,20 @@
+######################################################################
+# FWAP2 maint. jobs.
+######################################################################
+MAILTO="csteele9@good-sam.com"
+
+# repopulate dddates table, hourly at 13 after...
+13 * * * * /usr/bin/mysql < /var/www/html/sec/fwap2/sql/hourly.sql
+
+# populate the stats graphs...
+00 5 * * * /var/www/html/sec/fwap2/bin/mkdata.pl `/var/www/html/sec/fwap2/bin/yesterday`
+
+# mail today's firewall reports
+30 6,9,12,14 * * * /var/www/html/sec/fwap2/bin/mailrpt
+
+# mail yesterday's firewall reports
+30 00 * * * /var/www/html/sec/fwap2/bin/mailystrpt
+
+# keep the database to the last 180-days of blocked packets
+#   entries in fw2.blocked that get trimmed will end up in fw.blocked-$DATE
+00 3 * * * /var/www/html/sec/fwap2/bin/trimdb_daily.pl

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2004-12-17T18:19:59.807712Z"
+   url="file:///hosted/www/sodaphish.com/repos//pixbkup"
+   last-author="csteele"
+   kind="dir"
+   uuid="3c467ed1-73eb-0310-b773-fbe19239b67d"
+   revision="1"/>
+<entry
+   committed-rev="2"
+   name=".installMap"
+   text-time="2005-03-31T05:12:32.000000Z"
+   committed-date="2005-03-31T05:13:09.593782Z"
+   checksum="a57c3cbd43161804b178185d8e9424df"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="pixbkup.pl"
+   text-time="2004-12-17T18:20:53.000000Z"
+   committed-date="2004-12-17T18:19:59.807712Z"
+   checksum="b210459fc6e8ae48cf3f9083544a07a4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2004-12-17T18:20:53.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

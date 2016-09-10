@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:02:16.342859Z"
+   url="file:///hosted/www/sodaphish.com/repos/exitplan"
+   last-author="csteele"
+   kind="dir"
+   uuid="d8ce5388-5ef0-0310-af6f-e206dc31dfea"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="exitplan-0.2.0"
+   text-time="2005-02-18T08:02:30.000000Z"
+   committed-date="2005-02-18T08:02:16.342859Z"
+   checksum="1a48215b7c549d4840f8d8f5cd522dca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:02:30.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="exitplan-0.1.0"
+   text-time="2005-02-18T08:02:30.000000Z"
+   committed-date="2005-02-18T08:02:16.342859Z"
+   checksum="04c0986a89d124bce7d071c4fcdd508b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:02:30.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,76 @@
+May 17, 2000  - this isn't complete yet.
+
+This file should help in understanding the structure and organization
+of the parametric search engine, and the other web-interfaces that
+have been grouped with it (presently only the distirep lookup engine
+and the pnlookup interface.)
+
+Below, each directory lists the files that NEED to be in it in order 
+for this group of software to be operational... I have included a 
+BRIEF description of each file, where clearifcation may be needed.
+
+./
+	Config.pl
+	ERRORS
+	ISSUES
+	contact.cgi
+	distirep.cgi
+	distirep.html
+	feedback.cgi
+	help.cgi
+	index.cgi
+	logview.cgi
+	pnlookup.cgi
+	products.html
+	structure.txt
+
+content/
+	changelog.con
+	contact.con
+	crystal-search_results.con
+	disclaimer.con
+	distirep.tmpl
+	error.con
+	feedback.con
+	help-changelog.con
+	help-disclaimer.con
+	help-searching.con
+	help.con
+	layout.tmpl
+	main.con
+	ocxo-search_results.con
+	oscillator-search_results.con
+	pnlookup.tmpl
+	search.con
+	tcxo-search_results.con
+	vcxo-search_results.con
+
+images/
+	go.gif
+	logo.gif
+	logoloop.gif
+	mtron-logo.gif
+	oscillator.gif
+	pdficon.gif
+	picture-icon.gif
+
+lib/
+	Auth.pm
+	CrystalsSearch.pm
+	Log.pm
+	NewLog.pm
+	OCXOsSearch.pm
+	OscillatorsSearch.pm
+	ParseLib.pm
+	Search.pm
+	SearchLib.pm
+	TCXOsSearch.pm
+	VCXOsSearch.pm
+
+sql/
+	SQLscrip.readme
+	admin-create_backups_table.sql
+	distirep.schema
+	mysql-insert_into_db.sql
+	mysql-insert_into_users.sql
+	parametric_search.schema

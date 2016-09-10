@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:06:01.756495Z"
+   url="file:///hosted/www/sodaphish.com/repos/nbe2sql"
+   last-author="csteele"
+   kind="dir"
+   uuid="8275aa95-5ef0-0310-9c2a-a16d0fbab94c"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="nbe2sql.pl"
+   text-time="2005-02-18T08:06:47.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="cfba77598e2dd06236270e2bacc90b90"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:47.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="sample.nbe"
+   text-time="2005-02-18T08:06:47.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="46afad7d6cda4bd6e14c0923c7369ddb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:47.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="nessQuick"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="nbe2sql.schema"
+   text-time="2005-02-18T08:06:48.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="334bdee0fad5257a141c2f00c61b45e3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nbe2sql-0.1.0.pl"
+   text-time="2005-02-18T08:06:48.000000Z"
+   committed-date="2005-02-18T08:06:01.756495Z"
+   checksum="cfba77598e2dd06236270e2bacc90b90"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:06:48.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

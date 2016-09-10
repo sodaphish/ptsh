@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:32:09.829855Z"
+   url="file:///hosted/www/sodaphish.com/repos/ward"
+   last-author="csteele"
+   kind="dir"
+   uuid="0f65a11c-5ef0-0310-911e-a9fa725aede0"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="ward.conf"
+   text-time="2005-02-18T07:34:06.000000Z"
+   committed-date="2005-02-18T07:32:09.829855Z"
+   checksum="b1bb99004aa5064bbc4ce0d9083fbf8f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:34:06.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="ward"
+   text-time="2005-02-18T07:34:06.000000Z"
+   committed-date="2005-02-18T07:32:09.829855Z"
+   checksum="7d6eaefadf2c039521b718c21a097f9a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:34:06.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

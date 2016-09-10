@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+# etoi v.0.0.3 by C.J. Steele <coreyjsteele@yahoo.com>
+# 	translates espa~nol to ingle's via google's translation service
+# 	requires `links` (in $PATH) and an active internet connection.
+use strict;
+
+my $input; 
+my $LINKS = "/usr/bin/links";
+
+
+$input .= " $_" foreach( @ARGV ); 
+
+if( $input ) 
+{
+	print translate( $input ), "\n";
+} else {
+	print "etoi> "; 
+	while( $input = <STDIN> )
+	{
+		chomp( $input );
+		my $trans =  translate( $input );
+		if( $trans ) 
+		{
+			print $trans, "\n";
+		} else {
+			print "E: translation not found.\n";
+		}
+		print "etoi> "; 
+		$input = "";
+	}
+}
+
+exit( 0 );
+
+
+sub translate
+{
+	my( $i ) = @_;
+	my $retval = `$LINKS -source "http://translate.google.com/translate_t?text=$i&langpair=es|en&hl=en&ie=Unknown&oe=ASCII" 2> /dev/null`; 
+	$retval =~ s/\n//g; 
+	$retval =~ s/.*\<textarea name=q rows=5 cols=45 wrap=PHYSICAL\>//; 
+	$retval =~ s/.*\<textarea name=q rows=5 cols=45 wrap=PHYSICAL readonly\>//; 
+	$retval =~ s/\<\/textarea\>.*//;
+	return $retval; 
+}

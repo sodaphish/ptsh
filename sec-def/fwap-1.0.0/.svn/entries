@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:02.219940Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap-1.0.0"
+   last-author="csteele"
+   kind="dir"
+   uuid="4e26b68a-5ef0-0310-8b4b-ebe0e86874b4"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="portscan.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="db8d89b4269479068ea1b663d18b707d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   name="sql"
+   kind="dir"/>
+<entry
+   name=".historical"
+   kind="dir"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="stats.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="d68ec1608dba61a8f2a960fd0352b318"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="trends.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="72f48391859733d5812be14f3bb0b12e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="resolve.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="a1b171a5dc0a4ee26212f11b5c65c30c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="INSTALL"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="563037f6812f8992c13d61573193292c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   name="bin"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="audit.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="1b4ecf7826c1fb74020517f376390f9e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="index.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="0d68c84eba731c1e9d5177b96fc9fa23"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

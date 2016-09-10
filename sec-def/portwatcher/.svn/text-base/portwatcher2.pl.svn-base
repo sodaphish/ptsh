@@ -1,0 +1,126 @@
+#!/usr/bin/perl
+# portwatcher v2.0.0 by C.J. Steele, CISSP <coreyjsteele@yahoo.com>
+# 
+# this is a portscan detector, implemented in perl, that relies on 
+# libpcap and a promiscuous nic to detect portscan attempts.  Detected 
+# events are syslogged for later reporting.  You have to be root to 
+# use this.  At a later date, I may integrate this with iptables.
+#
+# this is a re-write and re-engineer of a program I wrote back in 2000 
+# that was a messy hack... this version is mucho bien.
+#
+# TODO:
+#	- Integrate with iptables to automatically DROP packets from hosts 
+#		who've portscanned us.
+#	- implement an exception list so we don't blackhole folks who we'd 
+# 		like to have portscanning us (i.e. or ourselves.)
+#	- provide some command-line interface to tun
+#
+use Net::PcapUtils;
+use NetPacket::Ethernet qw( :strip );
+use NetPacket::TCP;
+use NetPacket::IP qw( :strip );
+use Time::HiRes qw( time );
+use Unix::Syslog; #this will NOT log to syslog over the network, only local syslog!!!
+
+
+
+
+
+########################################################################
+#      DO NOT MUCK AROUND BELOW HERE UNLESS YOU ACTUALLY KNOW WHAT     #
+#             YOU ARE DOING... REALLY... IT CAN ONLY HURT              #
+########################################################################
+
+my %ports; # all ports hit by src_add
+my %uniqueports;  #unique ports hit by src_add
+my %lastact;  #last SYN activity
+my %firstact; #first SYN activity 
+my %detected; #last portscan detected
+my $syncount = 0;
+
+
+die "E: you're not root\n\n" if( $> != 0 ); 
+Unix::Syslog::openlog "portwatcher", 0, LOG_USER;
+
+	Net::PcapUtils::loop( \&processPacket, Promisc => 1, FILTER => 'tcp', DEV => 'eth0' );
+
+Unix::Syslog::closelog;
+exit( 0 );
+
+
+
+
+sub processPacket
+{
+
+	my( $src_add, $src_prt, $dst_add, $dst_prt );
+	my( $args, $header, $packet ) = @_;
+	my $ip_obj = NetPacket::IP->decode( eth_strip( $packet ) );
+	my $tcp_obj = NetPacket::TCP->decode( $ip_obj->{data} );
+	if( $tcp_obj->{flags} == 2 )
+	{
+		#mmmm, SYN packet... 
+		$syncount++;
+
+		# we want to flag the traffic as a portscan if:
+		#	the no. of unique ports hit w/in a specific time-frame by a specific host exceed our threshold
+		$src_add = $ip_obj->{src_ip}; 
+		$src_prt = $tcp_obj->{src_port};
+		$dst_add = $ip_obj->{dest_ip}; 
+		$dst_prt = $tcp_obj->{dest_port};
+
+
+		push( @{$ports{$src_add}}, "$dst_prt" );
+		push( @{$uniqueports{$src_add}}, $dst_prt ) if( ! isin( $dst_prt, @{$uniqueports{$src_add}} ) );
+		$lastact{$src_add} = time();
+		$firstact{$src_add} = time() if( ! exists( $firstact{$src_add} ) );
+		$lastact{$src_add} = time();
+
+
+		# TODO: make the thresholds and timing bits variable...
+		if( scalar( @{$uniqueports{$src_add}} ) > 3 and ( $firstact{$src_add} - $lastact{$src_add} ) <= 7200 
+			and ! exists( $detected{$src_add} ) )
+		{
+			$detected{$src_add} = time();
+			#print "portscan detected from $src_add\n";
+			Unix::Syslog::syslog( LOG_INFO, "portscan detected from %s", ( $src_add ) );
+		}
+
+		# TODO: finish cleanup() so it works...
+		#cleanup() if( $syncount % 5 == 0 );
+
+	} #endif
+
+} #end processPacket()
+
+
+
+
+sub cleanup
+{
+	foreach my $addr ( keys %lastact )
+	{
+		if( $lastact{$addr} - $firstact{$addr} > 86400 )
+		{
+			undef @{$ports{$addr}};
+			undef @{$uniqueports{$addr}};
+			undef $lastact{$addr}; 
+			undef $firstact{$addr};
+			undef $detected{$addr};
+		}
+	}
+} #end cleanup()
+
+
+
+
+sub isin
+{
+	my( $e, @a ) = @_;
+	foreach( @a )
+	{
+		return 1 if( $e eq $_ );
+	}
+	return 0;
+}

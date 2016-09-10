@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# this script allows us to mail yesterday's FWAP report, at will...
+#
+# this script is identical to mailrpt except that the URL retrieved and 
+# the subject.
+#
+
+#include our global variable type things
+. /var/www/html/sec/fwap2/bin/globals
+
+# our tempfile we'll dump the report in to and then delete
+TMPFILE=`mktemp /tmp/daily.XXXXXX`
+
+# get the report from frank.
+$LINKS -memory-cache-size 10485760 -receive-timeout 999 -source "http://frank.corp.good-sam.com/sec/fwap2/index.php?f=viewday&q=$YESTURL" >> $TMPFILE
+
+# mail the report to each of the admins
+for a in $ADMINS; do
+	# we use metasend because we're mailing an HTML file and `/bin/mail` just don't cut it.
+    metasend -b -S 9999999 -t $a -s "FWAP Report for $YESTLONG" -m "text/html" -f $TMPFILE
+done
+
+# remove the temp file
+rm $TMPFILE

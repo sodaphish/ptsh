@@ -1,0 +1,44 @@
+Welcome to lthead.txt.  Fields are delimited by two ampersands.  
+The first field is the headline.  The second field is the URL to the story.
+The third field is the date the story was posted.
+Have Fun! (webmaster@linuxtoday.com)
+&&
+Linux.com: Setting Up Your Own Station: A Free Radio Under Linux Howto. v0.1
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-004-06-NW-HL-SW
+Dec 16, 2000, 13:39:57
+&&
+OLinux.com.br: Robin "roblimo" Miller Interview
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-003-06-NW-CY
+Dec 16, 2000, 13:06:21
+&&
+FreeOS: Exploring /proc
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-002-06-OS-HL-SW
+Dec 16, 2000, 12:38:12
+&&
+NetworkWorld: FreeS/WAN brings VPNs to Linux
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-001-06-PS-CY-SW
+Dec 16, 2000, 12:08:56
+&&
+Linus Torvalds: Linux 2.4.0-test13-pre2
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-001-04-NW-KN
+Dec 16, 2000, 09:36:42
+&&
+Newsforge: Making money in Open Source: The answer is ... telecom
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-001-21-PS-BZ
+Dec 16, 2000, 03:41:08
+&&
+PostgreSQL, Inc. Open Letter to the PostgreSQL Global Development Project
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-16-001-20-NW-BZ-CY
+Dec 16, 2000, 03:18:52
+&&
+Conectiva Linux Security Announcement - ed
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-15-016-04-SC
+Dec 15, 2000, 23:39:25
+&&
+AllLinuxDevices: Metaflow Introduces SOC Platform with Open Source Core and Embedded Linux
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-15-006-20-PS-EM
+Dec 15, 2000, 23:22:19
+&&
+The Standard: Linus, Miguel Go Hollywood!
+http://linuxtoday.com/news_story.php3?ltsn=2000-12-15-009-21-NW-CY
+Dec 15, 2000, 23:00:59

@@ -1,0 +1,81 @@
+#!/usr/bin/perl
+# others2sql v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+#	14 Jan 2003
+#
+# This script imports log entries of blocked packets from a PIX syslog in to the database table 'others'.
+# The structure of the 'others' table is as follows:
+#
+#	CREATE TABLE IF NOT EXISTS others (
+#		id			int(11) auto_increment not null,
+#		time		varchar(16) not null,
+#		date		varchar(32) not null,
+#		pixerror	varchar(32) not null,
+#		message		text not null,
+#		key( date ),
+#		fulltext index( message ),
+#		primary key( id )
+#	)
+# 
+use strict; 
+use Env; 
+use DBD::mysql;
+
+my $logfile = $ARGV[0]; 
+
+
+
+sub isin 
+{
+	my( $query, @list ) = @_;
+	foreach( @list )
+	{
+		return 1 if( $query eq $_ );
+	}
+	return 0;
+} #end isin()
+
+
+
+open( IN, "$logfile" ) or die "$! ($logfile)";
+my $dbh = DBI->connect( 'dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=fw', 'root', '' )
+	or die "Couldn't connect to database ($DBI::errstr)";
+while( <IN> )
+{
+	
+	chomp( $_ );
+	
+	# we're interested in everything EXCEPT blocked packets and noxlate messages
+	# PIX3-106011 are noxlate messages
+	# PIX4-106023 are blocked packets
+	if( $_ !~ /3-106011/ and $_ !~ /4-106023/ )
+	{
+
+		# the date prepended by the syslog server makes it difficult to 
+		# properly munge the data, so we cut that off
+		my( $junk, $useful ) = split( /toaster\.corp\.good\-sam\.com/, $_, 2 ); 
+		# split the PIX log data in to its individual elements
+		my( @elements ) = split( /\s/, $useful ); 
+
+		# munge the message fields together
+		my $message;
+		for( my $x = 6; $x <= scalar( @elements ); $x++ )
+		{
+			$message .= " $elements[$x]"; 
+		}
+		
+		# lets insert this entry in to the database
+		my $stmt_h = $dbh->prepare( "INSERT INTO others ( time, date, pixerror, message ) VALUES ( '$elements[4]' , '$elements[1] $elements[2] $elements[3]', '$elements[5]', '$message' )" );
+		$stmt_h->execute(); 
+
+		print "."; 
+		
+	}
+
+}
+$dbh->disconnect();
+close( IN );
+
+print "\n";
+
+
+exit( 0 );

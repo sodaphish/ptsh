@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:24:07.526936Z"
+   url="file:///hosted/www/sodaphish.com/repos/photos/bin"
+   last-author="csteele"
+   kind="dir"
+   uuid="e1a0e3ff-5df0-0310-b16a-d6bbec9fff0c"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="mkthumbs.sh"
+   text-time="2005-02-18T07:24:26.000000Z"
+   committed-date="2005-02-18T07:24:07.526936Z"
+   checksum="f9588f39b6f19a1e232b71355c238362"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:24:26.000000Z"/>
+</wc-entries>

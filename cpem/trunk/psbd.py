@@ -1,0 +1,151 @@
+"""
+PeerDisk Subscriber-to-Broker Daemon (PSBD) -- psbd.py
+
+@copyright: (C)opyright 2011, C.J. Steele, all rights reserved.
+@author: Corey J. Steele <corey@hostedbycorey.com>
+@summary: this is the PeerDisk broker, it is the master middle-man between 
+	subscribers and providers.
+"""
+from xmlrpclib import Server
+import cpem
+from os import stat,walk
+from os.path import join
+from sys import exit,argv,platform
+from time import sleep,time
+import getopt
+from stat import *
+
+server_version = None
+server_uri = "https://localhost:3170"
+agent_version = "0.1.9"
+agent_rootdir = "/home/cjs/mine/src/cpem"
+agent_os = "posix"
+agent_timebetweenchecks = 60 * 15 #every fifteen minutes.
+
+
+#
+# TODO: catch signal interrupts so we can do clever things like re-read our config file, or similar.
+def signal_handle_sighup():
+	#TODO: re-read the configuration and re-call main()
+	pass
+
+
+
+# 
+# signal_handle_sigterm() - handles the safe shutdown of database and network streams
+def signal_handle_sigterm():
+	#TODO: safely close out our database connections
+	pass
+
+
+
+def upload_file():
+
+	pass
+
+
+def main():
+	try:
+		global agent_lastrun
+		agent_lastrun = time()
+		broker = Server(server_uri)
+		server_version = broker.bap_version()
+
+		if server_version == agent_version:
+			#TODO: check for files modified since our last run... 
+			while 1:
+				# recursively crawl folders in our list and find files with the archive bit set.
+				agent_thisrunstarted = time()
+				for root,dirs,files in walk(agent_rootdir):
+					for filename in files:
+						#TODO: any OS specific things will have to be done here?
+						fullname = join(root,filename)
+						modtime = stat(fullname).st_mtime
+						if agent_lastrun < modtime:
+							#TODO: this is a file-update, handle it accordingly
+							print agent_lastrun,modtime,fullname
+				sleep(agent_timebetweenchecks)
+				agent_lastrun = agent_thisrunstarted
+				#TODO: we need a clever way of handling deletes and/or renames!!!
+		else:
+			#TODO: handle agent/version mismatch by prompting agent to upgrade.
+			print "oops!  version mismatch!"
+	except KeyboardInterrupt:
+		#TODO: call signal_handle_sigterm()
+		exit(1)
+
+
+def usage():
+	print "PeerDisk Subscriber Daemon v.",agent_version
+	print "(C)opyright 2011, C.J. Steele, all rights reserved."
+	print " -h, --help     show this help"
+	print " -v, --verbose  log agent events to console"
+	print " -V, --version  display version information"
+	print " -D, --daemon   run as a daemon (*nix only)"
+	print
+
+
+if __name__ == "__main__":
+
+	# handle supported platform-specific pieces
+	if platform.startswith("linux"):
+		agent_os = 'linux'
+		from os import fork,chdir,setsid,umask,walk,stat
+		import signal
+		signal.signal(signal.SIGHUP,signal_handle_sighup)
+	elif platform.startswith("win32"):
+		agent_os = 'win32'
+		import win32api
+		import win32con
+		#TODO: catch equiv of sighup for Windows so we can re-read our config file, etc.
+	elif platform.startswith('darwin'):
+		agent_os = 'darwin'
+		from os import fork,chdir,setsid,umask,walk,stat
+		import signal
+		signal.signal(signal.SIGHUP,signal_handle_sighup)
+
+	try:
+		opts,args = getopt.getopt(argv[1:],"hvVD",["help","verbose","version","daemon"])
+	except getopt.GetoptError:
+		usage()
+		exit(2)
+
+	# handle command-line arguments
+	for opt,arg in opts:
+		if opt in ("-h","--help"):
+			usage()
+			exit(0)
+		elif opt in ("-v","--verbose"):
+			global agent_debug
+			agent_debug = True
+		elif opt in ("-V","--version"):
+			print "PeerDisk v.",agent_version
+			print "(C)opyright 2011, C.J. Steele, all rights reserved."
+		elif opt in ("-D","--daemon"):
+			# daemonization bits for Linux and MacOSX
+			if agent_os == 'linux' or agent_os == 'darwin':
+				try:
+					pid = fork()
+					if pid > 0:
+						exit(0)
+				except OSError,e:
+					exit(1)
+				chdir("/")
+				setsid()
+				umask(0)
+				try:
+					pid = fork()
+					if pid > 0:
+						exit(0)
+				except OSError,e:
+					exit(1)
+			# NT doesn't use daemonization, 
+			#TODO: http://islascruz.org/html/index.php?gadget=StaticPage&action=Page&id=6
+			elif agent_os == 'win32':
+				#TODO: check to see if we were called by the service controll process?
+				print "E: NT doesn't support daemonizing, you must start the service with the 'net start cpemagent' command"
+				exit(1)
+
+
+	# initialization has been finished, lets do this!
+	main()

@@ -1,0 +1,27 @@
+<FORM METHOD=POST ACTION="index.php">
+<INPUT TYPE=hidden name=c value=delete>
+<INPUT TYPE=hidden name=f value=timesheet>
+<INPUT TYPE=hidden name=sub value=project>
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size=+2 ALIGN=center>Delete Project Form</font></td>
+	</tr><tr>
+		<td> 
+			<SELECT NAME="id">
+		<?php
+		$result = mysql_query("select title,id from project where active!=0");
+		while(list($title,$id) = mysql_fetch_row($result))
+		{
+			print "\t\t\t<option value=$id>$title</option>\n";
+			
+		}
+		?>
+					</SELECT>
+		</td>
+		<td Align=right><INPUT TYPE="submit" VALUE="ok"></td>
+	</tr><tr>
+		<td><INPUT TYPE="checkbox" VALUE="value" NAME="checkbox"> Yes, Im sure</td>
+	</tr>
+
+</table>
+</form>

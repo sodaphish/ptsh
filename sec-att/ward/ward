@@ -1,0 +1,407 @@
+#!/usr/bin/perl
+# p-wardial v.0.0.1
+# (c)opyright 2003, SodaPhish <sodaphish@securitylounge.com>, all rights reserved.
+#
+# this is a CLI war-dialer script; should work in *NIX, maybe even Winblows.
+use strict;
+
+$SIG{INT} = \&die_nicely;
+
+#
+# process:
+# 1 - read config file to determine: modem device, init string, 
+#     numbers to dial, output options, etc.
+# 2 - initialize modem
+# 3 - dial each number -- record connections
+#	- send ATDTXXXXXXXX 
+#	- immediately begin reading from modem
+#	- if "CONNECT" string recieved, set connection flag
+#	- send hang-up
+# 4 - summarize findings to STDOUT
+#
+
+my $config_file = "ward.conf";
+my $input = "";
+my %CONF = {};
+my $cmd_count = 0;
+
+initialize();
+
+print "$CONF{'banner'}";
+
+prompt();
+$input = <STDIN>; 
+while( $input !~ m/^quit/i )
+{
+	chomp( $input );
+
+	if( $input =~ m/^start /i )
+	{
+
+		my( $garbage, $number ) = split( /\s/, $input, 2 );
+		$number =~ s/[\s,\(,\),\.,\-]//g;
+		my @digits = split( //, $number ); 
+		if( $number =~ m/\D/g )
+		{
+			print "$number contains invalid characters...\n";
+		} elsif( (scalar( @digits ) == 7) or (scalar( @digits ) == 10) or (scalar( @digits ) == 11) ) {
+			print "starting with $number...\n";
+			$CONF{'starting_number'} = $number; 
+		} else {
+			print "$number is not a valid starting point...\n";
+		}
+
+	} elsif( $input =~ m/^end /i ) {
+
+		my( $garbage, $number ) = split( /\s/, $input, 2 );
+		$number =~ s/[\s,\(,\),\.,\-]//g;
+		my @digits = split( //, $number ); 
+		if( $number =~ m/\D/g )
+		{
+			print "$number contains invalid characters...\n";
+		} elsif( (scalar( @digits ) == 7) or (scalar( @digits ) == 10) or (scalar( @digits ) == 11) ) {
+			print "ending with $number...\n";
+			$CONF{'ending_number'} = $number; 
+		} else {
+			print "$number is not a valid starting point...\n";
+		}
+
+		check_number_range(); 
+			
+
+	} elsif( $input =~ m/^set /i ) {
+	
+		my( $garbage, $key, $value ) = split( /\s/, $input, 3 );
+		if( $key and $value )
+		{
+
+			eval { $CONF{$key} = $value; };
+			if( $@ )
+			{
+				print "set failed...\n";
+			}
+
+		}
+
+	} elsif( $input =~ m/^continue/i ){
+		
+		# continue a previous run
+		my( $garbage, $cnt_file ) = split( /\s/, $input, 2 );
+		my $filename = ""; 
+		if( $cnt_file )
+		{
+
+			$filename = $cnt_file if( (-r $cnt_file) and (-s $cnt_file) );
+
+		} else {
+
+			$filename = "/tmp/$CONF{'self'}";
+	
+		}
+
+		eval {
+			open( IN, $filename ) or die "Couldn't open $filename."; 
+			while( <IN> )
+			{
+				chomp( $_ );
+				my( $key, $value ) = split( /=/, $_, 2 ); 
+				$value=~ s/^"//; 
+				$value=~ s/"$//; 
+				$CONF{$key}=$value; 
+			}
+			close( IN );
+		};
+		if( $@ )
+		{
+	
+			print "Continue seems to have failed; it returned the following error: $@\n";
+
+		} else {
+
+			print "Continuing successfully.\n";
+
+		}
+
+	} elsif( $input =~ m/^save/i ) {
+
+		# save the current configuration to a file...
+		my( $garbage, $save_file ) = split( /\s/, $input, 2 );
+		if( $save_file )
+		{
+
+			# file specified
+			if( -w $save_file ){
+
+				# the file was there, write over it.
+				open( OUT, ">$save_file" ) or 
+					die "Couldn't open $save_file; race condition?\n";
+				foreach my $key ( keys %CONF )
+				{
+					print OUT "$key=\"$CONF{$key}\"\n";  
+				}
+				close( OUT ); 
+
+			
+			} else {
+
+				# The file isn't there, try to create it
+				open( OUT, ">$save_file" ) or
+					die "Couldn't open file for saving. System returned: $!\n";
+				foreach my $key ( keys %CONF )
+				{
+					print OUT "$key=\"$CONF{$key}\"\n";
+				}
+				close( OUT );
+
+			}
+
+		} else {
+
+			# no file specified, use mktemp
+
+			if( ! -w "/tmp/$CONF{'self'}" )
+			{
+		
+				open( OUT, "/tmp/$CONF{'self'}" )
+					or die "Couldn't open file for saving. System returned: $!\n"; 
+                                foreach my $key ( keys %CONF )
+                                {
+                                        print OUT "$key=\"$CONF{$key}\"\n";
+                                }
+				close( OUT );
+
+			} else {
+
+				print "Error: /tmp/$CONF{'self'} already exists, remove and try again.\n"; 
+
+			}
+
+		}
+
+	} elsif( $input =~ m/^dump/i ) {
+
+		my( $garbage, $command ) = split( /\s/, $input, 2 );
+		if( $command )
+		{
+
+			eval { print "$command => $CONF{$command}\n"; };
+			if( $@ )
+			{
+
+				print "that configuration variable does not exist.\n";
+
+			}
+
+		} else {
+			print "dumping configuration...\n";
+			foreach my $key ( sort keys %CONF )
+			{
+				print "\t$key => $CONF{$key}\n";
+			}
+		}
+
+	} elsif( $input =~ m/^go/i ) {
+
+		if( $CONF{'starting_number'} ne "" and $CONF{'ending_number'} ne "" )
+		{
+
+			war_dial();
+
+		} else {
+
+			print "make sure you have properly set `start` and `end`.\n";
+		}
+
+	} elsif( $input =~ m/^system /i ) {
+	
+		my( $garbage, $command ) = split( /\s/, $input, 2 );
+		if( $command ) 
+		{
+
+			#print SYSTEM_SH_WRITE "$command";
+			#SYSTEM_SH_WRITE->autoflush();
+			#while( <SYSTEM_SH_READ> )
+			#{
+			#
+			#	print "system: $_\n";
+			#
+			#}
+			chomp( $command );
+
+		} else {
+
+			print "no command specified...\n";
+
+		}
+
+	} elsif( $input =~ m/^clear/i ) {
+
+		print "\n"x180; 
+
+	} elsif( $input =~ m/^help/i ) {
+		
+		my( $garbage, $help_cmd ) = split( /\s/, $input, 2 );
+
+		if( $help_cmd =~ m/^start/i )
+		{
+			print "format: `start XXX-XXX-XXXX`\npurpose: tells $CONF{'self'} what number to begin dialing at\n";
+		} elsif( $help_cmd =~ m/^end/i ) {
+			print "format: `end XXX-XXX-XXXX`\npurpose: tells $CONF{'self'} what number to end dialing at.\nnotes: issuing `end` will automatically re-check the number range for validity.\n";
+		} elsif( $help_cmd =~ m/^go/i ) {
+			print "format: `go`\npurpose: begins dialing\n"; 
+		} elsif( $help_cmd =~ m/^quit/i ) {
+			print "format: `quit`\npurpose: quits $CONF{'self'}.\n";
+		} elsif( $help_cmd =~ m/^about/i ) {
+			print "$CONF{'self'} $CONF{'ver_short'}\n...on-line at http://sodaphish.com\n";
+		} elsif( $help_cmd ne "" ) {
+			print "\"$help_cmd\": Command not recognized.\n"; 
+		} else {
+			print "available commands...\n\tstart <number>\n\tend <number>\n\tgo\n\thelp [<cmd>]\n\tquit\n\tset <key> <value>\n\tdump [<key>]\n\tcontinue <filename>\n\tsave <filename>\n";
+			print "try `help usage` for usage tips.\n";
+		}
+	
+	} else {
+
+		print "\"$input\": Command not recognized.\nTry reading `help`.\n"; 
+
+	}
+
+	prompt();
+
+	#print "$CONF{'prompt'}"; 
+	$input = <STDIN>; 
+
+}
+
+exit( 0 );
+
+
+####################################################################################
+
+
+sub prompt
+{
+	my $tmp_cmd = $CONF{'prompt'};
+	$tmp_cmd =~ s/\%c/$cmd_count/gi;
+	print "$tmp_cmd"; 
+	$cmd_count++;
+}
+
+
+sub initialize
+{
+
+	$CONF{'ver_short'} = "v0.0.1";
+	$CONF{'ver_long'} = "v0.0.1 by SodaPhish";
+	$CONF{'self'} = "ward";
+	$CONF{'url'} = "http://sodaphish.com"; 
+	$CONF{'banner'} = "$CONF{'self'} $CONF{'ver_long'}\n$CONF{'url'}\n\n";
+	$CONF{'prompt'} = "$CONF{'self'} %c> ";
+	$CONF{'shell'} = "/bin/sh"; 
+	read_config();
+
+	# initialize modem
+
+	return; 
+}
+
+
+sub read_config
+{
+
+	my( $argument ) = @_;
+
+	$config_file = $argument if( $argument );
+
+	eval {
+		open( IN, "$config_file" ) or die "$!"; 
+		while( <IN> )
+		{
+
+			chomp( $_ );
+			my( $key, $value ) = split( /\=/, $_, 2 ); 
+			$value =~ s/^\"//; 
+			$value =~ s/\"$//; 
+			if( ! ( ($key eq "") or ($value eq "") ) )
+			{
+				$CONF{$key} = $value;
+			}
+
+		}
+		close( IN );
+	};
+	if( $@ )
+	{
+		print "There were problems reading the config file...$@\n";
+	}
+
+}
+
+
+
+sub check_number_range
+{
+
+	my $start = $CONF{'starting_number'};
+	my $end = $CONF{'ending_number'};
+
+	if( ! $end >= $start )
+	{
+
+		print "your `end` number must be greater than your `start` number.\n";
+		$CONF{'ending_number'}="";
+
+	}
+
+}
+
+
+sub range
+{
+	my( $start, $stop ) = @_;
+
+	my @return = ();
+	if( $start != $stop )
+	{
+		for( $start, $start < $stop, $start++ ){
+			push( @return, $start );
+		}
+	} else {
+		push( @return, $start ); 
+	}
+	return (@return);
+}
+
+
+sub war_dial
+{
+	print "war-dialing $CONF{'starting_number'}-$CONF{'ending_number'}\n";
+	foreach( range( $CONF{'starting_number'}, $CONF{'ending_number'} ) )
+	{
+
+		ward( $_ ); 
+
+	}
+	return; 
+}
+
+
+sub die_nicely
+{
+
+	# drop current settings ($CONF{'*'}) to /tmp file and tell user how to continue 
+	#close2( SYSTEM_SH_READ, SYSTEM_SH_WRITE );
+	print "\ngoing away nicely... we hope.\n";
+	exit( 1 );
+
+}
+
+
+sub ward
+{
+
+	my( $vict ) = shift;
+
+	print "dialing $vict...\n";
+
+}

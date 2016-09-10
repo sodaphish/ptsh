@@ -1,0 +1,88 @@
+AuthName "Restricted Area"
+AuthType Basic
+AuthUserFile /var/www/.pass
+
+<Files ~ "^.*\.py">
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+<Files .pass>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</files>
+
+<Files index.php>
+require valid-user
+</Files>
+
+<Files bottom.php>
+require valid-user
+</Files>
+
+<Files ban.php>
+require valid-user
+</Files>
+
+<Files banman.php>
+require valid-user
+</Files>
+
+<Files q.php>
+require valid-user
+</Files>
+
+<Files motd.php>
+require valid-user
+</Files>
+
+<Files banquery.php>
+require valid-user
+</Files>
+
+<Files onlinePlayers.php>
+require valid-user
+</Files>
+
+<Files dossier.php>
+require valid-user
+</Files>
+
+<Files banstats.php>
+require valid-user
+</Files>
+
+<Files config.php>
+require valid-user
+</Files>
+
+<Files debugLog.php>
+require valid-user
+</Files>
+
+<Files dossier.php>
+require valid-user
+</Files>
+
+<Files gameLog.php>
+require valid-user
+</Files>
+
+<Files menu.php>
+require valid-user
+</Files>
+
+<Files rcon.php>
+require valid-user
+</Files>
+
+<Files rconReport.php>
+require valid-user
+</Files>
+
+<Files status.php>
+require valid-user
+</Files>
+

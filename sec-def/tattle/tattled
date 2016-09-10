@@ -1,0 +1,114 @@
+#!/usr/bin/perl
+use strict;
+use MD5;
+use English; 
+use Net::IMAP::Simple; 
+use Email::Simple; 
+
+my $DEBUG = 1;
+my $imap_server = "localhost";
+my $imap_user = "tattle";
+my $imap_pass = "t41L";
+
+my $imap = Net::IMAP::Simple->new( "$imap_server" ) or 
+	die( "E: Couldn't connect to IMAP server ($Net::IMAP::Simple::errstr)" );
+
+if( ! $imap->login( "$imap_user", "$imap_pass" ) )
+{
+	print STDERR "E: Couldn't login to IMAP server.\n"; 
+	exit( 1 );
+}
+
+my $newmail = $imap->select( 'INBOX' );
+print STDERR "D: newmail = $newmail\n" if( $DEBUG );
+
+for( my $i = 1; $i <= $newmail; $i++ )
+{
+	my $msg = Email::Simple->new( join '', @{ $imap->get( $i ) } );
+	if( verify_hash( $msg->body ) and verify_agentid( get_agentid( $msg->body ) ) )
+	{
+		print STDERR "I: hash checks out on message $i, proceeding\n" if( $DEBUG );
+		foreach( get_entries( $msg->body ) )
+		{
+			# TODO: this is where we insert them into the database... 
+			print get_agentid( $msg->body ), " $_\n"; 
+		}
+		# TODO: delete the message (or move it?)
+	} else {
+		print STDERR "W: hash check fails for message $i, skipping\n";
+		# TODO: move the message to the errors folder
+	}
+}
+
+
+exit( 0 );
+
+
+
+sub get_agentid
+{
+	my $msgBody = shift;
+	my( @lines ) = split( /\r\n/, $msgBody ); 
+	return $lines[0]; 
+} #end get_agentid()
+
+
+
+
+sub get_hash
+{
+	my $msgBody = shift;
+	my( @lines ) = split( /\r\n/, $msgBody ); 
+	return $lines[scalar(@lines)-1]; 
+} #end get_hash()
+
+
+
+
+sub get_entries
+{
+	my $msgBody = shift;
+	my( @lines ) = split( /\r\n/, $msgBody ); 
+	my @retlines; 
+	for( my $x = 1; $x < scalar(@lines)-1; $x++ )
+	{
+		push( @retlines, $lines[$x] );
+	}
+	return @retlines;
+} #end get_entries()
+
+
+
+
+sub verify_agentid
+{
+	# TODO: this whole routine needs to be written -- it needs to verify the
+	# 	agent ID to the address sending the data.  It probably should also
+	# 	track to make sure agents aren't submitting more than every 24 hours,
+	# 	or whatever arbitrary limit we put on it.
+	# step 1: get the e-mail addie for the agentid from the database
+	# step 2: get the address the message was sent from
+	# step 3: compare the two and return true or false depending on the match (match = true)
+	return 1; 
+} #end verify_agentid()
+
+
+
+
+sub verify_hash
+# takes the body of a message and checks the checksum at the bottom against the
+# MD5 sum of the rest of the email
+{
+	my $msgBody = shift;
+	my( @lines ) = split( /\r\n/, $msgBody ); 
+	my $input; my $hash;
+
+	$hash = $lines[scalar(@lines)-1]; 
+	for( my $x = 0; $x < scalar( @lines ) - 1; $x++ )
+	{
+		$input .= "$lines[$x]\n";
+	}
+
+	return 1 if( $hash eq MD5->hexhash( $input ) );
+	return 0;
+} #end verify_hash()

@@ -1,0 +1,25 @@
+<FORM METHOD=POST ACTION="index.php">
+ <input type=hidden name=f value=timesheet>
+ <input type=hidden name=sub value=project>
+ <input type=hidden name=c value=editview>
+ <input type=hidden name=id value=<?php print "$id"; ?>>
+ <table ALIGN=center BORDER=8>
+	   <tr>
+    	   <td><font size=+2 ALIGN=center>Edit Project Form</font></td>
+	   </tr><tr>
+	       <td>Project Title:<INPUT TYPE="text" NAME="title" value="<?php print "$title";?>"></td>
+	   </tr><tr>
+	       <td Align=center>Due Date:<INPUT TYPE="text" NAME="due" value="<?php print "$due";?>"></td>
+	   </tr><tr>
+	        <td Align=center>Start Date:<INPUT TYPE="text" NAME="start" value="<?php print "$start";?>"></td>
+	    </tr><tr>
+	         <td Align=center>Description:
+		        <TEXTAREA NAME="description" NAME="description" rows=3 wrap=soft><?php print "$description";?></TEXTAREA></td> 
+		</tr><tr>
+	        <td Align=center><INPUT TYPE="submit" VALUE="ok"></td>
+	     </tr>
+ 
+																								       
+ </table>
+</FORM>
+																												 

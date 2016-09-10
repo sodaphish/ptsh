@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="49"
+   name=""
+   committed-date="2005-03-31T05:45:07.250860Z"
+   url="file:///hosted/www/sodaphish.com/repos//svntools"
+   last-author="csteele"
+   kind="dir"
+   uuid="392359b2-73eb-0310-adc3-8eb2d1ab815b"
+   revision="49"/>
+<entry
+   committed-rev="49"
+   name="MERGES"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-31T05:45:07.250860Z"
+   checksum="c4c6fbf31ba21b600f3fe850cd10d1ee"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="41"
+   name=".installMap"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-30T21:27:27.315483Z"
+   checksum="ba4bc314ae9e9df557d7ac2f1cb234a5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="50"
+   name="ciProject"
+   text-time="2005-03-31T13:18:27.000000Z"
+   committed-date="2005-03-31T13:19:17.714361Z"
+   checksum="c1d49ad51df65c9441602c6cd615f543"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"
+   revision="50"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="listProjects"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   committed-rev="4"
+   name="coProject"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-02-18T07:20:22.162049Z"
+   checksum="81edb8dd7f08d4eafc28ca152ebfc57e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="38"
+   name="mkrelease"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-30T19:48:27.889457Z"
+   checksum="f8684f50abed4795d8561f4b066998eb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="48"
+   name="installPkg"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2005-03-31T05:34:21.565146Z"
+   checksum="978eab34448c4c70824dc613e3b51042"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   committed-rev="3"
+   name="initProject"
+   text-time="2005-03-31T05:46:05.000000Z"
+   committed-date="2004-12-18T19:15:11.468177Z"
+   checksum="7be7288fae5d81e5c23f8e8f7ce4a138"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-31T05:46:05.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

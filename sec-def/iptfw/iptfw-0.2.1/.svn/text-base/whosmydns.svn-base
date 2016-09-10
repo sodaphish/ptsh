@@ -1,0 +1,7 @@
+#!/bin/sh
+for dns in `cat /etc/resolv.conf | grep nameserver | sed -e s/nameserver\ //i`; do
+	echo -n "$dns/32 "
+done
+echo
+
+exit

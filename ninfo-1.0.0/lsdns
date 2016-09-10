@@ -1,0 +1,4 @@
+#!/bin/sh
+for dns in `cat /etc/resolv.conf | grep nameserver | awk {'print $2'}`; do
+	echo $dns
+done

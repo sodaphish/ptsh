@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-04-19T04:45:38.206706Z"
+   url="file:///hosted/www/sodaphish.com/repos/pao"
+   last-author="csteele"
+   kind="dir"
+   uuid="673981c7-12f5-0310-b5a2-f94089eba33c"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="pao"
+   text-time="2005-04-19T04:45:48.000000Z"
+   committed-date="2005-04-19T04:45:38.206706Z"
+   checksum="d4dfdde94b7d13c248906f841449d4dc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-19T04:45:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pixacls.txt"
+   text-time="2005-04-19T04:45:48.000000Z"
+   committed-date="2005-04-19T04:45:38.206706Z"
+   checksum="5142810d6f5fa1846a6a94734531af88"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-19T04:45:48.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="pao.py"
+   text-time="2005-04-19T04:45:48.000000Z"
+   committed-date="2005-04-19T04:45:38.206706Z"
+   checksum="d7b54741e242fc9d8d584e16a1b9d3d9"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-19T04:45:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pao.pl"
+   text-time="2005-04-19T04:45:48.000000Z"
+   committed-date="2005-04-19T04:45:38.206706Z"
+   checksum="348a88df0cbacc81ad8a334b20756248"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-19T04:45:48.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-04-19T04:45:48.000000Z"
+   committed-date="2005-04-19T04:45:38.206706Z"
+   checksum="a72ddc0085cba1158b55300d92cfe7dc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-19T04:45:48.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

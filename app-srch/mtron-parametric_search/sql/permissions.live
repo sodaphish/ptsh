@@ -1,0 +1,3 @@
+grant select on web to search;
+grant select,insert,update on web to search_rw;
+grant select,insert,update,delete on web to sjl; 

@@ -1,0 +1,172 @@
+#!/usr/bin/perl
+#
+# PortWatcher - listener
+#
+# (C)opyright 2000, Corey J. Steele, all rights reserved.
+#	by Corey J. Steele <csteele@mtron.com>
+#
+# This program is distributed under the GNU Public License (GPL),
+# for specific information regarding the GPL, please refer to
+# the file "COPYING", or http://www.gnu.org.
+#
+# Description: this is the listener/logger, it is responsible for
+#	enforcing the information gathered by the monitors... it
+#	talks directly to IPCHAINS.
+#
+use IO::Socket::INET;
+use Sys::Hostname;
+use Sys::Syslog;
+use IPC::Shareable; 
+use IPChains; 
+
+require "portwatcher.conf";
+
+$attackers_h = tie %attackers, 'IPC::Shareable', undef, { destroy=> 1};
+
+$SIG{INT} = sub { die "$$ dying...\n"; }; 
+
+
+
+print "Starting listener...\n" if( $verbose_output == 1 );
+
+
+
+#
+# open the socket we'll use to listen for monitor reports on. 
+$listener_socket = new IO::Socket::INET( 
+	LocalHost 	=> $host, 
+	LocalPort 	=> 1025,
+	Listen 		=> 5,
+	Proto 		=> 'tcp',
+	Reuse		=> 1 );
+die "Couldn't create socket! ($!)\n" unless( $listener_socket );
+
+
+
+
+while( $child_socket = $listener_socket->accept() ){
+	$pid = fork();
+	die "Couldn't fork! ($!)\n" unless defined( $pid );
+	if( $pid == 0 ){
+		
+		$client = $child_socket->peerhost;
+
+		if( IsNotIn( $client, @acceptable_monitor_hosts ) == 0 ){
+
+			#
+			# this client isn't permitted to connect!
+			close( $child_socket );
+
+			print "WARNING! Invalid client ($client)!\n" if( $verbose_output == 1 ); 
+
+			openlog( "portwatcher", "ndelay", "daemon" );
+			syslog( "err", "non-valid monitor address from %s\n", $client );
+			closelog();
+
+		} else {
+
+			while( $buffer = <$child_socket> ){
+
+				chomp( $buffer );
+				my( $address, $port ) = ( split(/ /, $buffer) ); 
+
+
+				#
+				# verify the data for $address and $port is of the right form.
+
+
+				increment_attacker( $address );
+
+				print "$client => $address:$port [$address = $attackers{$address}]\n" if( $verbose_output == 1 );
+
+				take_action( $address ); 
+
+				openlog( "portwatcher", "ndelay", "daemon" ); 
+				syslog( "info", "monitor %s logged %s connecting to %s", $client, $address, $port );
+				closelog();
+	
+			}
+
+		} #end if-else
+
+		close( $child_socket ) if( defined( $child_socket ) ); 
+		exit( 0 );
+
+	}
+
+} #end while
+
+
+
+
+#
+# close our open sockets...if they're open.
+close( $listener_socket ) if( defined( $listener_socket ) );
+close( $child_socket ) if( defined( $child_socket ) );
+
+
+
+
+#
+# this routine will determine whether or not to start blocking an attacker based on the number
+# of attacks they've waged so far.
+sub take_action {
+
+	my $address = shift; 
+
+	$limit = 3; 
+
+	if( $attackers{$address} > $limit and IsNotIn( $address, @blocked ) ){
+
+		#
+		# we still have to do tha actual blocking to IPCHAINS... replace this 
+		# with stuff that will utilized the IPChains module!
+		my $fw = IPChains->new( 	
+				Source 		=> "$address", 
+				SourceMask 	=> "24",
+				Dest 		=> "0.0.0.0",
+				DestMask	=> "24",
+				Rule		=> "DENY",
+				Log		=> "1" );
+		$fw->append( "pwatch" );
+		print "rule added to block $address...\n" if( $verbose_output == 1 ); 
+
+		#
+		# log our activity!
+		openlog( "portwatcher", "ndelay", "daemon" ); 
+		syslog( "err", "%s is now being blocked!", $address );
+		closelog();
+		
+	} 
+
+} #end take_action()
+
+
+
+
+#
+# we don't want to block duplicate addresses, we could hose IPCHAINS.
+sub IsNotIn {
+
+	my( $item, @array ) = @_;
+
+	foreach( @arrach ){
+
+		if( $item eq $_ ){ return 0; }
+
+	}
+
+	return 1;
+
+} #end IsNotIn()
+
+
+sub increment_attacker {
+
+	my $address = shift;
+
+	$attackers_h->shlock();
+	$attackers{$address}++;
+	$attackers_h->shunlock();
+
+}

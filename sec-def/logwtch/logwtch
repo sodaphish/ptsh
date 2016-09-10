@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+use strict;
+use POSIX qw( mktime );
+
+my @logfiles = ( '/var/log/messages', '/var/log/secure' );
+my @expressions = ( "su\:", "sudo", "failed" );
+
+foreach my $logfile ( @logfiles )
+{
+	open( LOG, $logfile ) or die( "$!" );
+	while( my $line = <LOG> )
+	{
+		chomp( $line );
+		my $date = substr( $line, 0, 16 ); 
+		my( $host, $service, $message ) = split( /\ /, substr( $line, 16 ), 3 ); 
+		my $flagged = 0; 
+		foreach my $expr ( @expressions )
+		{
+			$flagged = 1 if( $line =~ /$expr/ );
+		}
+		print "$date $host $service $message\n" if( $flagged );
+	}
+	close( LOG );
+}
+
+
+
+
+sub convertTime
+{
+	my $ctime = shift;
+	my %months = ( "Jan" => 0, "Feb" => 1, "Mar" => 2, "Apr" => 3, "May" => 4,
+		"Jun" => 5, "Jul" => 6, "Aug" => 7, "Sep" => 8, "Oct" => 9, "Nov" => 10,
+		"Dec" => 11 );
+	my( $M, $d, $t ) = split( /\ /, $ctime ); 
+	my( $h, $m, $s ) = split( /\:/, $t ); 
+	my @lt = localtime( time() ); 
+	# we [wrongly] assume that the current year is the date the log was
+	# generated... this must be accounted for.
+	my $rtime = mktime( $s, $m, $h, $d, $months{$M}, $lt[5], 0, 0, 0 ); 
+	return $rtime;
+}

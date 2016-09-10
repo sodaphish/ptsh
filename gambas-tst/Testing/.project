@@ -1,0 +1,12 @@
+# Gambas Project File 2.0
+# Compiled with Gambas 2.23.1
+Title=Testing
+Version=0.0.2
+Library=gb.gtk
+Library=gb.form
+Library=gb.db
+Library=gb.db.form
+Library=gb.gtk.ext
+Library=gb.net
+Library=gb.net.smtp
+TabSize=2

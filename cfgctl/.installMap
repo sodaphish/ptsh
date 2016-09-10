@@ -1,0 +1,3 @@
+setupenv:/usr/local/bin/setupenv:755:root:root
+ucase:/usr/local/bin/ucase:755:root:root
+cfgctl:/usr/local/bin/cfgctl:755:root:root

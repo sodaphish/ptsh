@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+# dbmaint v0.0.1 by C.J. Steele <csteele@good-sam.com>
+#	19 May 2003
+#
+# This script performs daily maintenance tasks on the fw database tables.
+# Presently, this list of tasks includes: 
+#	* purging blocked and others records that exceed $threshold
+#
+use strict;
+use DBD::mysql;
+
+
+# age, in seconds from right now, of oldest entries we want retained
+# 1296000 = 15 days
+# 2592000 = 30 days
+# 3888000 = 45 days
+# 5184000 = 60 days
+# 7776000 = 90 days
+my $threshold = 2592000;
+
+
+purge_old_records( $threshold );
+
+exit( 0 );
+
+
+
+sub purge_old_records( $ ) {
+
+	my( $thresh ) = shift;
+
+	my %months = ( 	0 => 'Jan', 1 => 'Feb', 2 => 'Mar', 3 => 'Apr', 4 => 'May', 5 => 'Jun', 6 => 'Jul', 7 => 'Aug', 8 => 'Sep', 9 => 'Oct', 10 => 'Nov', 11 => 'Dec' );
+	my ( @time ) = localtime( time() - $thresh ); $time[5]+=1900;
+	my $target = "$months{$time[4]} $time[3] $time[5]"; 
+
+	eval {
+		my $dbh = DBI->connect( 'dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=fw', 'root', '' )
+			or die "$DBI::errstr"; 
+				my $stmth = $dbh->prepare( "delete from blocked where date < \"$target\"" ) or die "$DBI::errstr";
+				$stmth->execute() or die "$DBI::errstr"; 
+		$dbh->disconnect()
+			or die "$DBI::errstr";
+	}; if( $@ ){ print STDERR "aborting!"; die "$!"; } 
+
+}
+

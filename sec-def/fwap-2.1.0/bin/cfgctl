@@ -1,0 +1,162 @@
+#!/usr/bin/perl
+# cfgctl v.0.0.3
+#    (C)opyright 2003, C.J. Steele, all rights reserved.
+#
+# 27 Jan 2004
+#
+# DESCRIPTION:
+#   this is the cli interface to the cfgctl database, which can be
+#   accessed via any number of different API's.
+#
+# TODO/ROADMAP:
+#   * protect files in $conf{'confdir'} from outside viewing
+#   * better taint-checking on user input
+#   * provide $ENV interface to tokens in config database via .bashrc
+#    or similar script call
+#   * application interfaces for perl, PHP, and possibly python.
+#
+# CHANGELOG
+#   * handle wild-cards in queries such as `cfgctl net.*` (new in v.0.0.2)
+#
+use strict;
+use Getopt::Std;
+use Shell qw( rm cat ls basename chmod );
+
+#configuration of this application...
+my %conf = (
+    'confdir' => '/var/www/html/sec/fwap2/.cfgctl',
+    'debug' => 0
+);
+
+my %options = ();
+
+getopts( "ahs:r:", \%options );
+
+if( $options{h} )
+{
+    #show usage and go away...
+    print "usage: $0 blah...";
+    exit( 0 );
+}
+
+
+
+
+if( defined $options{a} and ! $options{h} )
+{
+
+    #show all and go away...
+
+    opendir( DIR, $conf{'confdir'} ) or die "$!";
+    foreach ( readdir( DIR ) )
+    {
+     if( ! -d "$_" )
+     {
+     print "$_ = ";
+     print cat( "$conf{'confdir'}/$_" );
+     print "\n";
+     }
+    }
+    closedir( DIR );
+    exit( 0 );
+
+}
+
+
+
+
+if( $options{s} and ! $options{h} )
+{
+
+    print $options{s}, "\n" if( $conf{'debug'} );
+
+    #set and go away...
+    my( $key, $value ) = split( /\ /, $options{s}, 2 );
+
+    if( $conf{'debug'} )
+    {
+     print "adding key...\n";
+     print "...key: $key\n";
+     print "...value: $value\n";
+    }
+
+    #clean $key...
+    $key = scrub( $key );
+
+    if( $conf{'debug'} )
+    {
+     print "adding key (post scrub)...\n";
+     print "...key: $key\n";
+     print "...value: $value\n";
+    }
+
+    open( OUT, ">$conf{'confdir'}/$key" ) or die "$!";
+    print OUT "$value";
+    close( OUT );
+    eval { chmod( "600", "$conf{'confdir'}/$key" ) or die "$!"; };
+    if( @! ){
+     if( $conf{'debug'} )
+     {
+     print STDERR "W: couldn't properly set mode on $conf{'confdir'}/$key\n";
+     }
+    }
+    print "$key = $value\n";
+    exit( 0 );
+}
+
+
+
+if( $options{r} and ! $options{h} )
+{
+    #remove a key
+    my $key = scrub( $options{r} );
+    rm( "$conf{'confdir'}/$key" ) or die "$!";
+    exit( 0 );
+}
+
+
+
+
+if( $ARGV[0] and ! $options{h} )
+{
+    foreach( @ARGV )
+    {
+
+     if( $_ =~ /\*/ )
+     {
+     # the query contained a wildcard, process wild-card list...
+     my( @files ) = ls( "$conf{'confdir'}/$_" );
+     foreach( @files )
+     {
+     chomp( $_ );
+     my $cfgitem = basename( $_ ); chomp( $cfgitem );
+     print "$cfgitem = ";
+     print cat( "$_" ), "\n";
+     }
+    
+     } else {
+     if( ! -d "$conf{'confdir'}/$_" )
+     {
+     print $_ , " = ";
+     print  cat( "$conf{'confdir'}/$_" ), "\n";
+     } else {
+     print "huh?!?\n";
+     }
+     }
+
+    } #end foreach
+}
+
+
+
+
+
+
+#for now, this is quite simple...
+sub scrub
+{
+    my( $k ) = shift;
+    $k =~ s/\.\.//g;
+    $k =~ s/\///g;
+    return $k;
+}

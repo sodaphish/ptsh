@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:43.975898Z"
+   url="file:///hosted/www/sodaphish.com/repos/iptfw/phpBB_access_mod/access"
+   last-author="csteele"
+   kind="dir"
+   uuid="5f06538d-5ef0-0310-a70d-8edda5f23be6"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="access_add.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="2acb86b3c811aeee39c3c1c107927ab0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="access_list.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="ac70e01ed0493ae14b6d066dd0288e67"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="access_revoke.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="c9890728784c6b700dd783acf56f7cd2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="access_renew.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="d4e7faba2aca4525a97cf1a408c27270"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="access_default.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="b55ad4d548ed7f8d8fa15bdf5709a626"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+</wc-entries>

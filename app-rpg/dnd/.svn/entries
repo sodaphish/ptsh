@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-11T14:13:21.896287Z"
+   url="file:///hosted/www/sodaphish.com/repos/dnd"
+   last-author="csteele"
+   kind="dir"
+   uuid="cc3179e6-d6ef-0310-ab0f-c187d0fa55e4"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="rand_human_place_name"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="8173c15362344d859cc428a5d257a0f4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="adjectives"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="c242a4758de23e0a66cbd08d0fd0e9ac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="nouns"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="a309ecbab75fc5858129f2de39719494"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rand_human_person_name"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="d5a3f7e58e603fdbc5737e6fc130d66f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="name1_human"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="36add8ece5ab40f6401107d386ad77b3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="name2_human"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="9810541f35135fc214b6c72e84c8173a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="name3_human"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="1d10334c73e983e5c8a25f4f585943e8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="name4_human"
+   text-time="2005-02-18T07:13:13.000000Z"
+   committed-date="2005-02-11T14:13:21.896287Z"
+   checksum="a84180fb55250c7644a022de9f9ef7b7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:13:13.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

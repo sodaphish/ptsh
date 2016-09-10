@@ -1,0 +1,22 @@
+Document: tcpshow
+Title: Debian tcpshow Manual
+Author: <insert document author here>
+Abstract: This manual describes what tcpshow is
+ and how it can be used to
+ manage online manuals on Debian systems.
+Section: unknown
+
+Format: debiandoc-sgml
+Files: /usr/share/doc/tcpshow/tcpshow.sgml.gz
+
+Format: postscript
+Files: /usr/share/doc/tcpshow/tcpshow.ps.gz
+
+Format: text
+Files: /usr/share/doc/tcpshow/tcpshow.text.gz
+
+Format: HTML
+Index: /usr/share/doc/tcpshow/html/index.html
+Files: /usr/share/doc/tcpshow/html/*.html
+
+  

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.debug.ui.SCOPED_SAVE_SELECTION_DIALOG">
+		<item value="350" key="DIALOG_WIDTH"/>
+		<item value="368" key="DIALOG_Y_ORIGIN"/>
+		<item value="788" key="DIALOG_X_ORIGIN"/>
+		<item value="350" key="DIALOG_HEIGHT"/>
+		<item value="1|DejaVu Sans|8.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.debug.ui.SELECT_FAVORITESS_DIALOG">
+		<item value="350" key="DIALOG_WIDTH"/>
+		<item value="-33" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
+		<item value="350" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.debug.ui.STRING_VARIABLE_SELECTION_DIALOG_SECTION">
+		<item value="450" key="DIALOG_WIDTH"/>
+		<item value="-80" key="DIALOG_Y_ORIGIN"/>
+		<item value="121" key="DIALOG_X_ORIGIN"/>
+		<item value="660" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
+		<item value="1301" key="DIALOG_WIDTH"/>
+		<item value="175" key="DIALOG_Y_ORIGIN"/>
+		<item value=", org.eclipse.ui.externaltools.ProgramLaunchConfigurationType, org.python.pydev.debug.regularLaunchConfigurationType, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
+		<item value="563" key="DIALOG_X_ORIGIN"/>
+		<item value="845" key="DIALOG_HEIGHT"/>
+		<item value="237" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
+		<item value="762" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.debug.ui.SELECT_LAUNCH_SHORTCUT_DIALOG">
+		<item value="350" key="DIALOG_WIDTH"/>
+		<item value="368" key="DIALOG_Y_ORIGIN"/>
+		<item value="788" key="DIALOG_X_ORIGIN"/>
+		<item value="350" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="FAVORITES_DIALOG_SECTION">
+		<item value="350" key="DIALOG_WIDTH"/>
+		<item value="335" key="DIALOG_Y_ORIGIN"/>
+		<item value="788" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_HEIGHT"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

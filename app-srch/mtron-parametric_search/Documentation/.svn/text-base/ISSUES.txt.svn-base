@@ -1,0 +1,19 @@
+05/17/2000 - CJS
+* no checks made for apostrophies in body of INSERT statements, this causes
+  MySQL to issue errors when the INSERT is executed.
+
+01/21/2000 - CJS
+* standard parts are not yet searchable.  this can be remidied, but how?
+  - RESOLVED: no problem.
+
+12/20/1999 - CJS
+* selecting from tcxo's, vcxo's, or ocxo's with a stability less than 0, requires that
+  you use a like statement in your where clause, instead of an '='.  No resolution can
+  be seen.
+  - RESOLVED: fixed this
+
+11/24/1999 - CJS
+* When we're searching all our product lines, how do we permit the user to refine their
+  search beyond the original entry form?  How do we know which fields are common to all
+  product lines?
+  - RESOLVED: JK says we don't need to be able to search ALL product lines (11/29/1999)

@@ -1,0 +1,46 @@
+#/HEADER
+<html>
+</head>
+  <title>M-tron Industries, Inc. - Part Number Lookup</title>
+</head>
+<body>
+<font face="Verdana, Helvetica, Arial" size=-1>
+#\HEADER
+
+#/ENTRY_FORM
+<form action=pnlookup.cgi method=post>
+<b>look up part number...</b><br>
+<input type=text name=query value="">
+<input type=submit value=" go... ">
+</form>
+#\ENTRY_FORM
+
+#/RESULTS_ROW
+<li>%%PART_NUMBER%% (%%TABLE%%) - <a href=http://www.mtron.com/%%PDF%%>data sheet</a> <br>
+#\RESULTS_ROW
+
+#/CRYSTAL_RESULT_ROW
+<li>(%%TABLE%%) <b>%%FA%% %%PN%%</b> - cut: %%CU%%; mode: %%MO%%; load: %%LO%%; tolerance: %%TO%%; stability: %%ST%%; temp: %%LT%% - %%UT%% C; value added: %%VA%%; <a href=http://www.mtron.com/%%PD%%>pdf</a> 
+#\CRYSTAL_RESULTS_ROW
+
+#/OSCILLATOR_RESULT_ROW
+<li>(%%TABLE%%) <b>%%PN%%</b> - supply voltage: %%SU%%; output logic: %%OU%%; symmetry: %%SY%%; stability: %%ST%%; temp: %%LT%% - %%UT%% C; description: %%DE%%; <a href=http://www.mtron.com/%%PD%%>pdf</a>
+#\OSCILLATOR_RESULT_ROW
+
+#/TCXO_RESULT_ROW
+<li>(%%TABLE%%) <b>%%PN%%</b> - supply voltage: %%SU%%; output logic: %%LO%%; symmetry: %%SY%%; stability: %%ST%%; temp: %%LT%% - %%UT%% C; technology: %%FA%%; package info: %%PC%%; output type: %%FR%%; <a hfre=http://www.mtron.com/%%PD%%>pdf</a>
+#\TCXO_RESULT_ROW
+
+#/VCXO_RESULT_ROW
+<li>(%%TABLE%%) <b>%%PN%%</b> - supply voltage: %%SU%%; output logic: %%LO%%; symmetry: %%SY%%; stability: %%ST%%; temp: %%LT%% - %%UT%% C; technology: %%FA%%; pullability: %%PU%%; package info: %%PC%%; output type: %%FR%%; <a hfre=http://www.mtron.com/%%PD%%>pdf</a>
+#\VCXO_RESULT_ROW
+
+#/OCXO_RESULT_ROW
+<li>(%%TABLE%%) <b>%%PN%%</b> - supply voltage: %%SU%%; output logic: %%LO%%; stability: %%ST%%; temp: %%LT%% - %%UT%% C; technology: %%FA%%; package info: %%PC%%; output type: %%FR%%; <a hfre=http://www.mtron.com/%%PD%%>pdf</a>
+#\OCXO_RESULT_ROW
+
+#/FOOTER
+</font>
+</body>
+</html>
+#\FOOTER

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:07:44.811835Z"
+   url="file:///hosted/www/sodaphish.com/repos/portwatcher"
+   last-author="csteele"
+   kind="dir"
+   uuid="8be0d49b-5ef0-0310-8dfd-93ca6c082b00"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="mkmonitor"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="e35978be5103eb9513a9f6a631235982"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="TODO"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="2ee3e47b60c287fcc208697517e22ae8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   committed-rev="1"
+   name="listener"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="f9f31348fad08a6f158bee2008cc3fc5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="portwatcher.conf"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="cc7f6378a967b893bda909427f8ca668"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   committed-rev="1"
+   name="start_monitors"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="0f597d893df61854fc95e0f582c2d61b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CHANGES"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="acd68dee3a3f84d801a6dd038f339089"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   committed-rev="1"
+   name="COPYING"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="361b6b837cad26c6900a926b62aada5f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   name="monitors"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T08:07:55.000000Z"
+   committed-date="2005-02-18T08:07:44.811835Z"
+   checksum="17b24da005d679d931610ee3d88aa449"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:07:55.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+<entry
+   committed-rev="3"
+   name="portwatcher2.pl"
+   text-time="2005-06-02T03:09:17.000000Z"
+   committed-date="2005-06-02T03:10:52.179926Z"
+   checksum="24bd2eaed9f9bdd33fd144ba990348ac"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-06-01T16:38:39.000000Z"
+   revision="3"/>
+</wc-entries>

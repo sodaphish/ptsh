@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:26:11.824497Z"
+   url="file:///hosted/www/sodaphish.com/repos/mailto"
+   last-author="csteele"
+   kind="dir"
+   uuid="de955207-5ef0-0310-a548-ef9832795e01"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="mailto-0.0.2"
+   text-time="2005-02-18T07:26:23.000000Z"
+   committed-date="2005-02-18T07:26:11.824497Z"
+   checksum="30ea1e957419dc0c1a49f7f9029adf23"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:26:23.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

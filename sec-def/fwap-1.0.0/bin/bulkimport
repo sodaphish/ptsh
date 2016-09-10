@@ -1,0 +1,20 @@
+#!/bin/sh
+# bulkimport v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+#	10 Jan 2003
+#
+# This script is used to populate the database with all availablefirewall 
+# logs on localhost.  It uses blocked2sql and others2sql to do the heavy
+# lifting.
+#
+
+LOGROOT=/var/log/hosts/toaster.corp.good-sam.com/
+BIN=/var/www/html/fwap/bin/
+
+for f in `ls -1 $LOGROOT`; do
+	if [ $f == "current" ]; then
+		echo skipping current...
+	else
+		$BIN/blocked2sql $LOGROOT$f
+		$BIN/others2sql $LOGROOT$f
+	fi
+done

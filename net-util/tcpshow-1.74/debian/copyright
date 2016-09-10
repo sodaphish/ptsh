@@ -1,0 +1,64 @@
+This package was debianized by C.J. Steele <coreyjsteele@yahoo.com> on
+Fri, 29 Oct 2004 13:13:14 -0500.
+
+It was downloaded from ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/obrien/tcpshow.c
+
+Upstream Author(s):  Mike Ryan <mike@NetworX.ie>
+
+Copyright:
+
+/* Copyright (c) 1996, 1997, 1998 I.T. NetworX Ltd.  All rights reserved.   */
+/*                                                                          */
+/* This source code is owned and copyrighted by I.T. NetworX Ltd.  This     */
+/* file and all files derived from it, directly or indirectly (such files   */
+/* collectively and separately being referred to henceforth as "this file") */
+/* may be used, modified and redistributed subject to the following six     */
+/* Conditions.                                                              */
+/*                                                                          */
+/* Condition 1 of 6:                                                        */
+/* That all text (code/comments, etc.) in this file surrounded by the macro */
+/* block "#if !defined(MAY_NOT_MODIFY) ... #endif", including the macro     */
+/* statements themselves, may not be modified in any way, or deleted.  In   */
+/* particular, this comment block and the printf() statements identifying   */
+/* I.T. NetworX as being the copyright owner, in the function usage(), may  */
+/* not be modified or deleted.  The single, only, exception to this is that */
+/* the non-inclusion of C comments by a C compiler/linker, in the object    */
+/* and executable images it produces, is permitted.                         */
+/*                                                                          */
+/* Condition 2 of 6:                                                        */
+/* That no financial gain be made from using this file or modifying this    */
+/* file.  It is permitted to charge for redistributing this file.           */
+/*                                                                          */
+/* Condition 3 of 6:                                                        */
+/* That no conditions other than these six Conditions be applied to the     */
+/* use, modification or redistribution of this file.                        */
+/*                                                                          */
+/* Condition 4 of 6:                                                        */
+/* That all modifications to this file show prominently the name of the     */
+/* person that made the change and the date on which the change was made.   */
+/*                                                                          */
+/* Condition 5 of 6:                                                        */
+/* That I.T. NetworX, its employees, agents and everybody else in the world */
+/* dead, living and yet to be born, are hereby free from liability of all   */
+/* and every kind arising from the use of this file by anybody for any      */
+/* purpose.  This file comes "as is" and all warranties, express or         */
+/* implied, are disclaimed.  As the manual page for chat(1) says, "if it    */
+/* breaks, then you get to keep both pieces".                               */
+/*                                                                          */
+/* Condition 6 of 6:                                                        */
+/* That I.T. NetworX reserves the right to alter these Conditions at any    */
+/* time without giving prior notice, such alterations to apply only to the  */
+/* version current at the time of issue of the alterations and all later    */
+/* versions, and such alterations to apply only to versions produced        */
+/* exclusively by I.T. NetworX or its agents.                               */
+/*                                                                          */
+/* Addendum to Copyright:                                                   */
+/* I'm not a legal eagle and I worded the above notice off the top of my    */
+/* head, so it may be full of holes, but the spirit of my intentions are    */
+/* clear from reading it.  Please respect these intentions.                 */
+/*                                                                          */
+/* Me too:                                                                  */
+/* If anybody makes significant improvements to this file, such as adding   */
+/* decode support for DHCP or DNS traffic, or IP and TCP options, I would   */
+/* appreciate it if they sent me a copy of their work (mike@NetworX.ie).    */
+/* Thanks.                                                                  */

@@ -1,0 +1,92 @@
+#!/usr/bin/perl
+# scrapes newsnow.co.uk's Encryption & Security feed and puts the headlines
+# into a database.  The database requires that unique url's be used and will
+# also have a column for tracking wheather or not the article has been
+# processed 
+#
+use strict;
+use LWP::Simple;
+use DBI;
+
+# this is the newsnow URL to scrape... 
+my $url = "http://newsnow.co.uk/newsfeed/?name=Encryption+/+Security"; 
+my $contents = get( $url );
+my @stories;
+
+my $db_host = "localhost";
+my $db_user = "root";
+my $db_pass = "ahh-ahs"; 
+my $db_name = "securitylounge"; 
+
+my $dbh = DBI->connect( "DBI:mysql:database=$db_name:host=$db_host", "$db_user", "$db_pass" ) 
+	or die( "E: Couldn't connect to database server." );
+
+if( $contents ) {
+	#the retrieval succeeded...
+	foreach( split( /\n/, $contents ) )
+	{
+		if( $_ =~ "<a href=\"/cgi/NGoto/" )
+		{
+			# strip off beginning bits (isolate URL)
+			$_ =~ s/\<p\>\<img\ src\=\"\/flags\/[A-Z]*\.gif\"\>\<a\ href=\"//gi; 
+			$_ =~ s/\<p\>\<img\ src\=\"\/flags\/[A-Z]*\.gif\"\>\<span\ class\=\"rs\"\>Subscription\ site\:\ \<\/span\>\<a\ href\=\"//gi;
+			# strip off middle junk (isolate Title)
+			$_ =~ s/"\ target\=\"_blank\"\ onClick\=\"return\ wopen\(this\)\"\>/\|/gi;
+			# strip off source html tags
+			$_ =~ s/\<\/a\>\&nbsp\;\<span\ class\=\"src\"\>/\|/gi;
+			$_ =~ s/\<\/a\>\<br\>\<span\ class\=\"src\"\>/\|/gi;
+			# strip off date info... 
+			$_ =~ s/\&nbsp\;[0-9]*\&\#58\;[0-9]*\<\/span\>\<\/p\>//gi;
+			$_ =~ s/\&nbsp\;[0-9]*\&\#58\;[0-9]*.*\<\/span\>\<\/p\>//gi;
+			# URL, TITLE, SOURCE
+			push( @stories, $_ );
+		} #end if
+	} #end foreach
+
+	foreach my $line ( @stories )
+	{
+		my( $url, $title, $source ) = split( /\|/, $line, 3 );
+		#print "$url $title $source\n";
+		my $url = "http://newsnow.co.uk" . $url; 
+		my $nc = get( "$url" );
+		if( $nc )
+		{
+			foreach( split( /\n/, $nc ) )
+			{
+				if( $_ =~ "meta" )
+				{
+					$_ =~ s/\<meta\ http\-equiv\=\"Refresh\"\ content\=\"0\;\ URL\=//gi; 
+					$_ =~ s/\">$//gi;
+					$url = $_;
+				}
+			} #end foreach
+			# here's our SQL insert...
+			# we'll just require that the URL is unique and not die() on failed inserts.
+			#print "$url $title $source\n\n";
+			# FIXME: we're going to have problems with \' characters in the title and source values...
+			eval {
+				my $insert = "INSERT INTO newsheadlines ( url, date, title, source ) VALUES ( '$url', now(), '$title', '$source' )"; 
+				my $sth = $dbh->do( $insert );
+			}; if( $@ ){
+				# there was an error with our insert...
+				if( $@ !~ "DBD::mysql::db do failed: Duplicate entry " )
+				{
+					# dup entry errors are caused by the fact that we only
+					# allow news entries with unique URLs to be inserted, which
+					# GREATLY simplifies the logic required to process the site
+					# regularly.
+					print "E: $@\n";
+				}
+			} #end eval-block
+		} else {
+			# sub-retrieval failed...
+			print "oops: url retrieval failed.\n";
+		} #end if
+	} #end foreach
+
+} else {
+	#the retrieval failed...
+	print "oops: retrieval failed.\n"; 
+}
+
+exit( 0 );

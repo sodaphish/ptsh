@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/GoogleQuery/org/apache/soap/encoding/soapenc"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="DoubleDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="9384e2b8a0b2e590e6c32a121227c595"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Base64Serializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="ee652148ddc4a65a2f06ad2b6054a6c3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BooleanDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="1b2f8c3a2d959f5f7977180b86ae9ea7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="IntObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="938c7b985c1bcfcdcc8b0e009d4fa0d8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="HashtableSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b8b9178e4b878fe01622c94796fbb9d3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FPDeserUtil.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5d4fbeed6f215cb0b6c1e9075a632b20"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="UrTypeDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3fac31c1100e5ca65ede320b0ee7cfab"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BeanSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7758e7f49285e3610d099f8509a3e74b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DecimalDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="5618221de7b3c8862d7a572749a3a303"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ShortDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4457ebe8028fd18c1b24fec918492b73"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="LongDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4424e5412b351a9a4a96af1e108ada3e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="CalendarSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="b7b81a11d0238172edb6edacd6b6f39d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DoubleObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="206f4fbd41f30766d187b555be2706c8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ByteDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="0550bea473d165093ebc4981c203b52d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MimePartSerializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="312f4dd3e70599608543940835597511"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FloatDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="29c5d34d4d5f95da88cc556ce20a09ae"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ArraySerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4c28b83ca73ce5e521c6c5bb2c07bf2a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="BooleanObjectDeserializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f431e831ef975b9a2e135baf93edec26"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="SoapEncUtils.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="872d891d450c1bbfb3d7977011f34ef1"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="StringDeserializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="7528937c1f314dceac578fe95e793742"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ParameterSerializer.class"
+   text-time="2005-02-18T07:11:36.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="78fa5582ca16b7378230a0b1a09003bf"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:36.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Base64.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="96c34c9022a8937b3954d416ba6f2e18"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="LongObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="a8c887fd657d189aa66b2279a9d21beb"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ShortObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="6a0a1e6c1e959bcd415b8e1747bcf273"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="QNameSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="e35c20ca55ac2ae65ab263ac86ab596e"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="VectorSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="8154fbfee3590dfc90b494751a0c237b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ByteObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="54a45824c9b48d218b528957820fd8fa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="IntDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="f0eea4c86cfe5ee9ab4a97a77bcf2369"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="FloatObjectDeserializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3074204df8e82e5a329f28c16d5d840d"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="MapSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="4bcc810bc9b92aa3abc82e1e9eabe746"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="DateSerializer.class"
+   text-time="2005-02-18T07:11:35.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="3f0cac00f047a71c8e6e97661666a225"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:35.000000Z"/>
+</wc-entries>

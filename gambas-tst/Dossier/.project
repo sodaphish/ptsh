@@ -1,0 +1,11 @@
+# Gambas Project File 2.0
+Title=Dossier
+Startup=FMain
+Library=gb.db
+Library=gb.net
+Library=gb.net.smtp
+Library=gb.settings
+Library=gb.gtk
+Library=gb.gtk.ext
+Library=gb.form
+Library=gb.db.form

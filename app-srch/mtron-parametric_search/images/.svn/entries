@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:03:21.922469Z"
+   url="file:///hosted/www/sodaphish.com/repos/mtron-parametric_search/images"
+   last-author="csteele"
+   kind="dir"
+   uuid="817e06b4-5df0-0310-b418-883b2f4e12ec"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="oscillator.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="d194a582e026b35362d00ca328471d95"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mtron-logo.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="478aa540c2a3ffc6c29ec1d92135b2c4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="logo.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="086840212c3cf987a9743ab7f64fe0c5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="picture-icon.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="e4d0f651d6450c9952c52993da18ea2b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="pdficon.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="ec33297e256efc1fd6e872fa8a31a4a4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="go.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="f41a800fa1315457fdf4fc0dea8271d7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+<entry
+   committed-rev="1"
+   name="logoloop.gif"
+   text-time="2005-02-18T07:08:35.000000Z"
+   committed-date="2005-02-18T07:03:21.922469Z"
+   checksum="294d57754b53f1d02b3f266593811bf9"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:08:35.000000Z"/>
+</wc-entries>

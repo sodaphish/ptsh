@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:28:29.647839Z"
+   url="file:///hosted/www/sodaphish.com/repos/tcpshow-1.74"
+   last-author="csteele"
+   kind="dir"
+   uuid="198b650f-5ef0-0310-ad3b-d60497e0ecad"
+   revision="1"/>
+<entry
+   name="debian"
+   kind="dir"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="tcpshow.1.gz"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="f367b07ce6e9fd66f2a83241b4a1e854"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="tcpshow"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="e3159165816452dc0cd1ec8662149f91"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="tcpshow.c"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="390440afb1be70e63176a113252b5437"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:28:47.000000Z"
+   committed-date="2005-02-18T07:28:29.647839Z"
+   checksum="c10abdffc4bc62f4dfeb9b0a2be98a3c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:28:47.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

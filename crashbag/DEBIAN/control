@@ -1,0 +1,8 @@
+Package: crashbag
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: arping, netcat, dsniff, hping3, hydra, iperf, iproute, iputils-arping, iputils-ping, kismet, nbtscan, net-tools, netcat, nmap, smbclient, snarf, tcpdump, traceroute
+Maintainer: SodaPhish
+Description: a collection of infosec tools

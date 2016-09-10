@@ -1,0 +1,60 @@
+/
+	/.files
+		/.files/<filename>-<uid>
+		/.files/.trash/
+			/.files/.trash/<uid>
+	/<tag>
+		./<tag>/<sub-tag>
+	/.meta
+		/.meta/stats
+		/.meta/<uid>/checksum
+		/.meta/<uid>/tags
+		/.meta/<uid>/permissions
+		/.meta/<uid>/stat
+		/.meta/<uid>/meta
+
+
+/.files
+====================
+	the location of the files, all output with "-<uid>" displaying both the native file name,
+	and the unique id of the file
+
+	/.files/.trash
+		files that have been deleted appear here.  "deleted" files appear here until the trash
+		is emptied, at which time the files are removed, and then they are dropped from the 
+		table.  when in the trash, files appear listed only by their UID.
+
+/.meta 
+====================
+	a read-only directory structure that provides access to file meta-data 
+
+	stat
+		internal statistics tracking various aspects of the file system
+	
+	For each file's UID: 
+	<uid>/checksum
+		provides a sha1 hash of any given file
+	<uid>/tags
+		provides a one tag per line list of all the tags applied to a given file
+	<uid>/permissions
+		file-permissions via hex codes (6,4,1, etc...) for owner, group, other
+	<uid>/stat
+		provides file stats like ctime, mtime, atime, etc.
+	<uid>/meta
+		provides additional data about the file specific to the SQL filesystem
+	
+
+
+mkdir -- makes a new tag
+rmdir -- moves a file/tag to the .trash
+cp -- add a tag to a file
+mv -- adds/removes tags
+rm -- moves
+chmod
+chattr
+
+
+mktag
+rmtag
+tag
+untag

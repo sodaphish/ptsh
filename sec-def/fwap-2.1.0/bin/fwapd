@@ -1,0 +1,40 @@
+#!/bin/sh
+# fwapd v.0.1.0 by C.J. Steele <csteele@good-sam.com>
+# 	2 Oct 2003
+#
+fwap_dir="/var/www/html/sec/fwap2"
+fwap_piddir="$fwap_dir/pid"
+fwap_bindir="$fwap_dir/bin"
+fwap_logdir="$fwap_dir/log"
+fwapd_log="$fwap_logdir/fwapd.log"
+
+BINS="fwapin_pix fwapin_qip"; 
+
+if ! [ -e $fwapd_log ]; then
+	touch $fwapd_log
+fi
+
+#run infinitely
+while [ 1 ]; do
+
+	for b in $BINS; do
+		if ! [ -e "$fwap_piddir/$b.pid" ]; then
+			$fwap_bindir/$b &
+		else
+			pid=`cat $fwap_piddir/$b.pid`
+			if ! [ -e "/proc/$pid" ]; then
+				#pid lockfile exists, but no process exists!
+				echo -n `date` >> $fwapd_log
+				echo "$b died unexpectedly, restarting..." >> $fwapd_log
+				# cleanup the pid file
+				rm -f $fwap_piddir/$b
+				#re-run script
+				$fwap_bindir/$b &
+				#need to give $b a chance to get running, otherwise we 
+				# start spawning processes out of control
+			fi
+		fi
+	done
+	sleep 5
+
+done

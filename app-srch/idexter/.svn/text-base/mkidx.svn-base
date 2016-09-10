@@ -1,0 +1,22 @@
+#!/bin/sh
+
+SEARCHPATH=$1
+
+if [ -d $SEARCHPATH ]; then
+
+	# this is a directory, good...
+
+	for FILE in `find $SEARCHPATH -print -type f`; do
+		if [ -e $FILE ]; then
+			for STRING in `strings $FILE`; do
+				echo $FILE,$STRING
+			done
+		fi
+	done
+
+else
+
+	# wtf?
+	echo Couldn\'t open $PATH for traversal, or no path specified
+
+fi

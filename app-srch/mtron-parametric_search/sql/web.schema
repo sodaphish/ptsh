@@ -1,0 +1,223 @@
+create table ps_crystals (
+	id		int primary key auto_increment not null,
+	part_number 	varchar(16) not null,
+	std 		varchar(8),
+	family		varchar(16),
+	cut		varchar(8),
+	mode		varchar(8),
+	mload		varchar(16),
+	lemp		int(11),
+	utemp		int(11),
+	vad		varchar(255),
+	tolerance	float(3,1),
+	stability	int(11),
+	aging		int(11),
+	freq_lower	double(10,6),
+	freq_upper	double(10,6),
+	freq_std	double(10,6),
+	pdf		varchar(128),
+	package_type	varchar(32),
+	price		float(4,2),
+	obsolete	varchar(1),
+	pkg_type	varchar(32),
+	esr		varchar(32)
+)\g
+
+create table ps_ocxos (
+	id		int primary key auto_increment not null,
+	family		varchar(16),
+	part_number	varchar(32),
+	ltemp		int,
+	utemp		int,
+	stability	float(4,6),
+	freq_control	varchar(64),
+	logic		varchar(32),
+	pckg_info	varchar(255),
+	supply_voltage	int(11),
+	pdf		varchar(64),
+	pckg		varchar(16),
+	fam		varchar(16),
+	freq_lower	float(10,6),
+	freq_upper	float(10,6),
+	obsolete	varchar(1)
+)\g
+
+create table ps_oscillators (
+	id		int primary key auto_increment not null,
+	partnumber	varchar(16),
+	std		varchar(8),
+	family		varchar(16),
+	ltemp		int,
+	utemp		int,
+	description	varchar(255),
+	supply_voltage	float(3,1),
+	output_logic	varchar(32),
+	symmetry	varchar(16),
+	stability	int,
+	aging 		int,
+	freq_lower	float(10,6),
+	freq_upper	float(10,6),
+	freq_std	float(10,6),
+	pdf		varchar(32),
+	package_type 	varchar(16),
+	price		float(3,2),
+	output_type	varchar(255),
+	obsolete	varchar(1),
+	pkg_type	varchar(32)
+)\g
+
+create table ps_tcxos (
+	id		int primary key auto_increment not null,
+	family		varchar(16),
+	part_number	varchar(32),
+	ltemp		int,
+	utemp		int,
+	stability	float(4,6),
+	freq_control	varchar(64),
+	symmetry	varchar(16),
+	logic		varchar(32),
+	pckg_info	varchar(255),
+	supply_voltage	float(3,2),
+	pdf		varchar(64),
+	pckg		varchar(16),
+	fam		varchar(16),
+	freq_lower	float(10,6),
+	freq_upper	float(10,6),
+	freq_std	float(10,6),
+	obsolete	varchar(1),
+	pkg_type	varchar(32)
+)\g
+
+create table ps_vcxos (
+	id		int primary key auto_increment not null,
+	family		varchar(16),
+	part_number	varchar(32),
+	ltemp		int,
+	utemp		int,
+	stability	int,
+	freq_control	varchar(64),
+	symmetry	varchar(32),
+	logic		varchar(32),
+	pull		int,
+	pckg_info	varchar(255),
+	supply_voltage	float(4,2),
+	pdf		varchar(64),
+	pckg		varchar(16),
+	fam		varchar(16),
+	freq_lower	float(10,6),
+	freq_upper	float(10,6),
+	freq_std	float(10,6),
+	obsolete	varchar(1),
+	pkg_type	varchar(32)
+)\g
+
+create table dr_distributors_coverage (
+	id		int not null,
+	location	varchar(32)
+)\g
+
+create table dr_distributors (
+	id		int primary key auto_increment not null,
+	code		char(1),
+	st		varchar(32),
+	name		varchar(64),
+	add1		varchar(128),
+	city		varchar(32),
+	zip		varchar(16),
+	phone		varchar(24),
+	rep		int,
+	cust		int,
+	contact		varchar(64),
+	fax		varchar(24)
+)\g
+
+create table dr_representatives_coverage (
+	id		int not null,
+	location	varchar(32)
+)\g
+
+create table dr_show_locations (
+	location	varchar(32)
+)\g
+
+create table dr_representatives (
+	id		int primary key auto_increment not null,
+	number		varchar(16),
+	initials	varchar(4),
+	name		varchar(64),
+	add1		varchar(128),
+	add2		varchar(128),
+	city		varchar(32),
+	state		varchar(32),
+	zip		varchar(16),
+	country		varchar(32),
+	phone		varchar(24),
+	fax		varchar(24),
+	sd		int,
+	faxsd		varchar(4),
+	name1		varchar(64),
+	name2		varchar(64),
+	name3		varchar(64),
+	name4		varchar(64),
+	name5		varchar(64),
+	name6		varchar(64),
+	name7		varchar(64),
+	name8		varchar(64),
+	name9		varchar(64),
+	name10		varchar(64),
+	name11		varchar(64),
+	name12		varchar(64)
+)\g
+
+create table cat_requester_address (
+	id		int primary key auto_increment not null,
+	date		int not null,
+	host		varchar(64) not null,
+	last_name	varchar(32) not null,
+	first_name	varchar(32) not null,
+	title		varchar(32),
+	company		varchar(32),
+	address		varchar(32) not null,
+	city		varchar(32) not null,
+	state		varchar(32) not null,
+	zip		varchar(16) not null,
+	country		varchar(32) not null,
+	email		varchar(64) not null,
+	phone		varchar(32),
+	fax		varchar(32),
+	comments	varchar(255),
+	industry	varchar(32) not null,
+	updates		enum('YES','NO')
+)\g
+
+create table cat_product_interest (
+	id		int primary key auto_increment not null,
+	rid		int not null, 
+	product		varchar(32)
+)\g
+
+create table misc_distisurvey (
+	id 		int primary key auto_increment not null,
+	date		int not null,
+	choice		int,
+	choice2		int,
+	choice3		int,
+	choice4		int,
+	choice5		int,
+	choice6		int,
+	choice7		int,
+	choice8		int,
+	choice9		int,
+	choice10	int,
+	choice11	int,
+	choice12	int,
+	choice13	int,
+	choice14	int,
+	choice15	int,
+	choice16	int,
+	choice17	int,
+	choice18	int,
+	choice19	int,
+	fcd_line	varchar(128),
+	comments	varchar(255)
+)\g

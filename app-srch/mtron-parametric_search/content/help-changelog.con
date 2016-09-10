@@ -1,0 +1,13 @@
+#:MAIN=Click <a href=%%THIS%%>here</a> to return to the main page.
+
+#/GENERAL_HELP
+<br>
+%%MAIN%%
+<br><br>
+<h3>The Changelog</h3>
+The changelog is less a 'feature' available to users, as it is a necessity to the developers of the site.  The changelog tracks recent changes to the site, be those changes in content, functionality, or layout.
+<br><br>
+As a user of this site, you can use the Changelog to keep up to date on whats going on with the site (i.e. if any new products have been added to the database, etc...)
+<br><br>
+<a href=help.cgi?topic=Help>Help</a> | Changelog
+#\GENERAL_HELP

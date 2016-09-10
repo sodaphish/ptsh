@@ -1,0 +1,36 @@
+#:MAIN=Click <a href=%%THIS%%>here</a> to return to the main page.
+
+#/GENERAL_HELP
+<br>
+%%MAIN%%
+<br><br>
+<h3>Searching (General Help)</h3>
+M-tron's Product Search is designed to find you the part you need, as quickly as possible.  Before you start using the site, it is recommended that you read the help for the searches.  Understanding how the search is working, will allow you to use it more effectively.
+<br><br>
+All of the product lines share a common, initial query.  It is at the initial query that you decide which family line you're searching, what mount type you're looking for, and which frequency you're looking for.  All fields for the initial query are mandatory, and you will receive errors if they are not filled in.  In the case of the frequency feild, you must not only fill it in, but fill it in with the appropriate type of information -- only numbers (decimal points are the exception).
+<br><br>
+Depending on which family you choose to search during the initial query, you will be given different options on which parameters or specifications of that product family that you'd like to search.  For the specifics on each of those product searches, see the help section for that specific product line.
+<br><br>
+<li><a href=help.cgi?topic=Searching&p=Crystals>Searching Crystals</a></li>
+<li><a href=help.cgi?topic=Searching&p=Oscillators>Searching Oscillators</a></li>
+#\GENERAL_HELP
+
+
+#/CRYSTAL_HELP
+<br>%%MAIN%%
+<br><br>
+<h3>Searching Crystals</h3>
+This is where we'll put Shain's verbage on M-tron product families that are specific to the Crystals. 
+<br><br>
+Help Topics: <a href=help.cgi?topic=Help>Help</a> | <a href=help.cgi?topic=Searching>Searching</a> > Crystals
+#\CRYSTAL_HELP
+
+
+#/OSCILLATOR_HELP
+<br>%%MAIN%%
+<br><br>
+<h3>Searching Oscillators</h3>
+This is where we'll put Shain's verbage on M-tron product families that are specific to the Oscillators.
+<br><br>
+Help Topics: <a href=help.cgi?topic=Help>Help</a> | <a href=help.cgi?topic=Searching>Searching</a> > Oscillators
+#\OSCILLATOR_HELP

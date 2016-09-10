@@ -1,0 +1,17 @@
+#!/bin/sh
+# daily-http.sh v0.1.0 by C.J. Steele <csteele@good-sam.com>
+#	10 Jan 2003
+#
+# this script imports firewall log files from the logserver, frank.corp.good-sam.com
+# these logs are then analyzed with the FireWall Analysis Package (FWAP).
+#
+. /var/www/html/fwap/bin/globals
+
+# get yesterday's logfile from the webserver...
+cd $DUMPDIR
+wget --http-user=csteele --http-passwd=q1w2e3r4 http://frank.corp.good-sam.com/toaster.corp.good-sam.com/$YESTERDAY
+
+# import it into our database
+$BIN/blocked2sql $DUMPDIR/$YESTERDAY
+# import non-blocked messages into the database
+$BIN/others2sql $DUMPDIR/$YESTERDAY

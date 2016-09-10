@@ -1,0 +1,21 @@
+Rules: 
+1) NEVER EVER edit any of the source code outside of the SOURCE tree ...presently
+	(12/15/2000) that is /home/csteele/devel.
+2) NEVER install the source from the SOURCE by hand, ALWAYS use SOURCE/bin/mk[test|live]
+3) If you need to change a configuration file, change the .m4 file, NEVER EDIT the .pl
+	or the changes will not be synchronized across both the test and live systems.
+	Also, note that if a change needs to take affect in BOTH systems, you absolutely
+	must make the change in both the FILE.test.m4 and FILE.live.m4, or the change
+	will not take affect across both systems.
+4) the last nightly backup of the 'web' database is stored in SOURCE/sql/backups/web.last
+	the same applies for the backup of 'mysql', SOURCE/sql/backups/mysql.last.  You
+	should NOT need those for much of anything.
+5) if you want to update the test database system, use the script `mktestdb`, which must
+	be run as a user who has admin rights to the database.  the account csteele is 
+	setup as being able to run commands as root via the sudo command, so you could 
+	run this command like:
+
+		sudo SOURCE/bin/mktestdb
+
+	and it would do the trick.
+

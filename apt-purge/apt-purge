@@ -1,0 +1,16 @@
+#!/bin/bash
+
+[ $(whoami) == "root" ] || echo "WARNING: you're not root..."
+
+echo "The following packages will be purged:"
+for p in `dpkg -l | grep -- ^rc | awk {'print $2'}`; do
+	echo "    $p"
+done
+
+read -p "Continue? (y/n) "
+[ "$REPLY" == "y" ] || exit 1
+
+for pkg in `dpkg -l | grep -- ^rc | awk {'print $2'}`; do
+	echo "REMOVING $pkg..."
+	sudo apt-get -y purge $pkg
+done

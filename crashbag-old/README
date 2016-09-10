@@ -1,0 +1,18 @@
+crashbag v0.0.1 by SodaPhish
+
+This is my kiddie crashbag... it contains a substantial subset of the 
+tools I might use whilst compramising a host further.  This kit doesn't 
+(and will never) contain my rtkt, which must be downloaded separately.
+
+If you can think of something to add to this, please feel free.
+
+Current Contents:
+* dsniff v.2.3
+* sleuthkit v.1.66
+* john v.1.6
+* netcat v.1.10 (with GAPPING_SECURITY_HOLE compiled in)
+* nmap v.2.54BETA31
+* wget v.1.8.2
+* tcpdump v.3.7.2
+* traceroute v.1.4a12
+* 

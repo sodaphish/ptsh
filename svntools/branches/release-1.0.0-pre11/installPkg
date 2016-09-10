@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+# a script to install my source-code according to my own mappings...
+# 
+# will rely on `cfgctl` for install information
+#
+use strict;
+

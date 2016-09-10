@@ -1,0 +1,55 @@
+#!/bin/sh
+# 
+# rpm2tar by C.J. Steele, CISSP <coreyjsteele@yahoo.com>
+#  (C)opyright 2005, C.J. Steele, all rights reserved.
+# 
+# PROVIDED "AS-IS" AND WITH NO WARRANTY
+#
+# this is a handy little script to convert an RPM into a tarball, in case you
+# want to pick a single file out of the package, or make changes, etc... you
+# could (with the specfile) work in reverse of a package after you've made the
+# changes you wanted to make.
+#
+# This was written on a Fedora Core 4 box and tested on Red Hat Enterprise
+# Server 4 -- I can say definitively that it does NOT work on OpenBSD as the
+# `tar` there is not GNU.  :-(  (Of course, that begs the question of what
+# you're doing mangling RPM's on an obsd install... which is a VERY good
+# question.)
+#
+# If it doesn't work, here are a couple of suggestions: 
+# 1) make sure all the referenced programs (rpm2cpio, cpio, tar, etc, mkdir,
+# rm, etc.) are in your $PATH.  
+# 2) make sure your implementation of `pwd` doesn't suck (i.e. that it doesn't
+# do something stupid like output "you are currently in /var/log/retarded")
+# 
+
+# our startup bits... 
+INIPWD=`pwd`
+mkdir /tmp/rpm2tar$$
+cp $1 /tmp/rpm2tar$$/
+cd /tmp/rpm2tar$$
+
+# convert the rpm to a cpio stream... 
+rpm2cpio $1 | cpio -dimv 2> filelist
+
+if [ -e $INIPWD/$1.tar ]; then
+	# tarball exists
+	echo "$1.tar already exists; exiting."
+	exit 1
+else 
+	# create the null tarball file.
+	touch $INIPWD/$1.tar 
+fi
+
+# add our files to the archive.
+for f in `cat filelist`; do
+	if [ -e $f ]; then
+		# the file exists... this is only necessary because cpio spews out
+		# block counts, etc. at the end of its run.
+		tar -rf $INIPWD/$1.tar $f
+	fi
+done
+
+# purge our filelist... and cleanup after ourselves.
+cd $INIPWD
+rm -rf /tmp/rpm2tar$$

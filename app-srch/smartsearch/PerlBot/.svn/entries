@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:11:07.863148Z"
+   url="file:///hosted/www/sodaphish.com/repos/smartsearch/PerlBot"
+   last-author="csteele"
+   kind="dir"
+   uuid="580e19ca-5df0-0310-9cdb-95c54017247e"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="PerlBot.pl"
+   text-time="2005-02-18T07:11:38.000000Z"
+   committed-date="2005-02-18T07:11:07.863148Z"
+   checksum="34f7c2a2c9a214c45ce97d0ef9210e6c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:11:38.000000Z"/>
+</wc-entries>

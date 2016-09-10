@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+use strict;
+
+for my $interfaces (`/usr/local/bin/lsint`)
+{
+	if( $interface =~ m/^$ARGV[0].*/ )
+	{
+		#the interface is up
+		exit( 1 );
+	}
+} #end for
+
+if( -e "/etc/ppp/peers/$ARGV[0]" )
+{
+	exec( "/usr/bin/pon $ARGV[0]" );
+	exit( 0 );
+} else {
+	exit( -1 );
+}

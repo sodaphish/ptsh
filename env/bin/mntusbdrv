@@ -1,0 +1,4 @@
+#!/bin/sh
+typeset -r INUID=`id -u`
+typeset -r INGID=`id -g`
+sudo mount -o uid=$INUID,gid=$INGID /dev/sda1 /mnt/usb

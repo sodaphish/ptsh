@@ -1,0 +1,12 @@
+v0.3.1
+  o  fixed a little bug that reported everything to be a write error.  :-\
+v0.3.0
+  o  added support for verbose and silent running, which are envoked from
+     the command line as: httpget.pl --verbose, httpget.pl -V, httpget.pl
+	 --silent, or httpget.pl -S
+v0.2.1
+  o  got rid of some un-needed output
+v0.2.0 
+  o  actually works
+v0.1.0
+  o  initial release, very broken (unknown at time of release.)

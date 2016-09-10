@@ -1,0 +1,43 @@
+#!/bin/sh
+# filename: mkhtml.test
+# (C)opyright 2000, M-tron Industries, Inc., all rights reserved.
+# 	written by Corey J. Steele <csteele@mtron.com>
+# last modified: 12/13/2000
+#
+# Description: This script adjusts $WEB/*.html files that need to be adjusted 
+#	between the live and test system to reflect the necessary values 
+#	for the test system to operate properly.
+#
+SOURCE="/home/csteele/devel"
+DESTINATION=$1
+
+if [ -d "$DESTINATION" ]; then
+
+	echo
+	echo "WARNING! This will alter the HTML files in $WEB/!"
+	echo -n "Are you sure you want to do this? (Y/N) "
+
+	while read answer ; do
+		if [ $answer = 'y' ] || [ $answer = 'Y' ]; then
+			echo -n "proceeding with conversion."
+			for filename in `ls $DESTINATION/*.test.m4`
+			do
+				html_file=`basename $filename`
+				html_file=`echo $html_file | cut -d '.' -f 1`
+				m4 $filename > $DESTINATION/$html_file.html
+				echo -n "."
+			done
+			break
+		elif [ $answer = 'n' ] || [ $answer = 'N' ]; then
+			echo "ABORTING!"
+			exit
+		fi
+		echo -n "Are you sure you want to do this? (Y/N) "
+	done;
+
+else
+	
+	echo "Usage: mkhtml.test /path/to/destination/root"
+	echo 
+
+fi

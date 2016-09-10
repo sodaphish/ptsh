@@ -1,0 +1,6 @@
+
+1) install phpBB and get it setup.
+2) `cp -rf access* /to/wherever/phpBB/forums`
+3) mangle the access.php file
+4) make sure iptfw.sh and lstrusted are setup
+5) notify trusted users that they can mangle your iptfw "trusted users" list via the website.

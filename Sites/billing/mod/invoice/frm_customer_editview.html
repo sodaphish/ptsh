@@ -1,0 +1,42 @@
+
+<FORM METHOD=POST ACTION= "index.php">
+<input type=hidden name=f value=invoice>
+<input type=hidden name=sub value=customer>
+<input type=hidden name=c value=editview>
+<input type=hidden name=id value=<?php print "$id"; ?>>
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size+2 ALIGN=center>Edit Customer</font></td>
+	</tr><tr>
+		<td>Company Name:<input type="text" Name="company_name" value="<?php print "$company_name";?>"></td>
+	</tr><tr>
+		<td>Contact:<input type="text" Name="contact" value="<?php print "$contact";?>"></td> 
+	</tr><tr>
+		<td>Address1:<input type="text" Name="address1" value="<?php print "$address1";?>"></td>
+	</tr><tr>
+		<td>Address2:<input type="text" Name="address2" value="<?php print "$address2";?>"></td>
+	</tr><tr>
+		<td>City:<input type="text" Name="city" value="<?php print "$city";?>"></td>
+	</tr><tr>
+		<td>State:<input type="text" Name="state" value="<?php print "$state";?>"></td>
+	</tr><tr>
+		<td>Zip:<input type="int" Name="zip" value="<?php print "$zip";?>"></td>
+	</tr><tr>
+		<td>Telephone:<input type="int" Name="telephone" value="<?php print "$telephone";?>"></td>
+	</tr><tr>
+		<td>Email:<input type="text" Name="email" value="<?php print "$email";?>"></td>
+	</tr><tr>	
+		<td>Fax:<input type="int" Name="fax" value="<?php print "$fax";?>"></td>
+	</tr><tr>
+		<td>www:<input type="text" Name="www" value="<?php print "$www";?>"></td>
+	</tr><tr>
+		<td Align=center><input type="submit" value="ok"></td>
+	</tr>
+</table>
+</form>
+		
+
+
+		
+
+

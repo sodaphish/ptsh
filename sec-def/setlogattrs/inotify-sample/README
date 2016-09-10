@@ -1,0 +1,18 @@
+To use the sample code provided, simple run the resultant 
+execuatble after performing a make. The binary expects a
+directory as argument. It will segfault otherwise ;) 
+
+
+
+For example: 
+dowem@Heliotropic:~/Inotify-article/inotify-sample $ ./inotify_test /home/dowem
+
+
+This begins a watch on the directory /home/dowem. 
+From another terminal simply perform some file creations, deletions etc, 
+and watch as the information is presented in real time from the sample
+executable. 
+
+
+I hope the code is a gateway to your further understanding of the inotify
+Linux kernel mechanism. Happy hacking!

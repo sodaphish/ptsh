@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# this file defines global shell variables common to many shell scripts 
+#
+
+#various directories we use in the shell scripts, commonly
+ROOT=/var/www/html/sec/fwap/
+BIN=/var/www/html/sec/fwap/bin/
+DUMPDIR=/tmp/
+
+#the 'yesterday' strings we use
+YESTERDAY=`$BIN/yesterday`
+YESTLONG=`$BIN/yesterday-long`
+YESTURL=`echo $YESTLONG | sed s/\ /+/g`
+
+#space-delimited list of e-mail addresses of administrators
+ADMINS="csteele@good-sam.com"
+
+# other binaries we'll use
+LINKS=/usr/bin/links

@@ -1,0 +1,14 @@
+li,font,th,td,p,body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px }
+
+h1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14pt; font-weight: bold }
+h2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt; font-weight: bold }
+h3 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; font-style: italic }
+
+a:link,a:active,a:visited { color : #06457c; }
+a:hover     { text-decoration: underline; color : #b3c0d3; }
+
+hr  { height: 0px; border: solid #666666 0px; border-top-width: 1px;}
+
+.footer { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; }
+
+.report_body { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }

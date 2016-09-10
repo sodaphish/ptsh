@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-29T20:27:12.517469Z"
+   url="file:///hosted/www/sodaphish.com/repos/dhclient-script"
+   last-author="csteele"
+   kind="dir"
+   uuid="3f333d7c-79f3-0310-8b07-ab1c00155107"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="resolv_search.conf"
+   text-time="2005-03-29T20:27:29.000000Z"
+   committed-date="2005-03-29T20:27:12.517469Z"
+   checksum="af1b317a51176aefec0220416ee7a6b0"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-29T20:27:29.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="dhclient-script"
+   text-time="2005-03-29T20:27:29.000000Z"
+   committed-date="2005-03-29T20:27:12.517469Z"
+   checksum="71a805d7f09cf4ab60cfc9453c268eca"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-29T20:27:29.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

@@ -1,0 +1,80 @@
+#!/bin/sh
+# Installer for ooflewall v1.1
+# Built 10/28/01
+# Let's check and make sure we are root.
+ROOT_UID=0
+if [ "$UID" ! -eq "$ROOT_UID" ]; then
+	echo Error: This program must be executed as root user.
+	exit 1
+fi
+# First, let's make sure the user knows what's going on
+echo Welcome to the Installer for ooflewall v1.1!
+echo ;
+echo In this first version, you are not provided the option
+echo to change where ooflewall is installed.  It will be
+echo in this directory:
+echo \> /usr/local/.oofle/
+echo It will also be linked to, so that once you have
+echo configured it, you can run it just by typing
+echo ooflewall at a command prompt.
+echo ;
+echo ooflewall will also be started as a service in your
+echo startup scripts.
+echo There is no resident program running to see in your
+echo ps commands, so don't be suprised when it's not there
+echo ooflewall simply configures the firewall and then quits.
+echo ;
+echo -n Are you sure you want to continue with ooflewall installation[Y]?
+read INSTALLYN
+if [ ! -n $INSTALLYN ]; then
+	echo Installing ooflewall v1.1 into /usr/local/.oofle/
+else
+	if [ "$INSTALLYN" = "Y" ]; then
+		echo Installing ooflewall v1.1 into /usr/local/.oofle/
+	else
+		if [ "$INSTALLYN" = "y" ]; then
+			echo Installing ooflewall v1.1 into /usr/local/.oofle/
+		else
+			echo Selection was not Y or y.  Exiting installation.
+			exit 1
+		fi
+	fi
+fi
+if [ -f data.tar ]; then
+	# File Exists... continuing installation
+	echo Extracting data.tar to /usr/local/.oofle/
+else
+	echo Error! File data.tar does not exist.
+	echo Please ensure that data.tar and install
+	echo are in the same directory and that you
+	echo ran the install from that directory.
+	echo Exiting...
+	exit 1
+fi
+OUT=/usr/local/.oofle/.instresult
+if [ ! -e /usr/local/.oofle ]; then
+	mkdir /usr/local/.oofle
+fi
+cp -f data.tar /usr/local/.oofle/
+cd /usr/local/.oofle/
+tar -xf data.tar
+rm -f data.tar
+mv -f ooflewall.initd /etc/rc.d/init.d/ooflewall
+ln -sf /etc/rc.d/init.d/ooflewall /etc/rc.d/rc2.d/S50ooflewall
+ln -sf /etc/rc.d/init.d/ooflewall /etc/rc.d/rc3.d/S50ooflewall
+ln -sf /etc/rc.d/init.d/ooflewall /etc/rc.d/rc4.d/S50ooflewall
+ln -sf /etc/rc.d/init.d/ooflewall /etc/rc.d/rc5.d/S50ooflewall
+ln -sf /usr/local/.oofle/ooflewall /sbin/ooflewall
+rm -f $OUT
+echo Done...
+echo You can now modify the configuration of ooflewall in the
+echo file /usr/local/.oofle/ooflewall.conf and can change the
+echo rules of your firewall by modifying /usr/local/.oofle/fw.rules
+echo Your rules file is currently empty.  To reload your
+echo firewall at any time, just type ooflewall into a command
+echo prompt, and the rules will be reprocessed.
+echo For help at any time, consult http://www.oofle.com/ooflewall/
+echo or to submit a bug or ask a question not answered 
+echo specifically on the website, e-mail jrb3333@ksu.edu.
+echo Enjoy!
+exit 0

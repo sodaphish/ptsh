@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/rtkt-0.2.2-dist/src/dir"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="dirt.c"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="9883e6e31ed89c1a25b811e1ed75e579"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="Makefile"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="c28415a21f8125f76553a3de65182ebf"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="dir"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="7d3764c3b70b8b6cf6e24066c484e154"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+</wc-entries>

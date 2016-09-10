@@ -1,0 +1,382 @@
+/* ----- BASIC ELEMENTS AND FONTS ----- */
+
+
+html, body {
+	color: #fff;
+	font-size: 11px;
+	font-family: 'Tahoma';
+	background: #cead50 url(assets/pottershands2.0.jpg) repeat-x;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+.clear {
+	clear: both;
+	height:30px;
+}
+
+p {
+	margin: 10px 30px 10px 30px;
+}
+
+.date {
+	color:#ffd502;
+	text-decoration:overline;
+	font-size:10px;
+	padding: 10px 0 20px 0;
+}
+
+#content_footer p {
+	margin: 10px 30px 10px 30px;
+	padding-top: 20px;
+	font-size:10px;
+	text-align:left;
+}
+
+.login_box p {
+	margin:0px 10px 20px 25px;
+	font-size:9px;
+	color:#fff;
+	text-transform: uppercase;
+}
+.content_box p {
+	margin: 10px 0px 10px 0px;
+	color:#ddd;
+	font-size:10px;
+	text-align:justify;
+}
+.content_box_large p {
+	margin: 10px 0px 10px 0px;
+	font-size:11px;
+	text-align:justify;
+}
+
+.content_box_photo h3 {
+	margin: 0px 0px 10px 45px;
+}
+
+#content_footer p {
+    margin: 10px 0px 10px 60px !important;
+	margin: 10px 0px 10px 85px;
+	font-size:10px;
+	text-align:justify;
+}
+
+.red {
+	color:red;
+}
+
+.yellow {
+	color:#ffd502;
+	font-weight:bold;
+}
+
+h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:30px;
+	text-transform:uppercase;
+	font-weight:normal;
+	margin: 0px 0px 0px 0px !important;
+	margin: 10px 0px 0px 0px;
+	color:#fff;
+}
+
+h2 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:20px;
+	margin: 0px 50px 10px 30px !important;
+	margin: 0px 30px 10px 30px;
+	font-size:12px;
+	text-transform:uppercase;
+	color:#072450;
+	font-weight:normal;
+}
+
+h3 {
+	margin: 0px 0px 10px 0px;
+	text-transform:uppercase;
+	font-size:12px;
+	color:#fff;
+}
+
+a {
+	text-decoration: none;
+	color:#ffd502;
+}
+
+/*----- MENU ----- */
+
+#nav_list {
+	margin: 0;
+	padding: 0;
+	width: 170px;
+	list-style: none;
+	overflow: hidden;
+}
+
+#nav_list li {
+	width: 170px;
+	overflow: hidden;
+	text-transform: uppercase;
+	font-size:9px;
+	font-weight:bold;
+}
+
+#nav_list a {
+	color:#fff;
+}
+
+.li_nav_body a  {
+	display: block;
+	width: 170px;
+	height: 20px;
+	background: url(assets/nav_body.png) no-repeat;
+	padding-left: 25px;
+	line-height:20px;
+}
+
+.li_nav_footer a  {
+	display: block;
+	width: 170px;
+	height: 21px;
+	background: url(assets/nav_body.png) no-repeat;
+	background-position:  0 0px;
+	padding-left: 25px;
+	line-height:21px;
+}
+
+.li_nav_body a:hover {
+	background-position:  0 -20px;
+	color:#016001;
+}
+
+.li_nav_footer a:hover {
+	background-position:  0 -20px;
+	color:#016001;
+}
+
+.li_active a:active  {
+	background: url(assets/nav_body.png) no-repeat;
+	background-position:  0 -40px;
+	color:#fff;
+}
+
+/*----- LAYOUT ----- */
+
+#container {
+	width:100%;
+	background: url(assets/sidebar_body.png) 30px 0px repeat-y !important;
+	background: url(assets/sidebar_body.png) 60px 0px repeat-y;
+	min-height:100%;
+	height:100%;
+	
+}
+
+
+#menu_header {
+	width:170px;
+	height:232px;
+	text-align:left;
+	float:left;
+	margin:0 0 0 30px;
+}
+
+#menu_left {
+	width: 170px;
+	min-height: 100%;
+	margin:0 0 0 30px;
+	float: left;
+    background: url(assets/sidebar_body.png) repeat-y;
+}
+
+.login_box {
+	width: 170px;
+	float:left;
+	margin:0 0 0 10px;
+}
+
+#head {
+    width: 790px !important;
+	width: 820px;
+	height: 232px;
+	float:left;
+	text-align: right;
+}
+
+#content {
+	width: 840px;
+	text-align: justify;
+	float: left;
+	margin:0 0 0 20px;
+	background: url(assets/sidebar_body.png) 10px 0px repeat-y !important;
+	background: url(assets/sidebar_body.png) 20px 0px repeat-y;
+}
+
+.content_box {
+	width: 120px;
+	margin:0px 0px 0px 30px;
+	float: left;
+}
+
+.content_box_large {
+	width: 280px;
+	margin:0px 0px 0px 20px;
+	float: left;
+}
+
+.content_box_photo {
+	width: 200px;
+	margin:0px 0px 0px -10px;
+	float: left;
+}
+
+#content_footer {
+	background: url(assets/sidebar_body.png) 30px 0px repeat-y !important;
+	background: url(assets/sidebar_body.png) 60px 0px repeat-y;
+	width:100%;
+	clear:both;
+	margin-bottom:-70px;
+	height:50px;
+}
+
+
+/*----- IMAGES ----- */
+
+a img{
+	border: none;
+}
+
+img.left,img.center,img.right {
+	padding: 4px;
+	border: 1px solid #a0a0a0;
+}
+
+img.left {
+	float: left;
+	margin: 0px 12px 5px 0px;
+	background:#fff;
+}
+
+img.right {
+	float: right;
+	margin: 0px 30px 5px 0px;
+}
+
+/*----- FORM ----- */
+
+input   {
+	border-top: 1pt solid #cccccc;
+	border-bottom: 1pt solid #cccccc;
+	border-right: 1pt solid #cccccc;
+	border-left: 1pt solid #cccccc;
+	font: normal 10px tahoma;
+	width:115px;
+	color: #707070;
+	margin:0px 0px 5px 0px;
+}
+
+textarea.sidebar   {
+	border-top: 1pt solid #cccccc;
+	border-bottom: 1pt solid #cccccc;
+	border-right: 1pt solid #cccccc;
+	border-left: 1pt solid #cccccc;
+	font: normal 10px tahoma;
+	width:115px;
+	height:80px;
+	color: #707070;
+	margin:5px 0px 5px 25px;
+}
+
+input.sidebar   {
+	border-top: 1pt solid #cccccc;
+	border-bottom: 1pt solid #cccccc;
+	border-right: 1pt solid #cccccc;
+	border-left: 1pt solid #cccccc;
+	font: normal 10px tahoma;
+	width:115px;
+	color: #707070;
+	margin:0px 0px 5px 25px;
+}
+
+input.button_sidebar   {
+	border-top: 1pt solid #cccccc;
+	border-bottom: 1pt solid #cccccc;
+	border-right: 1pt solid #cccccc;
+	border-left: 1pt solid #cccccc;
+	font: normal 10px tahoma;
+	width:119px;
+	color: #707070;
+	margin:0px 0px 5px 25px;
+}
+
+input.button_content   {
+	border-top: 1pt solid #cccccc;
+	border-bottom: 1pt solid #cccccc;
+	border-right: 1pt solid #cccccc;
+	border-left: 1pt solid #cccccc;
+	font: normal 10px tahoma;
+	width:119px;
+	color: #707070;
+	margin:5px 0px 5px 0px;
+}
+
+
+
+/*----- Hoverbox Code - get code found at http://host.sonspring.com/hoverbox/ ------*/
+
+.hoverbox
+{
+	cursor: default;
+	list-style: none;
+}
+
+.hoverbox a
+{
+	cursor: default;
+}
+
+.hoverbox a .preview
+{
+	display: none;
+}
+
+.hoverbox a:hover .preview
+{
+	display: block;
+	position: absolute;
+	top: -33px;
+	left: -45px;
+	z-index: 1;
+}
+
+.hoverbox img
+{
+	background: #fff;
+	color: inherit;
+	vertical-align: top;
+	width: 100px;
+	height: 75px;
+	margin: 2px;
+	padding: 2px;
+	border-color: #ccc;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.hoverbox li
+{
+	
+	color: inherit;
+	display: inline;
+	float: left;
+	position: relative;
+}
+
+.hoverbox .preview
+{
+	border-color: #000;
+	width: 200px;
+	height: 150px;
+}
+

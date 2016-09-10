@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:24:07.526936Z"
+   url="file:///hosted/www/sodaphish.com/repos/photos"
+   last-author="csteele"
+   kind="dir"
+   uuid="e1a0e3ff-5df0-0310-b16a-d6bbec9fff0c"
+   revision="1"/>
+<entry
+   name="thumbs"
+   kind="dir"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="jpgs"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="bin"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="index.cgi"
+   text-time="2005-02-18T07:24:26.000000Z"
+   committed-date="2005-02-18T07:24:07.526936Z"
+   checksum="8c5d429723f22018c4f805900f4a4750"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:24:26.000000Z"/>
+<entry
+   committed-rev="1"
+   name="README"
+   text-time="2005-02-18T07:24:26.000000Z"
+   committed-date="2005-02-18T07:24:07.526936Z"
+   checksum="ed181813a15cb1122b6fb1d9726b2fc6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:24:26.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

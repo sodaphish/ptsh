@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS nessusresults (
+	id		int auto_increment,
+	date	varchar(255) not null,
+	host	varchar(255) not null,
+	type	varchar(128) not null,
+	srvc	varchar(255) not null,
+	msg		text not null
+)\g

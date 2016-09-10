@@ -1,0 +1,23 @@
+v1 - purely statistical tool
+-----------------------------------------------------------------------
+* development complete
+
+
+v2 - pseudo real-time data imports
+-----------------------------------------------------------------------
+* 2.1.0 - improve error handling of backend code
+* 2.2.0 - add audit logging to backend code
+* 2.3.0 - web-based front-end for monitoring backend audit logs and 
+	status
+
+
+v3 - identify bad traffic/patterns
+-----------------------------------------------------------------------
+* 3.0.0 - implement global-ized configuration engine (using `cfgctl`) 
+	in all code
+* to be determined
+
+v4 - react to bad traffic
+-----------------------------------------------------------------------
+* to be determined
+

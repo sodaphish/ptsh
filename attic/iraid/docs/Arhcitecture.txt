@@ -1,0 +1,79 @@
+Three major components:
+** subscriber agent (a.k.a. subscriber)
+** broker agent (a.k.a. broker)
+** provider agent (a.k.a. provider)
+
+
+
+Backup process
+>  monitors local file system for changes.
+>  each change creates a copy of the changed file, broken into chunks
+>  chunks are checksum'd and the the block ID's and checksums are sent to the broker
+>  when the broker receives a bloc, it stores it along with the bloc id, checksum and bloc data
+>  providers poll the broker and download the bloc
+>  once a provider has downloaded the bloc, it checksums it and sends the checksum back to the broker
+>  if the checksum provided by the provider agent matches the checksum provided by the subscriber, then the distribution counter on the file is decremented and an entry is made for that bloc id in the recovery manifest
+
+
+
+
+
+
+
+
+Subscriber Manifest
+=========================
+the subscriber manifest is maintained by the subscriber agent
+
+	ID Map -- maps unique File ID's to fully-qualified filesystem path's
+	File ID -- unique identifier of each file on the system
+	File Checksum -- native filesystem meta data (stat() data and file path/name)
+	Bloc ID -- bloc ID's for each of the blocs needed for recovery
+	Bloc Checksum -- checksum of the bloc required for recovery
+
+	Manifest Change Counter -- every-time the manifest is changed, its change counter is decremented and when the counter hits zero, the whole manifest is uploaded to the broker and copied to the recovery manifest.
+
+
+Subscriber Bloc Cache
+=========================
+recently modified files, broken into blocks, and checksum'd
+
+	Bloc ID -- 
+	Bloc Data -- 
+
+
+Broker Transient Manifest
+=========================
+blocs live in the transient manifest until their distribution counter is decremented to zero, then their Distribution Data is moved to the Recovery Manifest
+
+	Bloc ID -- the bloc UUID
+	Bloc Checksum -- the checksum provided by the subscriber
+	Bloc Data -- the data in the bloc
+	distribution counter -- set depending on the recovery level of the subscriber
+	providers' ID's -- which providers have downloaded (successfully) this bloc -- only after a provider has responded with the right checksum are they added to the distributors list
+
+
+Broker Bloc Kill-list
+=========================
+	Kill-list ID -- kill lists will be published hourly
+	Bloc ID -- list of ID's to remove from provider manifests
+
+
+Recovery Manifest
+=========================
+data here is pulled together from the 
+
+	Subscriber Manifest -- the data described above under subscriber manifest
+
+	Distribution Data -- 
+		Bloc ID -- the UUID of the bloc
+		Bloc Checksum -- checksum of the bloc
+		Distribution Data -- list of providers who have the data
+
+
+
+Provider Manifest
+=========================
+	Bloc ID -- unique identifier of each bloc
+	Bloc Data -- data of the unique blocs
+	Bloc Checksum -- checksum of the bloc downloaded

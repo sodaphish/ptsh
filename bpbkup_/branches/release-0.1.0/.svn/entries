@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="3"
+   name=""
+   committed-date="2005-04-24T02:12:09.706427Z"
+   url="file:///hosted/www/sodaphish.com/repos/bpbkup/branches/release-0.1.0"
+   last-author="csteele"
+   kind="dir"
+   uuid="75c896a6-60f5-0310-9214-e847e03ed5cd"
+   revision="3"/>
+<entry
+   committed-rev="1"
+   name=".installMap"
+   text-time="2005-04-30T12:25:37.000000Z"
+   committed-date="2005-04-23T01:39:52.866203Z"
+   checksum="7fc1f6673fc478cfed521e1b59f92697"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-30T12:25:37.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="bpbq.py"
+   text-time="2005-04-30T12:25:37.000000Z"
+   committed-date="2005-04-23T01:39:52.866203Z"
+   checksum="afb40a688c3b9b930d901b160b61626a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-30T12:25:37.000000Z"/>
+<entry
+   committed-rev="1"
+   name="backup.py"
+   text-time="2005-04-30T12:25:37.000000Z"
+   committed-date="2005-04-23T01:39:52.866203Z"
+   checksum="129f36e681a662ab5768cd62f99de9ae"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-04-30T12:25:37.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

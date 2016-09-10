@@ -1,0 +1,8 @@
+Package: crashbag
+Version: 0.1
+Section: main
+Priority: optional
+Architecture: all
+Depends: 4g8, aircrack-ng, ap-utils, apf-client, apf-firewall, apf-server, arpalert, arping, arptables, asp, belier, bing, bittwist, br2685ctl, bridge-utils, cdpr, cntlm, corkscrew, cryptcat, cutter, dhcp-probe, dhcp-helper, dlint, dns-browse, dnsutils, dnswalk, dropbear, dsniff, emcast, etherpuppet, ethstats, ethtool, ettercap, farpd, flow-tools, flowscan, geoip-bin, geoip-database, grepcidr, guessnet, hammerhead, hlbr, hostap-utils, hostapd, hping3, httping, hunt, hydra, icmpush, iftop, ike-scan, imsniff, imspector, inetutils-tools, inetutils-traceroute, inetutils-telnet, iperf, ipgrab, iproute, ipsec-tools, iputils-arping, iputils-ping, iputils-tracepath, kismet, ladvd, macchanger, mactelnet-client, mz, nbtscan, ncaptool, nepenthes, net-tools, netcat, nfdump, ngrep, nikto, nmap, p0f, packeth, packit, paros, pcaputils, pnscan, prips, prismstumbler, rancid, rarpd, scanssh, scli, sipcrack, smbclient, smcroute, snarf, sniffit, socks4-clients, sqlmap, ssldump, stunnel4, swscanner, tcpdump, tcpflow, tcpreen, tcpreplay, tcpslice, tcputils, tcpxtract, tgn, tor, torsocks, traceroute, tshark, vrrpd, w3af, wavemon, wireless-tools, wireshark, wireshark-common
+Maintainer: SodaPhish
+Description: a collection of infosec tools

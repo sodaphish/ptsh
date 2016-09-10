@@ -1,0 +1,18 @@
+$host = hostname(); 
+
+$listener_port = 1025; 
+
+$portwatcher_path = "/home/csteele/portwatcher"; 
+
+@monitors_to_start = ( 	"monitor-telnet-tcp", 
+			"monitor-finger-tcp", 
+			"monitor-kerberose-tcp", 
+			"monitor-portmap-tcp", 
+			"monitor-lpd-tcp",
+			"monitor-echo-tcp",
+			"monitor-daytime-tcp" ); 
+
+
+@acceptable_monitor_hosts = ( "192.9.200.169" );
+
+$verbose_output = 1; 

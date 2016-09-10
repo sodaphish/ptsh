@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/74/branches/0.2.0/plugins
+END
+provider.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/92/branches/0.2.0/plugins/provider.py
+END
+bap.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/92/branches/0.2.0/plugins/bap.py
+END
+subscriber.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/93/branches/0.2.0/plugins/subscriber.py
+END

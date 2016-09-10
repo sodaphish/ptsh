@@ -1,0 +1,68 @@
+
+
+
+Architecture
+============================================================
+
+DSM has four primary components: the subscriber agent, the
+broker, the provider agent, and the marketplace.  Each of
+these components relies on the Distributed Storage Model.
+
+Each of these five foundational concepts is described in 
+further detail below.
+
+
+SUBSCRIBER AGENT (SA)
+The subscriber agent (SA), broadly speaking, monitors the
+subscriber's local storage and pushes modified files up to 
+the broker.  While this process sounds trivial at first 
+blush, there is a tremendous amount of intelligence that 
+goes in to ensuring that the content uploaded by a 
+subscriber is properly secured and distributed.
+
+
+BROKER
+The broker is comprised of two components: a distribution
+back-end, and a subscriber front-end.
+
+PROVIDER AGENT (PA)
+
+MARKETPLACE (MP)
+
+DISTRIBUTED STORAGE MODEL (DSM)
+The Distributed Storage Model (heretoafter reffered to simply as "DSM") 
+is a package that provides the base classes and interfaces to the data 
+objects required to provide the functionality of the agents.  Broadly, 
+there are separate modules within DSM that address the specific 
+functionality of both the subscriber and provider agent environments
+
+	Dir   - 
+	File	- Complex file object for local files
+	UFile - Universal file object for files stored on provider and broker systems
+	UDir 	- Universal directory object for directory objects that are stored 
+	Store
+
+BROKER STORAGE MODEL (BSM)
+
+
+
+
+
+
+
+DB SCHEMA
+============================================================
+
+config
+	key = unique key string
+	value = multi-typed value of the key
+
+	special keys:
+		schema_ver: the version of the database schema
+
+files
+	fileid = UUID of file
+	filename = filename
+	checksum = hex repr of sha1 sum of file
+	metadata = file meta data (e.g. stat())
+	

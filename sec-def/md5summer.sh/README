@@ -1,0 +1,33 @@
+(C)opyright 2002, Corey J. Steele, all rights reserved.
+
+This program is subject to the terms and conditions of the GNU Public License (v.2).
+For questions regarding copying, modifying, and distributing this program, please
+refer to http://www.gnu.org
+
+
+INSTALLATION
+	This is no-brainer easy... 
+	1) un-pack the tar-ball (chances are good you've made it this far if you're reading
+		this.
+	2) do a `cp md5summer.conf.orig /etc/md5summer.conf`
+	3) edit /etc/md5summer.conf to include the files/directories you want md5sum'd
+	4) move md5summer.sh to /usr/sbin or /usr/local/sbin 
+	5) `mv md5summer.sh.8.gz /usr/share/man/man8/md5summer.sh.8.gz`
+	5) setup a cron job to run md5summer.sh as frequently as you would like 
+		(see also `man cron`)
+	6) to verify your files are in tact, run an 
+		`md5sum --check /path/to/the/results/of/md5summer`
+
+	Note: I'm too lazy to just write a quick install script, even though I probably 
+	could have done that quicker than writing these instructions.
+
+USAGE
+	I recommend you set up a cron job to run md5summer on a weekly basis, and a second 
+	cron job to run `md5sum --check` on the results of the run of md5summer.  Grep the 
+	results of your `md5sum --check` for "FAILED", that will tell you which files have 
+	changed.  
+
+	That isn't too complicated is it?
+
+QUESTIONS
+	email me at csteele@sodaphish.com

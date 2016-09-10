@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:35:33.814816Z"
+   url="file:///hosted/www/sodaphish.com/repos/squid-wimp"
+   last-author="csteele"
+   kind="dir"
+   uuid="c985c028-5ef0-0310-8eb8-9ac64d1ca102"
+   revision="1"/>
+<entry
+   name="weblog"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="wimp-0.1.0.pl"
+   text-time="2005-02-18T07:35:53.000000Z"
+   committed-date="2005-02-18T07:35:33.814816Z"
+   checksum="baa62eba17f229470a1c0e821a17a674"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:35:53.000000Z"/>
+<entry
+   committed-rev="1"
+   name="wimp-0.2.0.pl"
+   text-time="2005-02-18T07:35:53.000000Z"
+   committed-date="2005-02-18T07:35:33.814816Z"
+   checksum="bb9c65c2771f050ff7be9f86f7160277"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:35:53.000000Z"/>
+<entry
+   committed-rev="3"
+   name="exceptions"
+   text-time="2005-03-21T15:57:51.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="99adc61f2cce5bc66d0a19814efa179f"
+   last-author="csteele"
+   kind="file"
+   revision="3"/>
+<entry
+   committed-rev="1"
+   name="daily"
+   text-time="2005-02-18T07:35:53.000000Z"
+   committed-date="2005-02-18T07:35:33.814816Z"
+   checksum="d55bc99827b2bc2c13c57be1c6f400f4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:35:53.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="3"
+   name="wimp.py"
+   text-time="2005-03-21T15:57:27.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="49e640681903088798aa99063d299284"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T15:59:40.000000Z"
+   revision="3"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="wimp.pl"
+   text-time="2005-02-18T07:35:53.000000Z"
+   committed-date="2005-02-18T07:35:33.814816Z"
+   checksum="bb9c65c2771f050ff7be9f86f7160277"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:35:53.000000Z"/>
+<entry
+   committed-rev="3"
+   name="wimp-new.pl"
+   text-time="2005-03-21T15:58:20.000000Z"
+   committed-date="2005-03-21T16:05:32.750928Z"
+   checksum="9ddb488bbbcd99d4b3b02ba6c944776b"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-21T16:03:49.000000Z"
+   revision="3"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

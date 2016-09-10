@@ -1,0 +1,32 @@
+<FORM METHOD=POST ACTION="index.php"
+<input type=hidden name=f value=invoice>
+<input type=hidden name=sub value=invoices>
+<input type=hidden name=c value=editview>
+
+<table ALIGN=center BORDER=8>
+	<tr>
+		<td><font size+2 ALIGN=center><div align=center>Edit Invoice</font><div></td>
+	</tr><tr>
+		<td>
+			<SELECT NAME="invoice_id">
+
+<?php
+$result=mysql_query("select id, project_id,client from invoice where active!=0")or die(mysql_error());
+while(list($id,$project_id,$client )=mysql_fetch_row($result))
+{
+	$result2=mysql_query("select title from project where id=$project_id");
+	$result3=mysql_query("select company_name from client where id=$client");
+
+	list($title)=mysql_fetch_row($result2);
+	list($company_name)=mysql_fetch_row($result3);
+
+	print"\t\t\t<option value=$invoice_id>$id: $company_name: $title</option>\n";
+			break;
+}
+?>
+		</SELECT>
+		</td>
+		<td ALIGN=right><input type="submit" value="ok"></td>
+	</tr>
+</table>
+</form>

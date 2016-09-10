@@ -1,0 +1,3 @@
+#!/bin/sh
+# formats text files for printing as double-spaced files.
+fmt -s -w 75 $1 | pr -d -t -l 51 

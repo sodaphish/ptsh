@@ -1,0 +1,361 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="C.J. Steele">
+	<META NAME="CREATED" CONTENT="20110320;7270500">
+	<META NAME="CHANGEDBY" CONTENT="cjs ">
+	<META NAME="CHANGED" CONTENT="20110328;17444600">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-left: 0.5in; margin-right: 0.5in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in }
+		P.western { font-family: "Sans", sans-serif; font-size: 10pt }
+		P.cjk { font-size: 10pt }
+		H1 { margin-bottom: 0.08in; border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "DejaVu Sans"; font-size: 16pt }
+		H1.ctl { font-family: "Lohit Hindi"; font-size: 16pt }
+		H2 { margin-bottom: 0.08in }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Lohit Hindi"; font-size: 14pt; font-style: italic }
+		P.command-description-western { margin-left: 0.5in; margin-top: 0.13in; margin-bottom: 0.25in; font-family: "Sans", sans-serif; font-size: 10pt; page-break-before: auto }
+		P.command-description-cjk { margin-left: 0.5in; margin-top: 0.13in; margin-bottom: 0.25in; font-size: 10pt; page-break-before: auto }
+		P.command-description-ctl { margin-left: 0.5in; margin-top: 0.13in; margin-bottom: 0.25in; page-break-before: auto }
+		P.command-source-western { margin-left: 0.25in; margin-top: 0.08in; margin-bottom: 0.08in; font-family: "Sans", sans-serif; font-size: 12pt; font-weight: bold }
+		P.command-source-cjk { margin-left: 0.25in; margin-top: 0.08in; margin-bottom: 0.08in; font-size: 10pt }
+		P.command-source-ctl { margin-left: 0.25in; margin-top: 0.08in; margin-bottom: 0.08in }
+		TD P { margin-bottom: 0in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<DL>
+	<DL>
+		<DL>
+			<DL>
+				<DD>
+				<TABLE WIDTH=411 CELLPADDING=4 CELLSPACING=0 STYLE="page-break-inside: avoid">
+					<COL WIDTH=202>
+					<COL WIDTH=193>
+					<TR VALIGN=TOP>
+						<TD WIDTH=202 STYLE="; border: none; padding: 0in">
+							<P ALIGN=RIGHT><FONT FACE="Arial, sans-serif"><FONT SIZE=2><B>Title:</B></FONT></FONT></P>
+						</TD>
+						<TD WIDTH=193 STYLE="border: none; padding: 0in">
+							<P>“<FONT FACE="Arial, sans-serif"><FONT SIZE=2>BAP API and
+							Error Codes.odt”</FONT></FONT></P>
+						</TD>
+					</TR>
+					<TR VALIGN=TOP>
+						<TD WIDTH=202 STYLE="border: none; padding: 0in">
+							<P ALIGN=RIGHT><FONT FACE="Arial, sans-serif"><FONT SIZE=2><B>Audience:</B></FONT></FONT></P>
+						</TD>
+						<TD WIDTH=193 STYLE="border: none; padding: 0in">
+							<P><FONT FACE="Arial, sans-serif"><FONT SIZE=2>Confidential,
+							Business Critical</FONT></FONT></P>
+						</TD>
+					</TR>
+					<TR VALIGN=TOP>
+						<TD WIDTH=202 HEIGHT=13 STYLE="border: none; padding: 0in">
+							<P ALIGN=RIGHT><FONT FACE="Arial, sans-serif"><FONT SIZE=2><B>Author:</B></FONT></FONT></P>
+						</TD>
+						<TD WIDTH=193 STYLE="border: none; padding: 0in">
+							<P><FONT FACE="Arial, sans-serif"><FONT SIZE=2>C.J. Steele</FONT></FONT></P>
+						</TD>
+					</TR>
+					<TR VALIGN=TOP>
+						<TD WIDTH=202 STYLE="border: none; padding: 0in">
+							<P ALIGN=RIGHT><FONT FACE="Arial, sans-serif"><FONT SIZE=2><B>Date:</B></FONT></FONT></P>
+						</TD>
+						<TD WIDTH=193 STYLE="border: none; padding: 0in">
+							<P><FONT FACE="Arial, sans-serif"><FONT SIZE=2>2011/03/20</FONT></FONT></P>
+						</TD>
+					</TR>
+					<TR VALIGN=TOP>
+						<TD WIDTH=202 STYLE="border: none; padding: 0in">
+							<P ALIGN=RIGHT><FONT FACE="Arial, sans-serif"><FONT SIZE=2><B>Version:</B></FONT></FONT></P>
+						</TD>
+						<TD WIDTH=193 STYLE="border: none; padding: 0in">
+							<P><FONT FACE="Arial, sans-serif"><FONT SIZE=2>not-set</FONT></FONT></P>
+						</TD>
+					</TR>
+				</TABLE>
+			</DL>
+		</DL>
+	</DL>
+</DL>
+<H1 CLASS="western"></H1>
+<H1 CLASS="western">Introduction</H1>
+<P CLASS="western">This document details the Broker-Agent Protocol,
+and all possible error conditions.</P>
+<P CLASS="western">The Broker-Agent Protocol (BAP), is the
+communications protocol used by the agents to talk to the Broker, and
+vice versa.  This protocol is, in essence, JSON commands wrapped in
+Secure Socket-Layer HTTP requests.  BAP runs on port 80/tcp, and
+should, for most purposes, look like normal SSL traffic.</P>
+<P CLASS="western">BAP is broken into four parts: Subscriber
+Commands, Provider Commands, Broker Commands, and Market Commands. 
+Each of these four parts has their own section below.</P>
+<P CLASS="western">The possible error codes also have their own
+section.</P>
+<P CLASS="western"><BR><BR>
+</P>
+<H1 CLASS="western">Subscriber Commands</H1>
+<H2 CLASS="western">Register</H2>
+<P CLASS="western">Agent registration is only performed at the time
+of installation (i.e. it is part of the installer.)</P>
+<P CLASS="command-source-western">Agent sends: 
+</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Register:&lt;agent-id&gt;;
+UserID:&lt;user-id&gt;; Passphrase:&lt;passphrase&gt;;
+Version:&lt;agent-version&gt;[; Type:(Recover,Replace,New)]}</FONT></P>
+<P CLASS="command-description-western">“&lt;agent-id&gt;” is the
+universally-unique identification generated by the installer.  This
+is a 32-byte, hexidecimal number that will be used to identify this
+agent, specifically.  “&lt;user-id&gt;” is the user's email
+address.  User ID's must be unique.  An individual user may have
+multiple agents associated to it.  “&lt;passphrase&gt;” is an MD5
+sum of the user's pass-phrase; strong passwords will be encouraged,
+but no obscene requirements will be imposed.  The “&lt;agent-version&gt;”
+will be the version of the agent being installed.  The optional
+“Type” field is specified if the installer detects a previous
+agent associated with a specified UserID, otherwise it is assumed to
+be “New”.</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Complete:&lt;agent-id&gt;[;Type:(Recover,Replace,New)}</FONT></P>
+<P CLASS="command-description-western">If the agent is successfully
+registered, the Broker responds with the agent's “&lt;agent-id&gt;”.
+ Optionally (and specifically, if the agent's {Register} command
+specified a type) the Type is also returned, being one of Recover,
+Replace or New.  
+</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;
+Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">If any error occurs during the
+registration, the Broker responds with an appropriate error-code and
+detail information.  Error codes are all listed later in this
+document.</P>
+<H2 CLASS="western">Heartbeat</H2>
+<P CLASS="western">Though the Subscriber's heart-beat is not used to
+“grade” their environment, we do require the heart-beat to be
+sent periodically</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Heartbeat:&lt;agent-id&gt;;Validation:&lt;validation-hash&gt;}</FONT></P>
+<P CLASS="command-description-western">Subscriber Agent heart-beats
+are different from Provider Heart-beats, however both provide a
+validation-hash.  
+</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Heartbeat:OK;
+Missed:&lt;missing-heartbeat-count&gt;[;Job:&lt;recovery-job-id&gt;;JobStatus:(Submitted,Pending,Received,Downloading,Completed,Unknown)]}</FONT></P>
+<P CLASS="command-description-western">If the heart-beat is received
+and all is well, the Broker will respond with an affirmative, “OK”.
+ Additionally, the “Missed” field will provide the agent a count
+of heart-beats it has missed in the last billing period.  If the
+subscriber has pending recovery jobs, the Broker will respond with
+the JobID (&lt;recovery-job-id&gt;) and its Status.  “Submitted”
+means that the job has been received by the Broker, but no Providers
+have responded.  “Pending” means that the job has been picked-up
+by at least one provider.  “Received” means that a provider has
+uploaded a validated response to the broker.  “Downloading” means
+that the subscriber has begun the download process.  “Completed”
+means the Subscriber has successfully downloaded the file.  “Unknown”
+is used for any other state.</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;
+Detail:&lt;detail}</FONT></P>
+<P CLASS="command-description-western">In the event that there is an
+error in receiving the Heartbeat, the Broker will respond with the
+appropriate error-code.</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western">Announce 
+</H2>
+<P CLASS="western">The {Announce} command is used by subscribers to
+communicate a file change to the Broker.  There are three kinds of
+announcements: Add, Remove, and Update.   All three changes use the
+same {Announce} command,</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Announce:(Add,Remove,Update);
+AgentID:&lt;agent-id&gt;; FileID:&lt;file-id&gt; [;Data:&lt;data&gt;]}</FONT></P>
+<P CLASS="command-description-western">The Announce field will
+specify the type of announcement, which is ALWAYS one of: Add,
+Remove, or Update.  The “&lt;agent-id&gt;” will be the agent's
+unique ID.  “&lt;file-id&gt;” is the UUID of the file-object the
+announcement is about, and when the Announcement is an “Add” or
+“Update”, then the “&lt;data&gt;” field will contain data
+associated with the “&lt;file-id&gt;”</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Received:&lt;file-id&gt;}</FONT></P>
+<P CLASS="command-description-western">When a file has been received
+by the Broker via an announcement from a subscriber, 
+</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;
+Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">In the event that an error
+occurrs, the Broker will respond with an appropriate error-code. All
+error codes are defined later in this document.</P>
+<H2 CLASS="western">Recover</H2>
+<P CLASS="western">Submits an individual file (by ID) to the Broker
+for recovery.  
+</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Recovery:&lt;file-id&gt;}</FONT></P>
+<P CLASS="command-description-western">The agent can recover an
+individual file-object, as specified with &lt;file-id&gt;.  Recovery
+works just like it would with a full-blown recovery: the broker
+advertises the file for recovery, it gets uploaded, and then the
+subscriber's recovery queue downloads the file from the Broker.</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Recovery:&lt;recovery-job-id&gt;}</FONT></P>
+<P CLASS="command-description-western">The broker responds to the
+subscriber with a &lt;recovery-job-id&gt; that can be used to query
+the status of the job in subsequent HELLO's.</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">In the event that an error
+occurs, the broker will respond with the appropriate error code and
+detail data.  
+</P>
+<P CLASS="western"><BR><BR>
+</P>
+<H1 CLASS="western">Provider Commands</H1>
+<H2 CLASS="western">Register</H2>
+<P CLASS="western">The registration command is only sent during the 
+</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Register:&lt;agent-id&gt;;
+UserID:&lt;user-id&gt;; Passphrase:&lt;passphrase&gt;;
+AgentType:(Subscriber,Provider); Version:&lt;agent-version&gt;}</FONT></P>
+<P CLASS="command-description-western">Registration 
+</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Registered:&lt;agent-id&gt;}</FONT></P>
+<P CLASS="command-description-western">If the agent is successfully
+registered, the Broker responds, confirming the agent's ID.</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;
+Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">If there was an error
+registering the agent (e.g. agent ID already allocated), then the
+Broker responds with the appropriate error-code.  All error codes are
+documented later in this document.</P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western">Heartbeat</H2>
+<P CLASS="western">The Heartbeat is used for accounting purposes on
+Provider Agents.  Providers are given a fixed number of heart-beats
+per billing period that they are allowed to miss before there is a
+negative impact on the Provider's renumeration.</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Heartbeat:&lt;agent-id&gt;;
+Validation:&lt;validation-hash&gt;; Capacity:&lt;capacity&gt;;
+Utilization:&lt;utilization&gt;}</FONT></P>
+<P CLASS="command-description-western">The agent sends its
+heart-beat, including the agent-id, a validation-hash, client
+capacity, and utilization.  
+</P>
+<P CLASS="western">	The validation-hash is a special 
+</P>
+<P CLASS="command-description-western">Capacity and Utilization are
+measured in terms of kilo-bytes (i.e. 2^10 bytes).</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Heartbeat:OK}</FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="western" STYLE="margin-bottom: 0in"><BR>
+</P>
+<H2 CLASS="western">Hello</H2>
+<P CLASS="western">Hello commands are sent routinely, on a schedule
+to be determined by the Provider's “Grade”.</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Hello:&lt;agent-id&gt;}</FONT></P>
+<P CLASS="command-description-western">“agent-id” is the UUID of
+the agent sending the request.</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Retrieve:&lt;queue-count&gt;;Distribute:&lt;queue-count&gt;;Remove:&lt;queue-count&gt;}</FONT></P>
+<P CLASS="command-description-western">“queue-count” refers to
+the number of items in each respective queue.</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">In the event that an error
+condition occurs, 
+</P>
+<H2 CLASS="western">GetQueue</H2>
+<P CLASS="western">GetQueue is sent by Provider agents, after a
+{Hello} command, or if a previous {GetQueue} had the More” flag
+set.</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{GetQueue:(Retrieval,Distribution,Removal)}</FONT></P>
+<P CLASS="command-description-western">The only argument to GetQueue
+is which queue the agent is requesting.</P>
+<P CLASS="command-source-western">Broker Responses:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Queue:(Retrieval,Distribution,Removal);Count:&lt;queue-count&gt;;Contents:&lt;queued-file-ids&gt;[;More:(True,False)]}</FONT></P>
+<P CLASS="command-description-western">Broker responses will always
+identify which queue they are responding to, along with the
+“&lt;queue-count&gt;” to identify how many items are in the
+requested queue, and if there are items in the queue, a list of
+file-id's to process.  
+</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;:Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">On an error condition, the
+broker will respond with a relevant error-code and supporting
+details.  The error-code here should typically be in the 2000-2999
+range.</P>
+<P CLASS="western">Only the first 1024 files-id's are returned in the
+queue list; if there are more than 1024 items, then the server will
+set the “More:” flag to “True”.</P>
+<H2 CLASS="western">GetFile</H2>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{GetFile:&lt;file-id&gt;;AgentID:&lt;agent-id&gt;}</FONT></P>
+<P CLASS="command-description-western">The agent sends “&lt;file-id&gt;”,
+which is the UUID of the file to be received, as well as its own
+“&lt;agent-id&gt;” for the purpose of</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{URI:&lt;file-uri&gt;}</FONT></P>
+<P CLASS="command-description-western">The “&lt;file-uri&gt;” is
+the uniform resource identifier where a file can be downloaded.</P>
+<H2 CLASS="western">ValidateFile</H2>
+<P CLASS="western">Upon completing the download of a URI provided by
+{GetFile}, the agent performs a checksum on the data downloaded, and
+sends it back to the Broker to verify the integrity of the download.</P>
+<P CLASS="command-source-western">Agent sends:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{ValidateFile:&lt;file-id&gt;;Checksum:&lt;checksum&gt;}</FONT></P>
+<P CLASS="command-description-western">“&lt;file-id&gt;” is the
+UUID of the file downloaded.  “&lt;checksum&gt;” is the SHA1
+checksum of the data block downloaded.</P>
+<P CLASS="command-source-western">Broker responds:</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Valid:&lt;file-id&gt;}</FONT></P>
+<P CLASS="command-description-western">If the file is successfully
+validated, the broker will respond back to the client with the same
+“&lt;file-id&gt;” it waspassed.</P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Mono">{Error:&lt;error-code&gt;;
+Detail:&lt;detail&gt;}</FONT></P>
+<P CLASS="command-description-western">In the event the checksums do
+not match, or other error conditions, the broker will respond with
+the appropriate error-code.</P>
+<H1 CLASS="western">Broker Commands</H1>
+<P CLASS="western"><BR><BR>
+</P>
+<H1 CLASS="western">Market Commands</H1>
+<P CLASS="western"><BR><BR>
+</P>
+<P CLASS="western"><BR><BR>
+</P>
+<H1 CLASS="western" STYLE="page-break-before: always">BAP Error Codes</H1>
+<P CLASS="western">What follows is an exhaustive list of the
+error-codes understood by the components within the system.</P>
+<P CLASS="western"><B>Each error will be accompanied by the
+conditions required (or un-met) for the error to occur, and the
+expected response by the Subscriber Agent, Provider Agent, and
+Broker.</B></P>
+<H2 CLASS="western">1000-1999 – Agent Registration</H2>
+<UL>
+	<LI><P CLASS="western">1100 – Agent ID Error</P>
+	<LI><P CLASS="western">1200 – User ID Error</P>
+	<LI><P CLASS="western">1300 – Version Error</P>
+</UL>
+<H2 CLASS="western">2000-2999 – Broker Protocol</H2>
+<UL>
+	<LI><P CLASS="western">2000 – </P>
+</UL></BODY>
+</HTML>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-06-14T17:49:17.135218Z"
+   url="file:///hosted/www/sodaphish.com/repos/setlogattrs"
+   last-author="csteele"
+   kind="dir"
+   uuid="87bf2141-84f9-0310-926d-a916df090c95"
+   revision="1"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="slattrs.pl"
+   text-time="2005-06-14T18:04:23.000000Z"
+   committed-date="2005-06-14T18:04:36.340898Z"
+   checksum="a05efdc61e0f2cae6fac83e180afa489"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-06-14T18:04:08.000000Z"
+   revision="2"/>
+<entry
+   name="tags"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="slattrs.init"
+   text-time="2005-06-14T18:04:08.000000Z"
+   committed-date="2005-06-14T17:49:17.135218Z"
+   checksum="93fd5ffc966087386c71f68a1af8d68f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-06-14T18:04:08.000000Z"/>
+</wc-entries>

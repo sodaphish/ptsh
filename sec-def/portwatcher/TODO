@@ -1,0 +1,15 @@
+o  improve monitors' socket connection/control to the listener (so if the
+	listener dies away, the monitors know about it and go too.)
+o  improve method of 'authenticating' monitor connections... presently 
+	by host only.
+o  add levels of verbosity for the syslog logging routines.
+o  add optional e-mail notification on-blocking of host.
+o  document the config file
+o  add code to do some 'investigating' on the 'attacking' host before we
+	cut them off at the knees.  this report (of sorts) could be 
+	e-mailed to an administrative contact.
+o  include code to expire blocking chains that have been in place for a 
+	long time (how likely is jonny skript kiddie going to be at tryin
+	to port scan the same box twice unless he's focused?)
+o  write scripts to mangle the pwatch chain in IPChains so the user can
+	be ignorant of how to mangle IPChains by hand.

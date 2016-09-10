@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:36:23.249501Z"
+   url="file:///hosted/www/sodaphish.com/repos/cfgctl"
+   last-author="csteele"
+   kind="dir"
+   uuid="2581c12b-5ef0-0310-8028-d1746e8f316f"
+   revision="1"/>
+<entry
+   committed-rev="2"
+   name="ucase"
+   text-time="2005-03-30T23:15:05.000000Z"
+   committed-date="2005-03-31T04:19:31.365860Z"
+   checksum="b15bfcddf43ced3c735db8c3f7d60c25"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-03-30T23:15:10.000000Z"
+   revision="2"/>
+<entry
+   committed-rev="1"
+   name="cfgctl"
+   text-time="2005-02-18T07:36:43.000000Z"
+   committed-date="2005-02-18T07:36:23.249501Z"
+   checksum="9b4925eade02a7e033d7cf0d3c237dba"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:36:43.000000Z"/>
+<entry
+   committed-rev="2"
+   name=".installMap"
+   text-time="2005-03-30T23:38:48.000000Z"
+   committed-date="2005-03-31T04:19:31.365860Z"
+   checksum="756174439559f0931d6d402b20e4abd1"
+   last-author="csteele"
+   kind="file"
+   revision="2"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="setupenv"
+   text-time="2005-03-30T23:41:16.000000Z"
+   committed-date="2005-03-31T04:19:31.365860Z"
+   checksum="98cedb9ba74ac8a477127fdf22a58b19"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:36:43.000000Z"
+   revision="2"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

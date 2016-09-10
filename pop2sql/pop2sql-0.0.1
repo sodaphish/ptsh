@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+# pop2sql v0.0.1 by C.J. Steele <coreyjsteele@yahoo.com>
+# 	(C)opyright 2003, all rights reserved.
+# 
+# goal: to dump mail from pop3 mailbox to sql database for later grokking.
+# TODO/ROADMAP:
+#	* cleanup mail addresses so only the actual e-mail address is retained. (v.0.0.2)
+#	* implement a white-list of addresses allowed to dump data in to the database. (v.0.0.3)
+#	* strip html from messages (v.0.1.0)
+#	* verbose output flag to print summary of run's results (v.0.1.0)
+use strict;
+use Net::POP3;
+use DBD::mysql;
+
+my $popserver = "pop.mail.yahoo.com"; 
+my $popuser = "coreyjsteele"; 
+my $poppassword = "password"; 
+my $dbserver = "localhost"; 
+my $dbuser = "root"; 
+my $dbpassword = ""; 
+my $dbname = "main"; 
+my $dbtable = "infosec_mail"; 
+
+my $pop_h = Net::POP3->new( $popserver );
+$pop_h->login( $popuser, $poppassword ); 
+my $db_h = DBI->connect( "dbi:mysql:$dbname;host=$dbserver", "$dbuser", "$dbpassword" ); 
+my( $msgcount, $size ) = $pop_h->popstat();
+for( my $x = 1; $x <= $msgcount; $x++ )
+{
+	my $message = $pop_h->get( $x ); 
+	my $msg =""; 
+	my $subject =""; 
+	my $from =""; 
+	my $date =""; 
+
+	foreach( @$message )
+	{
+		#sanitize input variables... 
+		$_ =~ s/\'/\\\'/g; 
+		$msg .= $_; 
+		if( $_ =~ m/from: /i )
+		{
+			chomp( $_ ); 
+			$from = $_; 
+			$from =~ s/^from: //i; 
+		}
+			
+		if( $_ =~ m/subject: /i )
+		{
+			chomp( $_ );
+			$subject = $_; 
+			$subject =~ s/^subject: //i; 
+		}
+
+		if( $_ =! m/date: /i )
+		{	
+			chomp( $_ );
+			$date = $_;
+			$date =~ s/^date: //i; 
+		}
+	}
+
+	#we've got the parts of the message, dump them into the database...
+	$db_h->do( "insert into $dbtable ( frm, dt, sbj, msg ) values ( '$from', '$date', '$subject', '$msg' )" ); 
+
+	#delete the message from the popbox...
+	#$pop_h->delete( $x );
+
+}
+
+exit( 0 );

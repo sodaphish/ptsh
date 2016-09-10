@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:43.975898Z"
+   url="file:///hosted/www/sodaphish.com/repos/iptfw"
+   last-author="csteele"
+   kind="dir"
+   uuid="5f06538d-5ef0-0310-a70d-8edda5f23be6"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="iptfw.sh"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="2b1dea33f66f8f1abcf8746eb140eac2"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   name="www"
+   kind="dir"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   name="iptfw-0.2.1"
+   kind="dir"/>
+<entry
+   name="iptfw-0.3.0"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="iptfw.txt"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="540c77c320d002733903d210cfcb596a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="iptfw-0.2.1.tar.gz"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="62d58222fc6b03d535b3ad640d2b1fa7"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="lstrusted"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="6679d913f935e0517a7cf8cd394d55d4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   name="phpBB_access_mod"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="iptfw-0.1.0.sh"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="5370985f6362d3529c71d49ebe6e27cd"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="iptfw-0.2.0.sh"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="e2934a852f4353c5a318f721193bab6a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

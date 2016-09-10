@@ -1,0 +1,35 @@
+' Gambas class file
+
+PUBLIC SUB Button1_Click()
+  DIM hproc AS Process
+  DIM buf AS String
+  DIM sCads AS NEW String[]
+  DIM a AS Integer
+  DIM NombreArchivoSalida AS String
+  DIM mensaje AS String
+  ListBox1.Clear
+  NombreArchivoSalida = User.home & "/print.txt"
+  IF Exist(NombreArchivoSalida) THEN
+    KILL NombreArchivoSalida
+  END IF
+  'PRINT "ping -c3 -i 2 "; TextBoxIP.Text & " >"; NombreArchivoSalida
+  hproc = SHELL ("ping -c3 -i 2 " & TextBox1.Text & " >" & NombreArchivoSalida)
+  DO WHILE hproc.State = Process.Running
+    WAIT 0.1
+    TextBox1.text = "espere..."
+  LOOP
+  TextBox1.text = "Salida generada"
+  sCads = Split(File.Load(NombreArchivoSalida), "\n")
+  FOR a = 0 TO scads.Count - 1
+    ListBox1.Add(Str(sCads[a]))
+    IF InStr(scads[a], "0% packet loss") <> 0 THEN
+      mensaje = "No hay paquetes perdidos"
+    ENDIF
+    ' PRINT scads[a]
+  NEXT
+  IF mensaje = "No hay paquetes perdidos" THEN
+    Message.Info("No hay paquetes perdidos")
+  ELSE
+    Message.Info("Ha habido algun problema")
+  ENDIF
+END

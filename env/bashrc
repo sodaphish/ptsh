@@ -1,0 +1,17 @@
+if [ "$PS1" ]; then
+	# we're running interactively
+
+	alias cpl='clear; ping localhost'
+	alias l='ls -l'
+	alias la='ls -a'
+	alias lal='ls -al'
+	alias psaux='ps -aux'
+	alias xlock='xscreensaver-command -lock'
+	alias vi='vim'
+	alias ls="ls --color=no"
+	set -o vi
+	source ~/bin/setupenv
+fi
+
+#turn on ssh-agent by default.
+#eval `agenton`

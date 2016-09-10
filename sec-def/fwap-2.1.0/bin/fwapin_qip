@@ -1,0 +1,253 @@
+#!/usr/bin/perl
+# fwapin_qip by C.J. Steele <csteele@good-sam.com>
+#  2 Oct 2003
+#
+# *********************************************************************
+# NEVER EVER EVER SEND SIGNAL 9 TO THE PROCESS CONTROLLING THIS SCRIPT!
+# 	...it will dork things up beyond all imagineable believe.
+# *********************************************************************
+#
+# fwapin_qip is the FWAP intake script for the QIP DHCP data.  This 
+# script monitors the 'current' QIP logs for additions and then parses 
+# those additions and logs them to the MySQL database.  This script is 
+# crafted specifically to handle log rotations and will be used in 
+# conjunction with `fwapd` and `chkfwapd` to ensure that no data is lost.
+# 
+# sample data lines:
+#
+#Jul  7 15:54:11 ns1.good-sam.com EvntSLog: [INF] Mon Jul 07 15:53:57 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP_RenewLease: Host=LYGS IP=172.23.7.133 MAC=005004737d54 Domain=3070.good-sam.com "
+#
+#Jul  9 03:04:49 ns1.good-sam.com EvntSLog: [INF] Wed Jul 09 03:04:45 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP_GrantLease: Host=ws50528 IP=172.25.27.137 MAC=00062934e1db Domain=5270.good-sam.com "
+#
+#Jan 21 12:03:49 ns1.good-sam.com EvntSLog: [INF] Tue Jan 21 12:03:09 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP Release: Host=Interact IP=172.16.108.116 MAC=00105ae03d5e Domain=0010a.good-sam.com "
+#
+#Jul  7 07:06:08 ns1.good-sam.com EvntSLog: [INF] Mon Jul 07 07:05:50 2003: N\A/Application/NS1/QIP DHCP Server (110) - "DHCP Auto Release: Host=0010BEARHART IP=172.16.105.165 MAC=00096b90ca70 Domain=0010.good-sam.com "
+#
+#
+#
+# TODO/ROADMAP:
+#	* check integrity of $ino & $linc after BEGINNING:
+# 
+use strict;
+use DBD::mysql;
+use File::Basename;
+use POSIX;
+use Shell qw( rm touch );
+
+
+#handle all signals except KILL
+$SIG{'INT'} = \&diegracefully; 
+$SIG{'QUIT'} = \&diegracefully; 
+$SIG{'HUP'} = \&diegracefully; 
+$SIG{'SEGV'} = \&diegracefully; 
+$SIG{'TERM'} = \&diegracefully; 
+
+
+my %conf = ( 
+	'fwap_dir' => "/var/www/html/sec/fwap2", 
+	'fwap_bindir' => "/var/www/html/sec/fwap2/bin",
+	'fwap_piddir' => "/var/www/html/sec/fwap2/pid",
+	'logdir' => "/var/log/hosts/ns1.good-sam.com",
+	'logfile' => "current",
+	'db_name' => "fw2",
+	'db_user' => "root",
+	'db_pass' => ""
+);
+
+
+my %months = ( "Jan" => "01", "Feb" => "02", "Mar" => "03", "Apr" => "04", "May" => "05", "Jun" => "06", "Jul" => "07", "Aug" => "08", "Sep" => "09", "Oct" => "10", "Nov" => "11", "Dec" => "12" );
+
+
+#check PID file and if it doesn't exist, dump our pid in there...
+my $name = basename($0); 
+if( -e "$conf{'fwap_piddir'}/$name.pid" )
+{
+	#there's already a pid file, RUN AWAY
+	print STDERR "the pid/lock file, $conf{'fwap_piddir'}/$name.pid, exists.\n";
+	exit( 1 );
+} else {
+	open( PID, ">$conf{'fwap_piddir'}/$name.pid" ); 
+		print PID "$$"; 
+	close( PID );
+}
+
+#check to see if our state file exists, if not, touch it
+# so we don't bomb out after BEGINNING:
+if( ! ( -e "$conf{'fwap_piddir'}/$name.state" ) )
+{
+	touch "$conf{'fwap_piddir'}/$name.state"; 
+}
+
+
+#determine $logfile
+my $logfile; 
+if( $ARGV[0] )
+{
+	$logfile = "$ARGV[0]"; 
+} else {
+	$logfile = "$conf{'logdir'}/$conf{'logfile'}"; 
+}
+
+
+#setup database connection
+my $dbh = DBI->connect( "dbi:mysql:mysql_socket=/var/lib/mysql/mysql.sock;database=$conf{'db_name'}", $conf{'$db_user'}, $conf{'$db_pass'} )
+	or diegracefully( "Couldn't connect to database ($DBI::errstr)" );
+
+
+
+
+
+
+
+BEGINNING:
+
+#load persistance information...
+my( $ino, $linc );
+open( STATE, "$conf{'fwap_piddir'}/$name.state" ) or diegracefully( "$!" );
+while( <STATE> )
+{
+	( $ino, $linc ) = split( /\ /, $_, 2 );	
+}
+close( STATE ); 
+
+
+my $inode = (stat($logfile))[1]; 
+my $linecount = 0;
+
+
+if( $ino != $inode )
+{
+	$linc = 0; 
+	print STDERR "W: resuming in a different file, disregarding linecounter.\n";
+}
+
+	
+
+
+open( IN, "$logfile" ) or diegracefully( "$!" ); 
+for(;;)
+{
+
+	#get input 
+	my $input = <IN>;
+
+	#check if there was input
+	if( $input )
+	{
+
+		if( $linecount >= $linc )
+		{
+
+			#there WAS input, process it
+			chomp( $input );
+
+
+			my( $msg ) = substr( $input, 120 ); chop( $msg );
+			my( $date ) = substr( $input, 49, 24 ); 
+
+			if( $msg =~ "DHCP_GrantLease" or $msg =~ "DHCP_RenewLease" or 
+				$msg =~ "DHCP Release" or $msg =~ "DHCP Auto Release" )
+			{
+
+				my( $msg, $keys ) = split( /\:/, $msg, 2 ); 
+				my @tokens; push( @tokens, $_ ) foreach( split( /\s/, $keys ) ); 
+	
+				$date = convtime( $date ); 
+				my( $host ) = (split( /\=/, $tokens[1], 2 ))[1];
+				my( $ip ) = (split( /\=/, $tokens[2], 2 ))[1]; 
+				my( $mac ) = (split( /\=/, $tokens[3], 2 ))[1]; 
+
+				$msg = 0 if( $msg =~ "DHCP_GrantLease" );
+				$msg = 1 if( $msg =~ "DHCP_RenewLease" );
+				$msg = 2 if( $msg =~ "DHCP Release" );
+				$msg = 3 if( $msg =~ "DHCP Auto Release" );
+
+				if( $ip !~ /^[0-9]*.[0-9]*.[0-9]*.[0-9]*/ )
+				{
+
+					#this machine has a space in its hostname, it needs to be changed.
+					#print OUT "FAILED: $orig\n";
+
+				} else {
+
+					$dbh->do( "insert into leaseinfo ( date, type, ip, mac, host ) values ( '$date', '$msg', '$ip', '$mac', '$host' )\n" ) 
+						or diegracefully( "$!" );
+		
+				}
+
+			} else {
+				# we don't care.
+			}
+
+
+		} 
+
+		#there was input, increment our linecounter...
+		$linecount++; 
+
+	} else {
+
+		#no input, check our inode while we wait...
+		sleep 1;
+		if( (stat($logfile))[1] != $inode )
+		{
+			#logfile's inode is different, our logfile has rotated!
+			close( IN );
+			sleep 1; 
+			goto BEGINNING; 
+		} else {
+			#inode is fine, clear the eof
+			seek( IN, 0, 1 );
+		}#end-if
+
+	}#end-if
+
+}#end-for
+close( IN );
+
+#cleanup our db connection...
+$dbh->disconnect();
+
+exit( 0 );
+
+
+
+
+
+
+sub diegracefully 
+{
+	if( @_ )
+	{
+		print STDERR "E: $_\n" foreach( @_ )
+	}
+
+	#linc must be +1 of whatever linecount was in order to resume naturally
+	$linecount++; 
+
+	open( STATE, ">$conf{'fwap_piddir'}/$name.state" );
+		print STATE "$inode $linecount"; 
+	close( STATE );
+
+	#remove our pid file.
+	rm( "$conf{'fwap_piddir'}/$name.pid" );
+
+	print STDERR "N: we're dying gracefully...\n"; 
+
+	#finally, go away...
+	exit( 1 );
+}
+
+
+
+
+#comes in as: "Mon Jul 07 07:05:50 2003" and leaves as: "YYYY-MM-DD HH:MM:SS"
+sub convtime
+{
+	my $time = shift;
+	$time = substr( $time, 4 ); 
+	my( $mon, $day, $time, $yr ) = split( /\s/, $time, 4 ); 
+
+	return "$yr-$months{$mon}-$day $time"; 
+}
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:43.975898Z"
+   url="file:///hosted/www/sodaphish.com/repos/iptfw/phpBB_access_mod"
+   last-author="csteele"
+   kind="dir"
+   uuid="5f06538d-5ef0-0310-a70d-8edda5f23be6"
+   revision="1"/>
+<entry
+   name="access"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="INSTALL"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="ec641ae3b46c67e728ef897f02b7c7f6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="access.php"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="252ef96ceac6ff8fc68ea11c94c4cb1a"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+<entry
+   committed-rev="1"
+   name="lstrusted"
+   text-time="2005-02-18T08:04:24.000000Z"
+   committed-date="2005-02-18T08:03:43.975898Z"
+   checksum="75c0a6312db6c57c8699f7419c8b26c6"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:04:24.000000Z"/>
+</wc-entries>

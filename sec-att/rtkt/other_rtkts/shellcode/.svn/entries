@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt/other_rtkts/shellcode"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="execve.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="380bd691d1a85ddbee00e03fb7fc7859"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="ptracebreak.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="5e08b51b0c5096ef8be4db6846c7b5f4"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="connect.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="49b78e7e85d237ce4ff5065c62b9d6aa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="bindchroot.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="9923061a3ac37e0ab906e2167c4c3935"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="setuidchroot.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="52c96e366bfa7e92a9fba6d747be85dc"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="bind.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="24ebdbb3d8fb5ae514ac916df8db8e9c"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="readme"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="e47798de643de08c71dafa0e13efb0e8"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+<entry
+   committed-rev="1"
+   name="setuid.c"
+   text-time="2005-02-18T07:31:33.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="5fdab8fd05899f4bc7715e719c462380"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:33.000000Z"/>
+</wc-entries>

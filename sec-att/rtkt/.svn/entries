@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:30:57.550450Z"
+   url="file:///hosted/www/sodaphish.com/repos/rtkt"
+   last-author="csteele"
+   kind="dir"
+   uuid="d903da14-5ef0-0310-9e1e-cc964c9e7c92"
+   revision="1"/>
+<entry
+   name="rtkt-0.3.0"
+   kind="dir"/>
+<entry
+   name="rtkt-developmental"
+   kind="dir"/>
+<entry
+   name="rtkt-0.2.2-dist"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="rtkt-0.1.0.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="960d863a44932e3a42a0428f5098b1ad"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   name="trunk"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="rtkt-0.2.2-priv.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="bbd562066264451c595e85cd49289f37"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rtkt-0.2.1.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="e5defe62fe1723356f402e657364ed3f"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   committed-rev="1"
+   name="rtkt-0.3.0.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="840afe4fa7e45219799999c4178f28de"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   name="branches"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="rtkt-0.2.2-dist.tar.gz"
+   text-time="2005-02-18T07:31:30.000000Z"
+   committed-date="2005-02-18T07:30:57.550450Z"
+   checksum="0633acd7fd08430910254ba6f07e8aaa"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:31:30.000000Z"/>
+<entry
+   name="other_rtkts"
+   kind="dir"/>
+<entry
+   name="tags"
+   kind="dir"/>
+</wc-entries>

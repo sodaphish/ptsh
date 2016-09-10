@@ -1,0 +1,19 @@
+#!/bin/sh
+# setupenv v0.0.1 by C.J. Steele <csteele@forwardsteptech.com
+#
+# this script needs to be `source`d from your .bashrc file and will 
+# setup your environment variables for you at login.  these environment
+# variables can be managed through `cfgctl`, and can be used to in 
+# other scripts that can interface with cfgctl.
+# 
+
+OLDPWD=`pwd`
+cd ~/.cfgctl
+for f in `ls env.shell.*`; do
+	VAR=`echo $f | sed -e s/env\.shell\.//`
+	VAR=`ucase $VAR | sed -e s/\ //g`
+	VAL=`cat $f`
+	echo setting $VAR...
+	eval export $VAR=\"$VAL\"
+done
+cd $OLDPWD

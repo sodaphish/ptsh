@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# initProject by C.J. Steele <coreyjsteele@yahoo.com>
+# 
+# script aids in the setup and management of scripts in subversion repository
+# 
+
+REPOS=`cfgctl svn.repospath`
+PROJ=`basename \`pwd\``
+SVN=`which svn`
+SVNADMIN=`which svnadmin`
+
+mkdir branches
+mkdir tags
+mkdir trunk
+
+$SVNADMIN create $REPOS/$PROJ
+$SVN import `pwd` file://$REPOS/$PROJ -m "initial import via initProject"

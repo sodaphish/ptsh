@@ -1,0 +1,7 @@
+`tattle` automates the task of reporting ssh brute-force attacks.  It should
+work with minimal fuss: simply tell `tattle` where to find the sshd logs, what
+your email address is, and what domains to exclude, install it in cron, and
+away you go.  The majority of these steps involve editing the top portion of
+the script, directly.  Doing so should be pretty straight-forward.
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T08:03:02.219940Z"
+   url="file:///hosted/www/sodaphish.com/repos/fwap-1.0.0/.historical"
+   last-author="csteele"
+   kind="dir"
+   uuid="4e26b68a-5ef0-0310-8b4b-ebe0e86874b4"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="stats-0.2.0.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="60fc7ae29523910d8e2bd96a310426a5"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+<entry
+   committed-rev="1"
+   name="stats-0.1.0.php"
+   text-time="2005-02-18T08:03:25.000000Z"
+   committed-date="2005-02-18T08:03:02.219940Z"
+   checksum="489efec1c79bf04f078869fe1ff352b3"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T08:03:25.000000Z"/>
+</wc-entries>

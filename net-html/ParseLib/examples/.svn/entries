@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-02-18T07:23:26.860817Z"
+   url="file:///hosted/www/sodaphish.com/repos/ParseLib/examples"
+   last-author="csteele"
+   kind="dir"
+   uuid="e9b065fd-5df0-0310-ad3c-e19758d69879"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="layout.tmpl"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="ab7efc011096c614e541a074a1adf057"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+<entry
+   committed-rev="1"
+   name="index.cgi"
+   text-time="2005-02-18T07:23:43.000000Z"
+   committed-date="2005-02-18T07:23:26.860817Z"
+   checksum="1b7ffc33389a69d733a771fe487ad991"
+   last-author="csteele"
+   kind="file"
+   prop-time="2005-02-18T07:23:43.000000Z"/>
+</wc-entries>

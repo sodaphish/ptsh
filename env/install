@@ -1,0 +1,48 @@
+#!/bin/sh
+# seutp login environment...
+# usage: ./install [-s]
+# 	-s	syncrhonizes current variables with setup script
+#
+# use -s when changes have been made to the environment stuff (i.e. 
+# you've tweaked your irssi install and you want it to be copied in to 
+# the install library.
+# 
+# need to account for other config things like '.vimrc', and other 
+# necessary files.
+# 
+
+SRC=~/src/mine
+
+if [ "$1" -eq "-s" ]; then
+
+	# sync our environment variables back to the install directory
+	echo "I: syncing shell environment..."
+
+else 
+
+	# install shell environment bits
+	echo "I: installing shell environment..."
+
+	# setup necessary directories...
+	DIRS="~/bin/"
+	for d in $DIRS; do
+		echo "I: installing directory $d"
+		echo mkdir $d
+	done
+	cp bin/spc* ~/bin/
+
+	# setup environment variables...
+	for f in `ls -d -1 $SRC/env/* | grep -v bin`; do
+		echo "I: installing file $f"
+		echo cp -rf $f ~/.`basename $f`
+	done
+
+	# copy bins
+
+	# install cfgctl
+
+	# setup cfgctl variables (needs to be smart enough to know what UID we're using.)
+
+fi
+
+echo "I: done."

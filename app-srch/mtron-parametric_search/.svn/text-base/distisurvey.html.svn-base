@@ -1,0 +1,434 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<form method="post" action="distisurvey.cgi">
+  <p>M-tron Industries, Inc. would like to give our dedicated distributors the 
+    opportunity to rate our performance on various points that relate to our business. 
+    In an effort to meet the needs of the distributor, we have focused on some 
+    key questions that pertain to the demands of today. We hope that everyone 
+    who elects to respond to this survey will take the time to answer each question 
+    as honestly and completely as possible. There is a comment section as the 
+    end of the survey. We hope that many of you will take the time to elaborate 
+    on the questions that need more extensive answers. You may also choose to 
+    comment on points that you find critical, that we may have missed in the survey. 
+    This is a blind survey and will not be taken personally in any way. Our sole 
+    purpose is to learn from your responses and to heed your suggestions and comments. 
+  </p>
+  <p>Thank you for your time and your valued opinion. We look forward to the year 
+    2001 with tremendous growth and prosperity for the Distributor and for M-tron.</p>
+  <h3>Please rate each question below on a scale of 1 to 5, with 5 being BEST.</h3>
+  <table width="90%" border="5" bordercolorlight="#CCCCCC" bordercolordark="#999999" cellpadding="0">
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Are the quoted lead times today meeting the demands of your customers?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Are the prices quoted meeting the competitive issues in your marketplace?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice2" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice2" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice2" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice2" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice2" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How would you rank M-tron quality?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice3" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice3" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice3" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice3" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice3" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How would you rank M-tron's inside sales support?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice4" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice4" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice4" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice4" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice4" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>When directing attention to NCNR, scheduling, and competitive<br>
+          issues, would you consider M-tron to be flexible in negotiations?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice5" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice5" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice5" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice5" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice5" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How would you rank M-tron overall in meeting the competitive issues?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice6" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice6" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice6" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice6" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice6" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How would you rank M-tron's technical support?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice7" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice7" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice7" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice7" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice7" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Is our product offering broad enough to meet the technology of our 
+          competitors?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice8" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice8" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice8" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice8" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice8" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How is M-tron doing processing sample requests?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice9" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice9" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice9" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice9" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice9" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Where would you rank M-tron in supplying samples &quot;quickly&quot; 
+          for qualifications?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice10" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice10" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice10" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice10" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice10" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How do you rank M-tron for print position?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice11" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice11" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice11" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice11" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice11" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Do you consider response time from the factory acceptable?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice12" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice12" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice12" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice12" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice12" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How comfortable do you feel with the distributor support program?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice13" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice13" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice13" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice13" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice13" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Is there enough training material, and is it adequate?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice14" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice14" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice14" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice14" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice14" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How is your territory representative support?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice15" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice15" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice15" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice15" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice15" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Is it easy to contact someone at the factory when you need assistance?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice16" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice16" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice16" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice16" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice16" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>NCNR: Does M-tron meet the customer demand in flexibility of non-cancelable/non-returnable 
+          product? </h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice17" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice17" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice17" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice17" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice17" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>How do you rank the quality of necessary tools for selling<br>
+          (literature, website, search engine, etc.)?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice18" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice18" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice18" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice18" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice18" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td align="left" width="75%" bordercolordark="#999999" bordercolorlight="#CCCCCC"> 
+        <h4>Are M-tron policies and term acceptable and do they meet your demand?</h4>
+      </td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice19" value="1">
+        1</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice19" value="2">
+        2</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice19" value="3">
+        3</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice19" value="4">
+        4</td>
+      <td width="5%" nowrap> 
+        <input type="radio" name="choice19" value="5">
+        5</td>
+    </tr>
+    <tr> 
+      <td colspan="6"> 
+        <h4>If you could choose a frequency control line, who would be your choice?<br>
+          <input type="text" name="fcd_line" size="50">
+        </h4>
+      </td>
+    </tr>
+    <tr> 
+      <td colspan="6"> 
+        <h4>Comments:<br>
+          <textarea name="comments" cols="80" rows="10"></textarea>
+          <br>
+        </h4>
+      </td>
+    </tr>
+    <tr align="center"> 
+      <td colspan="6"> 
+        <input type="submit" name="Submit" value="Submit">
+        <input type="reset" name="reset" value="Reset">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

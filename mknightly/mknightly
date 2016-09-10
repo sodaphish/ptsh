@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DATE=`date +%m%d%Y`
+SRC=`cfgctl env.shell.src`
+TMPDIR=`mktemp -d /tmp/nightly.XXXXXX`
+TMPFILE=`mktemp /tmp/nightly-$DATE.XXXXXX`
+WWW=/hosted/www/sodaphish.com/src/
+
+
+cp -rfp $SRC $TMPDIR
+
+tar -cf $TMPFILE.tar $TMPDIR
+gzip $TMPFILE.tar
+
+mv $TMPFILE.tar.gz $WWW/nightly-$DATE.tar.gz
+
+rm -rf $TMPDIR
+rm -rf $TMPFILE

@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# mysqlbackup v.0.1.0 - (C)opyright 2003, C.J. Steele, all rights reserved.
+#
+# 5 Sep. 2003
+#
+# This script dumps, compresses, and e-mails database backups to an 
+#  off-site e-mail address.  
+#
+# TODO/ROADMAP: 
+#
+# CHANGES: 
+#
+
+
+DATABASES="main compendium journal"
+DATE=`date +%m%d%Y`
+TMPDIR=`mktemp -d /tmp/mysqlbckup.XXXXXX`
+EMAIL="coreyjsteele@yahoo.com"
+
+
+for db in $DATABASES; do
+	cd $TMPDIR
+	#dump the database
+	sudo mysqldump $db > $db-$date.sql
+	#compress it
+	gzip $db-$date.sql
+	#metasend it... god bless metasend
+	metasend -b -f $db-$date.sql.gz -m application/x-gzip -s "database dump of $db for $DATE" -S 9500000 -t $EMAIL
+done
+
+
+rm -rf $TMPDIR

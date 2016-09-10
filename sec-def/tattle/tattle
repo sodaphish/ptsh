@@ -1,0 +1,394 @@
+#!/usr/bin/perl
+# tattle v0.4.2 by C.J. Steele, CISSP <coreyjsteele@yahoo.com>
+#	 (C)opyright 2005, C.J. Steele, all rights reserved.
+#
+# NOTICE: you're on your own with whatever 'messes' reporting this sort of
+# activity may create...you've been warned.
+# 
+# This script processes log files and attempts to automatically notify domain
+# authorities of machines in their domain that are actively performing SSH
+# brute-force attacks.  Mangle the variables above the warning to your liking,
+# but it would be adviseable not to venture past the warning unless you know a
+# bit of perl and are comfortable doing so.
+#
+# MAKE SURE YOU UPDATE THE $smtp_message TO REPORT THE CORRECT TIMEZONE
+# INFORMATION. 
+#
+# If your SSH daemon's LogLevel is set to anything other than INFO, you may run
+# into problems with how `tattle` parses your script.  I may be working on a
+# solution to that if enough people report to me that they need to run in some
+# level other than INFO.
+#
+# CHANGELOG
+#  * v0.4.0 - intelligent log processing that will try not to re-read logs its
+#		read previously  -- this implementation poses a problem: if the attacks
+#		are coming at a low-speed, there is some chance they could occur
+#		between runs and sufficiently far apart that they would not exceed the
+#		detection thresholds and thus not fire an alert.  This is a pretty
+#		remote possibility given such a slow attack would likely never succeed
+#		in a true brute-forcing of the password, however I note it here so as
+#		to make sure the public is aware that I'm aware.  I've also included
+#		some additional documentation.  
+#  * v0.3.0 - eliminated dependancy on 	external binaries, shifted from
+#  		domain-based reporting to IP-based, still fall-back to using whois if
+#  		abuse.net can't do anything for us.  
+#  * v0.2.0 - bug fixes	(non-philophical) from first release
+#
+# NOTE: in debug mode, no e-mails will be sent.
+#
+use strict;
+use MIME::Lite;
+use File::MkTemp;
+use Net::DNS;
+use Net::Whois::IP qw( whoisip_query ); # this is our failsafe incase getemails_abuse() fails on us...
+
+
+# bfthresh: This is the number of attempts required before we consider it a
+# brute-force 'attack'.  If you rotate logs daily, you may want a smaller
+# threshold.
+my $bfthresh = "15"; 
+
+# logfile: This is where SSH logs authentication attempts.  SuSE and FreeBSD
+# seem to do this differently.
+my $logfile = "/var/log/messages"; 
+
+# tmpdir:  The temporary directory is used when we write out our log snippets
+# to report.  You'll probably want to do something like `find /tmp -name
+# "rptbdgys.*" -mtime -1 -print | xargs rm` to keep your tmpdir from getting
+# overwhelmed, etc., etc.
+my $tmpdir = "/tmp"; 
+
+# statefile: The statefile is a file we use to track the inode of the last
+# logfile processed as well as what line in that file we were at... if the
+# statefile can't be used, reliably, we'll process from the top of the $logfile
+# every time and likely end-up reporting duplicates (unless your logs rotate
+# regularly enough.)
+my $statefile = "/usr/local/etc/tattle.state";
+
+# exceptions: This is an array of 'hosts' you want to ignore.  I suggest you
+# include 127.0.0.1, your local network address (assuming you're NAT'ing or
+# PAT'ing your Internet-facing address), and any hosts from which legitimate
+# users routinely fat-finger their passwords on. 
+my @exceptions = ( "your.net" );  
+
+# smtp_host: The FQDN or IP of your SMTP server -- this is who we'll send mail
+# out of.  At present, I haven't included support for authenticated SMTP, but
+# that will come when someone asks for it.
+my $smtp_host = "localhost"; 
+
+# smtp_sendas: Your email address, or whomever's e-mail you want to be
+# contacted in response to the messages we'll generate.
+my $smtp_sendas = "your\@email.com";
+
+# smtp_message: this is the 'nasty-gram' we'll send out -- MAKE SURE YOU SET
+# YOUR TIMEZONE, or all of the logs we attach will be utterly useless.  Also,
+# make any language changes you'd like here, but remember to keep it
+# professional (the people receiving these messages aren't your enemy, most of
+# the time.)  Depending on your environment, you may want to manually insert
+# line-breaks, etc.
+my $smtp_message = "An attempt to brute-force account passwords over SSH has been detected by a machine in your domain.  Attached are logs indicating the times and dates of the activity. (All logs are shown in GMT-0600.)  Please take the necessary action(s) to stop this activity.  If you have any questions, please reply to this email or contact me at $smtp_sendas."; 
+
+
+########################################################################
+# DO NOT MUCK AROUND BELOW THIS POINT UNLESS YOU KNOW WHAT YOU'RE DOING
+########################################################################
+
+my $DEBUG = 0;
+
+# make sure our statefile is present and accounted for
+if( ! -e $statefile )
+{
+	print STDERR "D: creating state file $statefile\n" if( $DEBUG );
+	eval {
+		open( TMP, ">$statefile" ) or die( "E: couldn't open state file, dying. ($!)" );
+		close( TMP );
+	}; if( $@ ){
+		print STDERR "E: there was a problem with our state file ($@), we're going to try to press on.\n";
+	} else {
+		print STDERR "D: state file created\n" if( $DEBUG );
+		# because `touch` would require another process and spawn a shell, etc...
+	}
+}
+
+my @offenders = getoffenders( $logfile ); 
+
+foreach my $offender ( @offenders )
+{
+	print STDERR "D: offender=$offender\n" if( $DEBUG );
+	my $tld = getip( $offender );
+	print STDERR "D: ip=$tld\n" if( $DEBUG );
+	my @addies = getemails_abuse( $tld );
+	if( ! scalar( @addies ) )
+	{
+		#fallback to using whois, abuse.net had nothing.
+		@addies = getemails_whois( $tld );
+	} #endif 
+
+	if( scalar( @addies ) )
+	{
+		my $logpath = writelogs( getlogs( $offender ) );
+		print STDERR "D: logpath=$logpath\n" if( $DEBUG );
+		foreach my $addie ( @addies )
+		{
+			if( $addie ne "postmaster\@localhost" )
+			# 'cause I don't need that...
+			{
+				#create the email...
+				print STDERR "D: addie=$addie\n" if( $DEBUG );
+				if( ! $DEBUG )
+				{
+					my $email = MIME::Lite->new(
+						From	=> "$smtp_sendas",
+						To		=> "$addie",
+						Cc		=> "$smtp_sendas",
+						Subject	=> "SSH Brute-force Attack",
+						Type	=> "TEXT",
+						Data	=> "$smtp_message"
+						) if( ! $DEBUG );
+					#attach our log files/evidence...
+					$email->attach(
+						Type	=> 'text/plain',
+						Path	=> $logpath,
+						Filename => "$offender.txt"
+						) if( ! $DEBUG );
+					$email->send( 'smtp', "$smtp_host" ) or print STDERR "E: couldn't send e-mail! ($!)\n";
+					print "I: e-mail sent to $addie ($offender => $tld)\n";
+				} else {
+					print "I: e-mail sent to $addie ($offender => $tld)\n";
+				} #end if
+			} else {
+				print "E: no e-mail addresses found for $tld\n";
+			} #endif
+		} #end foreach
+	} else {
+		print "E: no e-mail addresses found for $tld\n";
+	} #endif
+} #end foreach
+
+exit( 0 );
+
+
+
+
+sub getlogs
+# this routine parses the log file and finds entries that match the $mark,
+# which is passed in as a parameter, and creates an array, each element of
+# which is a matching line of the log, the single array is returned.
+{
+	my $mark = shift; 
+	my @logentries = (); 
+	open( LOG, $logfile ) or die( "$!" );
+	while( <LOG> )
+	{
+		chomp();
+		if( $_ =~ /$mark/ )
+		{
+			push( @logentries, $_ ); 
+		} #endif
+	} #end while
+	close( LOG );
+
+	return @logentries; 
+} #end getlogs()
+
+
+
+
+sub writelogs
+# this writes the array of log entries passed via args to a randomly created
+# temporary file, the name of which is returned as a single scalar value, with
+# fully-qualified path.
+{
+	my @logs = @_;
+	my $tmpfile = mktemp( "$tmpdir/rptbdgys.XXXXXX" );
+	open( OUT, ">$tmpfile" ) or die( "$!" );
+	foreach( @logs )
+	{
+		print OUT $_, "\n"; 
+	}
+	close( OUT );
+	return $tmpfile;
+} #end writelogs
+
+
+
+
+sub getoffenders
+# this returns an array of offending hostnames from the logfile, except those
+# who are listed in the @exceptions array.  This routine also maintains state
+# so it won't re-read entries it has previously read... or at least that's the
+# theory.
+{
+	my $log = shift;
+	#print STDERR "D: getoffenders() log=$log\n" if( $DEBUG );
+	#print STDERR "D: getoffenders() bfthresh=$bfthresh\n" if( $DEBUG );
+	my @offs;
+	my %offndr;
+	my( $ino, $linc ); 
+	my $linecount = 0;
+
+	#read our last state information so we don't report duplicates
+	print STDERR "D: reading state information\n" if( $DEBUG );
+	open( STATE, $statefile ) or die( "E: couldn't open state file." );
+	while( <STATE> )
+	{
+		chomp( $_ );
+		( $ino, $linc ) = split( /\ /, $_, 2 );
+	} #end while
+	close( STATE );
+	print STDERR "D: ino=$ino linc=$linc\n" if( $DEBUG );
+	my $curino = (stat($logfile))[1];
+	print STDERR "D: curino=$curino\n" if( $DEBUG );
+	open( LOG, $log ) or die( "E: couldn't open lofile ($!)" );
+	eval {
+		if( $ino != $curino )
+		{
+			#we aren't opening in the same file as last time, presumably we've rotated logs
+			seek( LOG, 0, 0 ) or die( "E: couldn't seek to beginning of file?  w-t-f?" );
+		} else {
+			#we're in the same file, advance to the last point we read to in the file.
+			seek( LOG, $linc, 0 ) or die( "E: couldn't seek to $linc.  Different file with the same inode?" );
+		} #end if
+	}; if( $@ ){
+		print STDERR "W: Could not seek() file ($@), letting perl handle it, we may have some duplicate records."
+	}
+	while( <LOG> )
+	{
+		if( $linecount >= $linc )
+		{
+			chomp( $_ );
+			if( $_ =~ /sshd/ and $_ =~ /rhost/ )
+			{
+				#print STDERR "D: getoffenders() _=$_\n\n" if( $DEBUG );
+				my @e = split( /\s/, substr( $_, 16 ) ); #date formatting in syslog caused problems earlier ( "May 31" v. "Jun  1", got split out differently.)
+				my $off = $e[9]; #hopefully this is right now...
+				$off =~ s/rhost\=//; 
+				$off =~ s/ruser\=//; #why do I need this?
+				if( $off ne "" )
+				{
+					#print STDERR "D: getoffenders() off=$off\n" if( $DEBUG );
+					$offndr{$off}++; #increment the number of attempts from this person...
+					if( $offndr{$off} >= $bfthresh )
+					{
+						#only add the $off to the @offs array if they meet or exceed our attempt threshold...
+						push( @offs, $off ) if( ! isin( $off, @offs ) and ! isin( $off, @exceptions ) );
+					} #endif
+				} #endif
+			} #endif
+			$linc++;
+		} else {
+			$linecount++;
+		}
+	} #endwhile
+	close( LOG );
+
+	#update the state file
+	eval {
+		open( STATE, ">$statefile" ) or die( "E: couldn't open state file." );
+		print STATE "$curino $linc"; 
+		close( STATE );
+	}; if( $@ ){
+		print STDERR "E: Failed to save state!  This will probably cause duplicate reportings.\n";
+	}
+
+	return( @offs );
+} #end getoffenders()
+
+
+
+
+sub getip
+# this returns a single scalar value containing the ip address of the hostname
+# passed in from the logfile
+{
+	my $in = shift;
+	if( $in =~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ )
+	{
+		# its an IP address... return it
+		return $in;
+	} else {
+		my $hostaddr = gethostbyname( $in ); 
+		if( $hostaddr =~ /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/ )
+		{
+			return( $hostaddr );
+	   	} else {
+			# this will break the Net::whois::whoisip_query() because it may
+			# not  be an IP address, but then again that won't matter anyways
+			# because the host doesn't exist... so... thoughts?
+			return( $in ); 
+		}
+	} #endif
+} #end getip()
+
+
+
+
+sub getemails_whois
+# uses Net::Whois::IP to query the whois record for the IP passed as an arg and
+# tries to return the proper abuse contact information.  This function should
+# be used when getemails_abuse() fails to return anything. 
+{
+	my( $ip ) = shift;
+	my( $res_ref_h )  = whoisip_query( $ip ); 
+	if( exists  $$res_ref_h{"AbuseEmail"} )
+	{
+		return( $$res_ref_h{"AbuseEmail"} );
+	} elsif( exists $$res_ref_h{"OrgTechEmail"} ){
+		return( $$res_ref_h{"OrgTechEmail"} );
+	} elsif( exists $$res_ref_h{"TechEmail"} ){
+		return( $$res_ref_h{"TechEmail"} );
+	} else {
+		return(); #giveup -- we could return anything with /email/i in it, but aparently that's considered "rude"
+	}
+} # end getemails_whois()
+
+
+
+
+sub isin
+# this boolean function simply checks to see if an element ($e) is in the
+# supplied array (@a) -- it returns 1 if the element is in the array and 0 
+# otherwise.
+{
+	my( $e, @a ) = @_;
+	foreach( @a )
+	{
+		return 1 if( $e eq $_ );
+	}
+	return 0;
+} #end isin()
+
+
+
+sub getemails_abuse
+# returns an array of contacts that Abuse.NET has on record for the domain
+# specified -- we'll see what sort of response this gets.
+{
+    my( $domain ) = @_;
+    my( $res, $query, @r );
+
+    $res = new Net::DNS::Resolver;
+    while( 1 ) 
+	{
+		$query = $res->search( "$domain.contacts.abuse.net", "TXT" );
+		if( $query ) 
+		{
+		    my $rr;
+		    foreach $rr ( $query->answer ) 
+			{
+				push @r, $rr->txtdata if $rr->type eq "TXT";
+		    }
+		    return @r;
+		} else { 
+			# Net::DNS rejects special characters, strip off
+			# subdomains and see if a parent domain works
+		    if( $domain =~ m{^[^.]+\.([^.]+\..+)} ) 
+			{
+				$domain = $1;
+		    } else {
+				# 0.4.1 change -- some reports that hosts were triggering the die() here... no clue, at present, why
+				print STDERR "E: Cannot lookup contacts for $domain at Abuse.NET\n";
+		    }
+		} #endif 
+    } #end while
+} #end getemails_abuse()

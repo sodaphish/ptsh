@@ -1,0 +1,62 @@
+#!/usr/bin/perl
+# a script to install my source-code according to my own mappings...
+# 
+# will rely on `cfgctl` for install information
+#
+# TODO: 
+#	* add support to check if owner and group exist
+#	* check to see if dst dir exists and is writeable
+#	* add cli flag for verbosity, usage, etc... 
+#	* finish support for attempting to generate a .installMap file if none exists.
+#		- needs to detect dflt ownership, group, etc.
+#		- needs to detect perms
+#
+use strict;
+use Shell qw( install find );
+
+my $instmap = ".installMap"; 
+	$instmap = $ARGV[1] if( $ARGV[1] );
+
+if( -e $instmap )
+{
+
+	open( MAP, $instmap ) or die "$!";
+	print "I: installing:\n";
+	while( <MAP> )
+	{
+		chomp( $_ );
+		if( $_ =~ /^\#/ )
+		{
+			#this is a comment, ignore it.
+		} else {
+			my( $src, $dst, $perm, $owner, $group ) = split(/\:/, $_ );
+			# do the installation of the file...
+			eval {
+				print "   $src in $dst\n";
+				install( "$src $dst -o $owner -g $group -m $perm" );
+			}; if( $@ ){
+				print STDERR "E: $@\n";
+				exit( 1 );
+			} #end eval
+		} #endif
+	}
+	print "I: done.\n";
+	close( MAP );
+} else {
+	if( $ARGV[1] )
+	{
+		#user specified install map, probably just doesn't exist, warn them.
+		print STDERR "couldn't find $instmap.\n";
+		exit( 1 );
+	} else {
+		#no map specified and one doesn't exist, so lets try to auto generate one...
+		print "\# re-run as: `installPkg > .installMap && installPkg`\n";
+		foreach( find( "./ -type f -print -maxdepth 1" ) )
+		{
+			chomp( $_ );
+			print "$_:/usr/local/bin/$_:755:root:root\n"; 
+		}
+	}
+}
+
+exit( 0 );

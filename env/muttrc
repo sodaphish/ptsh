@@ -1,0 +1,111 @@
+set from="csteele@forwardsteptech.com"
+set hostname="forwardsteptech.com"
+set alternates="csteele@sodaphish.com"
+
+#tell mutt to use ~/mail instead of ~/Mail
+set folder=~/mail
+
+#save a copy of outbound mail, always.
+set copy=yes
+fcc-hook $ +sent
+
+#do no wrap to next message at hitting the end of a message.
+set pager_stop=yes
+
+#turn off annoying prompts
+set move=no
+set confirmappend=no
+set delete=yes
+set nomark_old
+
+#always include messages when replying.
+set include
+
+############################################################################
+# header handling
+#
+
+ignore *
+unignore From To Cc Subject Date Reply-To
+hdr_order From: Date: To: Cc: Subject:
+
+my_hdr From: C.J. Steele <csteele@forwardsteptech.com>
+
+############################################################################
+# macro definitions
+#
+
+# defines a urlview macro to pull out url's from messages by pressing ^C+B
+macro index "\cb" "|urlview\n" 
+
+
+############################################################################
+# GPG/PGP settings
+
+set pgp_sign_as="0x2307CC78"
+set pgp_autosign=yes
+
+
+############################################################################
+# Color definitions
+# colors from http://www.davep.org/
+
+# Default colour definitions
+color hdrdefault black        cyan
+color quoted     red          white
+color signature  brightblack  white
+color indicator  brightwhite  red
+color attachment black        green
+color error      red          white
+color message    blue         white
+color search     brightwhite  magenta
+color status     brightyellow blue
+color tree       red          white
+color normal     blue         white
+color tilde      green        white
+color bold       brightyellow white
+color markers    red          white
+
+# Colour definitions when on a mono screen
+mono bold      bold
+mono underline underline
+mono indicator reverse
+
+# Colours for items in the reader
+color header brightwhite cyan "^(From|Subject):"
+color header red         cyan "^X-(Junked-Because|Virus):"
+mono  header bold             "^(From|Subject|X-Junked-Because|X-Virus):"
+
+# Colours for items in the index
+color index brightblue  white ~N
+color index brightgreen white "~N (~x hagbard\.davep\.org | ~h \"^In-[Rr]eply-[Tt]o: .*hagbard\.davep\.org\")"
+color index red         white ~F
+color index black       green ~T
+color index brightwhite black ~D
+mono  index bold              ~N
+mono  index bold              ~F
+mono  index bold              ~T
+mono  index bold              ~D
+
+# Highlights inside the body of a message.
+
+# URLs
+color body brightblue  white "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body brightblue  white "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body brightblue  white "news:[^ \">\t\r\n]*"
+mono  body bold              "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+mono  body bold              "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body bold              "news:[^ \">\t\r\n]*"
+
+# email addresses
+color body brightblue  white "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold              "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Various smilies and the like
+color body brightgreen white "<[Gg]>"                                            # <g>
+color body brightgreen white "<[Bb][Gg]>"                                        # <bg>
+color body brightgreen white " [;:]-*[)>(<|]"                                    # :-) etc...
+color body brightblue  white "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body brightblue  white "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     # _Underlined_ text.
+color body brightblue  white "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.
+

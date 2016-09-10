@@ -1,0 +1,25 @@
+#!/bin/sh
+# agenton v0.0.1 by C.J. Steele <csteele@sodaphish.com>
+# 
+# 4 Mar 2004
+# 
+# evoke this command by putting the following line in your ~/.bashrc
+# 	eval `agenton`
+#
+# of course, agenton must be in your PATH for this to work.  to stop
+# the ssh-agent, use `agentoff`, or things will get b0rked.
+#
+PIDFILE=~/.cfgctl/ssh_agent/pid
+SOCKFILE=~/.cfgctl/ssh_agent/sock
+
+if [ -f $PIDFILE ] && [ -f $SOCKFILE ]; then
+        SSH_AGENT_PID=`cat $PIDFILE`
+        SSH_AUTH_SOCK=`cat $SOCKFILE`
+else 
+        eval `ssh-agent`
+        echo $SSH_AGENT_PID > ~/.config/ssh_agent/pid
+        echo $SSH_AUTH_SOCK > ~/.config/ssh_agent/sock
+fi
+
+echo export SSH_AGENT_PID=$SSH_AGENT_PID
+echo export SSH_AUTH_SOCK=$SSH_AUTH_SOCK

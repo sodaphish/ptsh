@@ -1,0 +1,39 @@
+#!/bin/sh
+# script to copy the trunk to a release branch, checkout the branched 
+# copy cleanup svn directories, copy in installPkg, create a tarball, 
+# output path of finished pakcage
+
+REPOS=`cfgctl svn.repospath`
+#INSTALLPKG=`which installPkg`
+INSTALLPKG=$SRC/dev-util/svntools/installPkg
+PROJ=$1
+SVN=`which svn`
+SVNADMIN=`which svnadmin`
+
+echo "I: creating branch"
+$SVN copy file://$REPOS/$PROJ file://$REPOS/$PROJ/branches/release-$2 -m "Creating release v$2"
+
+echo "I: checking out $PROJ (release-$2)"
+$SVN co file://$REPOS/$PROJ/branches/release-$2 $PROJ
+
+echo "I: cleaning up release branch"
+rm -rf $PROJ/branches
+rm -rf $PROJ/trunk
+rm -rf $PROJ/tags
+rm -rf $PROJ/.svn
+mv $PROJ $PROJ-$2
+
+echo "I: creating CHANGELOG"
+svn log file://$REPOS/$PROJ/ > $PROJ-$2/CHANGELOG
+
+echo "I: setting up installPkg"
+cp $INSTALLPKG $PROJ-$2/installPkg
+chmod +x $PROJ-$2/installPkg
+
+echo "I: rolling tarball"
+tar -cf $PROJ-$2.tar $PROJ-$2/
+gzip $PROJ-$2.tar
+
+echo 
+echo
+echo "I: your release is ready in $PROJ-$2.tar.gz"
